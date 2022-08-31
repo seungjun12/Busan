@@ -3,23 +3,23 @@ package com.september.interpark.modules.codegroup;
 public class CodeGroup {
 
 //	infr_code_group
-	private String Seq;
-	private String SeqAnother;
+	private String seq;
+	private String seqOther;
 	private String ccgname;
 	private Integer ccguseNy;
 	private Integer ccgorder;
 //////////////////////////////////////////////////////////////////////
 	public String getSeq() {
-		return Seq;
+		return seq;
 	}
 	public void setSeq(String seq) {
-		Seq = seq;
+		this.seq = seq;
 	}
-	public String getSeqAnother() {
-		return SeqAnother;
+	public String getSeqOther() {
+		return seqOther;
 	}
-	public void setSeqAnother(String seqAnother) {
-		SeqAnother = seqAnother;
+	public void setSeqOther(String seqOther) {
+		this.seqOther = seqOther;
 	}
 	public String getCcgname() {
 		return ccgname;
@@ -39,6 +39,7 @@ public class CodeGroup {
 	public void setCcgorder(Integer ccgorder) {
 		this.ccgorder = ccgorder;
 	}
+	
 	
 	
 	
