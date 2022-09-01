@@ -3,29 +3,36 @@ package com.september.interpark.modules.codegroup;
 public class CodeGroup {
 
 //	infr_code_group
-	private String seq;
-	private String seqOther;
-	private String ccgname;
+	private String ccgseq;
+	private String ccgseqOther;
+	private String ccgNameKo;
+	private String ccgNameEg;
 	private Integer ccguseNy;
 	private Integer ccgorder;
 //////////////////////////////////////////////////////////////////////
-	public String getSeq() {
-		return seq;
+	public String getCcgseq() {
+		return ccgseq;
 	}
-	public void setSeq(String seq) {
-		this.seq = seq;
+	public void setCcgseq(String ccgseq) {
+		this.ccgseq = ccgseq;
 	}
-	public String getSeqOther() {
-		return seqOther;
+	public String getCcgseqOther() {
+		return ccgseqOther;
 	}
-	public void setSeqOther(String seqOther) {
-		this.seqOther = seqOther;
+	public void setCcgseqOther(String ccgseqOther) {
+		this.ccgseqOther = ccgseqOther;
 	}
-	public String getCcgname() {
-		return ccgname;
+	public String getCcgNameKo() {
+		return ccgNameKo;
 	}
-	public void setCcgname(String ccgname) {
-		this.ccgname = ccgname;
+	public void setCcgNameKo(String ccgNameKo) {
+		this.ccgNameKo = ccgNameKo;
+	}
+	public String getCcgNameEg() {
+		return ccgNameEg;
+	}
+	public void setCcgNameEg(String ccgNameEg) {
+		this.ccgNameEg = ccgNameEg;
 	}
 	public Integer getCcguseNy() {
 		return ccguseNy;
@@ -39,7 +46,7 @@ public class CodeGroup {
 	public void setCcgorder(Integer ccgorder) {
 		this.ccgorder = ccgorder;
 	}
-	
+
 	
 	
 	

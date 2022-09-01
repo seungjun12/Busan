@@ -1,4 +1,4 @@
-package com.september.interpark.modules.codegroup;
+package com.september.interpark.modules.code;
 
 import java.util.List;
 
@@ -7,14 +7,12 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class CodeGroupServiceImpl implements CodeGroupService{
-
+public class CodeServiceImpl implements CodeService{
 	@Autowired /* new 라고 생각하면 된다 */
-	CodeGroupDao dao;
+	CodeDao dao;
 	
 	@Override
-	public List<CodeGroup> selectList() throws Exception {
+	public List<Code> selectList() throws Exception {
 		return dao.selectList();
 	}
-	
 }

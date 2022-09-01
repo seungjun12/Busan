@@ -1,7 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
+
 <html lang="en">
 
 <head>
@@ -12,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>코드 그룹관리</title>
+    <title>코드 관리</title>
 
     <!-- Custom fonts for this template-->
     <link href="/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -22,7 +25,7 @@
 
     <!-- Custom styles for this template-->
     <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
-	<link href="/resources/css/codeGroupList_style.css" rel="stylesheet">
+	<link href="/resources/css/codeList_style.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -69,8 +72,8 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item active" href="codeGrouplist.html">코드그룹관리</a>
-                        <a class="collapse-item" href="codeList.html">코드관리</a>
+                        <a class="collapse-item" href="codeGrouplist.html">코드그룹관리</a>
+                        <a class="collapse-item active" href="codeList.html">코드관리</a>
                         <a class="collapse-item" href="memberList.html">회원관리</a>
                     </div>
                 </div>
@@ -235,7 +238,7 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="/resources/img/undraw_profile_1.svg"
+                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
                                             alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
@@ -247,7 +250,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="/resources/img/undraw_profile_2.svg"
+                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
                                             alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
@@ -259,7 +262,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="/resources/img/undraw_profile_3.svg"
+                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
                                             alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
@@ -325,7 +328,7 @@
 			<!-- 코드 그룹 관리 제목 -->
 			<div class="wrap">
 				<!-- 제목 -->
-				<h3>코드그룹관리</h3>
+				<h3>코드관리</h3>
 				<!-- 검색대 -->
 				<div class="searchWrap">
 					<div class="searchFirst">
@@ -368,126 +371,40 @@
 				</div>
 				<!-- 리스트 영역 -->
 				<div style="color: black">
-					<span>total:0</span>
-					<select name="count" >
-						<option value="10">10
-						<option value="20">20
-						<option value="30">30
-					</select>
+					total:0
 				</div>
 				<div class="listWrap">
 					<table class="table">
-				  		<thead style="background-color: black;">
-					    	<td class="td1"><input class="test" type="checkbox" value="allmemberchecked" onclick="selectall(this);" name="allmembercheck"></td>
-					    	<td>#</td>
-					    	<td>코드그룹 코드</td>
-					    	<td class="td4">코드그룹 이름(한글)</td>
-					    	<td class="td5">코드그룹 이름(영문)</td>
-					    	<td>코드갯수</td>
-					    	<td class="td7">등록일</td>
-					    	<td class="td8">수정일</td>
+				  		<thead style="background-color: black">
+					    	<td class="td1"><input class="test" type="checkbox" value="allmemberchecked" onclick="selectall(this);" name="allmembercheck"></td><!-- 1 -->
+					    	<td>#</td><!-- 2 -->
+					    	<td>코드그룹 코드</td><!-- 3 -->
+					    	<td class="td4">코드그룹 이름(한글)</td><!-- 4 -->
+					    	<td>코드</td><!-- 5 -->
+					    	<td>대체코드</td><!-- 6 -->
+					    	<td class="td7">코드 이름(한글)</td><!-- 7 -->
+					    	<td class="td8">코드 이름(영문)</td><!-- 8 -->
+					    	<td>사용</td><!-- 9 -->
+					    	<td>순서</td><!-- 10 -->
+					    	<td>등록일</td><!-- 11 -->
+					    	<td>수정일</td><!-- 12 -->
 					  	</thead>
 					  	<tbody>
-					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
+					  		<c:forEach items="${list}" var="list" varStatus="status">
+					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td><!-- 1 -->
+					    	<td><c:out value="${list.ccseq }"/></td><!-- 2 -->
+					    	<td><c:out value="${list.ccg_seq }"/></td><!-- 3 -->
+					    	<td><c:out value="${list.ccgNameKo }"/></</td><!-- 4 -->
+					    	<td></td><!-- 5 -->
+					    	<td></td><!-- 6 -->
+					    	<td><c:out value="${list.ccname }"/></td><!-- 7 -->
+					    	<td></td><!-- 8 -->
+					    	<td><c:out value="${list.ccuseNy }"/></td><!-- 9 -->
+					    	<td><c:out value="${list.ccorder }"/></td><!-- 10 -->
+					    	<td></td><!-- 11 -->
+					    	<td></td><!-- 12 -->
 					  	</tbody>
-						<tbody>
-					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					  	</tbody>
-						<tbody>
-					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					  	</tbody>
-						<tbody>
-					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					  	</tbody>
-						<tbody>
-					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					  	</tbody>
-						<tbody>
-					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					  	</tbody>
-						<tbody>
-					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					  	</tbody>
-						<tbody>
-					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					  	</tbody>
-						<tbody>
-					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					  	</tbody>
-						<tbody>
-					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					  	</tbody>
-				
+						</c:forEach>
 					</table>
 				</div>
 				<!-- 페이지네이션 -->
@@ -524,8 +441,8 @@
   						<i class="fa-regular fa-trash-can"></i>
 					</button>	
 				</a>
-				<a href="codeGroupForm.html">	
-					<button type="button" class="btn btn-primary rightBtn">
+				<a href="codeForm.html">	
+					<button type="button" class="btn btn-primary rightBtn" href="codeForm">
 						<i class="fa-solid fa-plus"></i>
 					</button>
 				</a>	
@@ -534,6 +451,9 @@
 				</button>
 				
 				
+	 /  
+	<br>		
+
 				
 			</div><!-- wrap end -->
 			
@@ -665,3 +585,4 @@
 </body>
 
 </html>
+
