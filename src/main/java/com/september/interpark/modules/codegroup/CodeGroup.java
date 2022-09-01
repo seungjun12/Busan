@@ -2,14 +2,14 @@ package com.september.interpark.modules.codegroup;
 
 public class CodeGroup {
 
-//	infr_code_group
 	private String ccgseq;
 	private String ccgseqOther;
 	private String ccgNameKo;
 	private String ccgNameEg;
 	private Integer ccguseNy;
 	private Integer ccgorder;
-//////////////////////////////////////////////////////////////////////
+	
+	
 	public String getCcgseq() {
 		return ccgseq;
 	}
@@ -46,7 +46,7 @@ public class CodeGroup {
 	public void setCcgorder(Integer ccgorder) {
 		this.ccgorder = ccgorder;
 	}
-
+	
 	
 	
 	
