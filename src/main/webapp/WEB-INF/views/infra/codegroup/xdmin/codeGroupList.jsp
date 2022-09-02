@@ -397,7 +397,7 @@
 					    	<td><c:out value="${list.ccgseqOther }"/></td>
 					    	<td><c:out value="${list.ccgNameKo }"/></td>
 					    	<td><c:out value="${list.ccgNameEg }"/></td>
-					    	<td></td>
+					    	<td><c:out value="${list.ccg_seq }"/></td>
 					    	<td></td>
 					    	<td></td>
 					  	</tbody>

@@ -8,7 +8,7 @@ public class CodeGroup {
 	private String ccgNameEg;
 	private Integer ccguseNy;
 	private Integer ccgorder;
-	
+	private Integer ccg_seq;
 	
 	public String getCcgseq() {
 		return ccgseq;
@@ -45,6 +45,12 @@ public class CodeGroup {
 	}
 	public void setCcgorder(Integer ccgorder) {
 		this.ccgorder = ccgorder;
+	}
+	public Integer getCcg_seq() {
+		return ccg_seq;
+	}
+	public void setCcg_seq(Integer ccg_seq) {
+		this.ccg_seq = ccg_seq;
 	}
 	
 	

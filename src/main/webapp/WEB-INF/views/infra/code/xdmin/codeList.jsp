@@ -397,8 +397,8 @@
 					    	<td><c:out value="${list.ccgNameKo }"/></</td><!-- 4 -->
 					    	<td></td><!-- 5 -->
 					    	<td></td><!-- 6 -->
-					    	<td><c:out value="${list.ccname }"/></td><!-- 7 -->
-					    	<td></td><!-- 8 -->
+					    	<td><c:out value="${list.ccnameko }"/></td><!-- 7 -->
+					    	<td><c:out value="${list.ccnameeg }"/></td><!-- 8 -->
 					    	<td><c:out value="${list.ccuseNy }"/></td><!-- 9 -->
 					    	<td><c:out value="${list.ccorder }"/></td><!-- 10 -->
 					    	<td></td><!-- 11 -->

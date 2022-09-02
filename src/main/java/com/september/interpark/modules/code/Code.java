@@ -5,11 +5,13 @@ public class Code {
 	private	String ccseq;
 	private	String ccseqOther;
 	private	Integer ccg_seq;
-	private	String ccname;
+	private	String ccnameko;
+	private String ccnameeg;
 	private	String ccuseNy;
 	private	String ccdelNy;
 	private	String ccorder;
 	private String ccgNameKo;
+	//////////////////////////////////////////
 	public String getCcseq() {
 		return ccseq;
 	}
@@ -28,11 +30,17 @@ public class Code {
 	public void setCcg_seq(Integer ccg_seq) {
 		this.ccg_seq = ccg_seq;
 	}
-	public String getCcname() {
-		return ccname;
+	public String getCcnameko() {
+		return ccnameko;
 	}
-	public void setCcname(String ccname) {
-		this.ccname = ccname;
+	public void setCcnameko(String ccnameko) {
+		this.ccnameko = ccnameko;
+	}
+	public String getCcnameeg() {
+		return ccnameeg;
+	}
+	public void setCcnameeg(String ccnameeg) {
+		this.ccnameeg = ccnameeg;
 	}
 	public String getCcuseNy() {
 		return ccuseNy;

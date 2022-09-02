@@ -9,11 +9,10 @@
     <resultMap id="resultMapObj" type="com.september.interpark.modules.codegroup.CodeGroup"></resultMap>
 	
 	<select id="selectList" resultMap="resultMapObj">
-		SELECT
+		select
 			a.*
-		FROM ccg a
-		WHERE 1=1
-			AND ccguseNy = 1
+    		,(select count(ccg_seq)  From  cc where 1=1 and ccg_seq=ccgseq) as ccg_seq
+		from ccg a
 	</select>
 
 </mapper>
