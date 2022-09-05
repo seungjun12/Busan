@@ -1,10 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page session="false" %>
 <html lang="en">
 
 <head>
@@ -15,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>코드 그룹관리</title>
+    <title>회원 관리</title>
 
     <!-- Custom fonts for this template-->
     <link href="/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -25,11 +22,11 @@
 
     <!-- Custom styles for this template-->
     <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
-	<link href="/resources/css/codeGroupList_style.css" rel="stylesheet">
+	<link href="/resources/css/memberList_style.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
-<!-- <div class="container-fluid"> -->
+
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -72,9 +69,9 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item active" href="codeGrouplist.html">코드그룹관리</a>
+                        <a class="collapse-item" href="codeGrouplist.html">코드그룹관리</a>
                         <a class="collapse-item" href="codeList.html">코드관리</a>
-                        <a class="collapse-item" href="memberList.html">회원관리</a>
+                        <a class="collapse-item active" href="cards.html">회원관리</a>
                     </div>
                 </div>
             </li>
@@ -328,22 +325,21 @@
 			<!-- 코드 그룹 관리 제목 -->
 			<div class="wrap">
 				<!-- 제목 -->
-				<h3>코드그룹관리</h3>
+				<h3>회원관리</h3>
 				<!-- 검색대 -->
-				<form method="post" action="/codeGroup/codeGroupList">
 				<div class="searchWrap">
 					<div class="searchFirst">
-					
 						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example">
-						  <option value="N" selected>N</option>
-						  <option value="y">Y</option>
+						  <option selected>N</option>
+						  <option value="1">One</option>
+						  <option value="2">Two</option>
+						  <option value="3">Three</option>
 						</select>
 						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example">
 						  <option selected>수정일</option>
-						  <option value="week">1주일</option>
-						  <option value="month">1달</option>
-						  <option value="threeMonth">3달</option>
-						  <option value="year">1년</option>						  
+						  <option value="1">One</option>
+						  <option value="2">Two</option>
+						  <option value="3">Three</option>
 						</select>
 						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example">
 						  <option selected>시작일</option>
@@ -359,64 +355,53 @@
 						</select>						
 					</div>
 					<div class="searchSecond"><!-- 여기부터 ㄱㄱ -->
-						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example" id="shOption" name="shOption">
-						  <option value="" <c:if test="${empty vo.shOption}">selected</c:if>검색구분</option>
-						  <option value="1" <c:if test="${vo.shOption}">selected</c:if>>One</option>
-						  <option value="2" <c:if test="${vo.shOption}">selected</c:if>>Two</option>
-						  <option value="3" <c:if test="${vo.shOption}">selected</c:if>>Three</option>
+						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example">
+						  <option selected>검색구분</option>
+						  <option value="1">One</option>
+						  <option value="2">Two</option>
+						  <option value="3">Three</option>
 						</select>
-						<input class="form-control form-control-sm" type="text" placeholder="검색" aria-label=".form-control-sm example" id="shValue" name="shValue" value="<c:out value="${vo.shValue }"/>">
-						<button type="submit">
-							<i class="fa fa-search" aria-hidden="true" style="cursor: pointer;"></i>&nbsp;&nbsp;&nbsp;
-						</button>
-						<button type="submit">
-							<i class="fa fa-reply" aria-hidden="true" style="cursor: pointer;"></i>
-						</button>
-				</form>
+						<input class="form-control form-control-sm" type="text" placeholder="검색" aria-label=".form-control-sm example">
+						<i class="fa fa-search" aria-hidden="true" style="cursor: pointer;"></i>&nbsp;&nbsp;&nbsp;
+						<i class="fa fa-reply" aria-hidden="true" style="cursor: pointer;"></i>
 					</div>
 				</div>
 				<!-- 리스트 영역 -->
 				<div style="color: black">
 					total:0
-					<select name="count" >
-						<option value="10">10
-						<option value="20">20
-						<option value="30">30
-					</select>
 				</div>
 				<div class="listWrap">
 					<table class="table">
-				  		<thead style="background-color: black;">
-					    	<td width="10px;"><input class="test" type="checkbox" value="allmemberchecked" onclick="selectall(this);" name="allmembercheck"></td>
-					    	<td width="20px;">#</td>
-					    	<td width="120px;">코드그룹 코드</td>
-					    	<td width="200px;">코드그룹 이름(한글)</td>
-					    	<td width="200px;">코드그룹 이름(영문)</td>
-					    	<td width="100px;">코드갯수</td>
-					    	<td class="td7">등록일</td>
-					    	<td class="td8">수정일</td>
-					  	</thead>			  		
+				  		<thead style="background-color: black; color: white;">
+					    	<td class="td1"><input class="test" type="checkbox" value="allmemberchecked" onclick="selectall(this);" name="allmembercheck"></td>
+					    	<td>#</td>
+					    	<td>이름</td>
+					    	<td class="td3">아이디</td>
+					    	<td class="td3">비밀번호</td>
+					    	<td class="td4">성별</td>
+					    	<td class="td5">이메일</td>
+					    	<td class="td6">휴대폰</td>
+					    	<td>주소</td>
+					    	<td class="td3">개인정보 유효기간</td>
+					    	<td class="td7">sms수신동의</td>
+					    	<td class="td7">삭제여부</td>
+					  	</thead>
 					  	<tbody>
-					  	<c:choose>
-					  		<c:when test="${fn:length(list) eq 0}">
-					  			<tr>
-					  				<td class="text-center" colspan="8">There is no data!</td>
-					  			</tr>
-					  		</c:when>
-					  		<c:otherwise>
-					    	<c:forEach items="${list}" var="list" varStatus="status">
+					  		<c:forEach items="${list}" var="list" varStatus="status">	
 					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
-					    	<td><c:out value="${list.ccgseq }"/></td>
-					    	<td><c:out value="${list.ccgseqOther }"/></td>
-					    	<td><c:out value="${list.ccgNameKo }"/></td>
-					    	<td><c:out value="${list.ccgNameEg }"/></td>
-					    	<td><c:out value="${list.ccg_seq }"/></td>
+					    	<td><c:out value="${list.seq }"/></td>
+					    	<td><c:out value="${list.name }"/></td>
+					    	<td><c:out value="${list.id }"/></td>
+					    	<td><c:out value="${list.pwd }"/></td>
+					    	<td><c:out value="${list.gender }"/></td>
+					    	<td><c:out value="${list.email }"/></td>
+					    	<td></td>
+					    	<td><c:out value="${list.personalAgree }"/></td>
+					    	<td></td>
 					    	<td></td>
 					    	<td></td>
 					  	</tbody>
-					  		</c:forEach>
-				  			</c:otherwise>
-				  		</c:choose>
+					  	</c:forEach>
 					</table>
 				</div>
 				<!-- 페이지네이션 -->
@@ -453,8 +438,8 @@
   						<i class="fa-regular fa-trash-can"></i>
 					</button>	
 				</a>
-				<a href="codeGroupForm.html">	
-					<button type="button" class="btn btn-primary rightBtn">
+				<a href="codeForm.html">	
+					<button type="button" class="btn btn-primary rightBtn" href="memberForm.html">
 						<i class="fa-solid fa-plus"></i>
 					</button>
 				</a>	
@@ -465,7 +450,7 @@
 				
 				
 			</div><!-- wrap end -->
-		<!-- </div>	 -->
+			
 
 
             <!-- Footer -->
@@ -559,7 +544,7 @@
     <script src="/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="/resources/js/sb-admin-2.min.js"></script>
+    <script src="js/sb-admin-2.min.js"></script>
 	
 	<!-- checkBox -->
 	<script type="text/javascript">
@@ -594,4 +579,3 @@
 </body>
 
 </html>
-

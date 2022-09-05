@@ -390,6 +390,13 @@
 					    	<td>수정일</td><!-- 12 -->
 					  	</thead>
 					  	<tbody>
+					  	<c:choose>
+					  		<c:when test="${fn:length(list) eq 14}">
+					  			<tr>
+					  				<td class="text-center" colspan="12">There is no data!</td>
+					  			</tr>
+					  		</c:when>
+					  		<c:otherwise>
 					  		<c:forEach items="${list}" var="list" varStatus="status">
 					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td><!-- 1 -->
 					    	<td><c:out value="${list.ccseq }"/></td><!-- 2 -->
@@ -405,6 +412,8 @@
 					    	<td></td><!-- 12 -->
 					  	</tbody>
 						</c:forEach>
+						</c:otherwise>
+					</c:choose>
 					</table>
 				</div>
 				<!-- 페이지네이션 -->

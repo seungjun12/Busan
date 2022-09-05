@@ -79,5 +79,10 @@ public class HomeController {
 			return "codeGroupForm";
 		}
 		
+		@RequestMapping(value = "/memberList", method = RequestMethod.GET)
+		public String memberList(Locale locale, Model model) {
+			return "memberList";
+		}
+		
 		
 }
