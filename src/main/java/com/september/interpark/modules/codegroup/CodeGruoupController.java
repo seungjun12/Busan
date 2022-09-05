@@ -20,6 +20,7 @@ public class CodeGruoupController {
 		
 		System.out.println("vo.getShValue(): " +vo.getShValue());
 		System.out.println("vo.getshOption(): " +vo.getShOption()); 
+		System.out.println("vo.getshdelNy(): " +vo.getShdelNy()); 
 		
 		List<CodeGroup> list = service.selectList(vo);
 		model.addAttribute("list", list);

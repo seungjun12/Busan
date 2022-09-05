@@ -330,13 +330,13 @@
 				<!-- 제목 -->
 				<h3>코드관리</h3>
 				<!-- 검색대 -->
+				<form method="post" action="/code/codeList">
 				<div class="searchWrap">
 					<div class="searchFirst">
-						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example">
-						  <option selected>N</option>
-						  <option value="1">One</option>
-						  <option value="2">Two</option>
-						  <option value="3">Three</option>
+						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example" id="shdelNy" name="shdelNy">
+						  <option value="" selected <c:if test="${empty vo.shdelNy}">selected</c:if>>삭제여부</option>
+						  <option value="0" <c:if test="${vo.shdelNy eq 0}">selected</c:if>>N</option>
+						  <option value="1" <c:if test="${vo.shdelNy eq 1}">selected</c:if>>Y</option>
 						</select>
 						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example">
 						  <option selected>수정일</option>
@@ -358,17 +358,21 @@
 						</select>						
 					</div>
 					<div class="searchSecond"><!-- 여기부터 ㄱㄱ -->
-						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example">
-						  <option selected>검색구분</option>
-						  <option value="1">One</option>
-						  <option value="2">Two</option>
-						  <option value="3">Three</option>
+						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example" id="shOption" name="shOption">
+						  <option value="" selected <c:if test="${empty vo.shOption}">selected</c:if>>검색구분</option>
+						  <option value="0" <c:if test="${vo.shOption eq 1}">selected</c:if>>순서</option>
+						  <option value="1" <c:if test="${vo.shOption eq 2}">selected</c:if>>코드이름</option>
 						</select>
 						<input class="form-control form-control-sm" type="text" placeholder="검색" aria-label=".form-control-sm example">
-						<i class="fa fa-search" aria-hidden="true" style="cursor: pointer;"></i>&nbsp;&nbsp;&nbsp;
-						<i class="fa fa-reply" aria-hidden="true" style="cursor: pointer;"></i>
+						<button type="submit">	
+							<i class="fa fa-search" aria-hidden="true" style="cursor: pointer;"></i>&nbsp;&nbsp;&nbsp;
+						</button>	
+						<button type="submit">	
+							<i class="fa fa-reply" aria-hidden="true" style="cursor: pointer;"></i>
+						</button>
 					</div>
 				</div>
+				</form>
 				<!-- 리스트 영역 -->
 				<div style="color: black">
 					total:0
@@ -391,7 +395,7 @@
 					  	</thead>
 					  	<tbody>
 					  	<c:choose>
-					  		<c:when test="${fn:length(list) eq 14}">
+					  		<c:when test="${fn:length(list) eq 0}">
 					  			<tr>
 					  				<td class="text-center" colspan="12">There is no data!</td>
 					  			</tr>

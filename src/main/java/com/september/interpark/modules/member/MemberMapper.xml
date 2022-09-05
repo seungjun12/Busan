@@ -11,7 +11,15 @@
 	<select id="selectList" resultMap="resultMapObj">
 		SELECT
 			a.*
-		FROM member a	
+		FROM member a
+		WHERE 1=1
+		<if test="shdelNy != null and !shdelNy.equals('')">AND delNy = #{shdelNy}</if>
+	 	<choose>
+			<when test="shOption == 1">AND seq = #{shValue}</when>
+			<when test="shOption == 2">AND name LIKE CONCAT('%',#{shValue},'%')</when>
+			<when test="shOption == 3">AND id LIKE CONCAT('%',#{shValue},'%')</when>
+			<otherwise></otherwise>
+		</choose>	
 	</select>
 
 </mapper>	

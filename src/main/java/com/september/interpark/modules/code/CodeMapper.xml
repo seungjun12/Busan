@@ -15,7 +15,13 @@
 		FROM cc a
 		JOIN ccg b on b.ccgseq=a.ccg_seq
 		WHERE 1=1
-			AND ccuseNy = 1
+			<!-- AND ccuseNy = 1 -->
+		<if test="shdelNy != null and !shdelNy.equals('')">AND ccdelNy = #{shdelNy}</if> 
+			<choose>
+				<when test="shOption == 1">AND ccSeq = #{shValue}</when>
+				<when test="shOption == 2">AND ccnameko LIKE CONCAT('%',#{shValue},'%')</when>
+				<otherwise></otherwise>
+			</choose>	
 	</select>
 
 </mapper>

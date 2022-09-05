@@ -334,10 +334,10 @@
 				<div class="searchWrap">
 					<div class="searchFirst">
 					
-						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example">
-						  <option selected>삭제여부</option>
-						  <option value="0" <c:if test="${empty vo.shdelNy}">selected</c:if>>N</option>
-						  <option value="1" <c:if test="${vo.shdelNy}">selected</c:if>>Y</option>
+						<select class="form-select form-select-sm selectSize" id="shdelNy" name="shdelNy" aria-label=".form-select-sm example">
+						   <option value="" selected<c:if test="${empty vo.shdelNy}">selected</c:if>>삭제여부</option>
+						  <option value="0" <c:if test="${vo.shdelNy eq 0}">selected</c:if>>N</option>
+						  <option value="1" <c:if test="${vo.shdelNy eq 1}">selected</c:if>>Y</option>
 						</select>
 						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example">
 						  <option selected>수정일</option>
@@ -361,10 +361,10 @@
 					</div>
 					<div class="searchSecond"><!-- 여기부터 ㄱㄱ -->
 						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example" id="shOption" name="shOption">
-						  <option value="" <c:if test="${empty vo.shOption}">selected</c:if>검색구분</option>
-						  <option value="1" <c:if test="${vo.shOption}">selected</c:if>>One</option>
-						  <option value="2" <c:if test="${vo.shOption}">selected</c:if>>Two</option>
-						  <option value="3" <c:if test="${vo.shOption}">selected</c:if>>Three</option>
+						  <option value="" selected<c:if test="${empty vo.shOption}">selected</c:if>>검색구분</option>
+						  <option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>순서</option>
+						  <option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>코드그룹(한글)</option>
+						  <option value="3" <c:if test="${vo.shOption eq 3}">selected</c:if>>코드그룹(영문)</option>
 						</select>
 						<input class="form-control form-control-sm" type="text" placeholder="검색" aria-label=".form-control-sm example" id="shValue" name="shValue" value="<c:out value="${vo.shValue }"/>">
 						<button type="submit">
@@ -399,7 +399,7 @@
 					  	</thead>			  		
 					  	<tbody>
 					  	<c:choose>
-					  		<c:when test="${fn:length(list) eq 5}">
+					  		<c:when test="${fn:length(list) eq 0}">
 					  			<tr>
 					  				<td class="text-center" colspan="8">There is no data!</td>
 					  			</tr>

@@ -327,11 +327,12 @@
 				<!-- 제목 -->
 				<h3>회원관리</h3>
 				<!-- 검색대 -->
+				<form method="post" action="member/memberList">
 				<div class="searchWrap">
 					<div class="searchFirst">
-						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example">
-						  <option selected>N</option>
-						  <option value="1">One</option>
+						<select class="form-select form-select-sm selectSize" id="shdelNy" name="shdelNy" aria-label=".form-select-sm example">
+						  <option value="" selected<c:if test="${empty vo.shdelNy}">selected</c:if>>삭제여부</option>
+						  <option value="0" <c:if test="${vo.shdelNy eq 1}">selected</c:if>>One</option>
 						  <option value="2">Two</option>
 						  <option value="3">Three</option>
 						</select>
@@ -366,6 +367,7 @@
 						<i class="fa fa-reply" aria-hidden="true" style="cursor: pointer;"></i>
 					</div>
 				</div>
+				</form>
 				<!-- 리스트 영역 -->
 				<div style="color: black">
 					total:0
@@ -387,21 +389,145 @@
 					    	<td class="td7">삭제여부</td>
 					  	</thead>
 					  	<tbody>
-					  		<c:forEach items="${list}" var="list" varStatus="status">	
 					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
-					    	<td><c:out value="${list.seq }"/></td>
-					    	<td><c:out value="${list.name }"/></td>
-					    	<td><c:out value="${list.id }"/></td>
-					    	<td><c:out value="${list.pwd }"/></td>
-					    	<td><c:out value="${list.gender }"/></td>
-					    	<td><c:out value="${list.email }"/></td>
 					    	<td></td>
-					    	<td><c:out value="${list.personalAgree }"/></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
 					    	<td></td>
 					    	<td></td>
 					    	<td></td>
 					  	</tbody>
-					  	</c:forEach>
+						<tbody>
+					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					  	</tbody>
+						<tbody>
+					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					  	</tbody>
+						<tbody>
+					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					  	</tbody>
+						<tbody>
+					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					  	</tbody>
+						<tbody>
+					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					  	</tbody>
+						<tbody>
+					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					  	</tbody>
+						<tbody>
+					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					  	</tbody>
+						<tbody>
+					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					  	</tbody>
+						<tbody>
+					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					  	</tbody>
 					</table>
 				</div>
 				<!-- 페이지네이션 -->
@@ -544,7 +670,7 @@
     <script src="/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="/resources/js/sb-admin-2.min.js"></script>
 	
 	<!-- checkBox -->
 	<script type="text/javascript">

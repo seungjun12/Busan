@@ -17,6 +17,9 @@ public class MemberDao {
 	
 	private static String namespace = "com.september.interpark.modules.member.MemberMapper";
 	
-	public List<Member> selectList(){ return sqlSession.selectList(namespace + ".selectList", ""); }
+	public List<Member> selectList(MemberVo vo){
+		List<Member> list=sqlSession.selectList(namespace+".selectList", vo);
+		return list;
+		}
 }	
 
