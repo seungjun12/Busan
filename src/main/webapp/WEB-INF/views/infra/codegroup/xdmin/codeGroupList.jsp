@@ -335,8 +335,9 @@
 					<div class="searchFirst">
 					
 						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example">
-						  <option value="N" selected>N</option>
-						  <option value="y">Y</option>
+						  <option selected>삭제여부</option>
+						  <option value="0" <c:if test="${empty vo.shdelNy}">selected</c:if>>N</option>
+						  <option value="1" <c:if test="${vo.shdelNy}">selected</c:if>>Y</option>
 						</select>
 						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example">
 						  <option selected>수정일</option>
@@ -398,7 +399,7 @@
 					  	</thead>			  		
 					  	<tbody>
 					  	<c:choose>
-					  		<c:when test="${fn:length(list) eq 0}">
+					  		<c:when test="${fn:length(list) eq 5}">
 					  			<tr>
 					  				<td class="text-center" colspan="8">There is no data!</td>
 					  			</tr>

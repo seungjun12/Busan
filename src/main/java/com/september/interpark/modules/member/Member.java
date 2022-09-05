@@ -82,6 +82,7 @@ public class Member {
 	public void setAddressCode(String addressCode) {
 		this.addressCode = addressCode;
 	}
+
 	
 	
 	

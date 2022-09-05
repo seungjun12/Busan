@@ -14,7 +14,17 @@
     		,(select count(ccg_seq)  From  cc where 1=1 and ccg_seq=ccgseq) as ccg_seq
 		from ccg a
 		WHERE 1=1
+		AND ccgdelNy =0
 		AND ccgNameKo LIKE CONCAT('%', #{shValue}, '%')
+		<!-- <if test="shDelNy != null and !shDelNy.equals('')">AND ifcgDelNy = #{shDelNy}</if> -->
+			<choose>
+				<when test="shdelNy ==0">AND ccgdelNy = 0</when>
+				<when test="shdelNy ==1">AND ccgdelNy = 1</when>
+				<when test="shOption == 1">AND ccgSeq = #{shValue}</when>
+				<when test="shOption == 2">AND ccgNameKo LIKE CONCAT('%',#{shValue},'%')</when>
+				<when test="shOption == 3">AND ccgNameEng LIKE CONCAT('%',#{shValue},'%')</when>
+				<otherwise></otherwise>
+			</choose>
 	</select>
 
 </mapper>

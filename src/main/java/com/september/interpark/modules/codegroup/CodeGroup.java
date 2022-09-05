@@ -9,6 +9,7 @@ public class CodeGroup {
 	private Integer ccguseNy;
 	private Integer ccgorder;
 	private Integer ccg_seq;
+	private Integer ccgdelNy;
 	
 	public String getCcgseq() {
 		return ccgseq;
@@ -51,6 +52,12 @@ public class CodeGroup {
 	}
 	public void setCcg_seq(Integer ccg_seq) {
 		this.ccg_seq = ccg_seq;
+	}
+	public Integer getCcgdelNy() {
+		return ccgdelNy;
+	}
+	public void setCcgdelNy(Integer ccgdelNy) {
+		this.ccgdelNy = ccgdelNy;
 	}
 	
 	

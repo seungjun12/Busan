@@ -3,6 +3,7 @@ package com.september.interpark.modules.codegroup;
 public class CodeGroupVo {
 	private Integer shOption;
 	private String shValue;
+	private Integer shdelNy;
 	
 ////////////////////////////////////////////////////////////////////////////////////////	
 	public Integer getShOption() {
@@ -16,6 +17,12 @@ public class CodeGroupVo {
 	}
 	public void setShValue(String shValue) {
 		this.shValue = shValue;
+	}
+	public Integer getShdelNy() {
+		return shdelNy;
+	}
+	public void setShdelNy(Integer shdelNy) {
+		this.shdelNy = shdelNy;
 	}
 	
 	

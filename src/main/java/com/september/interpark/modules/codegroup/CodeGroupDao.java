@@ -16,6 +16,13 @@ public class CodeGroupDao {
 	private SqlSession sqlSession;
 	
 	private static String namespace = "com.september.interpark.modules.codegroup.CodeGroupMapper";
+
+//	private List<CodeGroup> selectList(CodeGroupVo vo){return sqlSession.selectList(namespace +".selectList",vo);}	
 	
-	public List<CodeGroup> selectList(CodeGroupVo vo){ return sqlSession.selectList(namespace + ".selectList", vo); }
+	public List<CodeGroup> selectList(CodeGroupVo vo){
+//	    List<CodeGroup> list= sqlSession.selectList(namespace+".selectList",vo);	
+		List<CodeGroup> list=sqlSession.selectList("com.september.interpark.modules.codegroup.CodeGroupMapper.selectList", vo);
+		return list;
+	}
+	
 }
