@@ -1,7 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 <html lang="en">
 
 <head>
@@ -332,9 +334,8 @@
 					<div class="searchFirst">
 						<select class="form-select form-select-sm selectSize" id="shdelNy" name="shdelNy" aria-label=".form-select-sm example">
 						  <option value="" selected<c:if test="${empty vo.shdelNy}">selected</c:if>>삭제여부</option>
-						  <option value="0" <c:if test="${vo.shdelNy eq 1}">selected</c:if>>One</option>
-						  <option value="2">Two</option>
-						  <option value="3">Three</option>
+						  <option value="0" <c:if test="${vo.shdelNy eq 0}">selected</c:if>>N</option>
+						  <option value="1" <c:if test="${vo.shdelNy eq 1}">selected</c:if>>Y</option>
 						</select>
 						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example">
 						  <option selected>수정일</option>
@@ -358,13 +359,17 @@
 					<div class="searchSecond"><!-- 여기부터 ㄱㄱ -->
 						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example">
 						  <option selected>검색구분</option>
-						  <option value="1">One</option>
-						  <option value="2">Two</option>
-						  <option value="3">Three</option>
+						  <option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>순서</option>
+						  <option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>이름</option>
+						  <option value="3" <c:if test="${vo.shOption eq 3}">selected</c:if>>아이디</option>
 						</select>
 						<input class="form-control form-control-sm" type="text" placeholder="검색" aria-label=".form-control-sm example">
-						<i class="fa fa-search" aria-hidden="true" style="cursor: pointer;"></i>&nbsp;&nbsp;&nbsp;
-						<i class="fa fa-reply" aria-hidden="true" style="cursor: pointer;"></i>
+						<button type="submit">
+							<i class="fa fa-search" aria-hidden="true" style="cursor: pointer;"></i>&nbsp;&nbsp;&nbsp;
+						</button>
+						<button type="submit">
+							<i class="fa fa-reply" aria-hidden="true" style="cursor: pointer;"></i>
+						</button>
 					</div>
 				</div>
 				</form>
@@ -389,145 +394,30 @@
 					    	<td class="td7">삭제여부</td>
 					  	</thead>
 					  	<tbody>
+					  	<c:choose> 
+					  		<c:when test="${fn:length(list) eq 0}">
+					  			<tr>
+					  				<td class="text-center" colspan="12">There is no data!</td>
+					  			</tr>
+					  		</c:when> 
+					  		<c:otherwise>
+					  		<c:forEach items="${list }" var="list" varStatus="status">
 					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
+					    	<td><c:out value="${list.seq }"/></td>
+					    	<td><c:out value="${list.name }"/></td>
+					    	<td><c:out value="${list.id }"/></td>
+					    	<td><c:out value="${list.pwd }"/></td>
+					    	<td><c:out value="${list.gender }"/></td>
+					    	<td><c:out value="${list.email }"/></td>
 					    	<td></td>
+					    	<td><c:out value="${list.address }"/></td>
+					    	<td><c:out value="${list.personalAgree }"/></td>
 					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
+					    	<td><c:out value="${list.delNy }"/></td>
 					  	</tbody>
-						<tbody>
-					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					  	</tbody>
-						<tbody>
-					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					  	</tbody>
-						<tbody>
-					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					  	</tbody>
-						<tbody>
-					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					  	</tbody>
-						<tbody>
-					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					  	</tbody>
-						<tbody>
-					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					  	</tbody>
-						<tbody>
-					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					  	</tbody>
-						<tbody>
-					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					  	</tbody>
-						<tbody>
-					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					    	<td></td>
-					  	</tbody>
+					  		</c:forEach>
+					  		</c:otherwise>
+						</c:choose>
 					</table>
 				</div>
 				<!-- 페이지네이션 -->

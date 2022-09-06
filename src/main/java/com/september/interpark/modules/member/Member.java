@@ -13,6 +13,7 @@ public class Member {
 	private String address;
 	private String address2;
 	private String addressCode;
+	private Integer delNy; 
 	
 	
 	//////////////////////////////////////////////
@@ -82,6 +83,13 @@ public class Member {
 	public void setAddressCode(String addressCode) {
 		this.addressCode = addressCode;
 	}
+	public Integer getDelNy() {
+		return delNy;
+	}
+	public void setDelNy(Integer delNy) {
+		this.delNy = delNy;
+	}
+	
 
 	
 	
