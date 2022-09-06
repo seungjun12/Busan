@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>코드 관리</title>
+    <title>코드 그룹관리</title>
 
     <!-- Custom fonts for this template-->
     <link href="/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -25,7 +25,7 @@
 
     <!-- Custom styles for this template-->
     <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
-	<link href="/resources/css/codeList_style.css" rel="stylesheet">
+	<link href="/resources/css/codeGroupForm_style.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -72,9 +72,9 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="codeGrouplist.html">코드그룹관리</a>
-                        <a class="collapse-item active" href="codeList.html">코드관리</a>
-                        <a class="collapse-item" href="memberList.html">회원관리</a>
+                        <a class="collapse-item active" href="codeGrouplist.html">코드그룹관리</a>
+                        <a class="collapse-item" href="codeList.html">코드관리</a>
+                        <a class="collapse-item" href="cards.html">회원관리</a>
                     </div>
                 </div>
             </li>
@@ -238,7 +238,7 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
+                                        <img class="rounded-circle" src="/resources/img/undraw_profile_1.svg"
                                             alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
@@ -250,7 +250,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
+                                        <img class="rounded-circle" src="/resources/img/undraw_profile_2.svg"
                                             alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
@@ -262,7 +262,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
+                                        <img class="rounded-circle" src="/resources/img/undraw_profile_3.svg"
                                             alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
@@ -328,145 +328,203 @@
 			<!-- 코드 그룹 관리 제목 -->
 			<div class="wrap">
 				<!-- 제목 -->
-				<h3>코드관리</h3>
-				<!-- 검색대 -->
-				<form method="post" action="/code/codeList">
-				<div class="searchWrap">
-					<div class="searchFirst">
-						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example" id="shdelNy" name="shdelNy">
-						  <option value="" selected <c:if test="${empty vo.shdelNy}">selected</c:if>>삭제여부</option>
-						  <option value="0" <c:if test="${vo.shdelNy eq 0}">selected</c:if>>N</option>
-						  <option value="1" <c:if test="${vo.shdelNy eq 1}">selected</c:if>>Y</option>
-						</select>
-						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example">
-						  <option selected>수정일</option>
-						  <option value="1">One</option>
-						  <option value="2">Two</option>
-						  <option value="3">Three</option>
-						</select>
-						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example">
-						  <option selected>시작일</option>
-						  <option value="1">One</option>
-						  <option value="2">Two</option>
-						  <option value="3">Three</option>
-						</select>
-						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example">
-						  <option selected>종료일</option>
-						  <option value="1">One</option>
-						  <option value="2">Two</option>
-						  <option value="3">Three</option>
-						</select>						
+				<h3>코드그룹관리</h3>
+				<div class="container-fluid codeGroupName">
+					<div class="row">
+						<div class="col-6">
+							코드그룹 코드
+						</div>
+						<div class="col">
+							코드그룹 코드(Another)
+						</div>
 					</div>
-					<div class="searchSecond"><!-- 여기부터 ㄱㄱ -->
-						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example" id="shOption" name="shOption">
-						  <option value="" selected <c:if test="${empty vo.shOption}">selected</c:if>>검색구분</option>
-						  <option value="0" <c:if test="${vo.shOption eq 1}">selected</c:if>>순서</option>
-						  <option value="1" <c:if test="${vo.shOption eq 2}">selected</c:if>>코드이름</option>
-						</select>
-						<input class="form-control form-control-sm" type="text" placeholder="검색" aria-label=".form-control-sm example">
-						<button type="submit">	
-							<i class="fa fa-search" aria-hidden="true" style="cursor: pointer;"></i>&nbsp;&nbsp;&nbsp;
-						</button>	
-						<button type="submit">	
-							<i class="fa fa-reply" aria-hidden="true" style="cursor: pointer;"></i>
-						</button>
+				</div>
+<!-- 				<div class="container-fluid">
+					<div class="row">
+						<div class="col-6">
+						
+						</div>
+						<div class="">
+						
+						</div>
+					</div>
+				</div>
+			 -->
+			 <form action="codeGroupInst">
+			 <div class="container-fluid codeGroupInput">
+					<div class="row">
+						<div class="col-6">
+							<input class="form-control" type="text" placeholder="코드그룹 이름(한글)" aria-label="default input example">
+						</div>
+						<div class="col">
+						<input class="form-control" type="text" placeholder="영문(대소문자),숫자" aria-label="default input example">
+						</div>
+					</div>
+				</div>	
+				<div class="container-fluid codeGroupName">
+					<div class="row">
+						<div class="col-6">
+							코드그룹 이름 (한글)
+						</div>
+						<div class="col">
+							코드그룹 이름 (영문)
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupInput">
+					<div class="row">
+						<div class="col-6">
+							<input class="form-control" type="text" placeholder="한글,숫자" aria-label="default input example" id="ccgNameKo" name="ccgNameKo" value="<c:out value="${dto.ccgNameKo }"/>">
+						</div>
+						<div class="col">
+							<input class="form-control" type="text" placeholder="영문(대소문자),숫자" aria-label="default input example" id="ccgNameEg" name="ccgNameEg" value="<c:out value="${dto.ccgNameEg }"/>">
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupName">
+					<div class="row">
+						<div class="col-6">
+							사용여부
+						</div>
+						<div class="col">
+							순서
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupInput">
+					<div class="row">
+						<div class="col-6">
+							<select class="form-select" aria-label="Default select example" id="ccguseNy" name="ccguseNy">
+						  		<option value="0" selected <c:if test="${dto.ccguseNy eq 0}">selected</c:if>>Y</option>
+							  	<option value="1" <c:if test="${dto.ccguseNy eq 1 }"></c:if>>N</option>
+							</select>
+						</div>
+						<div class="col">
+						<input class="form-control" type="text" placeholder="숫자" aria-label="default input example" id="ccgorder" name="ccgorder" value="<c:out value="${dto.ccgorder }"/>">
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupName">
+					<div class="row">
+						<div class="col-6">
+							설명
+						</div>
+						<div class="col">
+							삭제여부
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupInput">
+					<div class="row">
+						<div class="col">
+							<textarea rows="" cols="" style="width: 100%"></textarea>
+						</div>
+						<div class="col-6">
+							<select class="form-select" aria-label="Default select example" id="ccgdelNy" name="ccgdelNy">
+						  		<option value="1" selected<c:if test="${dt.delNy eq 1}">selected</c:if>>N</option>
+							  	<option value="0" <c:if test="${dt.delNy eq 0}">selected</c:if>>Y</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupName">
+					<div class="row">
+						<div class="col-6">
+							예비1 (varchar type)
+						</div>
+						<div class="col">
+							예비 (varchar type)
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupInput">
+					<div class="row">
+						<div class="col-6">
+							<input class="form-control" type="text" placeholder="영문(대소문자),숫자" aria-label="default input example">
+						</div>
+						<div class="col">
+							<input class="form-control" type="text" placeholder="영문(대소문자),숫자" aria-label="default input example">
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupName">
+					<div class="row">
+						<div class="col-6">
+							예비3 (varchar type)
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupInput">
+					<div class="row">
+						<div class="col-6">
+							<input class="form-control" type="text" placeholder="영문(대소문자),숫자" aria-label="default input example">
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupName">
+					<div class="row">
+						<div class="col-6">
+							예비1 (Int type)
+						</div>
+						<div class="col">
+							예비2 (Int type)
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupInput">
+					<div class="row">
+						<div class="col-6">
+							<input class="form-control" type="text" placeholder="숫자" aria-label="default input example">
+						</div>
+						<div class="col">
+							<input class="form-control" type="text" placeholder="숫자" aria-label="default input example">
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupName">
+					<div class="row">
+						<div class="col-6">
+							예비3 (Int type)
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupInput">
+					<div class="row">
+						<div class="col-6">
+							<input class="form-control" type="text" placeholder="숫자" aria-label="default input example">
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid lastBtn">
+					<div class="row">
+						<div class="col-6">
+							<a href="codeGrouplist.html">	
+								<button type="button" class="btn btn-secondary">
+									<i class="fa-solid fa-bars"></i>
+								</button>
+							</a>
+						</div>
+						<div class="col" style="text-align: right;">
+							<a>	
+								<button type="button" class="btn btn-danger">
+									<i class="fa-solid fa-x"></i>
+								</button>
+							</a>
+							<a>	
+								<button type="button" class="btn btn-danger">
+									<i class="fa-regular fa-trash-can"></i>
+								</button>
+							</a>
+							<a href="codeGroupList">	
+								<button type="submit" class="btn btn-primary"><!-- 등록 버튼 -->
+									<i class="fa-solid fa-plus"></i>
+								</button>
+							</a>
+						</div>
 					</div>
 				</div>
 				</form>
-				<!-- 리스트 영역 -->
-				<div style="color: black">
-					total:0
-				</div>
-				<div class="listWrap">
-					<table class="table">
-				  		<thead style="background-color: black">
-					    	<td class="td1"><input class="test" type="checkbox" value="allmemberchecked" onclick="selectall(this);" name="allmembercheck"></td><!-- 1 -->
-					    	<td>#</td><!-- 2 -->
-					    	<td>코드그룹 코드</td><!-- 3 -->
-					    	<td class="td4">코드그룹 이름(한글)</td><!-- 4 -->
-					    	<td>코드</td><!-- 5 -->
-					    	<td>대체코드</td><!-- 6 -->
-					    	<td class="td7">코드 이름(한글)</td><!-- 7 -->
-					    	<td class="td8">코드 이름(영문)</td><!-- 8 -->
-					    	<td>사용</td><!-- 9 -->
-					    	<td>순서</td><!-- 10 -->
-					    	<td>등록일</td><!-- 11 -->
-					    	<td>수정일</td><!-- 12 -->
-					  	</thead>
-					  	<tbody>
-					  	<c:choose>
-					  		<c:when test="${fn:length(list) eq 0}">
-					  			<tr>
-					  				<td class="text-center" colspan="12">There is no data!</td>
-					  			</tr>
-					  		</c:when>
-					  		<c:otherwise>
-					  		<c:forEach items="${list}" var="list" varStatus="status">
-					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td><!-- 1 -->
-					    	<td><c:out value="${list.ccseq }"/></td><!-- 2 -->
-					    	<td><c:out value="${list.ccg_seq }"/></td><!-- 3 -->
-					    	<td><c:out value="${list.ccgNameKo }"/></</td><!-- 4 -->
-					    	<td></td><!-- 5 -->
-					    	<td></td><!-- 6 -->
-					    	<td><c:out value="${list.ccnameko }"/></td><!-- 7 -->
-					    	<td><c:out value="${list.ccnameeg }"/></td><!-- 8 -->
-					    	<td><c:out value="${list.ccuseNy }"/></td><!-- 9 -->
-					    	<td><c:out value="${list.ccorder }"/></td><!-- 10 -->
-					    	<td></td><!-- 11 -->
-					    	<td></td><!-- 12 -->
-					  	</tbody>
-						</c:forEach>
-						</c:otherwise>
-					</c:choose>
-					</table>
-				</div>
-				<!-- 페이지네이션 -->
-				<div class="d-flex justify-content-center" style="margin-top: 30px;">
-					<nav aria-label="Page navigation example">
-					  <ul class="pagination_my" style="color: black;">
-					    <li class="page-item">
-					      <a class="page-link" href="#" aria-label="Previous">
-					        <span aria-hidden="true">&laquo;</span>
-					      </a>
-					    </li>
-					    <li class="page-item"><a class="page-link" href="#">1</a></li>
-					    <li class="page-item"><a class="page-link" href="#">2</a></li>
-					    <li class="page-item"><a class="page-link" href="#">3</a></li>
-					    <li class="page-item"><a class="page-link" href="#">4</a></li>
-					    <li class="page-item">
-					      <a class="page-link" href="#" aria-label="Next">
-					        <span aria-hidden="true">&raquo;</span>
-					      </a>
-					    </li>
-					  </ul>
-					</nav>		
-				</div>			
-				<!-- 삭제 버튼 -->
-				<!-- 모달띄우는것부터 시작 -->
-				<!-- Button trigger modal -->
-				<a href="#" data-toggle="modal" data-target="#deleteModal" class="modalBtn">
-					<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  						<i class="fa-solid fa-x"></i>
-					</button>
-				</a>
-				<a href="#" data-toggle="modal" data-target="#deleteModal2" class="modalBtn">
-					<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  						<i class="fa-regular fa-trash-can"></i>
-					</button>	
-				</a>
-				<a href="codeForm">	
-					<button type="button" class="btn btn-primary rightBtn" href="codeForm">
-						<i class="fa-solid fa-plus"></i>
-					</button>
-				</a>	
-				<button type="button" class="btn btn-success rightBtn" style="margin-right: 5px;">
-					<i class="fa-solid fa-file"></i>
-				</button>
 				
-				
-	 /  
-	<br>		
-
 				
 			</div><!-- wrap end -->
 			
@@ -513,47 +571,7 @@
         </div>
     </div>
     
-    <!-- 완전삭제 모달 -->
-    <!-- Modal -->
-    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">완전삭제</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">정말 삭제 하시겠습니까?</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-                    <a class="btn btn-danger" href="codeGroup.html">삭제</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    
-    <!-- 삭제 모달 -->
-    <div class="modal fade" id="deleteModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">삭제</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">정말 삭제 하시겠습니까?</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-                    <a class="btn btn-danger" href="codeGroup.html">삭제</a>
-                </div>
-            </div>
-        </div>
-    </div>    
+  
 
     <!-- Bootstrap core JavaScript-->
     <script src="/resources/vendor/jquery/jquery.min.js"></script>
@@ -598,4 +616,3 @@
 </body>
 
 </html>
-

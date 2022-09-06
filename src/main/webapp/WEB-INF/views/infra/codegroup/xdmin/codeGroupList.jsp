@@ -336,8 +336,8 @@
 					
 						<select class="form-select form-select-sm selectSize" id="shdelNy" name="shdelNy" aria-label=".form-select-sm example">
 						   <option value="" selected<c:if test="${empty vo.shdelNy}">selected</c:if>>삭제여부</option>
-						  <option value="0" <c:if test="${vo.shdelNy eq 0}">selected</c:if>>N</option>
-						  <option value="1" <c:if test="${vo.shdelNy eq 1}">selected</c:if>>Y</option>
+						  <option value="1" <c:if test="${vo.shdelNy eq 1}">selected</c:if>>N</option>
+						  <option value="0" <c:if test="${vo.shdelNy eq 0}">selected</c:if>>Y</option>
 						</select>
 						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example">
 						  <option selected>수정일</option>
@@ -454,7 +454,7 @@
   						<i class="fa-regular fa-trash-can"></i>
 					</button>	
 				</a>
-				<a href="codeGroupForm.html">	
+				<a href="codeGroupForm">	
 					<button type="button" class="btn btn-primary rightBtn">
 						<i class="fa-solid fa-plus"></i>
 					</button>

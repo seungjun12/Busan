@@ -1,11 +1,13 @@
 package com.september.interpark.modules.codegroup;
 
 import java.util.List;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 
 @Controller
 @RequestMapping(value="codeGroup")
@@ -27,4 +29,19 @@ public class CodeGruoupController {
 		
 		return "infra/codegroup/xdmin/codeGroupList";
 	}	
+	
+	@RequestMapping(value = "codeGroupForm")
+	public String codeGroupForm() throws Exception {
+		return "infra/codegroup/xdmin/codeGroupForm";
+	}
+	
+	@RequestMapping(value = "codeGroupInst")
+	public String codeGroupInst(CodeGroup dto) throws Exception {
+		
+		int result = service.insert(dto);
+		System.out.println("controller result: "+ result);
+		
+		return "redirect:/codeGroup/codeGroupList";
+	}
+	
 }

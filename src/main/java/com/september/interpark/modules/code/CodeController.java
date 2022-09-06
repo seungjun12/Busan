@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.september.interpark.modules.codegroup.CodeGroup;
+
 @Controller
 @RequestMapping(value="code")
 public class CodeController {
@@ -27,4 +29,18 @@ public class CodeController {
 		
 		return "infra/code/xdmin/codeList";
 	}	
+	
+	@RequestMapping(value= "codeForm")
+	public String codeForm() throws Exception{
+		return "infra/code/xdmin/codeForm";
+	}
+	
+	@RequestMapping(value = "codeInst")
+	public String codeInst(Code dto) throws Exception {
+		
+		int result = service.insert(dto);
+		System.out.println("controller result: "+ result);
+		
+		return "redirect:/code/codeList";
+	}
 }
