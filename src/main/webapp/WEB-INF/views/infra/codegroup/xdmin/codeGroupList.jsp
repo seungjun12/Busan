@@ -396,6 +396,8 @@
 					    	<td width="100px;">코드갯수</td>
 					    	<td class="td7">등록일</td>
 					    	<td class="td8">수정일</td>
+					    	<!-- <td>사용여부</td>
+					    	<td>삭제여부</td> -->
 					  	</thead>			  		
 					  	<tbody>
 					  	<c:choose>
@@ -414,10 +416,13 @@
 					    	<td><c:out value="${list.ccg_seq }"/></td>
 					    	<td></td>
 					    	<td></td>
+					    	<%-- <td><c:out value="${list.ccgorder }"></td>
+					    	<td><c:out value="${list.ccgdelNy }"></td> --%>
 					  	</tbody>
-					  		</c:forEach>
+					  	</c:forEach>
 				  			</c:otherwise>
 				  		</c:choose>
+					  		
 					</table>
 				</div>
 				<!-- 페이지네이션 -->

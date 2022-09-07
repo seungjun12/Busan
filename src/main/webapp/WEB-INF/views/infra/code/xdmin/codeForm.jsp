@@ -439,8 +439,8 @@
 						</div>
 						<div class="col-6">
 							<select class="form-select" aria-label="Default select example" id="ccdelNy" name="ccdelNy">
-						  		<option value="1" selected <c:if test="${dto.ccdelNy eq 0 }">selected</c:if>>N</option>
-							  	<option value="0" <c:if test="${dto.ccdelNy }">selected</c:if>>Y</option>
+						  		<option value="1" selected <c:if test="${dto.ccdelNy eq 1 }">selected</c:if>>N</option>
+							  	<option value="0" <c:if test="${dto.ccdelNy eq 0}">selected</c:if>>Y</option>
 							</select>
 						</div>
 					</div>
@@ -602,7 +602,7 @@
     <script src="/resources/js/sb-admin-2.min.js"></script>
 	
 	<!-- checkBox -->
-	<script type="/resources/text/javascript">
+	<script type="text/javascript">
 	
 		function checkSelectAll()  {
 	
