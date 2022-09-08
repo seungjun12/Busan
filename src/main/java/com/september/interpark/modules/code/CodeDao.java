@@ -1,5 +1,7 @@
 package com.september.interpark.modules.code;
 
+
+
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -7,8 +9,6 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
-
-import com.september.interpark.modules.codegroup.CodeGroup;
 
 
 
@@ -22,7 +22,7 @@ public class CodeDao {
 	private static String namespace = "com.september.interpark.modules.code.CodeMapper";
 	
 	public List<Code> selectList(CodeVo vo){
-		List<Code> list=sqlSession.selectList("com.september.interpark.modules.code.CodeMapper.selectList", vo);
+		List<Code> list=sqlSession.selectList(namespace+".selectList", vo); 
 		return list;
 	}
 	

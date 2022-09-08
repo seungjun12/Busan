@@ -26,5 +26,11 @@ public class MemberDao {
 		List<Member> list=sqlSession.selectList("com.september.interpark.modules.member.MemberMapper.selectList", vo);
 		return list;
 	}
+	
+	public int insert(Member dto) {
+		int result=sqlSession.insert("com.september.interpark.modules.MemberMapper.insert", dto);
+		System.out.println("dao. result: " + result);
+		return result;
+	}
 }	
 

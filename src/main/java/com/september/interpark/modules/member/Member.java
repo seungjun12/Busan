@@ -8,12 +8,14 @@ public class Member {
 	private String pwd;
 	private Integer gender;
 	private String email;
+	private Integer emailCode;
 	private Integer personalAgree;
 	private String dob;
 	private String address;
 	private String address2;
 	private String addressCode;
-	private Integer delNy; 
+	private Integer delNy;
+	private String number;
 	
 	
 	//////////////////////////////////////////////
@@ -88,6 +90,18 @@ public class Member {
 	}
 	public void setDelNy(Integer delNy) {
 		this.delNy = delNy;
+	}
+	public Integer getEmailCode() {
+		return emailCode;
+	}
+	public void setEmailCode(Integer emailCode) {
+		this.emailCode = emailCode;
+	}
+	public String getNumber() {
+		return number;
+	}
+	public void setNumber(String number) {
+		this.number = number;
 	}
 	
 

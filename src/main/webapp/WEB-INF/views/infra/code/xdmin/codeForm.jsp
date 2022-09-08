@@ -348,7 +348,7 @@
 					</div>
 				</div>
 			 -->
-			 <form action="codeInst">
+			 <form method="post" action="codeInst">
 			 <div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
@@ -413,8 +413,8 @@
 					<div class="row">
 						<div class="col-6">
 							<select class="form-select" aria-label="Default select example" id="ccuseNy" name="ccuseNy">
-						  		<option value="0" selected <c:if test="${dto.ccuseNy eq 0 }">selected</c:if>>Y</option>
-							  	<option value="1" <c:if test="${dto.ccuseNy eq 1}">selected</c:if>>N</option>
+						  		<option value="0">Y</option>
+							  	<option value="1">N</option>
 							</select>
 						</div>
 						<div class="col">
@@ -439,77 +439,9 @@
 						</div>
 						<div class="col-6">
 							<select class="form-select" aria-label="Default select example" id="ccdelNy" name="ccdelNy">
-						  		<option value="1" selected <c:if test="${dto.ccdelNy eq 1 }">selected</c:if>>N</option>
-							  	<option value="0" <c:if test="${dto.ccdelNy eq 0}">selected</c:if>>Y</option>
+						  		<option value="1">N</option>
+							  	<option value="0">Y</option>
 							</select>
-						</div>
-					</div>
-				</div>
-				<div class="container-fluid codeGroupName">
-					<div class="row">
-						<div class="col-6">
-							예비1 (varchar type)
-						</div>
-						<div class="col">
-							예비2 (varchar type)
-						</div>
-					</div>
-				</div>
-				<div class="container-fluid codeGroupInput">
-					<div class="row">
-						<div class="col-6">
-							<input class="form-control" type="text" placeholder="영문(대소문자),숫자" aria-label="default input example">
-						</div>
-						<div class="col">
-							<input class="form-control" type="text" placeholder="영문(대소문자),숫자" aria-label="default input example">
-						</div>
-					</div>
-				</div>
-				<div class="container-fluid codeGroupName">
-					<div class="row">
-						<div class="col-6">
-							예비3 (varchar type)
-						</div>
-					</div>
-				</div>
-				<div class="container-fluid codeGroupInput">
-					<div class="row">
-						<div class="col-6">
-							<input class="form-control" type="text" placeholder="영문(대소문자),숫자" aria-label="default input example">
-						</div>
-					</div>
-				</div>
-				<div class="container-fluid codeGroupName">
-					<div class="row">
-						<div class="col-6">
-							예비1 (Int type)
-						</div>
-						<div class="col">
-							예비2 (Int type)
-						</div>
-					</div>
-				</div>
-				<div class="container-fluid codeGroupInput">
-					<div class="row">
-						<div class="col-6">
-							<input class="form-control" type="text" placeholder="숫자" aria-label="default input example">
-						</div>
-						<div class="col">
-							<input class="form-control" type="text" placeholder="숫자" aria-label="default input example">
-						</div>
-					</div>
-				</div>
-				<div class="container-fluid codeGroupName">
-					<div class="row">
-						<div class="col-6">
-							예비3 (Int type)
-						</div>
-					</div>
-				</div>
-				<div class="container-fluid codeGroupInput">
-					<div class="row">
-						<div class="col-6">
-							<input class="form-control" type="text" placeholder="숫자" aria-label="default input example">
 						</div>
 					</div>
 				</div>
@@ -601,33 +533,7 @@
     <!-- Custom scripts for all pages-->
     <script src="/resources/js/sb-admin-2.min.js"></script>
 	
-	<!-- checkBox -->
-	<script type="text/javascript">
-	
-		function checkSelectAll()  {
-	
-			const checkboxes = document.querySelectorAll('input[name="membercheck"]');
-	
-			const checked = document.querySelectorAll('input[name="membercheck"]:checked');
-	
-			const selectAll = document.querySelector('input[name="allmembercheck"]');
-			  
-			if(checkboxes.length === checked.length)  {
-			  selectAll.checked = true;
-			}else {
-			  selectAll.checked = false;
-			}
-			
-		}
 		
-		function selectall(selectall)  {
-			const checkboxes = document.getElementsByName('membercheck');
-			
-			checkboxes.forEach((checkbox) => {
-		    checkbox.checked = selectall.checked
-		  })
-		}
-	</script>
 
 	<!-- fontawsome -->
 	<script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>

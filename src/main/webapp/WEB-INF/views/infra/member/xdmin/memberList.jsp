@@ -334,8 +334,8 @@
 					<div class="searchFirst">
 						<select class="form-select form-select-sm selectSize" id="shdelNy" name="shdelNy" aria-label=".form-select-sm example">
 						  <option value="" selected<c:if test="${empty vo.shdelNy}">selected</c:if>>삭제여부</option>
-						  <option value="0" <c:if test="${vo.shdelNy eq 0}">selected</c:if>>N</option>
-						  <option value="1" <c:if test="${vo.shdelNy eq 1}">selected</c:if>>Y</option>
+						  <option value="1" <c:if test="${vo.shdelNy eq 1}">selected</c:if>>N</option>
+						  <option value="0" <c:if test="${vo.shdelNy eq 0}">selected</c:if>>Y</option>
 						</select>
 						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example">
 						  <option selected>수정일</option>
@@ -357,7 +357,7 @@
 						</select>						
 					</div>
 					<div class="searchSecond"><!-- 여기부터 ㄱㄱ -->
-						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example">
+						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example" id="shOption" name="shOption">
 						  <option selected>검색구분</option>
 						  <option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>순서</option>
 						  <option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>이름</option>
@@ -389,35 +389,42 @@
 					    	<td class="td5">이메일</td>
 					    	<td class="td6">휴대폰</td>
 					    	<td>주소</td>
+					    	<td>상세주소</td>
+					    	<td>집코드</td>
 					    	<td class="td3">개인정보 유효기간</td>
-					    	<td class="td7">sms수신동의</td>
 					    	<td class="td7">삭제여부</td>
 					  	</thead>
-					  	<tbody>
 					  	<c:choose> 
 					  		<c:when test="${fn:length(list) eq 0}">
 					  			<tr>
-					  				<td class="text-center" colspan="12">There is no data!</td>
+					  				<td class="text-center" colspan="13">There is no data!</td>
 					  			</tr>
 					  		</c:when> 
 					  		<c:otherwise>
-					  		<c:forEach items="${list }" var="list" varStatus="status">
-					    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
-					    	<td><c:out value="${list.seq }"/></td>
-					    	<td><c:out value="${list.name }"/></td>
-					    	<td><c:out value="${list.id }"/></td>
-					    	<td><c:out value="${list.pwd }"/></td>
-					    	<td><c:out value="${list.gender }"/></td>
-					    	<td><c:out value="${list.email }"/></td>
-					    	<td></td>
-					    	<td><c:out value="${list.address }"/></td>
-					    	<td><c:out value="${list.personalAgree }"/></td>
-					    	<td></td>
-					    	<td><c:out value="${list.delNy }"/></td>
-					  	</tbody>
+					  		<c:forEach items="${list}" var="list" varStatus="status">
+					  	<tbody>
+						    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
+						    	<td><c:out value="${list.seq }"/></td>
+						    	<td><c:out value="${list.name }"/></td>
+						    	<td><c:out value="${list.id }"/></td>
+						    	<td><c:out value="${list.pwd }"/></td>
+						    	<td><c:out value="${list.gender }"/></td>
+						    	<td><c:out value="${list.email }"/></td>
+						    	<td><c:out value="${list.number }"/></td>
+						    	<td><c:out value="${list.address }"/></td>
+						    	<td><c:out value="${list.address2 }"/></td>
+						    	<td><c:out value="${list.addressCode }"/></td>
+						    	<td><c:out value="${list.personalAgree }"/></td>
+						    	<td><c:out value="${list.delNy }"/></td>
+				    	</tbody>
 					  		</c:forEach>
 					  		</c:otherwise>
 						</c:choose>
+					  	
+					  		
+					  	
+					  		
+					  		
 					</table>
 				</div>
 				<!-- 페이지네이션 -->
@@ -454,7 +461,7 @@
   						<i class="fa-regular fa-trash-can"></i>
 					</button>	
 				</a>
-				<a href="codeForm.html">	
+				<a href="memberForm">	
 					<button type="button" class="btn btn-primary rightBtn" href="memberForm.html">
 						<i class="fa-solid fa-plus"></i>
 					</button>

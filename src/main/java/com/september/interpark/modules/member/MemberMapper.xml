@@ -11,6 +11,7 @@
 	<select id="selectList" resultMap="resultMapObj">
 		SELECT
 			a.*
+			,(SELECT number FROM memberPhone aa WHERE 1=1 AND aa.seqOther = a.seq)as number
 		FROM member a
 		WHERE 1=1
 		<if test="shdelNy != null and !shdelNy.equals('')">AND delNy = #{shdelNy}</if>

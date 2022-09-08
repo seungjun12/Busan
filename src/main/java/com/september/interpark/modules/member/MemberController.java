@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.september.interpark.modules.codegroup.CodeGroup;
+
 @Controller
 @RequestMapping(value="member")
 public class MemberController {
@@ -26,5 +28,20 @@ public class MemberController {
 		
 		return "infra/member/xdmin/memberList";
 	}
+	
+	@RequestMapping(value = "memberForm")
+	public String memberForm() throws Exception{
+		return "infra/member/xdmin/memberForm";
+	}
+	
+	@RequestMapping(value = "memberInst")
+	public String memberInst(Member dto) throws Exception {
+		
+		int result = service.insert(dto);
+		System.out.println("controller result: "+ result);
+		
+		return "redirect:/member/memberList";
+	}
+	
 	
 }

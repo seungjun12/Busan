@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.september.interpark.modules.codegroup.CodeGroup;
 
 @Controller
 @RequestMapping(value="code")
@@ -43,4 +42,6 @@ public class CodeController {
 		
 		return "redirect:/code/codeList";
 	}
+	
+	
 }
