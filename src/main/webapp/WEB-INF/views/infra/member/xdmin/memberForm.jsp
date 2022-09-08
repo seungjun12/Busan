@@ -327,7 +327,7 @@
                 <!-- End of Topbar -->
 			<!-- 코드 그룹 관리 제목 -->
 			<div class="wrap">
-			<form action="memberInst">
+			<form action="memberInst" id="memberFormReg" name="memberFormReg">
 				<!-- 제목 -->
 				<h3>회원관리</h3>
 				<div class="container-fluid codeGroupName">
@@ -473,11 +473,9 @@
 									<i class="fa-regular fa-trash-can"></i>
 								</button>
 							</a>
-							<a href="memberList">	
-								<button type="submit" class="btn btn-primary">
-									<i class="fa-solid fa-plus"></i>
-								</button>
-							</a>
+							<span type="button" class="btn btn-primary" onclick="test();">
+								<i class="fa-solid fa-plus"></i>
+							</span>
 						</div>
 					</div>
 				</div>
@@ -544,6 +542,74 @@
 
 	<!-- fontawsome -->
 	<script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
+	
+	<script type="text/javascript">
+		function test() {
+			if(document.getElementById('name').value == '' || document.getElementById('name').value == null){
+				alert("이름 입력해")
+				document.getElementById('name').value="";
+				document.getElementById('name').focus();
+				return false;
+			}
+			
+			if(document.getElementById('id').value == '' || document.getElementById('id').value == null){
+				alert("아이디 입력해")
+				document.getElementById('id').value="";
+				document.getElementById('id').focus();
+				return false;
+			}
+			
+			if(document.getElementById('pwd').value == '' || document.getElementById('pwd').value == null){
+				alert("비밀번호 입력해")
+				document.getElementById('pwd').value="";
+				document.getElementById('pwd').focus();
+				return false;
+			}
+			
+			if(document.getElementById('email').value == '' || document.getElementById('email').value == null){
+				alert("이메일 입력해")
+				document.getElementById('email').value="";
+				document.getElementById('email').focus();
+				return false;
+			}
+			
+			if(document.getElementById('address').value == '' || document.getElementById('address').value == null){
+				alert("주소 입력해")
+				document.getElementById('address').value="";
+				document.getElementById('address').focus();
+				return false;
+			}
+			
+			if(document.getElementById('address2').value == '' || document.getElementById('address2').value == null){
+				alert("상세주소 입력해")
+				document.getElementById('address2').value="";
+				document.getElementById('address2').focus();
+				return false;
+			}
+			
+			if(document.getElementById('address2').value == '' || document.getElementById('address2').value == null){
+				alert("상세주소 입력해")
+				document.getElementById('address2').value="";
+				document.getElementById('address2').focus();
+				return false;
+			}
+			
+			if(document.getElementById('addressCode').value == '' || document.getElementById('addressCode').value == null){
+				alert("집코드 입력해")
+				document.getElementById('addressCode').value="";
+				document.getElementById('addressCode').focus();
+				return false;
+			}
+			
+			document.getElementById('memberFormReg').submit();
+			
+			return false;
+			
+			
+		}
+	
+	
+	</script>
 </body>
 
 </html>

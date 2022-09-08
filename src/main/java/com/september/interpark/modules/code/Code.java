@@ -10,6 +10,7 @@ public class Code {
 	private	String ccuseNy;
 	private	String ccdelNy;
 	private	String ccorder;
+	private String ccgseq;
 	private	String ccgNameKo;
 	//////////////////////////////////////////
 	public String getCcseq() {
@@ -65,6 +66,12 @@ public class Code {
 	}
 	public void setCcgNameKo(String ccgNameKo) {
 		this.ccgNameKo = ccgNameKo;
+	}
+	public String getCcgseq() {
+		return ccgseq;
+	}
+	public void setCcgseq(String ccgseq) {
+		this.ccgseq = ccgseq;
 	}
 
 	

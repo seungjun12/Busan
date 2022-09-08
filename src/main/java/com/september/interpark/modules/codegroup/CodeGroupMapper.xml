@@ -46,5 +46,13 @@
 		
 	
 	</insert>
+	
+	<select id="selectOne" resultMap="resultMapObj">
+		SELECT
+			a.*
+		FROM ccg a
+		WHERE 1=1
+			AND ccgseq=#{ccgseq}	
+	</select>
 
 </mapper>

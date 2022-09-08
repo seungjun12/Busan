@@ -1,0 +1,202 @@
+#topGnbbg{
+	background: #ededf3;
+}
+
+#topGnb{
+	margin: auto;
+	width: 960px;
+}
+
+.topGnb{
+	font-size: x-small;
+}
+
+.topBanner{
+	font-size: x-small;
+	margin-top: 10px;
+}
+
+#middleGnb{
+	margin: auto;
+	width: 960px;
+	margin-top: 50px;
+}
+
+
+#bottomGnb{
+	background-color: #f45951;
+	height: 35px;
+	font-size: medium;
+}
+
+#bottomGnbList{
+	margin: auto;
+	width: 960px;
+	color: #f2f2f2;
+}
+
+.bottomGnbList{
+	list-style: none;
+	margin-left: 15px;
+	margin-top: 2px;
+	float: left;
+}
+
+#bottomGnbRight{
+	background-color: #4b4848;
+	color: #f2f2f2;
+}
+
+
+/* #image{
+	height: 416px;
+} */
+
+#contentWrap{
+	margin: auto;
+	width: 960px;
+}
+
+.rankingWrap{
+	margin-bottom: 30px;
+}
+
+.rankingHeader > b{
+	font-size: 25px;
+}
+
+ul{
+	list-style:none;
+}
+
+a{
+	text-decoration:none; 
+	color:#333;
+}
+.rankigListWrap{
+	margin-bottom: 30px;
+}
+
+.rankingTitle{
+	height: 32px;
+}
+
+ul.list {
+list-style-type: none;
+margin: 0;
+padding: 0;
+border-bottom: 1px solid #ccc;
+}
+ul.list::after {
+content: '';
+display: block;
+clear: both;
+}
+.tab-button {
+display: block;
+padding: 10px 20px 10px 20px;
+float: left;
+margin-right: -1px;
+margin-bottom: -1px;
+color: grey;
+text-decoration: none;
+cursor: pointer;
+}
+.active {
+border-top: 2px solid orange;
+border-right: 1px solid #ccc;
+border-bottom: 1px solid white;
+border-left: 1px solid #ccc;
+color: black;
+margin-top: -2px;
+}
+.tab-content {
+display: none;
+padding: 10px;
+}
+.show {
+display: block;
+}
+
+
+
+
+
+
+.todayBanner{
+	width: 100%;
+	margin-top: 23px;	
+}
+
+.bannerAnswer{
+	text-align: center;	
+	margin-top: 11px;
+	margin-bottom: 11px;
+}
+
+.bottomBanner{
+	margin-top: 40px;
+}
+
+#footerWrap{
+	background-color: #e8e8ea;
+	width : 100%;
+	clear: both;
+	display: inline-block;
+	margin-top: 100px;
+	font-size: 12px;
+}
+
+#footerTop{
+	margin: auto;
+	width: 960px;
+	margin-top: 20px;
+
+}
+
+#footerTopList{
+	border-bottom: 1px solid #ced2d6;
+	display: inline-block;
+	width: 100%;
+	text-align: left;
+}
+
+.footerList{
+	list-style: none;
+	margin:auto;
+	font-size: small;
+	float: left;
+}
+
+.footerListLi{
+	list-style: none;
+	float: left;
+	margin-left: 20px;
+	margin-bottom: 15px;
+}
+
+#footerBottom{
+	display: inline-block;
+	color: #999;
+	text-align: left;
+	width: 100%;
+}
+
+dl {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+dt{
+	display: block;	
+	float: left;
+	margin-right: 36px;
+}
+
+dd{
+	display: block;
+	margin-inline-start: 40px;
+}

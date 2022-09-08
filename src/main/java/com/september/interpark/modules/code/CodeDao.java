@@ -6,7 +6,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
-import javax.swing.text.View;
+
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
@@ -33,9 +33,7 @@ public class CodeDao {
 		return result;
 	}
 	
-	public List<Code> viewList(){
-		List<Code> list=sqlSession.selectList(namespace+".viewList"); 
-		return list;
-	}
-	
+	 public List<Code> viewList(){ 
+		 return sqlSession.selectList(namespace+ ".viewList", "");
+	 }
 }

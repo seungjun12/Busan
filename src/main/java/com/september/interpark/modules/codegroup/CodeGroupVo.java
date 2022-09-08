@@ -4,6 +4,7 @@ public class CodeGroupVo {
 	private Integer shOption;
 	private String shValue;
 	private Integer shdelNy;
+	private String ccgseq;
 	
 ////////////////////////////////////////////////////////////////////////////////////////	
 	public Integer getShOption() {
@@ -24,6 +25,14 @@ public class CodeGroupVo {
 	public void setShdelNy(Integer shdelNy) {
 		this.shdelNy = shdelNy;
 	}
+	public String getCcgseq() {
+		return ccgseq;
+	}
+	public void setCcgseq(String ccgseq) {
+		this.ccgseq = ccgseq;
+	}
+	
+	
 	
 	
 	

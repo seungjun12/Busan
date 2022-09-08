@@ -445,7 +445,7 @@
 							<input type="radio" id="test3" name="test" value="3">test3
 						</div>
 						<div class="col-6">
-							
+							<input class="form-control" type="text"  aria-label="default input example" value="<c:out value="${item.ccgNameKo }"/>">
 						</div>
 					</div>
 				</div>

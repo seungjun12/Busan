@@ -30,7 +30,8 @@
 			,ccuseNy
 			,ccdelNy
 			,ccorder
-			,ccgNameKo
+			,ccg_seq
+			<!-- ,ccgNameKo -->
 		)
 		VALUES(
 			#{ccnameko}
@@ -38,19 +39,20 @@
 			,#{ccuseNy}
 			,#{ccdelNy}
 			,#{ccorder}
-			,#{ccgNameKo}
+			,#{ccg_seq}
+			<!-- ,#{ccgNameKo} -->
 		)
 		<selectKey resultType="String" keyProperty="ccseq" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>
 	
-	<select id="viewList" resultMap="resultMapObj">
+  	<select id="viewList" resultMap="resultMapObj">
 		SELECT
 			a.*
-			,(SELECT ccgNameKo FROM ccg aa WHERE 1=1 AND aa.ccgseq = a.ccg_seq)as ccgNameKo
-			FROM cc a
-	</select>
+			From ccg a
+			WHERE 1=1
+	</select>  
 	
 	
 </mapper>

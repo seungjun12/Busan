@@ -5,6 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.september.interpark.modules.codegroup.CodeGroup;
+import com.september.interpark.modules.codegroup.CodeGroupVo;
+
 
 @Service
 public class CodeServiceImpl implements CodeService{
@@ -24,11 +27,15 @@ public class CodeServiceImpl implements CodeService{
 		return result;
 	}
 
-	@Override
-	public List<Code> viewList() throws Exception {
-		List<Code> list=dao.viewList();
-		return list;
-	}
+	
+	  @Override public List<Code> viewList() throws Exception { 
+		  List<Code>list=dao.viewList(); 
+		  return list;
+	  }
+	 
+
+	
+	
 	
 	
 	

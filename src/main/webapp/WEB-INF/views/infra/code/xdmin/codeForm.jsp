@@ -348,15 +348,15 @@
 					</div>
 				</div>
 			 -->
-			 <form method="post" action="codeInst">
+			 <form method="post" action="codeInst" id="codeFormReg" name="codeFormReg">
 			 <div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
 							<select class="form-select" aria-label="Default select example" id="ccg_seq" name="ccg_seq">
 						  		<option value="">코드그룹 선택</option>
-							  	<c:forEach items="view" varStatus="status">
-							  		<option value="${ ccg_seq}">
-							  			<c:out value="${ ccgNameKo}"/>
+							  	<c:forEach items="${view}" var="view" varStatus="status">
+							  		<option value="${ view.ccgseq}">
+							  			<c:out value="${ view.ccgNameKo}"/>
 							  		</option>
 							  	</c:forEach>
 							</select>
@@ -468,12 +468,10 @@
 								<button type="button" class="btn btn-danger">
 									<i class="fa-regular fa-trash-can"></i>
 								</button>
-							</a>
-							<a href="codeList">	
-								<button type="submit" class="btn btn-primary">
+							</a>	
+								<span type="button" class="btn btn-primary" onclick="test();">
 									<i class="fa-solid fa-plus"></i>
-								</button>
-							</a>
+								</span>
 						</div>
 					</div>
 				</div>
@@ -541,6 +539,49 @@
 
 	<!-- fontawsome -->
 	<script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
+	
+	<script type="text/javascript">
+	function test() {
+		
+		if(document.getElementById('ccnameko').value == '' || document.getElementById('ccnameko').value == null){
+			alert("한글코드 이름 다시 입력해주세요")
+			document.getElementById('ccnameko').value="";
+			document.getElementById('ccnameko').focus();
+			return false;
+		}
+		
+		if(document.getElementById('ccnameeg').value == '' || document.getElementById('ccnameko').value == null){
+			alert("영어코드 이름 다시 입력해주세요")
+			document.getElementById('ccnameeg').value="";
+			document.getElementById('ccnameeg').focus();
+			return false;
+		}
+		
+		if(document.getElementById('ccuseNy').value == '' || document.getElementById('ccuseNy').value == null){
+			alert("사용여부 선택해주세요")
+			document.getElementById('ccuseNy').value="";
+			document.getElementById('ccuseNy').focus();
+			return false;
+		}
+		
+		if(document.getElementById('ccorder').value == '' || document.getElementById('ccorder').value == null){
+			alert("순서 입력해주세요")
+			document.getElementById('ccorder').value="";
+			document.getElementById('ccorder').focus();
+			return false;
+		}
+		
+		if(document.getElementById('ccdelNy').value == '' || document.getElementById('ccdelNy').value == null){
+			alert("삭제 여부 선택해주세요")
+			document.getElementById('ccdelNy').value="";
+			document.getElementById('ccdelNy').focus();
+			return false;
+		}
+		
+		document.getElementById('codeFormReg').submit();
+		
+	}	
+	</script>
 </body>
 
 </html>

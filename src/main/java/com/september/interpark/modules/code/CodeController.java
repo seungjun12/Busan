@@ -29,11 +29,6 @@ public class CodeController {
 		return "infra/code/xdmin/codeList";
 	}	
 	
-	@RequestMapping(value= "codeForm")
-	public String codeForm() throws Exception{
-		return "infra/code/xdmin/codeForm";
-	}
-	
 	@RequestMapping(value = "codeInst")
 	public String codeInst(Code dto) throws Exception {
 		
@@ -43,14 +38,16 @@ public class CodeController {
 		return "redirect:/code/codeList";
 	}
 	
-	@RequestMapping(value = "codeForm")
-	public String codeForm(Model model) throws Exception {
-
-		
-		List<Code> list = service.viewList();
-		model.addAttribute("list", list);
-		
-		return "infra/code/xdmin/codeForm";
-	}
+	
+	
+	  @RequestMapping(value = "codeForm")
+	  public String codeForm(Model model)throws Exception {
+	  
+	  List<Code> view = service.viewList(); model.addAttribute("view", view);
+	  
+	  return "infra/code/xdmin/codeForm"; 
+	  }
+	 
+	
 	
 }
