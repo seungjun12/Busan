@@ -43,5 +43,14 @@ public class CodeController {
 		return "redirect:/code/codeList";
 	}
 	
+	@RequestMapping(value = "codeForm")
+	public String codeForm(Model model) throws Exception {
+
+		
+		List<Code> list = service.viewList();
+		model.addAttribute("list", list);
+		
+		return "infra/code/xdmin/codeForm";
+	}
 	
 }

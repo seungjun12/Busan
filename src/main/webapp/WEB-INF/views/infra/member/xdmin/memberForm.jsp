@@ -327,25 +327,20 @@
                 <!-- End of Topbar -->
 			<!-- 코드 그룹 관리 제목 -->
 			<div class="wrap">
+			<form action="memberInst">
 				<!-- 제목 -->
 				<h3>회원관리</h3>
 				<div class="container-fluid codeGroupName">
 					<div class="row">
 						<div class="col-6">
 							이름
-						</div>
-						<div class="col">
-							전화번호
-						</div>						
+						</div>					
 					</div>
 				</div>
 			 	<div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
-							<input class="form-control" type="text" aria-label="default input example">
-						</div>
-						<div class="col">
-							<input class="form-control" type="text" aria-label="default input example">						
+							<input class="form-control" type="text" aria-label="default input example" id="name" name="name" value="<c:out value="${dto.name }"/>">
 						</div>
 					</div>
 				</div>	
@@ -362,10 +357,10 @@
 				<div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
-							<input class="form-control" type="text" placeholder="ID" aria-label="defalut input example">
+							<input class="form-control" type="text" placeholder="ID" aria-label="defalut input example" id="id" name="id" value="<c:out value="${dto.id }"/>">
 						</div>
 						<div class="col">
-							<input class="form-control" type="password" placeholder="PWD" aria-label="default input example">
+							<input class="form-control" type="password" placeholder="PWD" aria-label="default input example" id="pwd" name="pwd" value="<c:out value="${dto.pwd }"/>">
 						</div>
 					</div>
 				</div>
@@ -374,19 +369,19 @@
 						<div class="col-6">
 							이메일
 						</div>
-						<div class="col">
+						<!-- <div class="col">
 							휴대폰
-						</div>
+						</div> -->
 					</div>
 				</div>
 				<div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
-							<input class="form-control" type="text" aria-label="default input example">
+							<input class="form-control" type="text" aria-label="default input example" id="email" name="email" value="<c:out value="${dto.email }"/>">
 						</div>
-						<div class="col">
-							<input class="form-control" type="text"  aria-label="default input example">
-						</div>
+						<%-- <div class="col">
+							<input class="form-control" type="text"  aria-label="default input example" id="number" name="number" value="<c:out value="${dto.number }"/>">
+						</div> --%>
 					</div>
 				</div>
 				<div class="container-fluid codeGroupName">
@@ -402,10 +397,10 @@
 				<div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
-							<input class="form-control" type="text"  aria-label="default input example">
+							<input class="form-control" type="text"  aria-label="default input example" id="address" name="address" value="<c:out value="${dto.address }"/>">
 						</div>
 						<div class="col">
-							<input class="form-control" type="text"  aria-label="default input example">
+							<input class="form-control" type="text"  aria-label="default input example" id="address2" name="address2" value="<c:out value="${dto.address2 }"/>">
 						</div>
 					</div>
 				</div>
@@ -422,11 +417,11 @@
 				<div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col">
-							<input class="form-control" type="text"  aria-label="default input example">
+							<input class="form-control" type="text"  aria-label="default input example" id="addressCode" name="addressCode" value="<c:out value="${dto.addressCode }"/>">
 						</div>
 						<div class="col-6">
-							<select class="form-select" aria-label="Default select example">
-						  		<option selected>남자</option>
+							<select class="form-select" aria-label="Default select example" id="gender" name="gender">
+						  		<option value="0">남자</option>
 							  	<option value="1">여자</option>
 							</select>
 						</div>
@@ -445,14 +440,14 @@
 				<div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
-							<select class="form-select" aria-label="Default select example">
-						  		<option selected>N</option>
-							  	<option value="1">Y</option>
+							<select class="form-select" aria-label="Default select example" id="delNy" name="delNy">
+						  		<option value="1">N</option>
+							  	<option value="0">Y</option>
 							</select>
 						</div>
 						<div class="col">
-							<select class="form-select" aria-label="Default select example">
-						  		<option selected>탈퇴시까지</option>
+							<select class="form-select" aria-label="Default select example" id="personalAgree" name="personalAgree">
+						  		<option value="0">탈퇴시까지</option>
 							  	<option value="1">1년</option>
 							</select>
 						</div>
@@ -478,15 +473,15 @@
 									<i class="fa-regular fa-trash-can"></i>
 								</button>
 							</a>
-							<a href="codeList.html">	
-								<button type="button" class="btn btn-primary">
+							<a href="memberList">	
+								<button type="submit" class="btn btn-primary">
 									<i class="fa-solid fa-plus"></i>
 								</button>
 							</a>
 						</div>
 					</div>
 				</div>
-				
+				</form>
 				
 				
 			</div><!-- wrap end -->
@@ -546,33 +541,6 @@
     <!-- Custom scripts for all pages-->
     <script src="/resources/js/sb-admin-2.min.js"></script>
 	
-	<!-- checkBox -->
-	<script type="text/javascript">
-	
-		function checkSelectAll()  {
-	
-			const checkboxes = document.querySelectorAll('input[name="membercheck"]');
-	
-			const checked = document.querySelectorAll('input[name="membercheck"]:checked');
-	
-			const selectAll = document.querySelector('input[name="allmembercheck"]');
-			  
-			if(checkboxes.length === checked.length)  {
-			  selectAll.checked = true;
-			}else {
-			  selectAll.checked = false;
-			}
-			
-		}
-		
-		function selectall(selectall)  {
-			const checkboxes = document.getElementsByName('membercheck');
-			
-			checkboxes.forEach((checkbox) => {
-		    checkbox.checked = selectall.checked
-		  })
-		}
-	</script>
 
 	<!-- fontawsome -->
 	<script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>

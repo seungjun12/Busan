@@ -11,9 +11,8 @@
 	<select id="selectList" resultMap="resultMapObj">
 		SELECT
 			a.*
-			,b.ccgNameKo
-		FROM cc a
-		JOIN ccg b on b.ccgseq=a.ccg_seq
+			,(SELECT ccgNameKo FROM ccg aa WHERE 1=1 AND aa.ccgseq = a.ccg_seq)as ccgNameKo
+			FROM cc a
 		WHERE 1=1
 			<!-- AND ccuseNy = 1 -->
 		<if test="shdelNy != null and !shdelNy.equals('')">AND ccdelNy = #{shdelNy}</if> 
@@ -31,6 +30,7 @@
 			,ccuseNy
 			,ccdelNy
 			,ccorder
+			,ccgNameKo
 		)
 		VALUES(
 			#{ccnameko}
@@ -38,11 +38,19 @@
 			,#{ccuseNy}
 			,#{ccdelNy}
 			,#{ccorder}
+			,#{ccgNameKo}
 		)
 		<selectKey resultType="String" keyProperty="ccseq" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>
+	
+	<select id="viewList" resultMap="resultMapObj">
+		SELECT
+			a.*
+			,(SELECT ccgNameKo FROM ccg aa WHERE 1=1 AND aa.ccgseq = a.ccg_seq)as ccgNameKo
+			FROM cc a
+	</select>
 	
 	
 </mapper>

@@ -332,7 +332,7 @@
 				<div class="container-fluid codeGroupName">
 					<div class="row">
 						<div class="col-6">
-							사용여부
+							코드그룹
 						</div>
 						
 					</div>
@@ -352,9 +352,13 @@
 			 <div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
-							<select class="form-select" aria-label="Default select example">
-						  		<option selected>선택하세요</option>
-							  	<option value="1">Y</option>
+							<select class="form-select" aria-label="Default select example" id="ccg_seq" name="ccg_seq">
+						  		<option value="">코드그룹 선택</option>
+							  	<c:forEach items="view" varStatus="status">
+							  		<option value="${ ccg_seq}">
+							  			<c:out value="${ ccgNameKo}"/>
+							  		</option>
+							  	</c:forEach>
 							</select>
 						</div>
 					</div>
@@ -466,7 +470,7 @@
 								</button>
 							</a>
 							<a href="codeList">	
-								<button type="button" class="btn btn-primary">
+								<button type="submit" class="btn btn-primary">
 									<i class="fa-solid fa-plus"></i>
 								</button>
 							</a>

@@ -22,5 +22,36 @@
 			<otherwise></otherwise>
 		</choose>	
 	</select>
+	
+	<insert id="insert">
+		INSERT INTO member(
+			name
+			,id
+			,pwd
+			,gender
+			,email
+			,personalAgree
+			,address
+			,address2
+			,addressCode
+			,delNy
+		)
+		VALUES(
+			#{name}
+			,#{id}
+			,#{pwd}
+			,#{gender}
+			,#{email}
+			,#{personalAgree}
+			,#{address}
+			,#{address2}
+			,#{addressCode}
+			,#{delNy}
+		)
+		<selectKey resultType="String" keyProperty="seq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	
+	</insert>
 
 </mapper>	

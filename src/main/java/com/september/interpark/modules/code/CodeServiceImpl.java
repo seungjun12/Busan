@@ -23,6 +23,15 @@ public class CodeServiceImpl implements CodeService{
 		System.out.println("service result: "+result);
 		return result;
 	}
+
+	@Override
+	public List<Code> viewList() throws Exception {
+		List<Code> list=dao.viewList();
+		return list;
+	}
+	
+	
+	
 	
 	
 }
