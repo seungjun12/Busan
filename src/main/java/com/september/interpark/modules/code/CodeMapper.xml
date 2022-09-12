@@ -52,7 +52,15 @@
 			a.*
 			From ccg a
 			WHERE 1=1
-	</select>  
+	</select> 
+	
+	<select id="selectOne" resultMap="resultMapObj">
+		SELECT
+			a.*
+		FROM cc a
+			WHERE 1=1
+			AND ccseq=#{ccseq}	
+	</select> 
 	
 	
 </mapper>

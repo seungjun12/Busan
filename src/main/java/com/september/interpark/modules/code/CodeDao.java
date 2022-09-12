@@ -36,4 +36,10 @@ public class CodeDao {
 	 public List<Code> viewList(){ 
 		 return sqlSession.selectList(namespace+ ".viewList", "");
 	 }
+	 
+	 public Code selectOne(CodeVo vo) {
+		 Code result=sqlSession.selectOne(namespace+".selectOne", vo);
+		 System.out.println("dao result :" + result);
+		 return result;
+	 }
 }
