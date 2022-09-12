@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
+
 <html lang="en">
 
 <head>
@@ -14,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>회원 관리</title>
+    <title>맴버 폼</title>
 
     <!-- Custom fonts for this template-->
     <link href="/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -24,13 +25,13 @@
 
     <!-- Custom styles for this template-->
     <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
-	<link href="/resources/css/memberList_style.css" rel="stylesheet">
+	<link href="/resources/css/memberForm_style.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
 
     <!-- Page Wrapper -->
-    <div id="wrapper">
+    <div id="wrapper" class="container-fluid">
 
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-danger sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -73,7 +74,7 @@
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item" href="codeGrouplist.html">코드그룹관리</a>
                         <a class="collapse-item" href="codeList.html">코드관리</a>
-                        <a class="collapse-item active" href="cards.html">회원관리</a>
+                        <a class="collapse-item active" href="memberList.html">회원관리</a>
                     </div>
                 </div>
             </li>
@@ -326,152 +327,159 @@
                 <!-- End of Topbar -->
 			<!-- 코드 그룹 관리 제목 -->
 			<div class="wrap">
+			<form action="memberInst" id="memberFormReg" name="memberFormReg">
 				<!-- 제목 -->
 				<h3>회원관리</h3>
-				<!-- 검색대 -->
-				<form method="post" action="member/memberList">
-				<div class="searchWrap">
-					<div class="searchFirst">
-						<select class="form-select form-select-sm selectSize" id="shdelNy" name="shdelNy" aria-label=".form-select-sm example">
-						  <option value="" selected<c:if test="${empty vo.shdelNy}">selected</c:if>>삭제여부</option>
-						  <option value="1" <c:if test="${vo.shdelNy eq 1}">selected</c:if>>N</option>
-						  <option value="0" <c:if test="${vo.shdelNy eq 0}">selected</c:if>>Y</option>
-						</select>
-						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example">
-						  <option selected>수정일</option>
-						  <option value="1">One</option>
-						  <option value="2">Two</option>
-						  <option value="3">Three</option>
-						</select>
-						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example">
-						  <option selected>시작일</option>
-						  <option value="1">One</option>
-						  <option value="2">Two</option>
-						  <option value="3">Three</option>
-						</select>
-						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example">
-						  <option selected>종료일</option>
-						  <option value="1">One</option>
-						  <option value="2">Two</option>
-						  <option value="3">Three</option>
-						</select>						
+				<div class="container-fluid codeGroupName">
+					<div class="row">
+						<div class="col-6">
+							이름
+						</div>					
 					</div>
-					<div class="searchSecond"><!-- 여기부터 ㄱㄱ -->
-						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example" id="shOption" name="shOption">
-						  <option selected>검색구분</option>
-						  <option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>순서</option>
-						  <option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>이름</option>
-						  <option value="3" <c:if test="${vo.shOption eq 3}">selected</c:if>>아이디</option>
-						</select>
-						<input class="form-control form-control-sm" type="text" placeholder="검색" aria-label=".form-control-sm example">
-						<button type="submit">
-							<i class="fa fa-search" aria-hidden="true" style="cursor: pointer;"></i>&nbsp;&nbsp;&nbsp;
-						</button>
-						<button type="submit">
-							<i class="fa fa-reply" aria-hidden="true" style="cursor: pointer;"></i>
-						</button>
+				</div>
+			 	<div class="container-fluid codeGroupInput">
+					<div class="row">
+						<div class="col-6">
+							<input class="form-control" type="text" aria-label="default input example" id="name" name="name" value="<c:out value="${item.name }"/>">
+						</div>
+					</div>
+				</div>	
+				<div class="container-fluid codeGroupName">
+					<div class="row">
+						<div class="col-6">
+							아이디
+						</div>
+						<div class="col">
+							비밀번호
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupInput">
+					<div class="row">
+						<div class="col-6">
+							<input class="form-control" type="text" placeholder="ID" aria-label="defalut input example" id="id" name="id" value="<c:out value="${item.id }"/>">
+						</div>
+						<div class="col">
+							<input class="form-control" type="password" placeholder="PWD" aria-label="default input example" id="pwd" name="pwd" value="<c:out value="${item.pwd }"/>">
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupName">
+					<div class="row">
+						<div class="col-6">
+							이메일
+						</div>
+						<!-- <div class="col">
+							휴대폰
+						</div> -->
+					</div>
+				</div>
+				<div class="container-fluid codeGroupInput">
+					<div class="row">
+						<div class="col-6">
+							<input class="form-control" type="text" aria-label="default input example" id="email" name="email" value="<c:out value="${item.email }"/>">
+						</div>
+						<%-- <div class="col">
+							<input class="form-control" type="text"  aria-label="default input example" id="number" name="number" value="<c:out value="${dto.number }"/>">
+						</div> --%>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupName">
+					<div class="row">
+						<div class="col-6">
+							주소
+						</div>
+						<div class="col">
+							상세주소
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupInput">
+					<div class="row">
+						<div class="col-6">
+							<input class="form-control" type="text"  aria-label="default input example" id="address" name="address" value="<c:out value="${item.address }"/>">
+						</div>
+						<div class="col">
+							<input class="form-control" type="text"  aria-label="default input example" id="address2" name="address2" value="<c:out value="${item.address2 }"/>">
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupName">
+					<div class="row">
+						<div class="col-6">
+							집코드
+						</div>
+						<div class="col">
+							성별
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupInput">
+					<div class="row">
+						<div class="col">
+							<input class="form-control" type="text"  aria-label="default input example" id="addressCode" name="addressCode" value="<c:out value="${item.addressCode }"/>">
+						</div>
+						<div class="col-6">
+							<select class="form-select" aria-label="Default select example" id="gender" name="gender">
+						  		<option value="0">남자</option>
+							  	<option value="1">여자</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupName">
+					<div class="row">
+						<div class="col-6">
+							삭제여부
+						</div>
+						<div class="col">
+							개인정보유효기간
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupInput">
+					<div class="row">
+						<div class="col-6">
+							<select class="form-select" aria-label="Default select example" id="delNy" name="delNy">
+						  		<option value="1">N</option>
+							  	<option value="0">Y</option>
+							</select>
+						</div>
+						<div class="col">
+							<select class="form-select" aria-label="Default select example" id="personalAgree" name="personalAgree">
+						  		<option value="0">탈퇴시까지</option>
+							  	<option value="1">1년</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid lastBtn">
+					<div class="row">
+						<div class="col-6">
+							<a href="codelist.html">	
+								<button type="button" class="btn btn-secondary">
+									<i class="fa-solid fa-bars"></i>
+								</button>
+							</a>
+						</div>
+						<div class="col" style="text-align: right;">
+							<a>	
+								<button type="button" class="btn btn-danger">
+									<i class="fa-solid fa-x"></i>
+								</button>
+							</a>
+							<a>	
+								<button type="button" class="btn btn-danger">
+									<i class="fa-regular fa-trash-can"></i>
+								</button>
+							</a>
+							<span type="button" class="btn btn-primary" onclick="test();">
+								<i class="fa-solid fa-plus"></i>
+							</span>
+						</div>
 					</div>
 				</div>
 				</form>
-				<!-- 리스트 영역 -->
-				<div style="color: black">
-					total:0
-				</div>
-				<div class="listWrap">
-					<table class="table">
-				  		<thead style="background-color: black; color: white;">
-					    	<td class="td1"><input class="test" type="checkbox" value="allmemberchecked" onclick="selectall(this);" name="allmembercheck"></td>
-					    	<td>#</td>
-					    	<td>이름</td>
-					    	<td class="td3">아이디</td>
-					    	<td class="td3">비밀번호</td>
-					    	<td class="td4">성별</td>
-					    	<td class="td5">이메일</td>
-					    	<td class="td6">휴대폰</td>
-					    	<td>주소</td>
-					    	<td>상세주소</td>
-					    	<td>집코드</td>
-					    	<td class="td3">개인정보 유효기간</td>
-					    	<td class="td7">삭제여부</td>
-					  	</thead>
-					  	<c:choose> 
-					  		<c:when test="${fn:length(list) eq 0}">
-					  			<tr>
-					  				<td class="text-center" colspan="13">There is no data!</td>
-					  			</tr>
-					  		</c:when> 
-					  		<c:otherwise>
-					  		<c:forEach items="${list}" var="list" varStatus="status">
-					  	<tbody>
-							<tr onclick="location.href='/member/memberView?seq=<c:out value="${list.seq }"/>'" style="cursor: pointer;">	    	
-						    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
-						    	<td><c:out value="${list.seq }"/></td>
-						    	<td><c:out value="${list.name }"/></td>
-						    	<td><c:out value="${list.id }"/></td>
-						    	<td><c:out value="${list.pwd }"/></td>
-						    	<td><c:out value="${list.gender }"/></td>
-						    	<td><c:out value="${list.email }"/></td>
-						    	<td><c:out value="${list.number }"/></td>
-						    	<td><c:out value="${list.address }"/></td>
-						    	<td><c:out value="${list.address2 }"/></td>
-						    	<td><c:out value="${list.addressCode }"/></td>
-						    	<td><c:out value="${list.personalAgree }"/></td>
-						    	<td><c:out value="${list.delNy }"/></td>
-				    		</tr>
-				    	</tbody>
-					  		</c:forEach>
-					  		</c:otherwise>
-						</c:choose>
-					  	
-					  		
-					  	
-					  		
-					  		
-					</table>
-				</div>
-				<!-- 페이지네이션 -->
-				<div class="d-flex justify-content-center" style="margin-top: 30px;">
-					<nav aria-label="Page navigation example">
-					  <ul class="pagination_my" style="color: black;">
-					    <li class="page-item">
-					      <a class="page-link" href="#" aria-label="Previous">
-					        <span aria-hidden="true">&laquo;</span>
-					      </a>
-					    </li>
-					    <li class="page-item"><a class="page-link" href="#">1</a></li>
-					    <li class="page-item"><a class="page-link" href="#">2</a></li>
-					    <li class="page-item"><a class="page-link" href="#">3</a></li>
-					    <li class="page-item"><a class="page-link" href="#">4</a></li>
-					    <li class="page-item">
-					      <a class="page-link" href="#" aria-label="Next">
-					        <span aria-hidden="true">&raquo;</span>
-					      </a>
-					    </li>
-					  </ul>
-					</nav>		
-				</div>			
-				<!-- 삭제 버튼 -->
-				<!-- 모달띄우는것부터 시작 -->
-				<!-- Button trigger modal -->
-				<a href="#" data-toggle="modal" data-target="#deleteModal" class="modalBtn">
-					<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  						<i class="fa-solid fa-x"></i>
-					</button>
-				</a>
-				<a href="#" data-toggle="modal" data-target="#deleteModal2" class="modalBtn">
-					<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  						<i class="fa-regular fa-trash-can"></i>
-					</button>	
-				</a>
-				<a href="memberForm">	
-					<button type="button" class="btn btn-primary rightBtn" href="memberForm.html">
-						<i class="fa-solid fa-plus"></i>
-					</button>
-				</a>	
-				<button type="button" class="btn btn-success rightBtn" style="margin-right: 5px;">
-					<i class="fa-solid fa-file"></i>
-				</button>
-				
 				
 				
 			</div><!-- wrap end -->
@@ -519,47 +527,7 @@
         </div>
     </div>
     
-    <!-- 완전삭제 모달 -->
-    <!-- Modal -->
-    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">완전삭제</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">정말 삭제 하시겠습니까?</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-                    <a class="btn btn-danger" href="codeGroup.html">삭제</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    
-    <!-- 삭제 모달 -->
-    <div class="modal fade" id="deleteModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">삭제</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">정말 삭제 하시겠습니까?</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-                    <a class="btn btn-danger" href="codeGroup.html">삭제</a>
-                </div>
-            </div>
-        </div>
-    </div>    
+  
 
     <!-- Bootstrap core JavaScript-->
     <script src="/resources/vendor/jquery/jquery.min.js"></script>
@@ -571,36 +539,77 @@
     <!-- Custom scripts for all pages-->
     <script src="/resources/js/sb-admin-2.min.js"></script>
 	
-	<!-- checkBox -->
-	<script type="text/javascript">
-	
-		function checkSelectAll()  {
-	
-			const checkboxes = document.querySelectorAll('input[name="membercheck"]');
-	
-			const checked = document.querySelectorAll('input[name="membercheck"]:checked');
-	
-			const selectAll = document.querySelector('input[name="allmembercheck"]');
-			  
-			if(checkboxes.length === checked.length)  {
-			  selectAll.checked = true;
-			}else {
-			  selectAll.checked = false;
-			}
-			
-		}
-		
-		function selectall(selectall)  {
-			const checkboxes = document.getElementsByName('membercheck');
-			
-			checkboxes.forEach((checkbox) => {
-		    checkbox.checked = selectall.checked
-		  })
-		}
-	</script>
 
 	<!-- fontawsome -->
 	<script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
+	
+	<script type="text/javascript">
+		function test() {
+			if(document.getElementById('name').value == '' || document.getElementById('name').value == null){
+				alert("이름 입력해")
+				document.getElementById('name').value="";
+				document.getElementById('name').focus();
+				return false;
+			}
+			
+			if(document.getElementById('id').value == '' || document.getElementById('id').value == null){
+				alert("아이디 입력해")
+				document.getElementById('id').value="";
+				document.getElementById('id').focus();
+				return false;
+			}
+			
+			if(document.getElementById('pwd').value == '' || document.getElementById('pwd').value == null){
+				alert("비밀번호 입력해")
+				document.getElementById('pwd').value="";
+				document.getElementById('pwd').focus();
+				return false;
+			}
+			
+			if(document.getElementById('email').value == '' || document.getElementById('email').value == null){
+				alert("이메일 입력해")
+				document.getElementById('email').value="";
+				document.getElementById('email').focus();
+				return false;
+			}
+			
+			if(document.getElementById('address').value == '' || document.getElementById('address').value == null){
+				alert("주소 입력해")
+				document.getElementById('address').value="";
+				document.getElementById('address').focus();
+				return false;
+			}
+			
+			if(document.getElementById('address2').value == '' || document.getElementById('address2').value == null){
+				alert("상세주소 입력해")
+				document.getElementById('address2').value="";
+				document.getElementById('address2').focus();
+				return false;
+			}
+			
+			if(document.getElementById('address2').value == '' || document.getElementById('address2').value == null){
+				alert("상세주소 입력해")
+				document.getElementById('address2').value="";
+				document.getElementById('address2').focus();
+				return false;
+			}
+			
+			if(document.getElementById('addressCode').value == '' || document.getElementById('addressCode').value == null){
+				alert("집코드 입력해")
+				document.getElementById('addressCode').value="";
+				document.getElementById('addressCode').focus();
+				return false;
+			}
+			
+			document.getElementById('memberFormReg').submit();
+			
+			return false;
+			
+			
+		}
+	
+	
+	</script>
 </body>
 
 </html>

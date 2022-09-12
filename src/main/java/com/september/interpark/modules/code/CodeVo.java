@@ -4,6 +4,8 @@ public class CodeVo {
 	private Integer shOption;
 	private String shValue;
 	private Integer shdelNy;
+	private String ccseq;
+	
 	
 	
 	public Integer getShOption() {
@@ -24,6 +26,13 @@ public class CodeVo {
 	public void setShdelNy(Integer shdelNy) {
 		this.shdelNy = shdelNy;
 	}
+	public String getCcseq() {
+		return ccseq;
+	}
+	public void setCcseq(String ccseq) {
+		this.ccseq = ccseq;
+	}
+	
 	
 	
 	

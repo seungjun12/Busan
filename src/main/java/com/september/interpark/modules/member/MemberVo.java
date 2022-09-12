@@ -4,6 +4,7 @@ public class MemberVo {
 	private String shValue;
 	private Integer shOption;
 	private Integer shdelNy;
+	private String seq;
 	
 	
 	public String getShValue() {
@@ -23,6 +24,12 @@ public class MemberVo {
 	}
 	public void setShdelNy(Integer shdelNy) {
 		this.shdelNy = shdelNy;
+	}
+	public String getSeq() {
+		return seq;
+	}
+	public void setSeq(String seq) {
+		this.seq = seq;
 	}
 
 	

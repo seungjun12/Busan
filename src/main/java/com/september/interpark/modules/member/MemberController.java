@@ -43,5 +43,12 @@ public class MemberController {
 		return "redirect:/member/memberList";
 	}
 	
+	@RequestMapping(value = "memberView")
+	public String memberView(MemberVo vo,Model model) throws Exception {
+		Member result=service.selectOne(vo);
+		model.addAttribute("item", result);
+		return "infra/member/xdmin/memberView";
+	}
+	
 	
 }

@@ -34,5 +34,11 @@ public class MemberDao {
 		System.out.println("dao result: " +result);
 		return result;
 	}
+	
+	public Member selectOne(MemberVo vo) {
+		Member result =sqlSession.selectOne(namespace+".selectOne", vo);
+		System.out.println("dao result :" +result);
+		return result;
+	}
 }	
 

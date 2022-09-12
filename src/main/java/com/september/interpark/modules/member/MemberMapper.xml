@@ -53,5 +53,13 @@
 		</selectKey>
 	
 	</insert>
+	
+	<select id="selectOne" resultMap="resultMapObj">
+		SELECT
+			a.*
+		FROM member
+		WHERE1=1
+			AND seq=#{seq}	
+	</select>
 
 </mapper>	
