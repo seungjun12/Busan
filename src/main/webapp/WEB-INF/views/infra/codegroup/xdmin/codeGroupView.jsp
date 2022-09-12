@@ -25,11 +25,11 @@
 
     <!-- Custom styles for this template-->
     <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
-	<link href="/resources/css/codeGroupList_style.css" rel="stylesheet">
+	<link href="/resources/css/codeGroupForm_style.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
-<!-- <div class="container-fluid"> -->
+
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -72,9 +72,9 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item active" href="codeGrouplist">코드그룹관리</a>
-                        <a class="collapse-item" href="codeList">코드관리</a>
-                        <a class="collapse-item" href="memberList.html">회원관리</a>
+                        <a class="collapse-item active" href="codeGrouplist.html">코드그룹관리</a>
+                        <a class="collapse-item" href="codeList.html">코드관리</a>
+                        <a class="collapse-item" href="cards.html">회원관리</a>
                     </div>
                 </div>
             </li>
@@ -329,155 +329,158 @@
 			<div class="wrap">
 				<!-- 제목 -->
 				<h3>코드그룹관리</h3>
-				<!-- 검색대 -->
-				<form method="post" action="/codeGroup/codeGroupList">
-				<div class="searchWrap">
-					<div class="searchFirst">
-					
-						<select class="form-select form-select-sm selectSize" id="shdelNy" name="shdelNy" aria-label=".form-select-sm example">
-						   <option value="" selected<c:if test="${empty vo.shdelNy}">selected</c:if>>삭제여부</option>
-						  <option value="1" <c:if test="${vo.shdelNy eq 1}">selected</c:if>>N</option>
-						  <option value="0" <c:if test="${vo.shdelNy eq 0}">selected</c:if>>Y</option>
-						</select>
-						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example">
-						  <option selected>수정일</option>
-						  <option value="week">1주일</option>
-						  <option value="month">1달</option>
-						  <option value="threeMonth">3달</option>
-						  <option value="year">1년</option>						  
-						</select>
-						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example">
-						  <option selected>시작일</option>
-						  <option value="1">One</option>
-						  <option value="2">Two</option>
-						  <option value="3">Three</option>
-						</select>
-						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example">
-						  <option selected>종료일</option>
-						  <option value="1">One</option>
-						  <option value="2">Two</option>
-						  <option value="3">Three</option>
-						</select>						
-					</div>
-					<div class="searchSecond"><!-- 여기부터 ㄱㄱ -->
-						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example" id="shOption" name="shOption">
-						  <option value="" selected<c:if test="${empty vo.shOption}">selected</c:if>>검색구분</option>
-						  <option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>순서</option>
-						  <option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>코드그룹(한글)</option>
-						  <option value="3" <c:if test="${vo.shOption eq 3}">selected</c:if>>코드그룹(영문)</option>
-						</select>
-						<input class="form-control form-control-sm" type="text" placeholder="검색" aria-label=".form-control-sm example" id="shValue" name="shValue" value="<c:out value="${vo.shValue }"/>">
-						<button type="submit">
-							<i class="fa fa-search" aria-hidden="true" style="cursor: pointer;"></i>&nbsp;&nbsp;&nbsp;
-						</button>
-						<button type="submit">
-							<i class="fa fa-reply" aria-hidden="true" style="cursor: pointer;"></i>
-						</button>
-				</form>
+				<div class="container-fluid codeGroupName">
+					<div class="row">
+						<div class="col-6">
+							코드그룹 코드
+						</div>
+						<div class="col">
+							코드그룹 코드(Another)
+						</div>
 					</div>
 				</div>
-				<!-- 리스트 영역 -->
-				<div style="color: black">
-					total:0
-					<select name="count" >
-						<option value="10">10
-						<option value="20">20
-						<option value="30">30
-					</select>
+<!-- 				<div class="container-fluid">
+					<div class="row">
+						<div class="col-6">
+						
+						</div>
+						<div class="">
+						
+						</div>
+					</div>
 				</div>
-				<div class="listWrap">
-					<table class="table">
-				  		<thead style="background-color: black;">
-					    	<td width="10px;"><input class="test" type="checkbox" value="allmemberchecked" onclick="selectall(this);" name="allmembercheck"></td>
-					    	<td width="20px;">#</td>
-					    	<td width="120px;">코드그룹 코드</td>
-					    	<td width="200px;">코드그룹 이름(한글)</td>
-					    	<td width="200px;">코드그룹 이름(영문)</td>
-					    	<td width="100px;">코드갯수</td>
-					    	<td class="td7">등록일</td>
-					    	<td class="td8">수정일</td>
-					    	<td>사용순서</td>
-					    	<td>삭제여부</td>
-					  	</thead>			  		
-					  	<tbody>
-					  	<c:choose>
-					  		<c:when test="${fn:length(list) eq 0}">
-					  			<tr>
-					  				<td class="text-center" colspan="10">There is no data!</td>
-					  			</tr>
-					  		</c:when>
-					  		<c:otherwise>
-					    	<c:forEach items="${list}" var="list" varStatus="status">
-						    	<a href="/codeGroup/codeGroupView?ccgseq=<c:out value="${list.ccgseq }"/>">
-						    	<tr>	
-								
-							    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
-						    		<td><c:out value="${list.ccgseq }"/></td>
-							    	<td><c:out value="${list.ccgseqOther }"/></td>
-							    	<td><c:out value="${list.ccgNameKo }"/></td>
-							    	<td><c:out value="${list.ccgNameEg }"/></td>
-							    	<td><c:out value="${list.ccg_seq }"/></td>
-							    	<td></td>
-							    	<td></td>
-							    	<td><c:out value="${list.ccgorder }"/></td>
-							    	<td><c:out value="${list.ccgdelNy }"/></td> 
-								
-						  		</tr>
-						  		</a>
-					  	</tbody>
-					  	</c:forEach>
-				  			</c:otherwise>
-				  		</c:choose>
-					  		
-					</table>
+			 -->
+			 <form method="post" action="codeGroupInst" id="codeGroupFormReg" name="codeGroupFormReg">
+			 <div class="container-fluid codeGroupInput">
+					<div class="row">
+						<div class="col-6">
+							<input class="form-control" type="text" placeholder="코드그룹 이름(한글)" aria-label="default input example">
+						</div>
+						<div class="col">
+						<input class="form-control" type="text" placeholder="영문(대소문자),숫자" aria-label="default input example">
+						</div>
+					</div>
+				</div>	
+				<div class="container-fluid codeGroupName">
+					<div class="row">
+						<div class="col-6">
+							코드그룹 이름 (한글)
+						</div>
+						<div class="col">
+							코드그룹 이름 (영문)
+						</div>
+					</div>
 				</div>
-				<!-- 페이지네이션 -->
-				<div class="d-flex justify-content-center" style="margin-top: 30px;">
-					<nav aria-label="Page navigation example">
-					  <ul class="pagination_my" style="color: black;">
-					    <li class="page-item">
-					      <a class="page-link" href="#" aria-label="Previous">
-					        <span aria-hidden="true">&laquo;</span>
-					      </a>
-					    </li>
-					    <li class="page-item"><a class="page-link" href="#">1</a></li>
-					    <li class="page-item"><a class="page-link" href="#">2</a></li>
-					    <li class="page-item"><a class="page-link" href="#">3</a></li>
-					    <li class="page-item"><a class="page-link" href="#">4</a></li>
-					    <li class="page-item">
-					      <a class="page-link" href="#" aria-label="Next">
-					        <span aria-hidden="true">&raquo;</span>
-					      </a>
-					    </li>
-					  </ul>
-					</nav>		
-				</div>			
-				<!-- 삭제 버튼 -->
-				<!-- 모달띄우는것부터 시작 -->
-				<!-- Button trigger modal -->
-				<a href="#" data-toggle="modal" data-target="#deleteModal" class="modalBtn">
-					<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  						<i class="fa-solid fa-x"></i>
-					</button>
-				</a>
-				<a href="#" data-toggle="modal" data-target="#deleteModal2" class="modalBtn">
-					<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  						<i class="fa-regular fa-trash-can"></i>
-					</button>	
-				</a>
-				<a href="codeGroupForm">	
-					<button type="button" class="btn btn-primary rightBtn">
-						<i class="fa-solid fa-plus"></i>
-					</button>
-				</a>	
-				<button type="button" class="btn btn-success rightBtn" style="margin-right: 5px;">
-					<i class="fa-solid fa-file"></i>
-				</button>
+				<div class="container-fluid codeGroupInput">
+					<div class="row">
+						<div class="col-6">
+							<input class="form-control" type="text" placeholder="한글,숫자" aria-label="default input example" id="ccgNameKo" name="ccgNameKo" value="<c:out value="${item.ccgNameKo }"/>">
+						</div>
+						<div class="col">
+							<input class="form-control" type="text" placeholder="영문(대소문자),숫자" aria-label="default input example" id="ccgNameEg" name="ccgNameEg" value="<c:out value="${item.ccgNameEg }"/>">
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupName">
+					<div class="row">
+						<div class="col-6">
+							사용여부
+						</div>
+						<div class="col">
+							순서
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupInput">
+					<div class="row">
+						<div class="col-6">
+							<select class="form-select" aria-label="Default select example" id="ccguseNy" name="ccguseNy">
+						  		<option value="0" >Y</option>
+							  	<option value="1" >N</option>
+							</select>
+						</div>
+						<div class="col">
+						<input class="form-control" type="text" placeholder="숫자" aria-label="default input example" id="ccgorder" name="ccgorder" value="<c:out value="${item.ccgorder }"/>">
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupName">
+					<div class="row">
+						<div class="col-6">
+							설명
+						</div>
+						<div class="col">
+							삭제여부
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupInput">
+					<div class="row">
+						<div class="col">
+							<textarea rows="" cols="" style="width: 100%"></textarea>
+						</div>
+						<div class="col-6">
+							<select class="form-select" aria-label="Default select example" id="ccgdelNy" name="ccgdelNy" onchange="onChange">
+						  		<option value="1">N</option>
+							  	<option value="0">Y</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupName">
+					<div class="row">
+						<div class="col-6">
+							테스트 1
+						</div>
+						<div class="col">
+							테스트 2
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupInput">
+					<div class="row">
+						<div class="col">
+							<input type="radio" id="test1" name="test" value="1">test1
+							<input type="radio" id="test2" name="test" value="2">test2
+							<input type="radio" id="test3" name="test" value="3">test3
+						</div>
+						<div class="col-6">
+						</div>
+					</div>
+				</div>
 				
+				<div class="container-fluid lastBtn">
+					<div class="row">
+						<div class="col-6">
+							<a href="codeGrouplist.html">	
+								<button type="button" class="btn btn-secondary">
+									<i class="fa-solid fa-bars"></i>
+								</button>
+							</a>
+						</div>
+						<div class="col" style="text-align: right;">
+							<a>	
+								<button type="button" class="btn btn-danger">
+									<i class="fa-solid fa-x"></i>
+								</button>
+							</a>
+							<a>	
+								<button type="button" class="btn btn-danger">
+									<i class="fa-regular fa-trash-can"></i>
+								</button>
+							</a>
+								<span type="button" class="btn btn-primary" onclick="test();" ><!-- 등록 버튼 -->
+									<i class="fa-solid fa-plus"></i>
+								</span>						
+							<span style="cursor: pointer;"> span연습용</span>
+						</div>
+					</div>
+				</div>
+				</form>
 				
 				
 			</div><!-- wrap end -->
-		<!-- </div>	 -->
+			
 
 
             <!-- Footer -->
@@ -521,47 +524,7 @@
         </div>
     </div>
     
-    <!-- 완전삭제 모달 -->
-    <!-- Modal -->
-    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">완전삭제</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">정말 삭제 하시겠습니까?</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-                    <a class="btn btn-danger" href="codeGroup.html">삭제</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    
-    <!-- 삭제 모달 -->
-    <div class="modal fade" id="deleteModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">삭제</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">정말 삭제 하시겠습니까?</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-                    <a class="btn btn-danger" href="codeGroup.html">삭제</a>
-                </div>
-            </div>
-        </div>
-    </div>    
+  
 
     <!-- Bootstrap core JavaScript-->
     <script src="/resources/vendor/jquery/jquery.min.js"></script>
@@ -573,32 +536,67 @@
     <!-- Custom scripts for all pages-->
     <script src="/resources/js/sb-admin-2.min.js"></script>
 	
-	<!-- checkBox -->
+	
 	<script type="text/javascript">
-	
-		function checkSelectAll()  {
-	
-			const checkboxes = document.querySelectorAll('input[name="membercheck"]');
-	
-			const checked = document.querySelectorAll('input[name="membercheck"]:checked');
-	
-			const selectAll = document.querySelector('input[name="allmembercheck"]');
-			  
-			if(checkboxes.length === checked.length)  {
-			  selectAll.checked = true;
-			}else {
-			  selectAll.checked = false;
+		function test(){
+			
+			if(document.getElementById('ccgNameKo').value == '' ||  document.getElementById('ccgNameKo').value == null){
+				alert("한글 이름 다시 입력해주세요")
+				document.getElementById('ccgNameKo').value="";
+				document.getElementById('ccgNameKo').focus();
+				return false;
 			}
 			
+			alert(document.getElementById('ccgNameKo').value);				
+			
+			if(document.getElementById('ccgNameEg').value =='' || document.getElementById('ccgNameEg').value == null){
+				alert("영문 코드그룹 이름 다시 입력해주세요")
+				document.getElementById('ccgNameEg').value="";
+				document.getElementById('ccgNameEg').focus();
+				return false;
+			}
+			alert(document.getElementById('ccgNameEg').value);
+			
+			if(document.getElementById('ccgorder') ==""  || document.getElementById('ccgorder') == null){
+				alert("순서입력해주세요")
+				document.getElementById('ccgorder').value="";
+				document.getElementById('ccgorder').focus();
+				return false;
+			}
+			alert(document.getElementById('ccgorder').value);
+			
+			if(document.getElementById('ccguseNy') == "" || document.getElementById('ccguseNy') == null){
+				alert("사용여부 체크해 주십시오")
+				document.getElementById('ccguseNy').value="";
+				document.getElementById('ccguseNy').focus();
+				return false;
+			}
+			alert(document.getElementById('ccguseNy').value);
+			
+			if(document.getElementById('ccgdelNy') == "" || document.getElementById('ccgdelNy') == null){
+				alert("삭제여부 체크해 주십시오")
+				document.getElementById('ccgdelNy').value="";
+				document.getElementById('ccgdelNy').focus();
+				return false;
+			}
+			alert(document.getElementById('ccgdelNy').value);
+			
+			if(document.querySelector("input[name='test']:checked") =='' || document.querySelector("input[name='test']:checked") == null){
+				alert("테스트 체크해봐")
+				document.querySelector("input[name='test']:checked").value="";
+				document.querySelector("input[name='test']:checked").focus();
+				return false;
+			}
+			alert(document.querySelector("input[name='test']:checked").value)
+			
+
+			
+			document.getElementById('codeGroupFormReg').submit();
+			
+			return false;
 		}
 		
-		function selectall(selectall)  {
-			const checkboxes = document.getElementsByName('membercheck');
-			
-			checkboxes.forEach((checkbox) => {
-		    checkbox.checked = selectall.checked
-		  })
-		}
+		
 	</script>
 
 	<!-- fontawsome -->
@@ -606,4 +604,3 @@
 </body>
 
 </html>
-
