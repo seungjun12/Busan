@@ -402,11 +402,11 @@
 					  		</c:when>
 					  		<c:otherwise>
 					  		<c:forEach items="${list}" var="list" varStatus="status">
-							<tr onclick="location.href='/code/codeView?ccseq=<c:out value="${list.ccseq }">'" style="cursor: pointer;">    	
+							<tr onclick="location.href='/code/codeView?ccseq=<c:out value="${list.ccseq }"/>'" style="cursor: pointer;">    	
 						    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td><!-- 1 -->
 						    	<td><c:out value="${list.ccseq }"/></td><!-- 2 -->
 						    	<td><c:out value="${list.ccg_seq }"/></td><!-- 3 -->
-						    	<td><c:out value="${list.ccgNameKo }"/></</td><!-- 4 -->
+						    	<td><c:out value="${list.ccgNameKo }"/></td><!-- 4 -->
 						    	<td></td><!-- 5 -->
 						    	<td></td><!-- 6 -->
 						    	<td><c:out value="${list.ccnameko }"/></td><!-- 7 -->
@@ -417,7 +417,7 @@
 						    	<td></td><!-- 12 -->
 					  		</tr>
 					  	</tbody>
-						</c:forEach>
+							</c:forEach>
 						</c:otherwise>
 					</c:choose>
 					</table>

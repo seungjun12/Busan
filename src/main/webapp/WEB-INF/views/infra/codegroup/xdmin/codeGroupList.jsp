@@ -421,7 +421,7 @@
 							    	<td><c:out value="${list.ccgdelNy }"/></td> 
 						  		</tr>
 					  	</tbody>
-					  	</c:forEach>
+					  		</c:forEach>
 				  			</c:otherwise>
 				  		</c:choose>
 					  		
