@@ -327,7 +327,7 @@
                 <!-- End of Topbar -->
 			<!-- 코드 그룹 관리 제목 -->
 			<div class="wrap">
-			<form action="memberInst" id="memberFormReg" name="memberFormReg">
+			<form method="post" action="memberInst" id="memberFormReg" name="memberFormReg">
 				<!-- 제목 -->
 				<h3>회원관리</h3>
 				<div class="container-fluid codeGroupName">

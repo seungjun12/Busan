@@ -57,8 +57,8 @@
 	<select id="selectOne" resultMap="resultMapObj">
 		SELECT
 			a.*
-		FROM member
-		WHERE1=1
+		FROM member a
+		WHERE 1=1
 			AND seq=#{seq}	
 	</select>
 

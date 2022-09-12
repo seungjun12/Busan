@@ -15,7 +15,6 @@ public class Member {
 	private String address2;
 	private String addressCode;
 	private Integer delNy;
-	private String number;
 	
 	
 	//////////////////////////////////////////////
@@ -97,13 +96,7 @@ public class Member {
 	public void setEmailCode(Integer emailCode) {
 		this.emailCode = emailCode;
 	}
-	public String getNumber() {
-		return number;
-	}
-	public void setNumber(String number) {
-		this.number = number;
-	}
-	
+
 
 	
 

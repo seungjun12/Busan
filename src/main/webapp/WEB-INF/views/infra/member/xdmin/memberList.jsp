@@ -411,7 +411,7 @@
 						    	<td><c:out value="${list.pwd }"/></td>
 						    	<td><c:out value="${list.gender }"/></td>
 						    	<td><c:out value="${list.email }"/></td>
-						    	<td><c:out value="${list.number }"/></td>
+						    	<td></td>
 						    	<td><c:out value="${list.address }"/></td>
 						    	<td><c:out value="${list.address2 }"/></td>
 						    	<td><c:out value="${list.addressCode }"/></td>
