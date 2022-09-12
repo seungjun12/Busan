@@ -58,7 +58,7 @@
 		SELECT
 			a.*
 		FROM cc a
-			WHERE 1=1
+		WHERE 1=1
 			AND ccseq=#{ccseq}	
 	</select> 
 	
