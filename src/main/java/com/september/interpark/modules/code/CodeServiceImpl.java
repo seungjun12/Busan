@@ -32,8 +32,15 @@ public class CodeServiceImpl implements CodeService{
 		  List<Code>list=dao.viewList(); 
 		  return list;
 	  }
-	 
 
+	@Override
+	public Code selectOne(CodeVo vo) throws Exception {
+		Code result =dao.selectOne(vo);
+		System.out.println("service result :" +result);
+		return result;
+	}
+	 
+	  
 	
 	
 	

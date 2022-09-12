@@ -47,6 +47,13 @@ public class CodeController {
 	  
 	  return "infra/code/xdmin/codeForm"; 
 	  }
+	  
+	  @RequestMapping(value = "codeView")
+	  public String codeView(CodeVo vo,Model model)throws Exception {
+		  Code result = service.selectOne(vo);
+		  model.addAttribute("item", result);
+	  return "infra/code/xdmin/codeView"; 
+	  }
 	 
 	
 	

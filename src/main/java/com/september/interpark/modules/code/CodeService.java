@@ -10,6 +10,8 @@ public interface CodeService {
 	
 	public int insert(Code dto) throws Exception;
 	
-	 public List<Code>viewList() throws Exception; 
+	public List<Code>viewList() throws Exception; 
+	 
+	public Code selectOne(CodeVo vo) throws Exception;
 	
 }
