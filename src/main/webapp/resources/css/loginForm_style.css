@@ -1,0 +1,161 @@
+#topGnbbg{
+	background: #ededf3;
+}
+
+#topGnb{
+	margin: auto;
+	width: 960px;
+}
+
+.topGnb{
+	font-size: x-small;
+}
+
+.topBanner{
+	font-size: x-small;
+	margin-top: 10px;
+}
+
+#middleGnb{
+	margin: auto;
+	width: 960px;
+	margin-top: 50px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap');
+
+#bottomGnb{
+	background-color: #f45951;
+	height: 35px;
+	font-size: medium;
+}
+
+#bottomGnbList{
+	margin: auto;
+	width: 960px;
+	color: #f2f2f2;
+}
+
+.bottomGnbList{
+	list-style: none;
+	margin-left: 15px;
+	margin-top: 2px;
+	float: left;
+}
+
+#bottomGnbRight{
+	background-color: #4b4848;
+	color: #f2f2f2;
+}
+
+#login{
+	margin: auto;
+	width: 760px;
+	margin-top: 80px;
+}
+
+#loginInput{
+	width: 420px;
+}
+
+#loginCheck{
+	margin-top: 15px;
+}
+
+#loginImage{
+	width: 300px;
+	float: right; 
+}
+
+#snsLogin{
+	margin-top: 30px;
+	width: 420px; 
+}
+
+#loginAnswer{
+	width: 420px;
+	font-size: small;
+	color: gray;
+	margin-top: 10px;
+}
+
+#loginBottom{
+	width: 420px;
+	font-size: small;
+	margin-top: 10px;
+}
+
+#loginBottom > a{
+	color: black;
+	text-decoration: none;
+}
+
+#loginBottomImage{
+	width: 420px;
+	margin-top: 40px;
+}
+
+#footerWrap{
+	background-color: #e8e8ea;
+	width : 100%;
+	clear: both;
+	display: inline-block;
+	margin-top: 100px;
+	font-size: 12px;
+}
+
+#footerTop{
+	margin: auto;
+	width: 960px;
+	margin-top: 20px;
+
+}
+
+#footerTopList{
+	border-bottom: 1px solid #ced2d6;
+	display: inline-block;
+	width: 100%;
+	text-align: left;
+}
+
+.footerList{
+	list-style: none;
+	margin:auto;
+	font-size: small;
+	float: left;
+}
+
+.footerListLi{
+	list-style: none;
+	float: left;
+	margin-left: 20px;
+	margin-bottom: 15px;
+}
+
+#footerBottom{
+	display: inline-block;
+	color: #999;
+	text-align: left;
+	width: 100%;
+}
+
+dl {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+dt{
+	display: block;	
+	float: left;
+	margin-right: 36px;
+}
+
+dd{
+	display: block;
+	margin-inline-start: 40px;
+}
+
+

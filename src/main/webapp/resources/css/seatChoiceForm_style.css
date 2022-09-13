@@ -1,0 +1,56 @@
+.headerWrap{
+	background-color: #26262a;
+	color: white;
+}
+
+.headerWrap > div > span{
+	font-size: 20px;
+}
+
+.seatMap{
+	margin-top: 30px;
+	float: left;
+}
+
+.list{
+	float: right;
+	width: 240px;
+}
+
+.listScroll{
+	height: 450px;
+	overflow: auto;
+	border: 1px solid black;
+	background-color: white;
+	width: 240px;
+}
+
+.lisScroll > div{
+	margin-bottom: 10px;
+}
+
+.listScroll > div > a{
+	font-size: 12px;
+	margin-left: 5px;
+}
+
+.listScroll > div > span{
+	font-size: 10px;
+	color: #a42f2f;
+}
+
+div2{
+	cursor: pointer;
+}
+
+.clicked{
+	color: red;
+}
+
+.btnAuto{
+	margin-top: 10px;
+}
+
+.btn{
+	width: 100%;
+}

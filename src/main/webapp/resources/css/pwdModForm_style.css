@@ -1,0 +1,201 @@
+#topGnbbg{
+	background: #ededf3;
+}
+
+#topGnb{
+	margin: auto;
+	width: 960px;
+}
+
+.topGnb{
+	font-size: x-small;
+}
+
+.topBanner{
+	font-size: x-small;
+	margin-top: 10px;
+}
+
+#middleGnb{
+	margin: auto;
+	width: 960px;
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+
+.mainWrap{
+	background-color: #f3f4fa; 	
+	border-top: 1px solid black;
+	height: 900px;
+}
+
+#openIdWrap{
+	width: 770px;
+	margin: auto;
+}
+
+.logoTop{
+	text-align: center;
+	margin-bottom: 35px;
+	margin-top: 35px;
+}
+
+.whiteWrap{
+	background-color: white;
+	height: 600px;
+}
+
+.leftWrap{
+	float: left;
+	width: 180px;
+}
+
+.gradeWrap{
+	font-size: 15px;
+	margin-top: 25px;
+	margin-left: 20px;
+}
+
+.gradeWrap > span{
+	color: gray;
+}
+
+.gradeWrap > u{
+	color: red;
+}
+
+.memberFunction{
+	border-top: 1px solid gray;
+	margin-top: 20px;
+}
+
+.memberModify{
+	margin-top: 3px;
+}
+
+.leftFunction{
+	text-align: center;
+	margin-top: 12px;
+	font-size: 15px;	
+}
+
+.memberPwd{
+	color: red;
+}
+
+.rightWrap{
+	border-left: 1px solid gray;
+	float: left;
+}
+
+.modifyWrap{
+	width: 500px;
+	margin: auto;
+	margin-top: 40px;
+	margin-left: 35px;
+}
+
+.memberHead{
+	border-bottom: 2px solid black;
+	height: 49px;
+}
+
+.center{
+	text-align: center;
+	font-size: 20px;
+	margin-top: 80px;
+}
+
+#redColor{
+	color: red;
+}
+
+.pwdmodify{
+	margin-top: 15px;
+}
+
+.pwdModify > p{
+	color: red;
+	font-size: 14px;
+	margin-top: 7px;
+}
+
+.pwdAnswer{
+	margin-top: 40px;
+	color: gray;
+	font-size: 13px;
+}
+
+.btn {
+	width: 100%;
+}
+
+.finalBtn{
+	margin-top: 40px;
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap');
+
+#footerWrap{
+	background-color: #e8e8ea;
+	width : 100%;
+	clear: both;
+	display: inline-block;
+	font-size: 12px;
+}
+
+#footerTop{
+	margin: auto;
+	width: 960px;
+	margin-top: 20px;
+
+}
+
+#footerTopList{
+	border-bottom: 1px solid #ced2d6;
+	display: inline-block;
+	width: 100%;
+	text-align: left;
+}
+
+.footerList{
+	list-style: none;
+	margin:auto;
+	font-size: small;
+	float: left;
+}
+
+.footerListLi{
+	list-style: none;
+	float: left;
+	margin-left: 20px;
+	margin-bottom: 15px;
+}
+
+#footerBottom{
+	display: inline-block;
+	color: #999;
+	text-align: left;
+	width: 100%;
+}
+
+dl {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+dt{
+	display: block;	
+	float: left;
+	margin-right: 36px;
+}
+
+dd{
+	display: block;
+	margin-inline-start: 40px;
+}

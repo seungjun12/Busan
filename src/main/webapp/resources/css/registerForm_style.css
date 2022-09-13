@@ -1,0 +1,74 @@
+#topLogo{
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+h5{
+	text-align: center;
+}
+
+#register-wrap{
+	margin: auto;
+	width: 500px;
+	margin-top: 40px;
+}
+
+h5{
+	text-align: center;
+	margin-top: 50px;
+}
+
+#id{
+	margin-top: 60px;
+}
+
+
+.form-control{
+	border-style: none;
+	text-align: center;
+}
+
+#personalPeriod{
+	font-size: 13px;
+	line-height: 20px;
+	color: #999;
+	margin-top: 5px;
+}
+
+.checkbox-gender{
+	margin-left: 210px; 
+}
+
+.form-check-label{
+	font-size: small;	
+}
+
+#inputPhone{
+	text-align: left;
+	width: 300px;
+	display: inline-block;
+}
+
+#agreep{
+	margin-top: 15px;
+}
+
+#registerFooter{
+	margin-top: 80px;
+	height: 80px;
+	background-color: #fafafa;	
+}
+
+#footerCopyright{
+	text-align: center;
+	line-height: 80px;
+	color: #999;
+	font-size: xx-small;
+}
+
+
+
+
+
+
+		

@@ -83,10 +83,11 @@ public class HomeController {
 	public String memberList(Locale locale, Model model) {
 		return "memberList";
 	}
+	
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String index(Locale locale, Model model) {
-		return "index";
-	}
+
+	
+
+	 
 
 }

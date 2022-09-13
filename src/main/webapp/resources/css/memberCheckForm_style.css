@@ -1,0 +1,170 @@
+#topGnbbg{
+	background: #ededf3;
+}
+
+#topGnb{
+	margin: auto;
+	width: 960px;
+}
+
+.topGnb{
+	font-size: x-small;
+}
+
+.topBanner{
+	font-size: x-small;
+	margin-top: 10px;
+}
+
+#middleGnb{
+	margin: auto;
+	width: 960px;
+	margin-top: 50px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap');
+
+#bottomGnb{
+	background-color: #f45951;
+	height: 35px;
+	font-size: medium;
+}
+
+#bottomGnbList{
+	margin: auto;
+	width: 960px;
+	color: #f2f2f2;
+}
+
+.bottomGnbList{
+	list-style: none;
+	margin-left: 15px;
+	margin-top: 2px;
+	float: left;
+}
+
+#bottomGnbRight{
+	background-color: #4b4848;
+	color: #f2f2f2;
+}
+
+.mainWrap{
+	width: 770px;
+	margin: auto;
+	margin-top: 100px;
+}
+
+.rightCancel{
+	height: 50px;
+	border-bottom: 1px solid #e1d7d7;	
+} 
+
+.selectPeriod{
+	font-size: 13px;
+	margin-top: 10px;	
+} 
+
+#colorRed{
+	color: red;
+}
+
+.selectBox{
+	width: 100%;
+	height: 70px;
+	background-color: #f7f4f4;
+	margin-top: 10px;
+}
+
+.selectBox > span{
+	line-height: 70px;
+}
+
+#fontSize{
+	font-size: 12px;
+	margin-left: 17px;
+}
+
+.btn{
+	margin-left: 80px;
+}
+
+table,th,td{
+	border: 1px solid black;
+}
+
+table{
+	margin-top: 20px;
+	text-align: center;
+	font-size: 10px;
+}
+
+td{
+	font-size: 13px;
+}
+
+
+
+
+
+#footerWrap{
+	background-color: #e8e8ea;
+	width : 100%;
+	clear: both;
+	display: inline-block;
+	margin-top: 100px;
+	font-size: 12px;
+}
+
+#footerTop{
+	margin: auto;
+	width: 960px;
+	margin-top: 20px;
+
+}
+
+#footerTopList{
+	border-bottom: 1px solid #ced2d6;
+	display: inline-block;
+	width: 100%;
+	text-align: left;
+}
+
+.footerList{
+	list-style: none;
+	margin:auto;
+	font-size: small;
+	float: left;
+}
+
+.footerListLi{
+	list-style: none;
+	float: left;
+	margin-left: 20px;
+	margin-bottom: 15px;
+}
+
+#footerBottom{
+	display: inline-block;
+	color: #999;
+	text-align: left;
+	width: 100%;
+}
+
+dl {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+dt{
+	display: block;	
+	float: left;
+	margin-right: 36px;
+}
+
+dd{
+	display: block;
+	margin-inline-start: 40px;
+}

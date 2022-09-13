@@ -1,0 +1,413 @@
+#topGnbbg{
+	background: #ededf3;
+}
+
+#topGnb{
+	margin: auto;
+	width: 960px;
+}
+
+.topGnb{
+	font-size: x-small;
+}
+
+.topBanner{
+	font-size: x-small;
+	margin-top: 10px;
+}
+
+#middleGnb{
+	margin: auto;
+	width: 960px;
+	margin-top: 50px;
+}
+
+
+#bottomGnb{
+	background-color: #f45951;
+	height: 35px;
+	font-size: medium;
+	font-size: 0;
+}
+
+#bottomGnbList{
+	margin: auto;
+	width: 960px;
+	color: #f2f2f2;
+}
+
+.bottomGnbList{
+	list-style: none;
+	margin-left: 15px;
+	margin-top: 2px;
+	float: left;
+	font-size: medium;
+}
+
+#bottomGnbRight{
+	background-color: #4b4848;
+	color: #f2f2f2;
+}
+
+.wrap{
+	background: #eee;
+	text-align: left;
+}
+
+.sportsDetailHeader{
+	height: 40px;
+	padding: 12px 0;
+}
+
+.sportsDetailContent{
+	position: relative;
+	text-align: right;
+	font-size: 0;
+	line-height: 0;
+	z-index: 1;
+	width: 960px;
+	margin: auto;
+}
+
+.teamName{
+	position: absolute;
+	top: 10px;
+	left: 0;
+	font-size: 15px;
+	line-height: 19px;
+}
+
+.selectTeam{
+	margin-right: 5px;
+}
+
+.selectBox{
+	display: inline-block;
+	border: 1px solid #aaa;
+	width: 186px;
+	line-height: 36px;
+	height: 38px;
+	cursor: pointer;
+	padding-left: 12px;
+	text-align: left;
+	font-size: 14px;
+	color: #666;
+	position: relative;
+}
+
+.selectDetail{
+	width: 186px;
+	display: inline-block;
+}
+
+#selectDtailSports{
+	margin-right: 5px;
+}
+
+.sportsDetailTop{
+	height: 282px;
+	padding-top: 22px;
+}
+
+#sportsDetailTopImage{
+	width: 100%;
+}
+
+.sportsDetailContents{
+	position: relative;
+	width: 960px;
+	margin: 0 auto;
+	margin-top: 120px;
+}
+
+.buyTitle{
+	height: 32px;
+	position: relative;
+	font-size: 16px;
+}
+
+.gameTable{
+	margin-bottom: 10px;
+	height: 120px;
+	background-color: white;
+	border-left: 1px solid red;
+	display: flex;
+}
+
+.gameDate{
+	margin-top: 45px;
+	margin-right: 20px;
+	margin-bottom:30px;
+	padding-left: 22px;
+	border-right: 1px solid #eee;
+}
+
+.fontDate{
+	font-family: 'Nanum Myeongjo', serif;
+	font-size: 32px;
+}
+
+.fontWeak{
+	margin-right: 35px;
+	font-size: small;
+	color: #999;
+}
+
+.gameTime{
+	margin-top: 45px;
+	margin-right: 20px;
+	margin-bottom:30px;
+	border-right: 1px solid #eee;
+}
+
+.fontTime{
+	font-family: 'Nanum Myeongjo', serif;
+	font-size: 32px;
+	margin-right: 40px;
+}
+
+.teamMatch{
+	width: 318px;
+	height: 104px;
+	margin-top: 16px;
+	float: left;
+	margin-right: 20px;
+	font-size: 12px; 
+}
+
+.team1{
+	width: 135px;
+	float: left;
+	text-align: center;
+	font-size: 14px;
+}
+
+.logoName{
+	display: inline-block;
+}
+
+.vs{
+	float: left;
+	width: 45px;
+	text-align: center;
+	margin-top: 22px;
+	height: 88px;
+}
+
+#vs{
+	vertical-align: center;
+	font-size: 22px;
+}
+
+.team2{
+	width: 135px;
+	float: left;
+	/* margin-right: 20px; */
+	text-align: center;
+	font-size: 14px;
+	height: 88px;
+}
+
+.div{
+	margin-top: 45px;
+	margin-bottom: 30px;
+	border-right: 1px solid #eee;
+}
+
+.ground{
+	padding-left: 20px;
+	display: table;
+	float: left;
+	width: 145px;
+	height: 120px;
+	margin-right: 22px;
+}
+
+.modal-footer >button{
+	width: 100%;
+}
+
+button > a{
+	color: white;
+	text-decoration: none;
+	
+}
+
+.modal-body > p{
+	text-align: center;
+	font-size: small;
+}
+
+.ground > div{
+	display: table-cell;
+	height: 120px;
+	vertical-align: middle;
+	width: 125px;
+}
+
+.ground > div{
+	font-size: 11px;
+	color: #999;
+	line-height: 12px;
+}
+
+.ground span{
+	color: #333;
+	font-size: 14px;
+	font-style: normal;
+	position: relative;
+	line-height: 14px;
+}
+
+.nogameTable{
+	margin-bottom: 10px;
+	height: 120px;
+	background-color: white;
+	border-left: 1px solid #6cd7d8;
+	display: flex;
+}
+
+.btns{
+	height: 120px;
+	width: 128px;
+	float: right;
+	background-color: #6cd7d8;
+	color: white;
+	display: table;
+}
+
+.btnsWrite{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 13px;
+}
+
+.sportsTabWrapper{
+	width: 960px;
+	padding-bottom: 40px;
+	background-color: #fff;
+	border-bottom: 1px solid #ddd;
+	margin: auto;
+	margin-top: 20px;
+}
+
+.sportsTabWrapper > ul{
+	width: 100%;
+	display: table;
+    height: 60px;
+    background-color: #2f323b;
+    table-layout: fixed;
+    padding: 0;
+}
+
+.sportsTabWrapper > ul >li {
+	list-style: none;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.sportsTabWrapper > ul >li.active {
+	background-color: #fff;
+}
+
+.tabContentsWrapper{
+	padding: 40px 40px 0;
+}
+
+.sportsTabWrapper .tabContentsWrapper .tabcontentsWrap.current {
+    display: block;
+}
+
+.sportsTabWrapper .tabContentsWrapper .tabcontentsWrap h3 {
+    font-size: 18px;
+    font-style: normal;
+    color: #333;
+    padding-bottom: 8px;
+}
+
+.sportsTabWrapper .tabContentsWrapper .tabcontentsWrap .dataContents {
+    padding-bottom: 40px;
+    font-size: 14px;
+    font-style: normal;
+    color: #333;
+    line-height: 1.7;
+}
+
+.dataContents > p{
+	height: 24px;
+	font-size: 13px;
+}
+
+
+
+
+
+#footerWrap {
+	background-color: #e8e8ea;
+	width : 100%;
+	clear: both;
+	display: inline-block;
+	margin-top: 100px;
+	font-size: 12px;
+}
+
+#footerTop{
+	margin: auto;
+	width: 960px;
+	margin-top: 20px;
+
+}
+
+#footerTopList{
+	border-bottom: 1px solid #ced2d6;
+	display: inline-block;
+	width: 100%;
+	text-align: left;
+}
+
+.footerList{
+	list-style: none;
+	margin:auto;
+	font-size: small;
+	float: left;
+}
+
+.footerListLi{
+	list-style: none;
+	float: left;
+	margin-left: 20px;
+	margin-bottom: 15px;
+}
+
+#footerBottom{
+	display: inline-block;
+	color: #999;
+	text-align: left;
+	width: 100%;
+}
+
+dl {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+dt{
+	display: block;	
+	float: left;
+	margin-right: 36px;
+}
+
+dd{
+	display: block;
+	margin-inline-start: 40px;
+}
+
+
+
+

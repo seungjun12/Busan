@@ -1,0 +1,215 @@
+#topGnbbg{
+	background: #ededf3;
+}
+
+#topGnb{
+	margin: auto;
+	width: 960px;
+}
+
+.topGnb{
+	font-size: x-small;
+}
+
+.topBanner{
+	font-size: x-small;
+	margin-top: 10px;
+}
+
+#middleGnb{
+	margin: auto;
+	width: 960px;
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+
+.mainWrap{
+	background-color: #f3f4fa; 	
+	border-top: 1px solid black;
+}
+
+#openIdWrap{
+	width: 770px;
+	margin: 0 auto;
+	padding: 50px 0 60px;
+	position: relative;
+}
+
+.logoTop{
+	text-align: center;
+	margin-bottom: 35px;
+}
+
+.contentsWrap{
+	display: inline-block;
+	width: 100%;
+	background-color: #fff;
+}
+
+.myInfoMain{
+	background-color: #f8f8f8;
+}
+
+.memberClass{
+	border-bottom: 1px solid #eee;
+	background-color: #fff;
+	text-align: center;
+}
+
+.myLevel{
+	padding: 25px 0;
+}
+
+.infoTxt{
+	height: 17px;
+	line-height: 14px;
+	margin-top: 15px;
+	font-size: 17px;
+	color: #202020;
+}
+
+.infoTxt > span{
+	font-size: 17px;
+	font-weight: bold;
+	color: #ef3e42;
+}
+
+.benefit{
+	height: 50px;
+	line-height: 50px;
+	border-top: 1px solid #eee;
+}
+
+.mainMenu{
+	display: inline-block;
+	width: 100%;
+	margin-top: 7px;
+	background-color: #fff;
+	border-bottom: 1px solid #eee;
+	font-size: 0;
+}
+
+.contentsWrap .myInfoMain .mainMenu .menuBox.infoModify {
+    border-bottom: 1px solid #eee;
+}
+
+.contentsWrap .myInfoMain .mainMenu .menuBox {
+    float: left;
+    display: inline-block;
+    width: 33.33333%;
+    height: 150px;
+    border-right: 1px solid #eee;
+    box-sizing: border-box;
+}
+
+.contentsWrap .myInfoMain .mainMenu .menuBox.infoModify a {
+    background-position: 0 0;
+}
+
+.contentsWrap .myInfoMain .mainMenu .menuBox a {
+    position: relative;
+    display: block;
+    min-height: 60px;
+    margin: 43px 20px 0;
+    padding-left: 75px;
+    line-height: 1;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.noti{
+	display: block;
+	margin-top: 10px;
+	line-height: 18px;font-size: 12px;
+	color: #707070;
+}
+
+.contentsWrap .myInfoMain .mainMenu .menuBox.password {
+    border-bottom: 1px solid #eee;
+}
+
+.contentsWrap .myInfoMain .mainMenu .menuBox.shipping {
+    border-right: 0;
+    border-bottom: 1px solid #eee;
+}
+
+.usePrivacyWrap{
+	position: relative;
+	margin-top: 10px;
+	text-align: right;
+}
+
+.buttonPrivacy{
+	background: none;
+	color: #707070;
+	padding-right: 25px;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap');
+
+#footerWrap{
+	background-color: #e8e8ea;
+	width : 100%;
+	clear: both;
+	display: inline-block;
+	margin-top: 100px;
+	font-size: 12px;
+}
+
+#footerTop{
+	margin: auto;
+	width: 960px;
+	margin-top: 20px;
+
+}
+
+#footerTopList{
+	border-bottom: 1px solid #ced2d6;
+	display: inline-block;
+	width: 100%;
+	text-align: left;
+}
+
+.footerList{
+	list-style: none;
+	margin:auto;
+	font-size: small;
+	float: left;
+}
+
+.footerListLi{
+	list-style: none;
+	float: left;
+	margin-left: 20px;
+	margin-bottom: 15px;
+}
+
+#footerBottom{
+	display: inline-block;
+	color: #999;
+	text-align: left;
+	width: 100%;
+}
+
+dl {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+dt{
+	display: block;	
+	float: left;
+	margin-right: 36px;
+}
+
+dd{
+	display: block;
+	margin-inline-start: 40px;
+}

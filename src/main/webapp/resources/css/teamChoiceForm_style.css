@@ -1,0 +1,168 @@
+#topGnbbg{
+	background: #ededf3;
+}
+
+#topGnb{
+	margin: auto;
+	width: 960px;
+}
+
+.topGnb{
+	font-size: x-small;
+}
+
+.topBanner{
+	font-size: x-small;
+	margin-top: 10px;
+}
+
+#middleGnb{
+	margin: auto;
+	width: 960px;
+	margin-top: 50px;
+}
+
+
+#bottomGnb{
+	background-color: #f45951;
+	height: 35px;
+	font-size: medium;
+	font-size: 0;
+}
+
+#bottomGnbList{
+	margin: auto;
+	width: 960px;
+	color: #f2f2f2;
+}
+
+.bottomGnbList{
+	list-style: none;
+	margin-left: 15px;
+	margin-top: 2px;
+	float: left;
+	font-size: medium;
+}
+
+#bottomGnbRight{
+	background-color: #4b4848;
+	color: #f2f2f2;
+}
+
+.sportsWrap{
+	width: 100%;
+	background-color: #eee;
+}
+
+.baseballImageWrap{           /* 여거 밑에 사이 공백 지워야 하는데~ */
+	margin: 0 auto;
+	position: relative;
+	width: 100%;
+	height: 350px;
+	overflow: hidden;
+}
+
+
+.baseballImage{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.sportsListWrap{
+	width: 960px;
+	margin: auto;
+	padding: 40px;
+	overflow: hidden;
+}
+
+.card{
+	display: inline-block;
+	width: 310px;
+	height: 402px;
+}
+
+.card-image{
+	text-align: center;
+}
+
+.card-img-top{
+	width: 260px;
+	height: 260px;
+	margin: auto;
+}
+
+.card-body{
+	text-align: center;
+}
+
+.card-text{
+	margin-bottom: 6px;
+}
+
+.btn{
+	width: 200px;
+}
+
+#footerWrap{
+	background-color: #e8e8ea;
+	width : 100%;
+	clear: both;
+	display: inline-block;
+	margin-top: 100px;
+	font-size: 12px;
+}
+
+#footerTop{
+	margin: auto;
+	width: 960px;
+	margin-top: 20px;
+
+}
+
+#footerTopList{
+	border-bottom: 1px solid #ced2d6;
+	display: inline-block;
+	width: 100%;
+	text-align: left;
+}
+
+.footerList{
+	list-style: none;
+	margin:auto;
+	font-size: small;
+	float: left;
+}
+
+.footerListLi{
+	list-style: none;
+	float: left;
+	margin-left: 20px;
+	margin-bottom: 15px;
+}
+
+#footerBottom{
+	display: inline-block;
+	color: #999;
+	text-align: left;
+	width: 100%;
+}
+
+dl {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+dt{
+	display: block;	
+	float: left;
+	margin-right: 36px;
+}
+
+dd{
+	display: block;
+	margin-inline-start: 40px;
+}

@@ -38,7 +38,7 @@
 				<li class="nav-item">
 				  <a class="nav-link disabled topGnb">투어</a>
 				</li>
-				<li class="topBanner" style="margin-left: 350px;"><a onclick="location.href='../member/loginForm.html'" style="cursor: pointer;">로그인</a>
+				<li class="topBanner" style="margin-left: 350px;"><a href="loginForm" style="cursor: pointer;">로그인</a>
 				<li class="topBanner" style="margin-left: 10px;"><a onclick="location.href='../member/registerForm.html'" style="cursor: pointer;">회원가입</a>
 				<li class="topBanner" style="margin-left: 10px;"><a onclick="location.href='../member/loginForm.html'" style="cursor: pointer;">예매확인/취소</a>
 				<li class="topBanner" style="margin-left: 10px;"><a onclick="location.href='../member/loginForm.html'" style="cursor: pointer;">마이페이지</a>
