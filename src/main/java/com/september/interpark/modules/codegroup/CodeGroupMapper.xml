@@ -54,5 +54,29 @@
 		WHERE 1=1
 			AND ccgseq=#{ccgseq}	
 	</select>
+	
+	<update id="update">
+		UPDATE ccg
+		SET
+			ccgNameKo = #{ccgNameKo}
+			,ccgNameEg = #{ccgNameEg}
+			,ccguseNy = #{ccguseNy}
+			,ccgorder = #{ccgorder}
+			,ccgdelNy = #{ccgdelNy}			
+			WHERE 
+				ccgseq =#{ccgseq}	
+	</update>
+	
+	<update id="uelete">
+	 	UPDATE ccg
+	 	SET
+	 		ccgdelNy =0	 		
+	 	WHERE
+	 		ccgseq=#{ccgseq}	
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM ccg WHERE ccgseq=#{ccgseq}
+	</delete>
 
 </mapper>

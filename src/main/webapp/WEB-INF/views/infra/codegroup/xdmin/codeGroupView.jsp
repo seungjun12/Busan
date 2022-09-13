@@ -332,7 +332,7 @@
 				<div class="container-fluid codeGroupName">
 					<div class="row">
 						<div class="col-6">
-							코드그룹 코드
+							코드그룹 
 						</div>
 						<div class="col">
 							코드그룹 코드(Another)
@@ -350,14 +350,14 @@
 					</div>
 				</div>
 			 -->
-			 <form method="post" action="codeGroupInst" id="codeGroupFormReg" name="codeGroupFormReg">
+			 <form method="post"  action="/codeGroup/codeGroupDele" id="codeGroupFormReg" name="codeGroupFormReg">
 			 <div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
-							<input class="form-control" type="text" placeholder="코드그룹 이름(한글)" aria-label="default input example">
+							<input class="form-control" type="text" placeholder="코드그룹 이름(한글)" aria-label="default input example" id="ccgseq" name="ccgseq" value="<c:out value="${item.ccgseq }"/>">
 						</div>
 						<div class="col">
-						<input class="form-control" type="text" placeholder="영문(대소문자),숫자" aria-label="default input example">
+						
 						</div>
 					</div>
 				</div>	
@@ -395,8 +395,8 @@
 					<div class="row">
 						<div class="col-6">
 							<select class="form-select" aria-label="Default select example" id="ccguseNy" name="ccguseNy">
-						  		<option value="0" >Y</option>
-							  	<option value="1" >N</option>
+						  		<option value="0" <c:if test="${item.ccguseNy eq 0}">selected</c:if>>Y</option>
+							  	<option value="1" <c:if test="${item.ccguseNy eq 1}">selected</c:if>>N</option>
 							</select>
 						</div>
 						<div class="col">
@@ -421,8 +421,8 @@
 						</div>
 						<div class="col-6">
 							<select class="form-select" aria-label="Default select example" id="ccgdelNy" name="ccgdelNy" onchange="onChange">
-						  		<option value="1">N</option>
-							  	<option value="0">Y</option>
+						  		<option value="1" <c:if test="${item.ccgdelNy eq 1}">selected</c:if>>N</option>
+							  	<option value="0" <c:if test="${item.ccgdelNy eq 0}">selected</c:if>>Y</option>
 							</select>
 						</div>
 					</div>
@@ -459,19 +459,15 @@
 							</a>
 						</div>
 						<div class="col" style="text-align: right;">
-							<a>	
-								<button type="button" class="btn btn-danger">
+								<button id="btnDelete">
 									<i class="fa-solid fa-x"></i>
 								</button>
-							</a>
-							<a>	
-								<button type="button" class="btn btn-danger">
+								<button id="btnUelete">
 									<i class="fa-regular fa-trash-can"></i>
 								</button>
-							</a>
-								<span type="button" class="btn btn-primary" onclick="test();" ><!-- 등록 버튼 -->
+								<button id="btnSave"><!-- 등록 버튼 -->
 									<i class="fa-solid fa-plus"></i>
-								</span>						
+								</button>						
 							<span style="cursor: pointer;"> span연습용</span>
 						</div>
 					</div>
@@ -525,6 +521,60 @@
     </div>
     
   
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  	<script>
+	var goUrlList = "/codeGroup/codeGroupList"; 			/* #-> */
+	var goUrlInst = "/codeGroup/codeGroupInst"; 			/* #-> */
+	var goUrlUpdt = "/codeGroup/codeGroupUpdt";				/* #-> */
+	var goUrlUele = "/codeGroup/codeGroupUele";				/* #-> */
+	var goUrlDele = "/codeGroup/codeGroupDele";				/* #-> */
+	
+	var seq = $("input:hidden[name=ccgseq]");				/* #-> */
+	
+	var form = $("form[name=form]");
+	var formVo = $("form[name=formVo]");
+	
+	
+	$("#btnSave").on("click", function(){
+		alert("제발")
+   		form.attr("action", "/codeGroup/codeGroupUpdt").submit();
+	});
+	
+	$("#btnUelete").on("click", function(){
+		alert("율리트")
+		$("input:hidden[name=exDeleteType]").val(1);		
+		$(".modal-title").text("확 인");
+		$(".modal-body").text("해당 데이터를 삭제하시겠습니까 ?");
+		$("#btnModalUelete").show();
+		$("#btnModalDelete").hide();
+		$("#modalConfirm").modal("show");
+	});
+	
+
+	$("#btnDelete").on("click", function(){
+		alert("딜리트~")
+		$("input:hidden[name=exDeleteType]").val(2);
+		$(".modal-title").text("확 인");
+		$(".modal-body").text("해당 데이터를 삭제하시겠습니까 ?");
+		$("#btnModalUelete").hide();
+		$("#btnModalDelete").show();
+		$("#modalConfirm").modal("show");
+	});
+	
+	
+	$("#btnModalUelete").on("click", function(){
+		$("#modalConfirm").modal("hide");
+		formVo.attr("action", "/codeGroup/codeGroupUele").submit();
+	});
+	
+	
+	$("#btnModalDelete").on("click", function(){
+		$("#modalConfirm").modal("hide");
+		formVo.attr("action", "/codeGroup/codeGroupDele").submit();
+	});
+	
+	
+	</script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="/resources/vendor/jquery/jquery.min.js"></script>
@@ -532,13 +582,19 @@
 
     <!-- Core plugin JavaScript-->
     <script src="/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
-
+	
     <!-- Custom scripts for all pages-->
     <script src="/resources/js/sb-admin-2.min.js"></script>
 	
 	
-	<script type="text/javascript">
-		function test(){
+
+	
+	
+	
+	
+	
+	<!-- <script type="text/javascript">
+	 		function test(){
 			
 			if(document.getElementById('ccgNameKo').value == '' ||  document.getElementById('ccgNameKo').value == null){
 				alert("한글 이름 다시 입력해주세요")
@@ -546,8 +602,7 @@
 				document.getElementById('ccgNameKo').focus();
 				return false;
 			}
-			
-			alert(document.getElementById('ccgNameKo').value);				
+					
 			
 			if(document.getElementById('ccgNameEg').value =='' || document.getElementById('ccgNameEg').value == null){
 				alert("영문 코드그룹 이름 다시 입력해주세요")
@@ -555,7 +610,6 @@
 				document.getElementById('ccgNameEg').focus();
 				return false;
 			}
-			alert(document.getElementById('ccgNameEg').value);
 			
 			if(document.getElementById('ccgorder') ==""  || document.getElementById('ccgorder') == null){
 				alert("순서입력해주세요")
@@ -563,7 +617,6 @@
 				document.getElementById('ccgorder').focus();
 				return false;
 			}
-			alert(document.getElementById('ccgorder').value);
 			
 			if(document.getElementById('ccguseNy') == "" || document.getElementById('ccguseNy') == null){
 				alert("사용여부 체크해 주십시오")
@@ -571,7 +624,6 @@
 				document.getElementById('ccguseNy').focus();
 				return false;
 			}
-			alert(document.getElementById('ccguseNy').value);
 			
 			if(document.getElementById('ccgdelNy') == "" || document.getElementById('ccgdelNy') == null){
 				alert("삭제여부 체크해 주십시오")
@@ -579,25 +631,23 @@
 				document.getElementById('ccgdelNy').focus();
 				return false;
 			}
-			alert(document.getElementById('ccgdelNy').value);
 			
-			if(document.querySelector("input[name='test']:checked") =='' || document.querySelector("input[name='test']:checked") == null){
+ 			if(document.querySelector("input[name='test']:checked") =='' || document.querySelector("input[name='test']:checked") == null){
 				alert("테스트 체크해봐")
 				document.querySelector("input[name='test']:checked").value="";
 				document.querySelector("input[name='test']:checked").focus();
 				return false;
-			}
-			alert(document.querySelector("input[name='test']:checked").value)
+			} 
 			
 
 			
 			document.getElementById('codeGroupFormReg').submit();
 			
-			return false;
-		}
+			return false; 
+		 }  
 		
 		
-	</script>
+	</script> -->
 
 	<!-- fontawsome -->
 	<script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
