@@ -537,7 +537,7 @@
 	
 	$("#btnSave").on("click", function(){
 		alert("제발")
-   		form.attr("action", "/codeGroup/codeGroupUpdt").submit();
+   		form.attr("action", "/codeGroup/codeGroupUpdt";).submit();
 	});
 	
 	$("#btnUelete").on("click", function(){
@@ -564,13 +564,13 @@
 	
 	$("#btnModalUelete").on("click", function(){
 		$("#modalConfirm").modal("hide");
-		formVo.attr("action", "/codeGroup/codeGroupUele").submit();
+		formVo.attr("action", "/codeGroup/codeGroupUele";).submit();
 	});
 	
 	
 	$("#btnModalDelete").on("click", function(){
 		$("#modalConfirm").modal("hide");
-		formVo.attr("action", "/codeGroup/codeGroupDele").submit();
+		formVo.attr("action", "/codeGroup/codeGroupDele";).submit();
 	});
 	
 	
