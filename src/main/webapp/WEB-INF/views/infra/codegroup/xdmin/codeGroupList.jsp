@@ -26,6 +26,18 @@
     <!-- Custom styles for this template-->
     <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
 	<link href="/resources/css/codeGroupList_style.css" rel="stylesheet">
+	
+	<!-- datepicker link -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  	<link rel="stylesheet" href="/resources/demos/style.css">
+  	
+  	<!-- datepicker script -->
+  	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	<script>
+  	$( function() {
+    	$( "#datepicker" ).datepicker();
+  	} );
+  	</script>
 </head>
 
 <body id="page-top">
