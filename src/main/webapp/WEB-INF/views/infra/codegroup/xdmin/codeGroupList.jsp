@@ -385,7 +385,7 @@
 						<button type="button" id="btnReset">
 							<i class="fa fa-reply" aria-hidden="true" style="cursor: pointer;"></i>
 						</button>
-				</form>
+				
 					</div>
 				</div>
 				<!-- 리스트 영역 -->
@@ -438,6 +438,7 @@
 				  		</c:choose>
 					  		
 					</table>
+					</form>
 				</div>
 				<!-- 페이지네이션 -->
 				<div class="d-flex justify-content-center" style="margin-top: 30px;">

@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
-<!doctype html>
+
 <html lang="en">
 
 <head>
@@ -344,6 +344,7 @@
 			<div class="wrap">
 				<!-- 제목 -->
 				<h3>코드그룹관리</h3>
+				<form  method="post" id="form" name="form">
 				<div class="container-fluid codeGroupName">
 					<div class="row">
 						<div class="col-6">
@@ -365,7 +366,6 @@
 					</div>
 				</div>
 			 -->
-			 <form  method="post"  id="form" name="form">
 			 <div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
@@ -441,30 +441,7 @@
 							</select>
 						</div>
 					</div>
-				</div>
-				<div class="container-fluid codeGroupName">
-					<div class="row">
-						<div class="col-6">
-							테스트 1
-						</div>
-						<div class="col">
-							테스트 2
-						</div>
-					</div>
-				</div>
-<!-- 				<div class="container-fluid codeGroupInput">
-					<div class="row">
-						<div class="col">
-							<input type="radio" id="test1" name="test" value="1">test1
-							<input type="radio" id="test2" name="test" value="2">test2
-							<input type="radio" id="test3" name="test" value="3">test3
-						</div>
-						<div class="col-6">
-							<input type="text" id="datepicker" name="datepicker">
-						</div>
-					</div>
-				</div> -->
-				
+				</div>				
 				<div class="container-fluid lastBtn">
 					<div class="row">
 						<div class="col-6">
@@ -481,8 +458,8 @@
 								<button id="btnUelete" type="button">
 									<i class="fa-regular fa-trash-can"></i>
 								</button>
-								<button type="button" id="btnSave"><!-- 등록 버튼 -->
-									<i class="fa-solid fa-plus"></i>
+								<button type="button" id="btnSave" ><!-- 등록 버튼 -->
+									<i class="fa-solid fa-plus" style="cursor: pointer;"></i>
 								</button>					
 							<span style="cursor: pointer;"> span연습용</span>
 						</div>
