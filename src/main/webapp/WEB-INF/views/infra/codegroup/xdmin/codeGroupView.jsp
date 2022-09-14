@@ -31,14 +31,6 @@
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
   	<link rel="stylesheet" href="/resources/demos/style.css">
   	
-  	<!-- datepicker script -->
-  	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script>
-    $( function() {
-      $( "#datepicker" ).datepicker();
-    } );
-  	</script>
 
   
 </head>
@@ -344,7 +336,7 @@
 			<div class="wrap">
 				<!-- 제목 -->
 				<h3>코드그룹관리</h3>
-				<form  method="post" id="form" name="form">
+				<form  method="post" action="/codeGroup/codeGroupUpdt" id="form" name="form">
 				<div class="container-fluid codeGroupName">
 					<div class="row">
 						<div class="col-6">
@@ -451,17 +443,17 @@
 								</button>
 							</a>
 						</div>
+				
 						<div class="col" style="text-align: right;">
-								<button id="btnDelete" type="button">
-									<i class="fa-solid fa-x"></i>
-								</button>
-								<button id="btnUelete" type="button">
-									<i class="fa-regular fa-trash-can"></i>
-								</button>
-								<button type="button" id="btnSave" ><!-- 등록 버튼 -->
-									<i class="fa-solid fa-plus" style="cursor: pointer;"></i>
-								</button>					
-							<span style="cursor: pointer;"> span연습용</span>
+							<button id="btnDelete" type="button">
+								<i class="fa-solid fa-x"></i>
+							</button>
+							<button id="btnUelete" type="button">
+								<i class="fa-regular fa-trash-can"></i>
+							</button>
+							<button type="button" id="btnSave" ><!-- 등록 버튼 -->
+								<i class="fa-solid fa-plus" style="cursor: pointer;"></i>
+							</button>					
 						</div>
 					</div>
 				</div>
@@ -532,7 +524,7 @@
 		form.attr("action", goUrlUpdt).submit();
 	}); 
 	
-	$("#btnUelete").on("click", function(){
+	$("#btnUelete").on("click",function(){
 		alert("율리트")
 		$("input:hidden[name=exDeleteType]").val(1);		
 		$(".modal-title").text("확 인");
@@ -543,7 +535,7 @@
 	});
 	
 
-	$("#btnDelete").on("click", function(){
+	$("#btnDelete").on("click",function(){
 		alert("딜리트~")
 		$("input:hidden[name=exDeleteType]").val(2);
 		$(".modal-title").text("확 인");
@@ -554,7 +546,7 @@
 	});
 	
 	
-	$("#btnModalUelete").on("click", function(){
+	$("#btnModalUelete").on("click",function(){
 		$("#modalConfirm").modal("hide");
 		formVo.attr("action", "/codeGroup/codeGroupUele").submit();
 	});
