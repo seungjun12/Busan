@@ -72,7 +72,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item active" href="codeGrouplist.html">코드그룹관리</a>
+                        <a class="collapse-item active" href="codeGroupList">코드그룹관리</a>
                         <a class="collapse-item" href="codeList.html">코드관리</a>
                         <a class="collapse-item" href="cards.html">회원관리</a>
                     </div>

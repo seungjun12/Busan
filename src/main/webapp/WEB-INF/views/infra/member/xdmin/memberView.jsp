@@ -74,7 +74,7 @@
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item" href="codeGrouplist.html">코드그룹관리</a>
                         <a class="collapse-item" href="codeList.html">코드관리</a>
-                        <a class="collapse-item active" href="memberList.html">회원관리</a>
+                        <a class="collapse-item active" href="memberList">회원관리</a>
                     </div>
                 </div>
             </li>
@@ -421,8 +421,8 @@
 						</div>
 						<div class="col-6">
 							<select class="form-select" aria-label="Default select example" id="gender" name="gender">
-						  		<option value="0">남자</option>
-							  	<option value="1">여자</option>
+						  		<option value="0" <c:if test="${item.ccuseNy eq 0 }">selected</c:if>>남자</option>
+							  	<option value="1" <c:if test="${item.ccuseNy eq 1 }">selected</c:if>>여자</option>
 							</select>
 						</div>
 					</div>
@@ -441,14 +441,14 @@
 					<div class="row">
 						<div class="col-6">
 							<select class="form-select" aria-label="Default select example" id="delNy" name="delNy">
-						  		<option value="1">N</option>
-							  	<option value="0">Y</option>
+						  		<option value="1" <c:if test="${item.ccuseNy eq 1 }">selected</c:if>>N</option>
+							  	<option value="0" <c:if test="${item.ccuseNy eq 0 }">selected</c:if>>Y</option>
 							</select>
 						</div>
 						<div class="col">
 							<select class="form-select" aria-label="Default select example" id="personalAgree" name="personalAgree">
-						  		<option value="0">탈퇴시까지</option>
-							  	<option value="1">1년</option>
+						  		<option value="0" <c:if test="${item.ccuseNy eq 0 }">selected</c:if>>탈퇴시까지</option>
+							  	<option value="1" <c:if test="${item.ccuseNy eq 1 }">selected</c:if>>1년</option>
 							</select>
 						</div>
 					</div>

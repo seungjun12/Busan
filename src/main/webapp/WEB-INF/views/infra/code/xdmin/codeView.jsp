@@ -73,7 +73,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item" href="codeGrouplist.html">코드그룹관리</a>
-                        <a class="collapse-item active" href="codeList.html">코드관리</a>
+                        <a class="collapse-item active" href="codeList">코드관리</a>
                         <a class="collapse-item" href="cards.html">회원관리</a>
                     </div>
                 </div>
@@ -417,8 +417,8 @@
 					<div class="row">
 						<div class="col-6">
 							<select class="form-select" aria-label="Default select example" id="ccuseNy" name="ccuseNy">
-						  		<option value="0">Y</option>
-							  	<option value="1">N</option>
+						  		<option value="0" <c:if test="${item.ccuseNy eq 0 }">selected</c:if>>Y</option>
+							  	<option value="1" <c:if test="${item.ccuseNy eq 1 }">selected</c:if>>N</option>
 							</select>
 						</div>
 						<div class="col">
@@ -443,8 +443,8 @@
 						</div>
 						<div class="col-6">
 							<select class="form-select" aria-label="Default select example" id="ccdelNy" name="ccdelNy">
-						  		<option value="1">N</option>
-							  	<option value="0">Y</option>
+						  		<option value="1" <c:if test="${item.ccuseNy eq 1 }">selected</c:if>>N</option>
+							  	<option value="0" <c:if test="${item.ccuseNy eq 0 }">selected</c:if>>Y</option>
 							</select>
 						</div>
 					</div>

@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
-
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -26,6 +26,21 @@
     <!-- Custom styles for this template-->
     <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
 	<link href="/resources/css/codeGroupForm_style.css" rel="stylesheet">
+	
+	<!-- datepicker link -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  	<link rel="stylesheet" href="/resources/demos/style.css">
+  	
+  	<!-- datepicker script -->
+  	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+    $( function() {
+      $( "#datepicker" ).datepicker();
+    } );
+  	</script>
+
+  
 </head>
 
 <body id="page-top">
@@ -72,7 +87,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item active" href="codeGrouplist.html">코드그룹관리</a>
+                        <a class="collapse-item active" href="codeGroupList">코드그룹관리</a>
                         <a class="collapse-item" href="codeList.html">코드관리</a>
                         <a class="collapse-item" href="cards.html">회원관리</a>
                     </div>
@@ -350,7 +365,7 @@
 					</div>
 				</div>
 			 -->
-			 <form method="post"  action="/codeGroup/codeGroupDele" id="codeGroupFormReg" name="codeGroupFormReg">
+			 <form method="post" action="codeGroupDele"  id="form" name="form">
 			 <div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
@@ -445,6 +460,7 @@
 							<input type="radio" id="test3" name="test" value="3">test3
 						</div>
 						<div class="col-6">
+							<input type="text" id="datepicker" name="datepicker">
 						</div>
 					</div>
 				</div>
@@ -467,7 +483,7 @@
 								</button>
 								<button id="btnSave"><!-- 등록 버튼 -->
 									<i class="fa-solid fa-plus"></i>
-								</button>						
+								</button>					
 							<span style="cursor: pointer;"> span연습용</span>
 						</div>
 					</div>
@@ -537,7 +553,7 @@
 	
 	$("#btnSave").on("click", function(){
 		alert("제발")
-   		form.attr("action", "/codeGroup/codeGroupUpdt";).submit();
+   		form.attr("action", "/codeGroup/codeGroupUpdt").submit();
 	});
 	
 	$("#btnUelete").on("click", function(){
@@ -564,7 +580,7 @@
 	
 	$("#btnModalUelete").on("click", function(){
 		$("#modalConfirm").modal("hide");
-		formVo.attr("action", "/codeGroup/codeGroupUele";).submit();
+		formVo.attr("action", "/codeGroup/codeGroupUele").submit();
 	});
 	
 	

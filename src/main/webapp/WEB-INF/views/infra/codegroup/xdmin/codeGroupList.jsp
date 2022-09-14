@@ -461,10 +461,10 @@
   						<i class="fa-regular fa-trash-can"></i>
 					</button>	
 				</a>
-				<a href="codeGroupForm">	
-					<button type="button" class="btn btn-primary rightBtn">
+					
+					<span type="button" class="btn btn-primary rightBtn" onclick="location.href='codeGroupForm'">
 						<i class="fa-solid fa-plus"></i>
-					</button>
+					</span>
 				</a>	
 				<button type="button" class="btn btn-success rightBtn" style="margin-right: 5px;">
 					<i class="fa-solid fa-file"></i>
@@ -596,6 +596,10 @@
 		  })
 		}
 	</script>
+	
+	
+	
+	
 
 	<!-- fontawsome -->
 	<script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
