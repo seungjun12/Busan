@@ -365,7 +365,7 @@
 					</div>
 				</div>
 			 -->
-			 <form method="post" action="codeGroupDele"  id="form" name="form">
+			 <form  method="post"  id="form" name="form">
 			 <div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
@@ -452,7 +452,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="container-fluid codeGroupInput">
+<!-- 				<div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col">
 							<input type="radio" id="test1" name="test" value="1">test1
@@ -463,25 +463,25 @@
 							<input type="text" id="datepicker" name="datepicker">
 						</div>
 					</div>
-				</div>
+				</div> -->
 				
 				<div class="container-fluid lastBtn">
 					<div class="row">
 						<div class="col-6">
-							<a href="codeGrouplist.html">	
+							<a href="codeGroupList">	
 								<button type="button" class="btn btn-secondary">
 									<i class="fa-solid fa-bars"></i>
 								</button>
 							</a>
 						</div>
 						<div class="col" style="text-align: right;">
-								<button id="btnDelete">
+								<button id="btnDelete" type="button">
 									<i class="fa-solid fa-x"></i>
 								</button>
-								<button id="btnUelete">
+								<button id="btnUelete" type="button">
 									<i class="fa-regular fa-trash-can"></i>
 								</button>
-								<button id="btnSave"><!-- 등록 버튼 -->
+								<button type="button" id="btnSave"><!-- 등록 버튼 -->
 									<i class="fa-solid fa-plus"></i>
 								</button>					
 							<span style="cursor: pointer;"> span연습용</span>
@@ -536,7 +536,7 @@
         </div>
     </div>
     
-  
+  	<!-- btn bottom -->
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   	<script>
 	var goUrlList = "/codeGroup/codeGroupList"; 			/* #-> */
@@ -551,10 +551,9 @@
 	var formVo = $("form[name=formVo]");
 	
 	
-	$("#btnSave").on("click", function(){
-		alert("제발")
-   		form.attr("action", "/codeGroup/codeGroupUpdt").submit();
-	});
+	$("#btnSave").on("click",function(){
+		form.attr("action", goUrlUpdt).submit();
+	}); 
 	
 	$("#btnUelete").on("click", function(){
 		alert("율리트")
@@ -608,62 +607,7 @@
 	
 	
 	
-	
-	<!-- <script type="text/javascript">
-	 		function test(){
-			
-			if(document.getElementById('ccgNameKo').value == '' ||  document.getElementById('ccgNameKo').value == null){
-				alert("한글 이름 다시 입력해주세요")
-				document.getElementById('ccgNameKo').value="";
-				document.getElementById('ccgNameKo').focus();
-				return false;
-			}
-					
-			
-			if(document.getElementById('ccgNameEg').value =='' || document.getElementById('ccgNameEg').value == null){
-				alert("영문 코드그룹 이름 다시 입력해주세요")
-				document.getElementById('ccgNameEg').value="";
-				document.getElementById('ccgNameEg').focus();
-				return false;
-			}
-			
-			if(document.getElementById('ccgorder') ==""  || document.getElementById('ccgorder') == null){
-				alert("순서입력해주세요")
-				document.getElementById('ccgorder').value="";
-				document.getElementById('ccgorder').focus();
-				return false;
-			}
-			
-			if(document.getElementById('ccguseNy') == "" || document.getElementById('ccguseNy') == null){
-				alert("사용여부 체크해 주십시오")
-				document.getElementById('ccguseNy').value="";
-				document.getElementById('ccguseNy').focus();
-				return false;
-			}
-			
-			if(document.getElementById('ccgdelNy') == "" || document.getElementById('ccgdelNy') == null){
-				alert("삭제여부 체크해 주십시오")
-				document.getElementById('ccgdelNy').value="";
-				document.getElementById('ccgdelNy').focus();
-				return false;
-			}
-			
- 			if(document.querySelector("input[name='test']:checked") =='' || document.querySelector("input[name='test']:checked") == null){
-				alert("테스트 체크해봐")
-				document.querySelector("input[name='test']:checked").value="";
-				document.querySelector("input[name='test']:checked").focus();
-				return false;
-			} 
-			
 
-			
-			document.getElementById('codeGroupFormReg').submit();
-			
-			return false; 
-		 }  
-		
-		
-	</script> -->
 
 	<!-- fontawsome -->
 	<script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>

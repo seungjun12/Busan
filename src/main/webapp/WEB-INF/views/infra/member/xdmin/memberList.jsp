@@ -363,7 +363,7 @@
 						  <option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>이름</option>
 						  <option value="3" <c:if test="${vo.shOption eq 3}">selected</c:if>>아이디</option>
 						</select>
-						<input class="form-control form-control-sm" type="text" placeholder="검색" aria-label=".form-control-sm example">
+						<input class="form-control form-control-sm" type="text" placeholder="검색" aria-label=".form-control-sm example" id="shValue" name="shValue"  value="<c:out value="${vo.shValue }"/>">
 						<button type="submit">
 							<i class="fa fa-search" aria-hidden="true" style="cursor: pointer;"></i>&nbsp;&nbsp;&nbsp;
 						</button>

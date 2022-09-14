@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.september.interpark.modules.codegroup.CodeGroup;
@@ -17,7 +18,7 @@ public class MemberController {
 	MemberServiceImpl service;
 	
 	@RequestMapping(value="memberList")
-	public String memberList(Model model,MemberVo vo)throws Exception{
+	public String memberList(Model model,@ModelAttribute("vo") MemberVo vo)throws Exception{
 		
 		System.out.println("vo.getShValue(): "+vo.getShValue());
 		System.out.println("vo.getShOption(): "+vo.getShOption());

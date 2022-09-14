@@ -360,10 +360,10 @@
 					<div class="searchSecond"><!-- 여기부터 ㄱㄱ -->
 						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example" id="shOption" name="shOption">
 						  <option value="" selected <c:if test="${empty vo.shOption}">selected</c:if>>검색구분</option>
-						  <option value="0" <c:if test="${vo.shOption eq 1}">selected</c:if>>순서</option>
-						  <option value="1" <c:if test="${vo.shOption eq 2}">selected</c:if>>코드이름</option>
+						  <option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>순서</option>
+						  <option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>코드이름</option>
 						</select>
-						<input class="form-control form-control-sm" type="text" placeholder="검색" aria-label=".form-control-sm example">
+						<input class="form-control form-control-sm" type="text" placeholder="검색" aria-label=".form-control-sm example" id="shValue" name="shValue" value="<c:out value="${vo.shValue }"/>">
 						<button type="submit">	
 							<i class="fa fa-search" aria-hidden="true" style="cursor: pointer;"></i>&nbsp;&nbsp;&nbsp;
 						</button>	
