@@ -329,7 +329,7 @@
 				<!-- 제목 -->
 				<h3>회원관리</h3>
 				<!-- 검색대 -->
-				<form method="post" action="member/memberList">
+				<form method="post" name="form">
 				<div class="searchWrap">
 					<div class="searchFirst">
 						<select class="form-select form-select-sm selectSize" id="shdelNy" name="shdelNy" aria-label=".form-select-sm example">
@@ -364,10 +364,10 @@
 						  <option value="3" <c:if test="${vo.shOption eq 3}">selected</c:if>>아이디</option>
 						</select>
 						<input class="form-control form-control-sm" type="text" placeholder="검색" aria-label=".form-control-sm example" id="shValue" name="shValue"  value="<c:out value="${vo.shValue }"/>">
-						<button type="submit">
+						<button type="button" id="btnSearch">
 							<i class="fa fa-search" aria-hidden="true" style="cursor: pointer;"></i>&nbsp;&nbsp;&nbsp;
 						</button>
-						<button type="submit">
+						<button type="button" id="btnReset">
 							<i class="fa fa-reply" aria-hidden="true" style="cursor: pointer;"></i>
 						</button>
 					</div>
@@ -559,7 +559,34 @@
                 </div>
             </div>
         </div>
-    </div>    
+    </div> 
+    
+    <!--  btn jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+	var goUrlList = "/member/memberList"; 			/* #-> */
+	var goUrlInst = "/member/memberInst"; 			/* #-> */
+	var goUrlUpdt = "/member/memberUpdt";				/* #-> */
+	var goUrlUele = "/member/memberUele";				/* #-> */
+	var goUrlDele = "/member/memberDele";				/* #-> */
+	
+	var seq = $("input:hidden[name=seq]");				/* #-> */
+	
+	var form = $("form[name=form]");
+	var formVo = $("form[name=formVo]");
+	
+	$("#btnReset").on("click",function(){
+		$(location).attr("href",goUrlList);
+	});
+	
+	$("#btnSearch").on("click",function(){
+		form.attr("action", goUrlList).submit();
+	});
+	
+
+	
+	</script>     
+       
 
     <!-- Bootstrap core JavaScript-->
     <script src="/resources/vendor/jquery/jquery.min.js"></script>

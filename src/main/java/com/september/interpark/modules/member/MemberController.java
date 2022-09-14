@@ -18,7 +18,7 @@ public class MemberController {
 	MemberServiceImpl service;
 	
 	@RequestMapping(value="memberList")
-	public String memberList(Model model,@ModelAttribute("vo") MemberVo vo)throws Exception{
+	public String memberList(Model model, @ModelAttribute("vo") MemberVo vo)throws Exception{
 		
 		System.out.println("vo.getShValue(): "+vo.getShValue());
 		System.out.println("vo.getShOption(): "+vo.getShOption());
