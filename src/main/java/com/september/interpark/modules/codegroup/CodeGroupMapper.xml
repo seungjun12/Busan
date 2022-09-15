@@ -7,22 +7,31 @@
 <mapper namespace="com.september.interpark.modules.codegroup.CodeGroupMapper">
 
     <resultMap id="resultMapObj" type="com.september.interpark.modules.codegroup.CodeGroup"></resultMap>
+    
+	<sql id ="selectCommon">
+		FROM ccg a
+		WHERE 1=1
+			<if test="shdelNy != null and !shdelNy.equals('')">AND ccgdelNy = #{shdelNy}</if>
+			<choose>
+				<when test="shOption == 1">AND ccgseq = #{shValue}</when>
+				<when test="shOption == 2">AND ccgNameKo LIKE CONCAT('%',#{shValue},'%')</when>
+				<when test="shOption == 3">AND ccgNameEg LIKE CONCAT('%',#{shValue},'%')</when>
+			</choose>
+	</sql>    
 	
 	<select id="selectList" resultMap="resultMapObj">
-		select
-			a.*
-    		,(select count(ccg_seq)  From  cc where 1=1 and ccg_seq=ccgseq) as ccg_seq
-		from ccg a
-		WHERE 1=1
-		<!-- AND ccgdelNy =1 -->
-		<!-- AND ccgNameKo LIKE CONCAT('%', #{shValue}, '%') -->
-		<if test="shdelNy != null and !shdelNy.equals('')">AND ccgdelNy = #{shdelNy}</if> 
-			<choose>
-				<when test="shOption == 1">AND ccgSeq = #{shValue}</when>
-				<when test="shOption == 2">AND ccgNameKo LIKE CONCAT('%',#{shValue},'%')</when>
-				<when test="shOption == 3">AND ccgNameEng LIKE CONCAT('%',#{shValue},'%')</when>
-				<otherwise></otherwise>
-			</choose>
+		<include refid="Base.selectListUpperForMysql" /> 
+			select
+				a.*
+	    		,(select count(aa.ccg_seq)  From cc aa where 1=1 and aa.ccdelNy = 0 and aa.ccg_seq = a.ccgseq)as ccg_seq
+		<include refid="selectCommon"/>
+		ORDER BY a.ccgSeq DESC
+		<include refid="Base.selectListLowerForMysql" />
+	</select>
+	
+	<select id="selectOneCount" resultType="Integer">
+		SELECT COUNT(*)
+		<include refid="selectCommon" />
 	</select>
 	
 	<insert id="insert">
@@ -78,5 +87,9 @@
 	<delete id="delete">
 		DELETE FROM ccg WHERE ccgseq=#{ccgseq}
 	</delete>
+	
+
+	
+	
 
 </mapper>

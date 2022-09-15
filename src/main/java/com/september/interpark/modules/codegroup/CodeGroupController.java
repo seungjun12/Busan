@@ -2,7 +2,6 @@ package com.september.interpark.modules.codegroup;
 
 
 import java.util.List;
-import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,8 +28,12 @@ public class CodeGroupController {
 		System.out.println("vo.getShOption(): " +vo.getShOption()); 
 		System.out.println("vo.getShdelNy(): " +vo.getShdelNy()); 
 		
+		
+		vo.setParamsPaging(service.selectOneCount(vo));
 		List<CodeGroup> list = service.selectList(vo);
 		model.addAttribute("list", list);
+		
+		
 		
 		return "infra/codegroup/xdmin/codeGroupList";
 	}	
@@ -50,7 +53,7 @@ public class CodeGroupController {
 	}
 	
 	@RequestMapping(value="codeGroupView")
-	public String codeGroupView(CodeGroupVo vo, Model model)throws Exception{
+	public String codeGroupView(@ModelAttribute("vo") CodeGroupVo vo, CodeGroup dto, Model model)throws Exception{
 		CodeGroup result = service.selectOne(vo);
 		model.addAttribute("item", result);
 		return "infra/codegroup/xdmin/codeGroupView";

@@ -1,10 +1,14 @@
 package com.september.interpark.modules.codegroup;
 
-public class CodeGroupVo {
+import com.september.interpark.common.base.BaseVo;
+
+public class CodeGroupVo  extends BaseVo{
 	private Integer shOption;
 	private String shValue;
 	private Integer shdelNy;
 	private String ccgseq;
+	
+
 	
 ////////////////////////////////////////////////////////////////////////////////////////	
 	public Integer getShOption() {
@@ -32,7 +36,7 @@ public class CodeGroupVo {
 		this.ccgseq = ccgseq;
 	}
 	
-	
+
 	
 	
 	

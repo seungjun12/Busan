@@ -348,7 +348,7 @@
 					</div>
 				</div>
 			 -->
-			 <form method="post" action="codeInst" id="codeFormReg" name="codeFormReg">
+			 <form method="post" action="/code/codeUpdt" id="codeFormReg" name="codeFormReg">
 			 <div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
@@ -469,9 +469,9 @@
 									<i class="fa-regular fa-trash-can"></i>
 								</button>
 							</a>	
-								<span type="button" class="btn btn-primary" onclick="test();">
+								<button type="submit" class="btn btn-primary" >
 									<i class="fa-solid fa-plus"></i>
-								</span>
+								</button>
 						</div>
 					</div>
 				</div>

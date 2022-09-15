@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Controller
@@ -55,7 +56,12 @@ public class CodeController {
 		  model.addAttribute("item", result);
 	  return "infra/code/xdmin/codeView"; 
 	  }
-	 
+	  
+	  @RequestMapping(value = "codeUpdt")
+	  public String codeUpdt(CodeVo vo , Code dto, RedirectAttributes redirectAttributes)throws Exception{
+		  service.update(dto);
+		  return "infra/code/xdmin/codeList";
+	  }
 	
 	
 }

@@ -42,4 +42,6 @@ public class CodeDao {
 		 System.out.println("dao result :" + result);
 		 return result;
 	 }
+	 
+	 public int update(Code dto) {return sqlSession.update(namespace + ".update", dto);}
 }

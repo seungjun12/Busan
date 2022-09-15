@@ -27,9 +27,6 @@
     <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
 	<link href="/resources/css/codeGroupForm_style.css" rel="stylesheet">
 	
-	<!-- datepicker link -->
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-  	<link rel="stylesheet" href="/resources/demos/style.css">
   	
 
   
@@ -433,7 +430,27 @@
 							</select>
 						</div>
 					</div>
-				</div>				
+				</div>
+				<div class="container-fluid codeGroupName">
+					<div class="row">
+						<div class="col-6">
+							테스트1
+						</div>
+						<div class="col">
+							테스트2
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupInput">
+					<div class="row">
+						<div class="col">
+
+						</div>
+						<div class="col-6">
+
+						</div>
+					</div>
+				</div>								
 				<div class="container-fluid lastBtn">
 					<div class="row">
 						<div class="col-6">
@@ -451,7 +468,7 @@
 							<button id="btnUelete" type="button">
 								<i class="fa-regular fa-trash-can"></i>
 							</button>
-							<button type="button" id="btnSave" ><!-- 등록 버튼 -->
+							<button type="button" id="btnModify" ><!-- 등록 버튼 -->
 								<i class="fa-solid fa-plus" style="cursor: pointer;"></i>
 							</button>					
 						</div>
@@ -520,7 +537,7 @@
 	var formVo = $("form[name=formVo]");
 	
 	
-	$("#btnSave").on("click",function(){
+	$("#btnModify").on("click",function(){
 		form.attr("action", goUrlUpdt).submit();
 	}); 
 	

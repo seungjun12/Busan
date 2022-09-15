@@ -421,8 +421,8 @@
 						</div>
 						<div class="col-6">
 							<select class="form-select" aria-label="Default select example" id="gender" name="gender">
-						  		<option value="0" <c:if test="${item.ccuseNy eq 0 }">selected</c:if>>남자</option>
-							  	<option value="1" <c:if test="${item.ccuseNy eq 1 }">selected</c:if>>여자</option>
+						  		<option value="0" <c:if test="${item.gender eq 0 }">selected</c:if>>남자</option>
+							  	<option value="1" <c:if test="${item.gender eq 1 }">selected</c:if>>여자</option>
 							</select>
 						</div>
 					</div>
@@ -441,14 +441,14 @@
 					<div class="row">
 						<div class="col-6">
 							<select class="form-select" aria-label="Default select example" id="delNy" name="delNy">
-						  		<option value="1" <c:if test="${item.ccuseNy eq 1 }">selected</c:if>>N</option>
-							  	<option value="0" <c:if test="${item.ccuseNy eq 0 }">selected</c:if>>Y</option>
+						  		<option value="1" <c:if test="${item.delNy eq 1 }">selected</c:if>>N</option>
+							  	<option value="0" <c:if test="${item.delNy eq 0 }">selected</c:if>>Y</option>
 							</select>
 						</div>
 						<div class="col">
 							<select class="form-select" aria-label="Default select example" id="personalAgree" name="personalAgree">
-						  		<option value="0" <c:if test="${item.ccuseNy eq 0 }">selected</c:if>>탈퇴시까지</option>
-							  	<option value="1" <c:if test="${item.ccuseNy eq 1 }">selected</c:if>>1년</option>
+						  		<option value="0" <c:if test="${item.personalAgree eq 0 }">selected</c:if>>탈퇴시까지</option>
+							  	<option value="1" <c:if test="${item.personalAgree eq 1 }">selected</c:if>>1년</option>
 							</select>
 						</div>
 					</div>

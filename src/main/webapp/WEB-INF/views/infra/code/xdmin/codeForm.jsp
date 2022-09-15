@@ -348,7 +348,7 @@
 					</div>
 				</div>
 			 -->
-			 <form method="post" action="codeInst" id="codeFormReg" name="codeFormReg">
+			 <form method="post" action="/code/codeInst/" id="codeFormReg" name="codeFormReg">
 			 <div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
