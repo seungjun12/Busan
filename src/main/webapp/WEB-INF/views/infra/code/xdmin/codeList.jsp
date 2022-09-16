@@ -331,6 +331,10 @@
 				<h3>코드관리</h3>
 				<!-- 검색대 -->
 				<form method="post" name="form" id="form">
+					<input type="hidden" name="mainKey">
+					<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
+					<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow }"/>">
+					<input type="hidden" name="checkboxSeqArray">
 				<div class="searchWrap">
 					<div class="searchFirst">
 						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example" id="shdelNy" name="shdelNy">
@@ -375,7 +379,7 @@
 				</form>
 				<!-- 리스트 영역 -->
 				<div style="color: black">
-					total:0
+					<span>total:<c:out value="${vo.totalRows}"/></span>
 				</div>
 				<div class="listWrap">
 					<table class="table">
@@ -422,27 +426,10 @@
 					</c:choose>
 					</table>
 				</div>
-				<!-- 페이지네이션 -->
-				<div class="d-flex justify-content-center" style="margin-top: 30px;">
-					<nav aria-label="Page navigation example">
-					  <ul class="pagination_my" style="color: black;">
-					    <li class="page-item">
-					      <a class="page-link" href="#" aria-label="Previous">
-					        <span aria-hidden="true">&laquo;</span>
-					      </a>
-					    </li>
-					    <li class="page-item"><a class="page-link" href="#">1</a></li>
-					    <li class="page-item"><a class="page-link" href="#">2</a></li>
-					    <li class="page-item"><a class="page-link" href="#">3</a></li>
-					    <li class="page-item"><a class="page-link" href="#">4</a></li>
-					    <li class="page-item">
-					      <a class="page-link" href="#" aria-label="Next">
-					        <span aria-hidden="true">&raquo;</span>
-					      </a>
-					    </li>
-					  </ul>
-					</nav>		
-				</div>			
+				<!-- pagination s -->
+				<%@include file="../../../common/xdmin/includeV1/pagination.jsp"%>
+				<!-- pagination e -->
+							
 				<!-- 삭제 버튼 -->
 				<!-- 모달띄우는것부터 시작 -->
 				<!-- Button trigger modal -->

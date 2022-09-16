@@ -4,7 +4,10 @@ import com.september.interpark.common.constants.Constants;
 
 public class BaseVo {
 
-
+	//search
+	private Integer shOption;
+	private String shValue;
+	private Integer shdelNy;
 	
 	
 	//	paging
@@ -161,6 +164,30 @@ public void setParamsPaging(int totalRows) {
 
 	public void setStartRnumForMysql(int startRnumForMysql) {
 		this.startRnumForMysql = startRnumForMysql;
+	}
+
+	public Integer getShOption() {
+		return shOption;
+	}
+
+	public void setShOption(Integer shOption) {
+		this.shOption = shOption;
+	}
+
+	public String getShValue() {
+		return shValue;
+	}
+
+	public void setShValue(String shValue) {
+		this.shValue = shValue;
+	}
+
+	public Integer getShdelNy() {
+		return shdelNy;
+	}
+
+	public void setShdelNy(Integer shdelNy) {
+		this.shdelNy = shdelNy;
 	}
 	
 	

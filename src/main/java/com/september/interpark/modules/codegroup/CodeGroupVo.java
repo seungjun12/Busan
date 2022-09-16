@@ -3,32 +3,13 @@ package com.september.interpark.modules.codegroup;
 import com.september.interpark.common.base.BaseVo;
 
 public class CodeGroupVo  extends BaseVo{
-	private Integer shOption;
-	private String shValue;
-	private Integer shdelNy;
+
 	private String ccgseq;
 	
 
 	
 ////////////////////////////////////////////////////////////////////////////////////////	
-	public Integer getShOption() {
-		return shOption;
-	}
-	public void setShOption(Integer shOption) {
-		this.shOption = shOption;
-	}
-	public String getShValue() {
-		return shValue;
-	}
-	public void setShValue(String shValue) {
-		this.shValue = shValue;
-	}
-	public Integer getShdelNy() {
-		return shdelNy;
-	}
-	public void setShdelNy(Integer shdelNy) {
-		this.shdelNy = shdelNy;
-	}
+
 	public String getCcgseq() {
 		return ccgseq;
 	}

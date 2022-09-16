@@ -16,21 +16,21 @@
 				<when test="shOption == 1">AND ccseq = #{shValue}</when>
 				<when test="shOption == 2">AND ccnameko LIKE CONCAT('%',#{shValue},'%')</when>
 			</choose>
-	</sql>	<!-- 여기서 부터 해야됨 -->
+	</sql>	
 	
 	<select id="selectList" resultMap="resultMapObj">
-		SELECT
-			a.*
-			,(SELECT ccgNameKo FROM ccg aa WHERE 1=1 AND aa.ccgseq = a.ccg_seq)as ccgNameKo
-			FROM cc a
-		WHERE 1=1
-			<!-- AND ccuseNy = 1 -->
-		<if test="shdelNy != null and !shdelNy.equals('')">AND ccdelNy = #{shdelNy}</if> 
-			<choose>
-				<when test="shOption == 1">AND ccseq = #{shValue}</when>
-				<when test="shOption == 2">AND ccnameko LIKE CONCAT('%',#{shValue},'%')</when>
-				<otherwise></otherwise>
-			</choose>	
+		<include refid="Base.selectListUpperForMysql" />	
+			SELECT
+				a.*
+				,(SELECT ccgNameKo FROM ccg aa WHERE 1=1 AND aa.ccgseq = a.ccg_seq)as ccgNameKo
+			<include refid="selectCommon"></include>
+			ORDER BY a.ccseq DESC
+		<include refid="Base.selectListLowerForMysql" />		
+	</select>
+	
+	<select id="selectOneCount" resultType="Integer">
+		SELECT COUNT(*)
+		<include refid="selectCommon" />	
 	</select>
 	
 	<insert id="insert">
