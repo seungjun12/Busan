@@ -339,8 +339,8 @@
 					<div class="searchFirst">
 						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example" id="shdelNy" name="shdelNy">
 						  <option value="" selected <c:if test="${empty vo.shdelNy}">selected</c:if>>삭제여부</option>
-						  <option value="0" <c:if test="${vo.shdelNy eq 0}">selected</c:if>>N</option>
-						  <option value="1" <c:if test="${vo.shdelNy eq 1}">selected</c:if>>Y</option>
+						  <option value="1" <c:if test="${vo.shdelNy eq 1}">selected</c:if>>N</option>
+						  <option value="0" <c:if test="${vo.shdelNy eq 0}">selected</c:if>>Y</option>
 						</select>
 						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example">
 						  <option selected>수정일</option>
@@ -565,7 +565,11 @@
 	$("#btnSearch").on("click",function(){
 		form.attr("action", goUrlList).submit();
 	});
-	
+
+	goList = function(thisPage){
+		$("input:hidden[name=thisPage]").val(thisPage);
+		form.attr("action" , goUrlList).submit();
+	}
 
 	
 	</script>       

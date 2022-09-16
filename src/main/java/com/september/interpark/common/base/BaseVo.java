@@ -26,6 +26,9 @@ public class BaseVo {
 
 	private int startRnumForMysql = 0;							// 쿼리 시작 row
 	
+	//
+	private String mainkey;
+	
 	
 public void setParamsPaging(int totalRows) {
 		
@@ -189,6 +192,18 @@ public void setParamsPaging(int totalRows) {
 	public void setShdelNy(Integer shdelNy) {
 		this.shdelNy = shdelNy;
 	}
+
+	public String getMainkey() {
+		return mainkey;
+	}
+
+	public void setMainkey(String mainkey) {
+		this.mainkey = mainkey;
+	}
+
+	
+
+
 	
 	
 	

@@ -19,12 +19,13 @@ public class CodeController {
 	
 
 	@RequestMapping(value = "codeList")
-	public String codeList(Model model, @ModelAttribute("vo") CodeVo vo) throws Exception {
+	public String codeList(@ModelAttribute("vo") CodeVo vo , Model model) throws Exception {
 
 		System.out.println("vo.getShValue(): "+vo.getShValue());
 		System.out.println("vo.getShOption(): "+vo.getShOption());
 		System.out.println("vo.getShdelNy(): "+vo.getShdelNy());
 		
+		vo.setShdelNy(vo.getShdelNy() == null ? 1 : vo.getShdelNy());
 		vo.setParamsPaging(service.selectOneCount(vo));
 		List<Code> list = service.selectList(vo);
 		model.addAttribute("list", list);
@@ -32,6 +33,14 @@ public class CodeController {
 		return "infra/code/xdmin/codeList";
 	}	
 	
+	@RequestMapping(value = "codeForm")
+	public String codeForm(Model model)throws Exception {
+	  
+	List<Code> view = service.viewList(); model.addAttribute("view", view);
+	  
+	return "infra/code/xdmin/codeForm"; 
+	}
+	  
 	@RequestMapping(value = "codeInst")
 	public String codeInst(Code dto) throws Exception {
 		
@@ -40,22 +49,13 @@ public class CodeController {
 		
 		return "redirect:/code/codeList";
 	}
-	
-	
-	
-	  @RequestMapping(value = "codeForm")
-	  public String codeForm(Model model)throws Exception {
+
 	  
-	  List<Code> view = service.viewList(); model.addAttribute("view", view);
-	  
-	  return "infra/code/xdmin/codeForm"; 
-	  }
-	  
-	  @RequestMapping(value = "codeView")
-	  public String codeView(CodeVo vo,Model model)throws Exception {
-		  Code result = service.selectOne(vo);
-		  model.addAttribute("item", result);
-	  return "infra/code/xdmin/codeView"; 
+	@RequestMapping(value = "codeView")
+	public String codeView(CodeVo vo,Model model)throws Exception {
+		Code result = service.selectOne(vo);
+		model.addAttribute("item", result);
+		return "infra/code/xdmin/codeView"; 
 	  }
 	  
 	  @RequestMapping(value = "codeUpdt")

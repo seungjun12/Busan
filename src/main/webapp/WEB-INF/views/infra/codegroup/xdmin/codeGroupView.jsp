@@ -333,7 +333,14 @@
 			<div class="wrap">
 				<!-- 제목 -->
 				<h3>코드그룹관리</h3>
-				<form  method="post" action="/codeGroup/codeGroupUpdt" id="form" name="form">
+				<form  method="post"   id="form" name="form">
+				<input type="hidden" name="mainKey">
+				<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
+				<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
+				<input type="hidden" name="checkboxSeqArray"
+				 <!-- *Vo.jsp s -->
+				 <%@include file="codeGroupVo.jsp"%>		
+				 <!-- *Vo.jsp e -->			
 				<div class="container-fluid codeGroupName">
 					<div class="row">
 						<div class="col-6">
@@ -454,11 +461,9 @@
 				<div class="container-fluid lastBtn">
 					<div class="row">
 						<div class="col-6">
-							<a href="codeGroupList">	
-								<button type="button" class="btn btn-secondary">
-									<i class="fa-solid fa-bars"></i>
-								</button>
-							</a>
+							<span type="button" class="btn btn-secondary" id="btnList" name="btnList">
+								<i class="fa-solid fa-bars"></i>
+							</span>
 						</div>
 				
 						<div class="col" style="text-align: right;">
@@ -475,8 +480,11 @@
 					</div>
 				</div>
 				</form>
-				
-				
+				<form name="formVo" id="formVo" method="post">
+				<!-- *Vo.jsp s -->
+				<%@include file="codeGroupVo.jsp"%>		<!-- #-> -->
+				<!-- *Vo.jsp e -->
+				</form>
 			</div><!-- wrap end -->
 			
 
@@ -572,6 +580,10 @@
 	$("#btnModalDelete").on("click", function(){
 		$("#modalConfirm").modal("hide");
 		formVo.attr("action", "/codeGroup/codeGroupDele";).submit();
+	});
+	
+	$("#btnList").on("click", function(){
+		formVo.attr("action", goUrlList).submit();
 	});
 	
 	

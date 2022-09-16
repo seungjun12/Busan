@@ -453,7 +453,7 @@
 				<div class="container-fluid lastBtn">
 					<div class="row">
 						<div class="col-6">
-							<a href="codeGrouplist.html">	
+							<a href="codeGroupList">	
 								<button type="button" class="btn btn-secondary">
 									<i class="fa-solid fa-bars"></i>
 								</button>
@@ -548,15 +548,12 @@
 				return false;
 			}
 			
-			alert(document.getElementById('ccgNameKo').value);				
-			
 			if(document.getElementById('ccgNameEg').value =='' || document.getElementById('ccgNameEg').value == null){
 				alert("영문 코드그룹 이름 다시 입력해주세요")
 				document.getElementById('ccgNameEg').value="";
 				document.getElementById('ccgNameEg').focus();
 				return false;
 			}
-			alert(document.getElementById('ccgNameEg').value);
 			
 			if(document.getElementById('ccgorder') ==""  || document.getElementById('ccgorder') == null){
 				alert("순서입력해주세요")
@@ -564,7 +561,6 @@
 				document.getElementById('ccgorder').focus();
 				return false;
 			}
-			alert(document.getElementById('ccgorder').value);
 			
 			if(document.getElementById('ccguseNy') == "" || document.getElementById('ccguseNy') == null){
 				alert("사용여부 체크해 주십시오")
@@ -572,7 +568,6 @@
 				document.getElementById('ccguseNy').focus();
 				return false;
 			}
-			alert(document.getElementById('ccguseNy').value);
 			
 			if(document.getElementById('ccgdelNy') == "" || document.getElementById('ccgdelNy') == null){
 				alert("삭제여부 체크해 주십시오")
@@ -580,15 +575,14 @@
 				document.getElementById('ccgdelNy').focus();
 				return false;
 			}
-			alert(document.getElementById('ccgdelNy').value);
 			
-			if(document.querySelector("input[name='test']:checked") =='' || document.querySelector("input[name='test']:checked") == null){
+/* 			if(document.querySelector("input[name='test']:checked") =='' || document.querySelector("input[name='test']:checked") == null){
 				alert("테스트 체크해봐")
 				document.querySelector("input[name='test']:checked").value="";
 				document.querySelector("input[name='test']:checked").focus();
 				return false;
 			}
-			alert(document.querySelector("input[name='test']:checked").value)
+			alert(document.querySelector("input[name='test']:checked").value) */
 			
 
 			

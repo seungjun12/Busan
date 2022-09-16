@@ -1,16 +1,14 @@
 package com.september.interpark.modules.member;
 
 import java.util.List;
-import java.util.Locale;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.september.interpark.modules.codegroup.CodeGroup;
 
 @Controller
 @RequestMapping(value="member")
@@ -20,12 +18,13 @@ public class MemberController {
 	MemberServiceImpl service;
 	
 	@RequestMapping(value="memberList")
-	public String memberList(Model model, @ModelAttribute("vo") MemberVo vo)throws Exception{
+	public String memberList(@ModelAttribute("vo") MemberVo vo , Model model)throws Exception{
 		
 		System.out.println("vo.getShValue(): "+vo.getShValue());
 		System.out.println("vo.getShOption(): "+vo.getShOption());
 		System.out.println("vo.getShdelNy(): " + vo.getShdelNy());
 		
+		vo.setShdelNy(vo.getShdelNy() == null ? 1 : vo.getShdelNy());
 		List<Member> list = service.selectList(vo);
 		model.addAttribute("list", list);
 		

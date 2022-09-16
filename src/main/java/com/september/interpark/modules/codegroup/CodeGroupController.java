@@ -20,6 +20,13 @@ public class CodeGroupController {
 	@Autowired /* new 객체 만들기 */
 	CodeGroupServiceImpl service;
 	
+	public void setSearchAndPaging(CodeGroupVo vo)throws Exception{
+
+		vo.setShdelNy(vo.getShdelNy() == null ? 1 :vo.getShdelNy());
+		/* vo.setShOption(vo.getShOption() == null ? 2 : vo.getShOption()); */
+		
+		vo.setParamsPaging(service.selectOneCount(vo));		
+	}
 
 	@RequestMapping(value = "codeGroupList")
 	public String codeGroupList(@ModelAttribute("vo")  CodeGroupVo vo , Model model) throws Exception {
@@ -28,12 +35,9 @@ public class CodeGroupController {
 		System.out.println("vo.getShOption(): " +vo.getShOption()); 
 		System.out.println("vo.getShdelNy(): " +vo.getShdelNy()); 
 		
-		
-		vo.setParamsPaging(service.selectOneCount(vo));
+		setSearchAndPaging(vo);
 		List<CodeGroup> list = service.selectList(vo);
 		model.addAttribute("list", list);
-		
-		
 		
 		return "infra/codegroup/xdmin/codeGroupList";
 	}	
@@ -44,18 +48,25 @@ public class CodeGroupController {
 	}
 	
 	@RequestMapping(value = "codeGroupInst")
-	public String codeGroupInst(CodeGroup dto) throws Exception {
+	public String codeGroupInst(CodeGroupVo vo,CodeGroup dto , RedirectAttributes redirectAttributes) throws Exception {
 		
-		int result = service.insert(dto);
-		System.out.println("controller result: "+ result);
+		service.insert(dto);
 		
-		return "redirect:/codeGroup/codeGroupList";
+		vo.setCcgseq(dto.getCcgseq());
+		
+		redirectAttributes.addFlashAttribute("vo", vo);
+		
+		return "redirect:/codeGroup/codeGroupView";
 	}
 	
 	@RequestMapping(value="codeGroupView")
 	public String codeGroupView(@ModelAttribute("vo") CodeGroupVo vo, CodeGroup dto, Model model)throws Exception{
-		CodeGroup result = service.selectOne(vo);
-		model.addAttribute("item", result);
+	
+		
+			CodeGroup item = service.selectOne(vo);
+			model.addAttribute("item", item);
+			
+		
 		return "infra/codegroup/xdmin/codeGroupView";
 	}
 	

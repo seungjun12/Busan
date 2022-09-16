@@ -8,10 +8,7 @@
 
     <resultMap id="resultMapObj" type="com.september.interpark.modules.member.Member"></resultMap>
 	
-	<select id="selectList" resultMap="resultMapObj">
-		SELECT
-			a.*
-			,(SELECT number FROM memberPhone aa WHERE 1=1 AND aa.seqOther = a.seq)as number
+	<sql id="selectCommon">
 		FROM member a
 		WHERE 1=1
 		<if test="shdelNy != null and !shdelNy.equals('')">AND delNy = #{shdelNy}</if>
@@ -20,7 +17,14 @@
 			<when test="shOption == 2">AND name LIKE CONCAT('%',#{shValue},'%')</when>
 			<when test="shOption == 3">AND id LIKE CONCAT('%',#{shValue},'%')</when>
 			<otherwise></otherwise>
-		</choose>	
+		</choose>
+	</sql>
+	
+	<select id="selectList" resultMap="resultMapObj">
+		SELECT
+			a.*
+			,(SELECT number FROM memberPhone aa WHERE 1=1 AND aa.seqOther = a.seq)as number
+		<include refid="selectCommon" />	
 	</select>
 	
 	<insert id="insert">

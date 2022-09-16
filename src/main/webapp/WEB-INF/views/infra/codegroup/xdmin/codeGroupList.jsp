@@ -335,10 +335,10 @@
 				<h3>코드그룹관리</h3>
 				<!-- 검색대 -->
 				<form method="post" id="form" name="form" >
-					<input type="hidden" name="mainKey">
+					<input type="hidden" name="ccgseq" value="<c:out value="${dto.ccgseq }"/>">
 					<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
 					<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow }"/>">
-					<input type="hidden" name="checkboxSeqArray">
+					<input type="hidden" name="checkboxSeqArray">				
 				<div class="searchWrap">
 					<div class="searchFirst">
 					
@@ -411,11 +411,13 @@
 					  		</c:when>
 					  		<c:otherwise>
 					    	<c:forEach items="${list}" var="list" varStatus="status">
-						    	<tr onclick="location.href='/codeGroup/codeGroupView?ccgseq=<c:out value="${list.ccgseq }"/>'" style="cursor: pointer;">	
+						    	<%-- <tr onclick="location.href='/codeGroup/codeGroupView?ccgseq=<c:out value="${list.ccgseq }"/>'" style="cursor: pointer;"> --%>  
+						    	<tr>	
 							    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
 						    		<td><c:out value="${list.ccgseq }"/></td>
 							    	<td><c:out value="${list.ccgseqOther }"/></td>
-							    	<td><c:out value="${list.ccgNameKo }"/></td>
+							    	<%-- <td><c:out value="${list.ccgNameKo }"/></td> --%> 
+							    	<td><a href="javascript:goView(<c:out value="${list.ccgseq }"/>)" class="text-decoration-none"><c:out value="${list.ccgNameKo }"/></a></td> 
 							    	<td><c:out value="${list.ccgNameEg }"/></td>
 							    	<td><c:out value="${list.ccg_seq }"/></td>
 							    	<td></td>
@@ -429,7 +431,7 @@
 				  		</c:choose>
 					  		
 					</table>
-					</form>
+					
 				</div>
 				<!-- pagination s -->
 				<%@include file="../../../common/xdmin/includeV1/pagination.jsp"%>
@@ -448,14 +450,14 @@
 					</button>	
 				</a>
 					
-					<span type="button" class="btn btn-primary rightBtn" onclick="location.href='codeGroupForm'">
+					<button type="button" class="btn btn-primary" name="btnForm" id="btnForm">
 						<i class="fa-solid fa-plus"></i>
-					</span>
+					</button>
 				</a>	
 				<button type="button" class="btn btn-success rightBtn" style="margin-right: 5px;">
 					<i class="fa-solid fa-file"></i>
 				</button>
-				
+				</form>
 				
 				
 			</div><!-- wrap end -->
@@ -554,6 +556,8 @@
 	var goUrlUpdt = "/codeGroup/codeGroupUpdt";				/* #-> */
 	var goUrlUele = "/codeGroup/codeGroupUele";				/* #-> */
 	var goUrlDele = "/codeGroup/codeGroupDele";				/* #-> */
+	var goUrlView = "/codeGroup/codeGroupView";
+	var goUrlForm = "/codeGroup/codeGroupForm";
 	
 	var seq = $("input:hidden[name=ccgseq]");				/* #-> */
 	
@@ -568,10 +572,22 @@
 		form.attr("action", goUrlList).submit();
 	});
 	
+	
+	
+	$("#btnForm").on("click",function(){
+		$(location).attr("href",goUrlForm);
+	});
+	
 	goList = function(thisPage){
 		$("input:hidden[name=thisPage]").val(thisPage);
 		form.attr("action" , goUrlList).submit();
 	}
+	
+	goView = function(seqValue) {
+    	/* if(keyValue != 0) seq.val(btoa(keyValue)); */
+    	seq.val(seqValue);
+		form.attr("action", goUrlView).submit();
+	}	
 	
 	</script>
 	

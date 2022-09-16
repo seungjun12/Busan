@@ -5,8 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.september.interpark.modules.codegroup.CodeGroup;
-import com.september.interpark.modules.codegroup.CodeGroupVo;
+
 
 
 @Service
@@ -17,6 +16,7 @@ public class CodeServiceImpl implements CodeService{
 	@Override
 	public List<Code> selectList(CodeVo vo) throws Exception {
 		List<Code> list=dao.selectList(vo);
+		System.out.println("service list: " + list);
 		return list;
 	}
 

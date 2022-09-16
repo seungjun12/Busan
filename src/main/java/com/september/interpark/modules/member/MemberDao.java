@@ -10,7 +10,6 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.september.interpark.modules.codegroup.CodeGroup;
 
 
 
@@ -23,9 +22,8 @@ public class MemberDao {
 	
 	private static String namespace = "com.september.interpark.modules.member.MemberMapper";
 	
-	public List<Member> selectList(MemberVo vo){
-//	    List<CodeGroup> list= sqlSession.selectList(namespace+".selectList",vo);	
-		List<Member> list=sqlSession.selectList("com.september.interpark.modules.member.MemberMapper.selectList", vo);
+	public List<Member> selectList(MemberVo vo){	
+		List<Member> list=sqlSession.selectList(namespace + ".selectList", vo);
 		return list;
 	}
 	

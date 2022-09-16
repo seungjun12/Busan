@@ -24,6 +24,7 @@ public class CodeDao {
 	
 	public List<Code> selectList(CodeVo vo){
 		List<Code> list=sqlSession.selectList(namespace+".selectList", vo); 
+		System.out.println("dao list:" +list);
 		return list;
 	}
 	
