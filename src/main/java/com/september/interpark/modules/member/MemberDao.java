@@ -38,5 +38,7 @@ public class MemberDao {
 		System.out.println("dao result :" +result);
 		return result;
 	}
+	
+	public int selectOneCount(MemberVo vo) {return sqlSession.selectOne(namespace + ".selectOneCount", vo);}
 }	
 
