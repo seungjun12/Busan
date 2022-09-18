@@ -21,10 +21,18 @@
 	</sql>
 	
 	<select id="selectList" resultMap="resultMapObj">
-		SELECT
-			a.*
-			,(SELECT number FROM memberPhone aa WHERE 1=1 AND aa.seqOther = a.seq)as number
-		<include refid="selectCommon" />	
+		<include refid="Base.selectListUpperForMysql" />	
+			SELECT
+				a.*
+				,(SELECT number FROM memberPhone aa WHERE 1=1 AND aa.seqOther = a.seq)as number
+			<include refid="selectCommon" />
+			ORDER BY a.seq DESC
+			<include refid="Base.selectListLowerForMysql" />	
+	</select>
+	
+	<select id="selectOneCount" resultType="Integer">
+		SELECT COUNT(*)
+		<include refid="selectCommon" />
 	</select>
 	
 	<insert id="insert">
