@@ -52,17 +52,28 @@ public class CodeController {
 
 	  
 	@RequestMapping(value = "codeView")
-	public String codeView(CodeVo vo,Model model)throws Exception {
-		Code result = service.selectOne(vo);
-		model.addAttribute("item", result);
+	public String codeView(@ModelAttribute("vo") CodeVo vo,Code dto,Model model)throws Exception {
+		Code item = service.selectOne(vo);
+		model.addAttribute("item", item);
+		System.out.println("controller item: " + item);
 		return "infra/code/xdmin/codeView"; 
 	  }
 	  
 	  @RequestMapping(value = "codeUpdt")
 	  public String codeUpdt(CodeVo vo , Code dto, RedirectAttributes redirectAttributes)throws Exception{
 		  service.update(dto);
-		  return "infra/code/xdmin/codeList";
+		  return "redirect:/code/codeList";
 	  }
-	
-	
+	  
+	  @RequestMapping(value = "codeUele")
+	  public String codeUele(CodeVo vo , Code dto , RedirectAttributes redirectAttributes)throws Exception {
+		  service.uelete(dto);
+		  return "redirect:/code/codeList";
+	  }
+	  
+	  @RequestMapping(value = "codeDele")
+	  public String codeDele(CodeVo vo , Code dto , RedirectAttributes redirectAttributes)throws Exception {
+		  service.delete(dto);
+		  return "redirect:/code/codeList";
+	  }
 }

@@ -73,5 +73,35 @@
 		WHERE 1=1
 			AND seq=#{seq}	
 	</select>
+	
+	<update id="update">
+		UPDATE member
+		SET
+			name = #{name}
+			,id = #{id}
+			,pwd = #{pwd}
+			,email = #{email}
+			,address = #{address}
+			,address2 = #{address2}
+			,addressCode = #{addressCode}
+			,gender = #{gender}
+			,delNy = #{delNy}
+			,personalAgree = #{personalAgree}
+				
+		WHERE
+			 seq = #{seq}	
+	</update>
+	
+	<update id="uelete">
+		UPDATE member
+		SET
+			delNy = 0
+		WHERE
+			seq = #{seq} 	
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM member WHERE seq = #{seq}
+	</delete>
 
 </mapper>	

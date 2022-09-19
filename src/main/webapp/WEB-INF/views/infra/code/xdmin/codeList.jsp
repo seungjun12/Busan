@@ -331,7 +331,7 @@
 				<h3>코드관리</h3>
 				<!-- 검색대 -->
 				<form method="post" name="form" id="form">
-					<input type="hidden" name="mainKey">
+					<input type="hidden" name="ccseq" value="<c:out  value="${dto.ccseq }"/>">
 					<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
 					<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow }"/>">
 					<input type="hidden" name="checkboxSeqArray">
@@ -406,14 +406,14 @@
 					  		</c:when>
 					  		<c:otherwise>
 					  		<c:forEach items="${list}" var="list" varStatus="status">
-							<tr onclick="location.href='/code/codeView?ccseq=<c:out value="${list.ccseq }"/>'" style="cursor: pointer;">    	
+							<tr>    	
 						    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td><!-- 1 -->
 						    	<td><c:out value="${list.ccseq }"/></td><!-- 2 -->
 						    	<td><c:out value="${list.ccg_seq }"/></td><!-- 3 -->
 						    	<td><c:out value="${list.ccgNameKo }"/></td><!-- 4 -->
 						    	<td></td><!-- 5 -->
 						    	<td></td><!-- 6 -->
-						    	<td><c:out value="${list.ccnameko }"/></td><!-- 7 -->
+						    	<td><a href="javascript:goView(<c:out value="${list.ccseq }"/>)" class="text-decoration-none"><c:out value="${list.ccnameko }"/></td><!-- 7 -->
 						    	<td><c:out value="${list.ccnameeg }"/></td><!-- 8 -->
 						    	<td><c:out value="${list.ccuseNy }"/></td><!-- 9 -->
 						    	<td><c:out value="${list.ccorder }"/></td><!-- 10 -->
@@ -552,6 +552,7 @@
 	var goUrlUpdt = "/code/codeUpdt";				/* #-> */
 	var goUrlUele = "/code/codeUele";				/* #-> */
 	var goUrlDele = "/code/codeDele";				/* #-> */
+	var goUrlView = "/code/codeView";
 	
 	var seq = $("input:hidden[name=ccseq]");				/* #-> */
 	
@@ -569,6 +570,11 @@
 	goList = function(thisPage){
 		$("input:hidden[name=thisPage]").val(thisPage);
 		form.attr("action" , goUrlList).submit();
+	}
+	
+	goView = function(seqValue){
+		seq.val(seqValue);
+		form.attr("action" , goUrlView).submit();
 	}
 
 	

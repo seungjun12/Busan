@@ -330,14 +330,15 @@
                 </nav>
                 <!-- End of Topbar -->
 			<!-- 코드 그룹 관리 제목 -->
+			
 			<div class="wrap">
 				<!-- 제목 -->
 				<h3>코드그룹관리</h3>
-				<form  method="post"   id="form" name="form">
-				<input type="hidden" name="mainKey">
+				<form  method="post" id="form" name="form">
+				<%-- <input type="hidden" name="mainKey">
 				<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
 				<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
-				<input type="hidden" name="checkboxSeqArray"
+				<input type="hidden" name="checkboxSeqArray" --%>
 				 <!-- *Vo.jsp s -->
 				 <%@include file="codeGroupVo.jsp"%>		
 				 <!-- *Vo.jsp e -->			
@@ -365,7 +366,7 @@
 			 <div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
-							<input class="form-control" type="text" placeholder="코드그룹 이름(한글)" aria-label="default input example" id="ccgseq" name="ccgseq" value="<c:out value="${item.ccgseq }"/>">
+							<input class="form-control" type="text" placeholder="코드그룹 이름(한글)" aria-label="default input example" id="ccgseq" value="<c:out value="${item.ccgseq }"/>">
 						</div>
 						<div class="col">
 						
@@ -467,13 +468,13 @@
 						</div>
 				
 						<div class="col" style="text-align: right;">
-							<button id="btnDelete" type="button">
+							<button id="btnDelete" type="button" name="btnDelete">
 								<i class="fa-solid fa-x"></i>
 							</button>
-							<button id="btnUelete" type="button">
+							<button id="btnUele" type="button" name="btnUele">
 								<i class="fa-regular fa-trash-can"></i>
 							</button>
-							<button type="button" id="btnModify" ><!-- 등록 버튼 -->
+							<button type="button" id="btnModify" name="btnModifry" ><!-- 등록 버튼 -->
 								<i class="fa-solid fa-plus" style="cursor: pointer;"></i>
 							</button>					
 						</div>
@@ -545,46 +546,23 @@
 	var formVo = $("form[name=formVo]");
 	
 	
-	$("#btnModify").on("click",function(){
+ 	$("#btnModify").on("click",function(){
 		form.attr("action", goUrlUpdt).submit();
 	}); 
 	
-	$("#btnUelete").on("click",function(){
-		alert("율리트")
-		$("input:hidden[name=exDeleteType]").val(1);		
-		$(".modal-title").text("확 인");
-		$(".modal-body").text("해당 데이터를 삭제하시겠습니까 ?");
-		$("#btnModalUelete").show();
-		$("#btnModalDelete").hide();
-		$("#modalConfirm").modal("show");
-	});
 	
-
-	$("#btnDelete").on("click",function(){
-		alert("딜리트~")
-		$("input:hidden[name=exDeleteType]").val(2);
-		$(".modal-title").text("확 인");
-		$(".modal-body").text("해당 데이터를 삭제하시겠습니까 ?");
-		$("#btnModalUelete").hide();
-		$("#btnModalDelete").show();
-		$("#modalConfirm").modal("show");
+	$("#btnUele").on("click",function(){
+		formVo.attr("action", goUrlUele).submit();
 	});
 	
 	
-	$("#btnModalUelete").on("click",function(){
-		$("#modalConfirm").modal("hide");
-		formVo.attr("action", "/codeGroup/codeGroupUele").submit();
-	});
-	
-	
-	$("#btnModalDelete").on("click", function(){
-		$("#modalConfirm").modal("hide");
-		formVo.attr("action", "/codeGroup/codeGroupDele";).submit();
+	$("#btnDelete").on("click", function(){
+		formVo.attr("action", goUrlDele).submit();
 	});
 	
 	$("#btnList").on("click", function(){
 		formVo.attr("action", goUrlList).submit();
-	});
+	}); 
 	
 	
 	</script>
@@ -598,13 +576,6 @@
 	
     <!-- Custom scripts for all pages-->
     <script src="/resources/js/sb-admin-2.min.js"></script>
-	
-	
-
-	
-	
-	
-	
 
 
 	<!-- fontawsome -->

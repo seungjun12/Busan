@@ -348,7 +348,7 @@
 					</div>
 				</div>
 			 -->
-			 <form method="post" action="/code/codeUpdt" id="codeFormReg" name="codeFormReg">
+			 <form method="post" id="form" name="form">
 			 <div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
@@ -464,12 +464,10 @@
 									<i class="fa-solid fa-x"></i>
 								</button>
 							</a>
-							<a>	
 								<button type="button" class="btn btn-danger">
 									<i class="fa-regular fa-trash-can"></i>
 								</button>
-							</a>	
-								<button type="submit" class="btn btn-primary" >
+								<button type="button" class="btn btn-primary"  id="btnModify" name="btnModify">
 									<i class="fa-solid fa-plus"></i>
 								</button>
 						</div>
@@ -522,7 +520,66 @@
             </div>
         </div>
     </div>
-    
+
+
+  	<!-- btn bottom -->
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  	<script>
+	var goUrlList = "/code/codeList"; 			/* #-> */
+	var goUrlInst = "/code/codeInst"; 			/* #-> */
+	var goUrlUpdt = "/code/codeUpdt";				/* #-> */
+	var goUrlUele = "/code/codeUele";				/* #-> */
+	var goUrlDele = "/code/codeDele";				/* #-> */
+	
+	var seq = $("input:hidden[name=ccseq]");				/* #-> */
+	
+	var form = $("form[name=form]");
+	var formVo = $("form[name=formVo]");
+	
+	
+ 	$("#btnModify").on("click",function(){
+		form.attr("action", goUrlUpdt).submit();
+	}); 
+	
+	$("#btnUelete").on("click",function(){
+		alert("율리트")
+		$("input:hidden[name=exDeleteType]").val(1);		
+		$(".modal-title").text("확 인");
+		$(".modal-body").text("해당 데이터를 삭제하시겠습니까 ?");
+		$("#btnModalUelete").show();
+		$("#btnModalDelete").hide();
+		$("#modalConfirm").modal("show");
+	});
+	
+
+	$("#btnDelete").on("click",function(){
+		alert("딜리트~")
+		$("input:hidden[name=exDeleteType]").val(2);
+		$(".modal-title").text("확 인");
+		$(".modal-body").text("해당 데이터를 삭제하시겠습니까 ?");
+		$("#btnModalUelete").hide();
+		$("#btnModalDelete").show();
+		$("#modalConfirm").modal("show");
+	});
+	
+	
+	$("#btnModalUelete").on("click",function(){
+		$("#modalConfirm").modal("hide");
+		formVo.attr("action", goUrlUele).submit();
+	});
+	
+	
+	$("#btnModalDelete").on("click", function(){
+		$("#modalConfirm").modal("hide");
+		formVo.attr("action", goUrlDele).submit();
+	});
+	
+	$("#btnList").on("click", function(){
+		formVo.attr("action", goUrlList).submit();
+	}); 
+	
+	
+	</script>    
   
 
     <!-- Bootstrap core JavaScript-->

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Controller
@@ -47,13 +48,26 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "memberView")
-	public String memberView(MemberVo vo,Model model) throws Exception {
-		Member result=service.selectOne(vo);
-		model.addAttribute("item", result);
+	public String memberView(@ModelAttribute("vo") MemberVo vo,Model model) throws Exception {
+		Member item=service.selectOne(vo);
+		model.addAttribute("item", item);
+		System.out.println("controller item" + item);
 		return "infra/member/xdmin/memberView";
 	}
 	
-
+	@RequestMapping(value = "memberUpdt")
+	public String memberUpdt(MemberVo vo,Member dto, RedirectAttributes redirectAttributes) throws Exception {
+		service.update(dto);
+		return "redirect:member/memberList";
+	}
+	
+	@RequestMapping(value = "memberUele")
+	public String memberUele(MemberVo vo , Member dto , RedirectAttributes redirectAttributes) throws Exception {
+		service.uelete(dto);
+		return "redirect:member/memberList";
+	}
+	
+	
 	
 	
 	

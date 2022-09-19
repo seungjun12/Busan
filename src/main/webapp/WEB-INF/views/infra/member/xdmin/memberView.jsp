@@ -473,7 +473,7 @@
 									<i class="fa-regular fa-trash-can"></i>
 								</button>
 							</a>
-							<span type="button" class="btn btn-primary" onclick="test();">
+							<span type="button" class="btn btn-primary" id="btnModify">
 								<i class="fa-solid fa-plus"></i>
 							</span>
 						</div>
@@ -527,7 +527,46 @@
         </div>
     </div>
     
-  
+    <!--  btn jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+	var goUrlList = "/member/memberList"; 			/* #-> */
+	var goUrlInst = "/member/memberInst"; 			/* #-> */
+	var goUrlUpdt = "/member/memberUpdt";				/* #-> */
+	var goUrlUele = "/member/memberUele";				/* #-> */
+	var goUrlDele = "/member/memberDele";				/* #-> */
+	var goUrlView = "/member/memberView";
+	
+	var seq = $("input:hidden[name=seq]");				/* #-> */
+	
+	var form = $("form[name=form]");
+	var formVo = $("form[name=formVo]");
+	
+	$("#btnReset").on("click",function(){
+		$(location).attr("href",goUrlList);
+	});
+	
+	$("#btnSearch").on("click",function(){
+		form.attr("action", goUrlList).submit();
+	});
+	
+	$("#btnModify").on("click" , function(){
+		form.attr("action" , goUrlUpdt)
+	})
+	
+	goList = function(thisPage){
+		$("input:hidden[name=thisPage]").val(thisPage);
+		form.attr("action" , goUrlList).submit();
+	}	
+	
+	goView = function(seqValue){
+		seq.val(seqValue);
+		form.attr("action" , goUrlView).submit();
+	}
+	
+
+	
+	</script>       
 
     <!-- Bootstrap core JavaScript-->
     <script src="/resources/vendor/jquery/jquery.min.js"></script>

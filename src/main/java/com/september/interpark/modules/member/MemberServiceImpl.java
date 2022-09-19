@@ -35,6 +35,21 @@ public class MemberServiceImpl implements MemberService{
 	public int selectOneCount(MemberVo vo) throws Exception {
 		return dao.selectOneCount(vo);
 	}
+
+	@Override
+	public int update(Member dto) throws Exception {
+		return dao.update(dto);
+	}
+
+	@Override
+	public int uelete(Member dto) throws Exception {
+		return dao.uelete(dto);
+	}
+
+	@Override
+	public int delete(Member dto) throws Exception {
+		return dao.delete(dto);
+	}
 	
 	
 	

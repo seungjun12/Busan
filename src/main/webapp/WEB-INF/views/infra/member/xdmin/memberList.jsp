@@ -330,7 +330,7 @@
 				<h3>회원관리</h3>
 				<!-- 검색대 -->
 				<form method="post" name="form">
-<%-- 					<input type="hidden" name="ccgseq" value="<c:out value="${dto.ccgseq }"/>"> --%>
+ 					<input type="hidden" name="seq" value="<c:out value="${dto.seq }"/>">
 					<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
 					<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow }"/>">
 				<div class="searchWrap">
@@ -361,7 +361,7 @@
 					</div>
 					<div class="searchSecond"><!-- 여기부터 ㄱㄱ -->
 						<select class="form-select form-select-sm selectSize" aria-label=".form-select-sm example" id="shOption" name="shOption">
-						  <option selected>검색구분</option>
+						  <option value="">검색구분</option>
 						  <option value="1" <c:if test="${vo.shOption eq 1}">selected</c:if>>순서</option>
 						  <option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>이름</option>
 						  <option value="3" <c:if test="${vo.shOption eq 3}">selected</c:if>>아이디</option>
@@ -405,10 +405,10 @@
 					  		<c:otherwise>
 					  		<c:forEach items="${list}" var="list" varStatus="status">
 					  	<tbody>
-							<tr onclick="location.href='/member/memberView?seq=<c:out value="${list.seq }"/>'" style="cursor: pointer;">	    	
+							<tr>	    	
 						    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td>
 						    	<td><c:out value="${list.seq }"/></td>
-						    	<td><c:out value="${list.name }"/></td>
+						    	<td><a href="javascript:goView(<c:out value="${list.seq }"/>)" class="text-decoration-none"><c:out value="${list.name }"/></td>
 						    	<td><c:out value="${list.id }"/></td>
 						    	<td><c:out value="${list.pwd }"/></td>
 						    	<td><c:out value="${list.gender }"/></td>
@@ -553,6 +553,7 @@
 	var goUrlUpdt = "/member/memberUpdt";				/* #-> */
 	var goUrlUele = "/member/memberUele";				/* #-> */
 	var goUrlDele = "/member/memberDele";				/* #-> */
+	var goUrlView = "/member/memberView";
 	
 	var seq = $("input:hidden[name=seq]");				/* #-> */
 	
@@ -571,6 +572,11 @@
 		$("input:hidden[name=thisPage]").val(thisPage);
 		form.attr("action" , goUrlList).submit();
 	}	
+	
+	goView = function(seqValue){
+		seq.val(seqValue);
+		form.attr("action" , goUrlView).submit();
+	}
 	
 
 	

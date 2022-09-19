@@ -84,5 +84,17 @@
 			ccseq = #{ccseq}	
 	</update>
 	
+	<update id="uelete">
+		UPDATE cc
+		SET
+			ccdelNy
+		WHERE
+			ccseq = #{ccseq}	
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM cc WHERE ccseq=#{ccseq}
+	</delete>
+	
 	
 </mapper>
