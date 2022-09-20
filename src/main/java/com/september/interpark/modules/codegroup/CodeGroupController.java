@@ -80,13 +80,13 @@ public class CodeGroupController {
 	@RequestMapping( value = "codeGroupUele")
 	public String codeGroupUele(CodeGroupVo vo, CodeGroup dto,  RedirectAttributes redirectAttributes) throws Exception {
 		service.uelete(dto);
-		return "redirect:codeGroup/codeGroupList";
+		return "redirect:/codeGroup/codeGroupList";
 	}
 	
 	@RequestMapping(value = "codeGroupDele")
 	public String nationalityDele(CodeGroupVo vo,RedirectAttributes redirectAttributes) throws Exception{
 		service.delete(vo);
-		return "redirect:codeGroup/codeGroupList";
+		return "redirect:/codeGroup/codeGroupList";
 	}
 	
 	

@@ -327,13 +327,16 @@
                 <!-- End of Topbar -->
 			<!-- 코드 그룹 관리 제목 -->
 			<div class="wrap">
-			<form method="post" action="memberInst" id="memberFormReg" name="memberFormReg">
+			<form method="post"  id="form" name="form">
 				<!-- 제목 -->
 				<h3>회원관리</h3>
 				<div class="container-fluid codeGroupName">
 					<div class="row">
 						<div class="col-6">
 							이름
+						</div>
+						<div class="col">
+							
 						</div>					
 					</div>
 				</div>
@@ -341,6 +344,9 @@
 					<div class="row">
 						<div class="col-6">
 							<input class="form-control" type="text" aria-label="default input example" id="name" name="name" value="<c:out value="${item.name }"/>">
+						</div>
+						<div class="col">
+							<input class="form-control" type="hidden" aria-label="default input example" id="seq" name="seq" value="<c:out value="${item.seq }"/>">						
 						</div>
 					</div>
 				</div>	
@@ -463,17 +469,13 @@
 							</a>
 						</div>
 						<div class="col" style="text-align: right;">
-							<a>	
-								<button type="button" class="btn btn-danger">
-									<i class="fa-solid fa-x"></i>
-								</button>
-							</a>
-							<a>	
-								<button type="button" class="btn btn-danger">
-									<i class="fa-regular fa-trash-can"></i>
-								</button>
-							</a>
-							<span type="button" class="btn btn-primary" id="btnModify">
+							<button type="button" class="btn btn-danger" id="btnDelete" name="btnDelete">
+								<i class="fa-solid fa-x"></i>
+							</button>
+							<button type="button" class="btn btn-danger" id="btnUele" name="btnUele">
+								<i class="fa-regular fa-trash-can"></i>
+							</button>
+							<span type="button" class="btn btn-primary" id="btnModify" name="btnModify">
 								<i class="fa-solid fa-plus"></i>
 							</span>
 						</div>
@@ -551,7 +553,15 @@
 	});
 	
 	$("#btnModify").on("click" , function(){
-		form.attr("action" , goUrlUpdt)
+		form.attr("action" , goUrlUpdt).submit();
+	})
+	
+	$("#btnUele").on("click" , function(){
+		form.attr("action" , goUrlUele).submit();
+	})
+	
+	$("#btnDelete").on("click" , function(){
+		form.attr("action" , goUrlDele).submit();
 	})
 	
 	goList = function(thisPage){

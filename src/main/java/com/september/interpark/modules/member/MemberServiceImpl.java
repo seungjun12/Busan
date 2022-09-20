@@ -47,9 +47,13 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public int delete(Member dto) throws Exception {
-		return dao.delete(dto);
+	public int delete(MemberVo vo) throws Exception {
+		return dao.delete(vo);
 	}
+
+
+
+
 	
 	
 	

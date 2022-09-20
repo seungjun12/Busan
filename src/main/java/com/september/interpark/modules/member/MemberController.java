@@ -58,15 +58,20 @@ public class MemberController {
 	@RequestMapping(value = "memberUpdt")
 	public String memberUpdt(MemberVo vo,Member dto, RedirectAttributes redirectAttributes) throws Exception {
 		service.update(dto);
-		return "redirect:member/memberList";
+		return "redirect:/member/memberList";
 	}
 	
 	@RequestMapping(value = "memberUele")
 	public String memberUele(MemberVo vo , Member dto , RedirectAttributes redirectAttributes) throws Exception {
 		service.uelete(dto);
-		return "redirect:member/memberList";
+		return "redirect:/member/memberList";
 	}
 	
+	@RequestMapping(value = "memberDele")
+	public String memberDele(MemberVo vo , RedirectAttributes redirectAttributes)throws Exception {
+		service.delete(vo);
+		return "redirect:/member/memberList";
+	}
 	
 	
 	

@@ -87,7 +87,7 @@
 	<update id="uelete">
 		UPDATE cc
 		SET
-			ccdelNy
+			ccdelNy =0
 		WHERE
 			ccseq = #{ccseq}	
 	</update>

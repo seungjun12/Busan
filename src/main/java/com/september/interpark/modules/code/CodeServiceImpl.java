@@ -42,7 +42,9 @@ public class CodeServiceImpl implements CodeService{
 
 	@Override
 	public int update(Code dto) throws Exception {
-		return dao.update(dto);
+		int result = dao.update(dto);
+		System.out.println("service result :" +result);
+		return result;
 	}
 	
 	

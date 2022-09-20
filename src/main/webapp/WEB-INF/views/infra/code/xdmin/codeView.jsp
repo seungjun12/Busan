@@ -379,7 +379,7 @@
 							<input class="form-control" type="text" placeholder="자동생성" aria-label="Disabled input example" disabled>
 						</div>
 						<div class="col">
-							<input class="form-control" type="text"  aria-label="default input example">
+							<input class="form-control" type="text"  aria-label="default input example" id="ccseq" name="ccseq" value="<c:out value="${item.ccseq }"/>">
 						</div>
 					</div>
 				</div>
@@ -460,11 +460,11 @@
 						</div>
 						<div class="col" style="text-align: right;">
 							<a>	
-								<button type="button" class="btn btn-danger">
+								<button type="button" class="btn btn-danger" id="btnModalDelete" name="btnModalDelete">
 									<i class="fa-solid fa-x"></i>
 								</button>
 							</a>
-								<button type="button" class="btn btn-danger">
+								<button type="button" class="btn btn-danger" id="btnModalUelete" name="btnModalUelete">
 									<i class="fa-regular fa-trash-can"></i>
 								</button>
 								<button type="button" class="btn btn-primary"  id="btnModify" name="btnModify">
@@ -540,38 +540,15 @@
  	$("#btnModify").on("click",function(){
 		form.attr("action", goUrlUpdt).submit();
 	}); 
-	
-	$("#btnUelete").on("click",function(){
-		alert("율리트")
-		$("input:hidden[name=exDeleteType]").val(1);		
-		$(".modal-title").text("확 인");
-		$(".modal-body").text("해당 데이터를 삭제하시겠습니까 ?");
-		$("#btnModalUelete").show();
-		$("#btnModalDelete").hide();
-		$("#modalConfirm").modal("show");
-	});
-	
-
-	$("#btnDelete").on("click",function(){
-		alert("딜리트~")
-		$("input:hidden[name=exDeleteType]").val(2);
-		$(".modal-title").text("확 인");
-		$(".modal-body").text("해당 데이터를 삭제하시겠습니까 ?");
-		$("#btnModalUelete").hide();
-		$("#btnModalDelete").show();
-		$("#modalConfirm").modal("show");
-	});
-	
+		
 	
 	$("#btnModalUelete").on("click",function(){
-		$("#modalConfirm").modal("hide");
-		formVo.attr("action", goUrlUele).submit();
+		form.attr("action", goUrlUele).submit();
 	});
 	
 	
 	$("#btnModalDelete").on("click", function(){
-		$("#modalConfirm").modal("hide");
-		formVo.attr("action", goUrlDele).submit();
+		form.attr("action", goUrlDele).submit();
 	});
 	
 	$("#btnList").on("click", function(){

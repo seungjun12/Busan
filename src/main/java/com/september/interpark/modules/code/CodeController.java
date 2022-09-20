@@ -25,7 +25,7 @@ public class CodeController {
 		System.out.println("vo.getShOption(): "+vo.getShOption());
 		System.out.println("vo.getShdelNy(): "+vo.getShdelNy());
 		
-		vo.setShdelNy(vo.getShdelNy() == null ? 1 : vo.getShdelNy());
+		/* vo.setShdelNy(vo.getShdelNy() == null ? 1 : vo.getShdelNy()); */
 		vo.setParamsPaging(service.selectOneCount(vo));
 		List<Code> list = service.selectList(vo);
 		model.addAttribute("list", list);

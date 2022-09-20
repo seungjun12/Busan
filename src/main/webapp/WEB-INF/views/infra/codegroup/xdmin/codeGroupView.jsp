@@ -27,7 +27,8 @@
     <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
 	<link href="/resources/css/codeGroupForm_style.css" rel="stylesheet">
 	
-  	
+	<!-- bootstrap link -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">  	
 
   
 </head>
@@ -468,13 +469,13 @@
 						</div>
 				
 						<div class="col" style="text-align: right;">
-							<button id="btnDelete" type="button" name="btnDelete">
+							<button id="btnDelete" class="btn btn-danger" type="button" name="btnDelete">
 								<i class="fa-solid fa-x"></i>
 							</button>
-							<button id="btnUele" type="button" name="btnUele">
+							<button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
 								<i class="fa-regular fa-trash-can"></i>
 							</button>
-							<button type="button" id="btnModify" name="btnModifry" ><!-- 등록 버튼 -->
+							<button type="button" class="btn btn-primary" id="btnModify" name="btnModifry" ><!-- 등록 버튼 -->
 								<i class="fa-solid fa-plus" style="cursor: pointer;"></i>
 							</button>					
 						</div>
@@ -531,6 +532,25 @@
         </div>
     </div>
     
+    <!-- uele Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="staticBackdropLabel">삭제</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body">
+	        사용여부 삭제하시겠습니까?
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+	        <button type="button" class="btn btn-danger" id="btnUele" name="btnUele">삭제</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+    
   	<!-- btn bottom -->
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   	<script>
@@ -552,7 +572,7 @@
 	
 	
 	$("#btnUele").on("click",function(){
-		formVo.attr("action", goUrlUele).submit();
+		form.attr("action", goUrlUele).submit();
 	});
 	
 	

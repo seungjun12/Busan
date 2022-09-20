@@ -450,7 +450,7 @@
 					</button>	
 				</a>
 					
-					<button type="button" class="btn btn-primary" name="btnForm" id="btnForm">
+					<button type="button" class="btn btn-primary rightBtn" name="btnForm" id="btnForm">
 						<i class="fa-solid fa-plus"></i>
 					</button>
 				</a>	
