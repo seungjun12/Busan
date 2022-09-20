@@ -96,5 +96,18 @@
 		DELETE FROM cc WHERE ccseq=#{ccseq}
 	</delete>
 	
+    <select id="selectListCachedCodeArrayList" resultMap="resultMapObj">
+		SELECT 
+			ccseq
+			, ccnameko
+			, ccg_Seq
+			, ccorder
+		FROM
+			cc
+		WHERE 1=1
+			AND ccdelNy = 1
+		    AND ccuseNy = 1
+    </select>
+	
 	
 </mapper>

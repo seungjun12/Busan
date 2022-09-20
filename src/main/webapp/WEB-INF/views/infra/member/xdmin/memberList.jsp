@@ -396,6 +396,7 @@
 					    	<td class="td3">개인정보 유효기간</td>
 					    	<td class="td7">삭제여부</td>
 					  	</thead>
+					  	<c:set var="listCodeGender" value="${CodeServiceImpl.selectListCachedCode('2')}"/>
 					  	<c:choose> 
 					  		<c:when test="${fn:length(list) eq 0}">
 					  			<tr>
@@ -411,7 +412,11 @@
 						    	<td><a href="javascript:goView(<c:out value="${list.seq }"/>)" class="text-decoration-none"><c:out value="${list.name }"/></td>
 						    	<td><c:out value="${list.id }"/></td>
 						    	<td><c:out value="${list.pwd }"/></td>
-						    	<td><c:out value="${list.gender }"/></td>
+						    	<td>
+						    		<c:forEach items="${listCodeGender}" var="listGender" varStatus="statusGender">
+										<c:if test="${list.gender eq listGender.ccseq}"><c:out value="${listGender.ccnameko }"/></c:if>
+									</c:forEach>
+						    	</td>
 						    	<td><c:out value="${list.email }"/></td>
 						    	<td></td>
 						    	<td><c:out value="${list.address }"/></td>

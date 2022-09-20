@@ -1,5 +1,8 @@
 package com.september.interpark.modules.code;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Code {
 
 	private	String ccseq;
@@ -73,6 +76,9 @@ public class Code {
 	public void setCcgseq(String ccgseq) {
 		this.ccgseq = ccgseq;
 	}
+	
+//	for cache
+	public static List<Code> cachedCodeArrayList = new ArrayList<Code>();
 
 	
 	
