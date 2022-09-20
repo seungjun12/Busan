@@ -349,6 +349,15 @@
 				</div>
 			 -->
 			 <form method="post" id="form" name="form">
+			 <%-- <input type="hidden" name="mainKey">
+				<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
+				<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
+				<input type="hidden" name="checkboxSeqArray" --%>
+				 <!-- *Vo.jsp s -->
+				 <%@include file="codeVo.jsp"%>		
+				 <!-- *Vo.jsp e -->			
+				<div class="container-fluid codeGroupName">
+			 
 			 <div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
@@ -451,12 +460,10 @@
 				</div>
 				<div class="container-fluid lastBtn">
 					<div class="row">
-						<div class="col-6">
-							<a href="codelist.html">	
-								<button type="button" class="btn btn-secondary">
-									<i class="fa-solid fa-bars"></i>
-								</button>
-							</a>
+						<div class="col-6">	
+							<button type="button" class="btn btn-secondary" id="btnList" name="btnList">
+								<i class="fa-solid fa-bars"></i>
+							</button>
 						</div>
 						<div class="col" style="text-align: right;">
 							<a>	
@@ -474,7 +481,11 @@
 					</div>
 				</div>
 				</form>
-				
+				<form name="formVo" id="formVo" method="post">
+				<!-- *Vo.jsp s -->
+				<%@include file="codeVo.jsp"%>		<!-- #-> -->
+				<!-- *Vo.jsp e -->
+				</form>
 				
 			</div><!-- wrap end -->
 			
