@@ -7,7 +7,7 @@ public class Code {
 
 	private	String ccseq;
 	private	String ccseqOther;
-	private	Integer ccg_seq;
+	private	String ccg_seq;
 	private	String ccnameko;
 	private String ccnameeg;
 	private	String ccuseNy;
@@ -28,10 +28,11 @@ public class Code {
 	public void setCcseqOther(String ccseqOther) {
 		this.ccseqOther = ccseqOther;
 	}
-	public Integer getCcg_seq() {
+
+	public String getCcg_seq() {
 		return ccg_seq;
 	}
-	public void setCcg_seq(Integer ccg_seq) {
+	public void setCcg_seq(String ccg_seq) {
 		this.ccg_seq = ccg_seq;
 	}
 	public String getCcnameko() {

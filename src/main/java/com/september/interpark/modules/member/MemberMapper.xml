@@ -24,7 +24,7 @@
 		<include refid="Base.selectListUpperForMysql" />	
 			SELECT
 				a.*
-				,(SELECT number FROM memberPhone aa WHERE 1=1 AND aa.seqOther = a.seq)as number
+				,(SELECT number FROM memberPhone aa WHERE 1=1 AND aa.seqOther = a.seq AND aa.dfny = 0)as number
 			<include refid="selectCommon" />
 			ORDER BY a.seq DESC
 			<include refid="Base.selectListLowerForMysql" />	

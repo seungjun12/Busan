@@ -328,6 +328,13 @@
 			<!-- 코드 그룹 관리 제목 -->
 			<div class="wrap">
 			<form method="post"  id="form" name="form">
+			<%-- <input type="hidden" name="mainKey">
+				<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
+				<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
+				<input type="hidden" name="checkboxSeqArray" --%>
+				 <!-- *Vo.jsp s -->
+				 <%@include file="memberVo.jsp"%>		
+				 <!-- *Vo.jsp e -->	
 				<!-- 제목 -->
 				<h3>회원관리</h3>
 				<div class="container-fluid codeGroupName">
@@ -427,8 +434,8 @@
 						</div>
 						<div class="col-6">
 							<select class="form-select" aria-label="Default select example" id="gender" name="gender">
-						  		<option value="0" <c:if test="${item.gender eq 0 }">selected</c:if>>남자</option>
-							  	<option value="1" <c:if test="${item.gender eq 1 }">selected</c:if>>여자</option>
+						  		<option value="6" <c:if test="${item.gender eq 6 }">selected</c:if>>남자</option>
+							  	<option value="7" <c:if test="${item.gender eq 7 }">selected</c:if>>여자</option>
 							</select>
 						</div>
 					</div>
@@ -462,11 +469,9 @@
 				<div class="container-fluid lastBtn">
 					<div class="row">
 						<div class="col-6">
-							<a href="codelist.html">	
-								<button type="button" class="btn btn-secondary">
-									<i class="fa-solid fa-bars"></i>
-								</button>
-							</a>
+							<button type="button" class="btn btn-secondary" id="btnList" name="btnList">
+								<i class="fa-solid fa-bars"></i>
+							</button>
 						</div>
 						<div class="col" style="text-align: right;">
 							<button type="button" class="btn btn-danger" id="btnDelete" name="btnDelete">
@@ -482,7 +487,11 @@
 					</div>
 				</div>
 				</form>
-				
+				<form name="formVo" id="formVo" method="post">
+				<!-- *Vo.jsp s -->
+				<%@include file="memberVo.jsp"%>		<!-- #-> -->
+				<!-- *Vo.jsp e -->
+				</form>
 				
 			</div><!-- wrap end -->
 			
@@ -562,6 +571,10 @@
 	
 	$("#btnDelete").on("click" , function(){
 		form.attr("action" , goUrlDele).submit();
+	})
+	
+	$("#btnList").on("click" , function(){
+		form.attr("action" , goUrlList).submit();
 	})
 	
 	goList = function(thisPage){

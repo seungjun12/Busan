@@ -370,10 +370,10 @@
 						  <option value="3" <c:if test="${vo.shOption eq 3}">selected</c:if>>코드그룹(영문)</option>
 						</select>
 						<input class="form-control form-control-sm" type="text" placeholder="검색" aria-label=".form-control-sm example" id="shValue" name="shValue" value="<c:out value="${vo.shValue }"/>">
-						<button type="button" id="btnSearch">
+						<button type="button" id="btnSearch" class="btn btn-primary" style="width: 42px; height: 30px;">
 							<i class="fa fa-search" aria-hidden="true" style="cursor: pointer;"></i>&nbsp;&nbsp;&nbsp;
 						</button>
-						<button type="button" id="btnReset">
+						<button type="button" id="btnReset" class="btn btn-warning">
 							<i class="fa fa-reply" aria-hidden="true" style="cursor: pointer;"></i>
 						</button>
 				

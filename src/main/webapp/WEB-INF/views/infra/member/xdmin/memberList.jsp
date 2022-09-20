@@ -4,6 +4,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
+
+<jsp:useBean id="CodeServiceImpl" class="com.september.interpark.modules.code.CodeServiceImpl"/>
+
 <html lang="en">
 
 <head>
@@ -21,6 +24,8 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+
+	
 
     <!-- Custom styles for this template-->
     <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
@@ -367,10 +372,10 @@
 						  <option value="3" <c:if test="${vo.shOption eq 3}">selected</c:if>>아이디</option>
 						</select>
 						<input class="form-control form-control-sm" type="text" placeholder="검색" aria-label=".form-control-sm example" id="shValue" name="shValue"  value="<c:out value="${vo.shValue }"/>">
-						<button type="button" id="btnSearch">
+						<button type="button" id="btnSearch" style="width: 42px; height: 30px;" class="btn btn-primary">
 							<i class="fa fa-search" aria-hidden="true" style="cursor: pointer;"></i>&nbsp;&nbsp;&nbsp;
 						</button>
-						<button type="button" id="btnReset">
+						<button type="button" id="btnReset" class="btn btn-warning">
 							<i class="fa fa-reply" aria-hidden="true" style="cursor: pointer;"></i>
 						</button>
 					</div>
@@ -394,13 +399,13 @@
 					    	<td>상세주소</td>
 					    	<td>집코드</td>
 					    	<td class="td3">개인정보 유효기간</td>
-					    	<td class="td7">삭제여부</td>
 					  	</thead>
 					  	<c:set var="listCodeGender" value="${CodeServiceImpl.selectListCachedCode('2')}"/>
+					  	<c:set var="listCodePersonal" value="${CodeServiceImpl.selectListCachedCode('3')}"/>
 					  	<c:choose> 
 					  		<c:when test="${fn:length(list) eq 0}">
 					  			<tr>
-					  				<td class="text-center" colspan="13">There is no data!</td>
+					  				<td class="text-center" colspan="12">There is no data!</td>
 					  			</tr>
 					  		</c:when> 
 					  		<c:otherwise>
@@ -418,12 +423,15 @@
 									</c:forEach>
 						    	</td>
 						    	<td><c:out value="${list.email }"/></td>
-						    	<td></td>
+						    	<td><c:out value="${list.number }"/></td>
 						    	<td><c:out value="${list.address }"/></td>
 						    	<td><c:out value="${list.address2 }"/></td>
 						    	<td><c:out value="${list.addressCode }"/></td>
-						    	<td><c:out value="${list.personalAgree }"/></td>
-						    	<td><c:out value="${list.delNy }"/></td>
+						    	<td>
+						    		<c:forEach items="${listCodePersonal}" var="listPersonal" varStatus="statusGender">
+										<c:if test="${list.personalAgree eq listPersonal.ccseq}"><c:out value="${listPersonal.ccnameko }"/></c:if>
+									</c:forEach>
+						    	</td>
 				    		</tr>
 				    	</tbody>
 					  		</c:forEach>

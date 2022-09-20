@@ -368,10 +368,10 @@
 						  <option value="2" <c:if test="${vo.shOption eq 2}">selected</c:if>>코드이름</option>
 						</select>
 						<input class="form-control form-control-sm" type="text" placeholder="검색" aria-label=".form-control-sm example" id="shValue" name="shValue" value="<c:out value="${vo.shValue }"/>">
-						<button type="button" id="btnSearch">	
+						<button type="button" id="btnSearch" style="width: 42px; height: 30px;" class="btn btn-primary">	
 							<i class="fa fa-search" aria-hidden="true" style="cursor: pointer;"></i>&nbsp;&nbsp;&nbsp;
 						</button>	
-						<button type="button" id="btnReset">	
+						<button type="button" id="btnReset" class="btn btn-warning">	
 							<i class="fa fa-reply" aria-hidden="true" style="cursor: pointer;"></i>
 						</button>
 					</div>
@@ -392,8 +392,6 @@
 					    	<td>대체코드</td><!-- 6 -->
 					    	<td class="td7">코드 이름(한글)</td><!-- 7 -->
 					    	<td class="td8">코드 이름(영문)</td><!-- 8 -->
-					    	<td>사용</td><!-- 9 -->
-					    	<td>순서</td><!-- 10 -->
 					    	<td>등록일</td><!-- 11 -->
 					    	<td>수정일</td><!-- 12 -->
 					  	</thead>
@@ -401,7 +399,7 @@
 					  	<c:choose>
 					  		<c:when test="${fn:length(list) eq 0}">
 					  			<tr>
-					  				<td class="text-center" colspan="12">There is no data!</td>
+					  				<td class="text-center" colspan="10">There is no data!</td>
 					  			</tr>
 					  		</c:when>
 					  		<c:otherwise>
@@ -415,8 +413,6 @@
 						    	<td></td><!-- 6 -->
 						    	<td><a href="javascript:goView(<c:out value="${list.ccseq }"/>)" class="text-decoration-none"><c:out value="${list.ccnameko }"/></td><!-- 7 -->
 						    	<td><c:out value="${list.ccnameeg }"/></td><!-- 8 -->
-						    	<td><c:out value="${list.ccuseNy }"/></td><!-- 9 -->
-						    	<td><c:out value="${list.ccorder }"/></td><!-- 10 -->
 						    	<td></td><!-- 11 -->
 						    	<td></td><!-- 12 -->
 					  		</tr>

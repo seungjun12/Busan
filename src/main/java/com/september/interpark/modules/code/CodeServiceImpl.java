@@ -81,7 +81,7 @@ public class CodeServiceImpl implements CodeService{
 	public static List<Code> selectListCachedCode(String ccgseq) throws Exception {
 		List<Code> rt = new ArrayList<Code>();
 		for(Code codeRow : Code.cachedCodeArrayList) {
-			if (codeRow.getCcgseq().equals(ccgseq)) {
+			if (codeRow.getCcg_seq().equals((ccgseq))) {
 				rt.add(codeRow);
 			} else {
 				// by pass
@@ -90,10 +90,11 @@ public class CodeServiceImpl implements CodeService{
 		return rt;
 	}
 	
+	/* 엑셀 다운용도 */
 	public static String selectOneCachedCode(int code) throws Exception {
 		String rt = "";
 		for(Code codeRow : Code.cachedCodeArrayList) {
-			if (codeRow.getCcseq().equals(Integer.toString(code))) {
+			if (codeRow.getCcorder().equals(Integer.toString(code))) {
 				rt = codeRow.getCcnameko();
 			} else {
 				// by pass

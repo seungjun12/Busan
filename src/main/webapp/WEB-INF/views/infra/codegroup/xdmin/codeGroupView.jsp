@@ -28,7 +28,7 @@
 	<link href="/resources/css/codeGroupForm_style.css" rel="stylesheet">
 	
 	<!-- bootstrap link -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">  	
+	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> -->
 
   
 </head>
@@ -472,9 +472,9 @@
 							<button id="btnDelete" class="btn btn-danger" type="button" name="btnDelete">
 								<i class="fa-solid fa-x"></i>
 							</button>
-							<button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+							<a class="btn btn-danger" href="#"  data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
 								<i class="fa-regular fa-trash-can"></i>
-							</button>
+							</a>
 							<button type="button" class="btn btn-primary" id="btnModify" name="btnModifry" ><!-- 등록 버튼 -->
 								<i class="fa-solid fa-plus" style="cursor: pointer;"></i>
 							</button>					
@@ -533,7 +533,7 @@
     </div>
     
     <!-- uele Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 	    <div class="modal-content">
 	      <div class="modal-header">

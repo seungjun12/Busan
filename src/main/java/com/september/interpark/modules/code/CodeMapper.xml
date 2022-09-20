@@ -100,13 +100,12 @@
 		SELECT 
 			ccseq
 			, ccnameko
-			, ccg_Seq
-			, ccorder
+			, ccg_seq
 		FROM
 			cc
 		WHERE 1=1
 			AND ccdelNy = 1
-		    AND ccuseNy = 1
+		    AND ccuseNy = 0
     </select>
 	
 	
