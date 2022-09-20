@@ -73,7 +73,7 @@ public class CodeController {
 	  
 	  @RequestMapping(value = "codeDele")
 	  public String codeDele(CodeVo vo , Code dto , RedirectAttributes redirectAttributes)throws Exception {
-		  service.delete(dto);
+		  service.delete(vo);
 		  return "redirect:/code/codeList";
 	  }
 }

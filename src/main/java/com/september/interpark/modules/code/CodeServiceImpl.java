@@ -52,9 +52,11 @@ public class CodeServiceImpl implements CodeService{
 		return dao.uelete(dto);
 	}
 
+	
+
 	@Override
-	public int delete(Code dto) throws Exception {
-		return dao.delete(dto);
+	public int delete(CodeVo vo) throws Exception {
+		return dao.delete(vo);
 	}
 
 	@Override
