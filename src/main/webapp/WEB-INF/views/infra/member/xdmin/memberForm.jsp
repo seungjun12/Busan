@@ -26,6 +26,9 @@
     <!-- Custom styles for this template-->
     <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
 	<link href="/resources/css/memberForm_style.css" rel="stylesheet">
+	
+	<!-- bootstrap --> 
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 
 <body id="page-top">
@@ -387,42 +390,25 @@
 				<div class="container-fluid codeGroupName">
 					<div class="row">
 						<div class="col-6">
-							주소
-						</div>
-					</div>
-				</div>
-				<div class="container-fluid codeGroupInput">
-					<div class="row">
-						<div class="col">
-							<input type="text" id="sample4_postcode" placeholder="우편번호">
-							<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-							<input type="text" id="sample4_roadAddress" placeholder="도로명주소"  name="address" value="<c:out value="${dto.address }"/>">
-							<input type="text" id="sample4_jibunAddress" placeholder="지번주소">
-							<span id="guide" style="color:#999;display:none"></span>
-							<input type="text" id="sample4_detailAddress" placeholder="상세주소"  name="address2" value="<c:out value="${dto.address2 }"/>">
-							<input type="text" id="sample4_extraAddress" placeholder="참고항목">
-						</div>
-					</div>
-				</div>
-				<div class="container-fluid codeGroupName">
-					<div class="row">
-						<div class="col-6">
-							집코드
-						</div>
-						<div class="col">
 							성별
 						</div>
+						<div class="col">
+							삭제여부
+						</div>
 					</div>
 				</div>
 				<div class="container-fluid codeGroupInput">
 					<div class="row">
-						<div class="col">
-							<input class="form-control" type="text"  aria-label="default input example" id="addressCode" name="addressCode" value="<c:out value="${dto.addressCode }"/>">
-						</div>
 						<div class="col-6">
 							<select class="form-select" aria-label="Default select example" id="gender" name="gender">
-						  		<option value="0">남자</option>
-							  	<option value="1">여자</option>
+						  		<option value="6">남자</option>
+							  	<option value="7">여자</option>
+							</select>
+						</div>
+						<div class="col">
+							<select class="form-select" aria-label="Default select example" id="delNy" name="delNy">
+						  		<option value="1">N</option>
+							  	<option value="0">Y</option>
 							</select>
 						</div>
 					</div>
@@ -430,9 +416,6 @@
 				<div class="container-fluid codeGroupName">
 					<div class="row">
 						<div class="col-6">
-							삭제여부
-						</div>
-						<div class="col">
 							개인정보유효기간
 						</div>
 					</div>
@@ -440,19 +423,40 @@
 				<div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
-							<select class="form-select" aria-label="Default select example" id="delNy" name="delNy">
-						  		<option value="1">N</option>
-							  	<option value="0">Y</option>
-							</select>
-						</div>
-						<div class="col">
 							<select class="form-select" aria-label="Default select example" id="personalAgree" name="personalAgree">
-						  		<option value="0">탈퇴시까지</option>
-							  	<option value="1">1년</option>
+						  		<option value="8">탈퇴시까지</option>
+							  	<option value="9">1년</option>
 							</select>
 						</div>
 					</div>
 				</div>
+				<div class="container-fluid codeGroupName">
+					<div class="row">
+						<div class="col-6">
+							주소
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupInput">
+					<div class="row">
+						<div class="col-12">
+							<input type="text" id="sample4_postcode" placeholder="우편번호"  name="addressCode" value="<c:out value="${dto.addressCode}"/>">
+							<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기">
+							<button type="button" id="btnAddressClear" class="btn-close" aria-label="Close"></button>
+						</div>
+					</div>	
+				</div>
+				<div class="container-fluid codeGroupInput">
+					<div class="row">
+						<div class="col-12">
+							<input type="text" id="sample4_roadAddress" placeholder="도로명주소"  name="address" value="<c:out value="${dto.address }"/>">
+							<input type="text" id="sample4_jibunAddress" placeholder="지번주소" >
+							<span id="guide" style="color:#999;display:none"></span>
+							<input type="text" id="sample4_detailAddress" placeholder="상세주소"  name="address2"  value="<c:out value="${dto.address2 }"/>">
+							<input type="text" id="sample4_extraAddress" placeholder="참고항목" >
+						</div>
+					</div>
+				</div>								
 				<div class="container-fluid lastBtn">
 					<div class="row">
 						<div class="col-6">
@@ -527,6 +531,17 @@
         </div>
     </div>
     
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+    $("#btnAddressClear").on("click" , function(){
+    	$("#sample4_roadAddress").val('');
+    	$("#sample4_jibunAddress").val('');
+    	$("#sample4_detailAddress").val('');
+    	$("#sample4_extraAddress").val('');
+    	$("#sample4_postcode").val('');
+    })
+    </script>
   
 
     <!-- Bootstrap core JavaScript-->
@@ -656,6 +671,8 @@
         }).open();
     }
 	</script>
+	
+	
 </body>
 
 </html>
