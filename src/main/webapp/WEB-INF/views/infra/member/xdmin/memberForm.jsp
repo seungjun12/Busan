@@ -416,13 +416,21 @@
 				<div class="container-fluid codeGroupName">
 					<div class="row">
 						<div class="col-6">
+							주소
+						</div>
+						<div class="col">
 							개인정보유효기간
 						</div>
 					</div>
 				</div>
-				<div class="container-fluid codeGroupInput">
+				<div class="container-fluid codeGroupName">
 					<div class="row">
 						<div class="col-6">
+							<input type="text" id="sample4_postcode" placeholder="우편번호"  name="addressCode" value="<c:out value="${dto.addressCode}"/>">
+							<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기">
+							<button type="button" id="btnAddressClear" class="btn-close" aria-label="Close"></button>		
+						</div>
+						<div class="col">
 							<select class="form-select" aria-label="Default select example" id="personalAgree" name="personalAgree">
 						  		<option value="8">탈퇴시까지</option>
 							  	<option value="9">1년</option>
@@ -433,27 +441,29 @@
 				<div class="container-fluid codeGroupName">
 					<div class="row">
 						<div class="col-6">
-							주소
+							<input type="text" id="sample4_roadAddress" placeholder="도로명주소"  name="address" value="<c:out value="${dto.address }"/>" style="width: 400px;">
 						</div>
 					</div>
 				</div>
-				<div class="container-fluid codeGroupInput">
+				<div class="container-fluid codeGroupName">
 					<div class="row">
-						<div class="col-12">
-							<input type="text" id="sample4_postcode" placeholder="우편번호"  name="addressCode" value="<c:out value="${dto.addressCode}"/>">
-							<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기">
-							<button type="button" id="btnAddressClear" class="btn-close" aria-label="Close"></button>
+						<div class="col-6">
+							<input type="text" id="sample4_jibunAddress" placeholder="지번주소" style="width: 400px;">
 						</div>
 					</div>	
 				</div>
-				<div class="container-fluid codeGroupInput">
+				<div class="container-fluid codeGroupName">
 					<div class="row">
-						<div class="col-12">
-							<input type="text" id="sample4_roadAddress" placeholder="도로명주소"  name="address" value="<c:out value="${dto.address }"/>">
-							<input type="text" id="sample4_jibunAddress" placeholder="지번주소" >
+						<div class="col-6">
 							<span id="guide" style="color:#999;display:none"></span>
-							<input type="text" id="sample4_detailAddress" placeholder="상세주소"  name="address2"  value="<c:out value="${dto.address2 }"/>">
-							<input type="text" id="sample4_extraAddress" placeholder="참고항목" >
+							<input type="text" id="sample4_detailAddress" placeholder="상세주소"  name="address2"  value="<c:out value="${dto.address2 }"/>" style="width: 400px;">
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupName">
+					<div class="row">
+						<div class="col-6">
+							<input type="text" id="sample4_extraAddress" placeholder="참고항목" style="width: 400px;" >
 						</div>
 					</div>
 				</div>								
@@ -533,6 +543,7 @@
     
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!-- 주소록 삭제 스크립트 -->
     <script>
     $("#btnAddressClear").on("click" , function(){
     	$("#sample4_roadAddress").val('');
