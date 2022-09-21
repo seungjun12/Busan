@@ -364,11 +364,11 @@
 							<select class="form-select" aria-label="Default select example" id="ccg_seq" name="ccg_seq">
 						  		<option value="">코드그룹 선택</option>
 							  	<c:forEach items="${view}" var="view" varStatus="status">
-							  		<option value="${ view.ccgseq}">
+							  		<option value="${ view.ccgseq}" <c:if test="${item.ccg_seq eq view.ccgseq }">selected</c:if>>
 							  			<c:out value="${ view.ccgNameKo}"/>
 							  		</option>
 							  	</c:forEach>
-							</select>
+							</select> 
 						</div>
 					</div>
 				</div>	

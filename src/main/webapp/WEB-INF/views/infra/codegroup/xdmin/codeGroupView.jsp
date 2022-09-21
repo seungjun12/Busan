@@ -472,12 +472,12 @@
 							<button id="btnDelete" class="btn btn-danger" type="button" name="btnDelete">
 								<i class="fa-solid fa-x"></i>
 							</button>
-							<a class="btn btn-danger" href="#"  data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+							<button class="btn btn-danger"  data-bs-toggle="modal" data-bs-target="#ueleModal">
 								<i class="fa-regular fa-trash-can"></i>
-							</a>
-							<button type="button" class="btn btn-primary" id="btnModify" name="btnModifry" ><!-- 등록 버튼 -->
+							</button>
+							<a type="button" class="btn btn-primary" id="btnModify" name="btnModifry" ><!-- 등록 버튼 -->
 								<i class="fa-solid fa-plus" style="cursor: pointer;"></i>
-							</button>					
+							</a>					
 						</div>
 					</div>
 				</div>
@@ -532,24 +532,7 @@
         </div>
     </div>
     
-    <!-- uele Modal -->
-    <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h5 class="modal-title" id="staticBackdropLabel">삭제</h5>
-	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-	      </div>
-	      <div class="modal-body">
-	        사용여부 삭제하시겠습니까?
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-	        <button type="button" class="btn btn-danger" id="btnUele" name="btnUele">삭제</button>
-	      </div>
-	    </div>
-	  </div>
-	</div>
+
     
   	<!-- btn bottom -->
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -577,7 +560,7 @@
 	
 	
 	$("#btnDelete").on("click", function(){
-		formVo.attr("action", goUrlDele).submit();
+		form.attr("action", goUrlDele).submit();
 	});
 	
 	$("#btnList").on("click", function(){

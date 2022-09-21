@@ -53,6 +53,8 @@ public class CodeController {
 	  
 	@RequestMapping(value = "codeView")
 	public String codeView(@ModelAttribute("vo") CodeVo vo,Code dto,Model model)throws Exception {
+		
+		List <Code> view = service.viewList(); model.addAttribute("view", view);
 		Code item = service.selectOne(vo);
 		model.addAttribute("item", item);
 		System.out.println("controller item: " + item);

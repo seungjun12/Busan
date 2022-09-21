@@ -353,7 +353,7 @@
 							<input class="form-control" type="text" aria-label="default input example" id="name" name="name" value="<c:out value="${item.name }"/>">
 						</div>
 						<div class="col">
-							<input class="form-control" type="hidden" aria-label="default input example" id="seq" name="seq" value="<c:out value="${item.seq }"/>">						
+							<input class="form-control" type="hidden" aria-label="default input example" id="seq" value="<c:out value="${item.seq }"/>">						
 						</div>
 					</div>
 				</div>	
@@ -480,9 +480,9 @@
 							<button type="button" class="btn btn-danger" id="btnUele" name="btnUele">
 								<i class="fa-regular fa-trash-can"></i>
 							</button>
-							<span type="button" class="btn btn-primary" id="btnModify" name="btnModify">
+							<button type="button" class="btn btn-primary" id="btnModify" name="btnModify">
 								<i class="fa-solid fa-plus"></i>
-							</span>
+							</button>
 						</div>
 					</div>
 				</div>
@@ -579,7 +579,7 @@
 	
 	goList = function(thisPage){
 		$("input:hidden[name=thisPage]").val(thisPage);
-		form.attr("action" , goUrlList).submit();
+		formVo.attr("action" , goUrlList).submit();
 	}	
 	
 	goView = function(seqValue){

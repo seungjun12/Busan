@@ -399,7 +399,7 @@
 							<input type="text" id="sample4_roadAddress" placeholder="도로명주소"  name="address" value="<c:out value="${dto.address }"/>">
 							<input type="text" id="sample4_jibunAddress" placeholder="지번주소">
 							<span id="guide" style="color:#999;display:none"></span>
-							<input type="text" id="sample4_detailAddress " placeholder="상세주소"  name="address2" value="<c:out value="${dto.address2 }"/>">
+							<input type="text" id="sample4_detailAddress" placeholder="상세주소"  name="address2" value="<c:out value="${dto.address2 }"/>">
 							<input type="text" id="sample4_extraAddress" placeholder="참고항목">
 						</div>
 					</div>
@@ -545,7 +545,7 @@
 	
 	<script type="text/javascript">
 		function test() {
-			if(document.getElementById('name').value == '' || document.getElementById('name').value == null){
+/* 			if(document.getElementById('name').value == '' || document.getElementById('name').value == null){
 				alert("이름 입력해")
 				document.getElementById('name').value="";
 				document.getElementById('name').focus();
@@ -586,7 +586,7 @@
 				document.getElementById('addressCode').value="";
 				document.getElementById('addressCode').focus();
 				return false;
-			}
+			} */
 			
 			document.getElementById('memberFormReg').submit();
 			
