@@ -635,15 +635,12 @@
 			
 			return false;
 			
-			function buttonTest(){
-				alert("123")
-			}	
 		}
 	
 	
 	</script>
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7f841982946149edfa0ce998dfc98894"></script>
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7f841982946149edfa0ce998dfc98894&libraries=services,clusterer,drawing"></script>
 	<script>
     //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
     function sample4_execDaumPostcode() {
@@ -682,7 +679,7 @@
                     document.getElementById("sample4_extraAddress").value = '';
                 }
 
-/*                 var guideTextBox = document.getElementById("guide");
+                 var guideTextBox = document.getElementById("guide");
                 // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
                 if(data.autoRoadAddress) {
                     var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
@@ -696,8 +693,8 @@
                 } else {
                     guideTextBox.innerHTML = '';
                     guideTextBox.style.display = 'none';
-                } */
-				/* lat and lng from address s */
+                } 
+				/*  lat and lng from address s */ 
  				
 				// 주소-좌표 변환 객체를 생성
 				var geocoder = new daum.maps.services.Geocoder();
@@ -712,7 +709,7 @@
 						document.getElementById("ifmaLngArray0").value=result[0].x;
 					}
 				});
-				/* lat and lng from address e */
+				/* lat and lng from address e*/ 
             }
         }).open();
     }

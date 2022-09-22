@@ -27,6 +27,9 @@
 			,#{email}
 			,#{number}
 		)
+		<selectKey resultType="String" keyProperty="seq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
 		
 	</insert>
 
