@@ -8,6 +8,26 @@
 
     <resultMap id="resultMapObj" type="com.september.interpark.modules.user.User"></resultMap>
 	
-
+	<insert id="register">
+		INSERT INTO member(
+			id
+			,pwd
+			,personalAgree
+			,name
+			,gender
+			,email
+			,(select number memberPhone aa WHERE 1=1 AND aa.member_seq = a.seq AND aa.dfny = 0)as number
+		)
+		VALUES(
+			#{id}
+			,#{pwd}
+			,#{personalAgree}
+			,#{name}
+			,#{gender}
+			,#{email}
+			,#{number}
+		)
+		
+	</insert>
 
 </mapper>

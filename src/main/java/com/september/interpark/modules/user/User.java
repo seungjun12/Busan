@@ -1,13 +1,118 @@
 package com.september.interpark.modules.user;
 
-import java.sql.Date;
-
 public class User {
 	
+	//member
 	private String seq;
+	private String name;
+	private String pwd;
+	private Integer gender;
+	private String email;
+	private Integer emailCode;
+	private Integer personalAgree;
+	private String dob;
+	private String address;
+	private String address2;
+	private String addressCode;
+	private Integer delNy;
+	//memberPhone
 	private String member_seq;
-	private Date registerDob;
-	private String registerNumber;
-	private String registerName;
+	private Integer dfny;
+	private String number;
+///////////////////////////////////////////////////////////////////////	
+	
+	public String getSeq() {
+		return seq;
+	}
+	public void setSeq(String seq) {
+		this.seq = seq;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getPwd() {
+		return pwd;
+	}
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+	public Integer getGender() {
+		return gender;
+	}
+	public void setGender(Integer gender) {
+		this.gender = gender;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public Integer getEmailCode() {
+		return emailCode;
+	}
+	public void setEmailCode(Integer emailCode) {
+		this.emailCode = emailCode;
+	}
+	public Integer getPersonalAgree() {
+		return personalAgree;
+	}
+	public void setPersonalAgree(Integer personalAgree) {
+		this.personalAgree = personalAgree;
+	}
+	public String getDob() {
+		return dob;
+	}
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getAddress2() {
+		return address2;
+	}
+	public void setAddress2(String address2) {
+		this.address2 = address2;
+	}
+	public String getAddressCode() {
+		return addressCode;
+	}
+	public void setAddressCode(String addressCode) {
+		this.addressCode = addressCode;
+	}
+	public Integer getDelNy() {
+		return delNy;
+	}
+	public void setDelNy(Integer delNy) {
+		this.delNy = delNy;
+	}
+	//memberPhone
+	public String getMember_seq() {
+		return member_seq;
+	}
+	public void setMember_seq(String member_seq) {
+		this.member_seq = member_seq;
+	}
+	public Integer getDfny() {
+		return dfny;
+	}
+	public void setDfny(Integer dfny) {
+		this.dfny = dfny;
+	}
+	public String getNumber() {
+		return number;
+	}
+	public void setNumber(String number) {
+		this.number = number;
+	}
+	
+	
 
 }

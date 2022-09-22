@@ -26,6 +26,10 @@
     <!-- Custom styles for this template-->
     <link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
 	<link href="/resources/css/codeForm_style.css" rel="stylesheet">
+	
+	<!-- bootstrap link -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> 
+	
 </head>
 
 <body id="page-top">
@@ -452,7 +456,7 @@
 				<div class="container-fluid lastBtn">
 					<div class="row">
 						<div class="col-6">
-							<a href="codelist.html">	
+							<a href="codelist">	
 								<button type="button" class="btn btn-secondary">
 									<i class="fa-solid fa-bars"></i>
 								</button>

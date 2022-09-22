@@ -423,6 +423,7 @@
 						</div>
 					</div>
 				</div>
+				<!-- 우편번호,개인정보 동의선택함 -->
 				<div class="container-fluid codeGroupName">
 					<div class="row">
 						<div class="col-6">
@@ -438,6 +439,7 @@
 						</div>
 					</div>
 				</div>
+				<!-- 도로명주소 -->
 				<div class="container-fluid codeGroupName">
 					<div class="row">
 						<div class="col-6">
@@ -445,6 +447,7 @@
 						</div>
 					</div>
 				</div>
+				<!-- 지번주소 -->
 				<div class="container-fluid codeGroupName">
 					<div class="row">
 						<div class="col-6">
@@ -452,6 +455,7 @@
 						</div>
 					</div>	
 				</div>
+				<!-- 상세주소 -->
 				<div class="container-fluid codeGroupName">
 					<div class="row">
 						<div class="col-6">
@@ -460,17 +464,29 @@
 						</div>
 					</div>
 				</div>
+				<!-- 주소 참고항목 -->
 				<div class="container-fluid codeGroupName">
 					<div class="row">
 						<div class="col-6">
 							<input type="text" id="sample4_extraAddress" placeholder="참고항목" style="width: 400px;" >
 						</div>
 					</div>
+				</div>
+				<!-- 위도 경도 -->
+				<div class="container-fluid codeGroupName">
+					<div class="row">
+						<div class="col-3">
+							<input type="text" id="ifmaLatArray0" placeholder="위도">
+						</div>
+						<div class="col-3">
+							<input type="text" id="ifmaLngArray0"  placeholder="경도">
+						</div>
+					</div>
 				</div>								
 				<div class="container-fluid lastBtn">
 					<div class="row">
 						<div class="col-6">
-							<a href="codelist.html">	
+							<a href="memberList">	
 								<button type="button" class="btn btn-secondary">
 									<i class="fa-solid fa-bars"></i>
 								</button>
@@ -623,9 +639,9 @@
 	
 	
 	</script>
-	
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7f841982946149edfa0ce998dfc98894"></script>
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-	<script>
+	<script type="text/javascript">
     //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
     function sample4_execDaumPostcode() {
         new daum.Postcode({
@@ -678,6 +694,22 @@
                     guideTextBox.innerHTML = '';
                     guideTextBox.style.display = 'none';
                 }
+				/* lat and lng from address s */
+ 				
+				// 주소-좌표 변환 객체를 생성
+				var geocoder = new daum.maps.services.Geocoder();
+				
+				// 주소로 좌표를 검색
+				geocoder.addressSearch(roadAddr, function(result, status) {
+				 
+					// 정상적으로 검색이 완료됐으면,
+					if (status == daum.maps.services.Status.OK) {
+						
+						document.getElementById("ifmaLatArray0").value=result[0].y;
+						document.getElementById("ifmaLngArray0").value=result[0].x;
+					}
+				});
+				/* lat and lng from address e */
             }
         }).open();
     }

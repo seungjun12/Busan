@@ -28,7 +28,7 @@
 	<link href="/resources/css/codeGroupForm_style.css" rel="stylesheet">
 	
 	<!-- bootstrap link -->
-	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> 
 
   
 </head>
@@ -469,15 +469,24 @@
 						</div>
 				
 						<div class="col" style="text-align: right;">
-							<button id="btnDelete" class="btn btn-danger" type="button" name="btnDelete">
+							<!-- delete button -->
+							<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleModal">
 								<i class="fa-solid fa-x"></i>
 							</button>
-							<button class="btn btn-danger"  data-bs-toggle="modal" data-bs-target="#ueleModal">
+							<!-- uelete button -->
+							<button  type="button" class="btn btn-danger"  data-bs-toggle="modal" data-bs-target="#ueleModal">
 								<i class="fa-regular fa-trash-can"></i>
 							</button>
-							<a type="button" class="btn btn-primary" id="btnModify" name="btnModifry" ><!-- 등록 버튼 -->
+							<!-- update button -->
+							<button type="button" class="btn btn-primary" id="btnModify" name="btnModifry" ><!-- 등록 버튼 -->
 								<i class="fa-solid fa-plus" style="cursor: pointer;"></i>
-							</a>					
+							</button>
+							<!-- modal test -->
+							<div id="modal1" class="modal">
+							  <p>모달창안의 내용부분</p>
+							  <a href="#" rel="modal:close">닫기</a>
+							</div>
+							<p><a href="#modal1" rel="modal:open">모달창띄우기</a></p>
 						</div>
 					</div>
 				</div>
@@ -531,8 +540,49 @@
             </div>
         </div>
     </div>
+	
+	<!-- uele Modal -->
+	<div class="modal fade" id="ueleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">삭제</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body">
+	        사용여부 삭제 하시겠습니까?
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+	        <button type="button" class="btn btn-danger" id="btnUele" name="btnUele">삭제</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<!--delete Modal -->
+	<div class="modal fade" id="deleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="staticBackdropLabel">삭제</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body">
+	        완전삭제 하시겠습니까?
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+	        <button type="button" class="btn btn-danger" id="btnDelete" name="btnDelete">삭제</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
     
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     
   	<!-- btn bottom -->
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -555,12 +605,12 @@
 	
 	
 	$("#btnUele").on("click",function(){
-		form.attr("action", goUrlUele).submit();
+		formVo.attr("action", goUrlUele).submit();
 	});
 	
 	
 	$("#btnDelete").on("click", function(){
-		form.attr("action", goUrlDele).submit();
+		formVo.attr("action", goUrlDele).submit();
 	});
 	
 	$("#btnList").on("click", function(){
@@ -569,6 +619,7 @@
 	
 	
 	</script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="/resources/vendor/jquery/jquery.min.js"></script>

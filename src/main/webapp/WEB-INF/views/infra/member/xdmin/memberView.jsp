@@ -420,7 +420,7 @@
 				<div class="container-fluid codeGroupName">
 					<div class="row">
 						<div class="col-6">
-							집코드
+							우편번호
 						</div>
 						<div class="col">
 							성별

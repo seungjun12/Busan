@@ -397,7 +397,7 @@
 					    	<td class="td6">휴대폰</td>
 					    	<td>주소</td>
 					    	<td>상세주소</td>
-					    	<td>집코드</td>
+					    	<td>우편번호</td>
 					    	<td class="td3">개인정보 유효기간</td>
 					  	</thead>
 					  	<c:set var="listCodeGender" value="${CodeServiceImpl.selectListCachedCode('2')}"/>
