@@ -18,7 +18,7 @@
 </head>
 <body>
 <div id="wrap">
-	<form action="">
+	<form method="post" action="userInst" onclick="register()" id="register">
 		<div id="top">
 			<h3 id="topLogo" onclick="location.href='../main/indexForm.html'" style="cursor: pointer;">INTERPARK</h3> 
 		</div>
@@ -28,13 +28,13 @@
 			<!-- 아이디 입력 -->
 			<div id="id">
 				<b>아이디</b>
-				<input class="form-control" type="text" placeholder="6~20자 영문,숫자" aria-label="default input example">
+				<input class="form-control" type="text" placeholder="6~20자 영문,숫자" aria-label="default input example" id="id" name="id" value="<c:out value="${dto.id }"/>">
 			</div>
 			<hr>
 			<!-- 비밀번호 입력 -->
 			<div>
 				<b>비밀번호</b>
-				<input class="form-control" type="password" placeholder="8~12자 영문,숫자,특수문자" aria-label="default input example">
+				<input class="form-control" type="password" placeholder="8~12자 영문,숫자,특수문자" aria-label="default input example" id="pwd" name="pwd" value="<c:out value="${dto.pwd }"/>">
 			</div>
 			<hr>
 			<!-- 비밀번호 확인 입력 -->
@@ -47,11 +47,11 @@
 			<b>개인정보 유효기간</b>
 			<div class="checkbox" style="margin-left: 170px;">	
 				<div class="form-check form-check-inline">
-  					<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+  					<input class="form-check-input" type="radio" name="inlineRadioOptions personalAgree" id="inlineRadio1 personalAgree1" value="8">
 					<label class="form-check-label" for="inlineRadio1">탈퇴 시까지</label>
 				</div>
 				<div class="form-check form-check-inline">
-  					<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+  					<input class="form-check-input" type="radio" name="inlineRadioOptions personalAgree" id="inlineRadio2 personalAgree2" value="9">
   					<label class="form-check-label" for="inlineRadio2">1년</label>
 				</div>
 			</div>
@@ -64,18 +64,18 @@
 				<b>이름</b>
 			</div>
 			<div>
-				<input class="form-control" type="text" aria-label="default input example" placeholder="홍길동">
+				<input class="form-control" type="text" aria-label="default input example" placeholder="홍길동" id="name" name="name" value="<c:out value="${dto.name }"/>">
 			</div>
 			<hr>
 			<!-- 성별 체크 버튼 -->
 			<b>성별</b>
 			<div class="checkbox-gender">	
 				<div class="form-check form-check-inline">
-  					<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+  					<input class="form-check-input" type="radio" name="inlineRadioOptions gender" id="inlineRadio1 gender1" value="6">
 					<label class="form-check-label" for="inlineRadio1">남</label>
 				</div>
 				<div class="form-check form-check-inline">
-  					<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+  					<input class="form-check-input" type="radio" name="inlineRadioOptions gender" id="inlineRadio2 gender2" value="7">
   					<label class="form-check-label" for="inlineRadio2">여</label>
 				</div>
 			</div>
@@ -109,11 +109,13 @@
     				SMS, 이메일로 상품 및 이벤트 정보를 받겠습니다.(선택)
   				</label>
 			</div>
+			</form>
 			<div id="agreep">
 				<p>만 14세 미만 회원은 법정대리인(부모님) 동의를 받은 경우만 회원가입이 가능합니다.</p>
 			</div>
 			<div style="margin-top: 60px;">
-				<button type="button" class="btn btn-secondary btn-lg" style="width: 100%" data-bs-toggle="modal" data-bs-target="#exampleModal">가입완료</button>
+				<!-- 회원가입 버튼 -->
+				<button type="button" class="btn btn-secondary btn-lg" style="width: 100%" data-bs-toggle="modal" data-bs-target="#exampleModal" id="register">가입완료</button>
 				<!-- Modal -->
 				<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   					<div class="modal-dialog">
@@ -147,8 +149,15 @@
 		
 		
 		
-	</form>
+	
 </div><!-- wrap end -->	
+
+<script type="text/javascript">
+	function register(){
+		
+		document.getElementById('register')
+	}
+</script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

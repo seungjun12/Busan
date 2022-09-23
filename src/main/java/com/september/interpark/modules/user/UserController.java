@@ -2,6 +2,7 @@ package com.september.interpark.modules.user;
 
 import java.util.Locale;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,15 +11,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping(value = "user")
 public class UserController {
+	
+	@Autowired
+	UserServiceImpl service;
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String indexForm(Locale locale, Model model) {
 		return "infra/user/xdmin/loginForm";
 	}
 	
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public String registerForm(Locale locale, Model model) {
+	@RequestMapping(value = "/register")
+	public String registerForm() throws Exception {
 		return "infra/user/xdmin/registerForm";
+	}
+	
+	@RequestMapping(value = "userInst")
+	public String userInst(User dto) {
+		return "infra/main/xdmin/indexForm";
 	}
 	
 	@RequestMapping(value = "/memberView", method = RequestMethod.GET)

@@ -5,6 +5,7 @@ public class User {
 	//member
 	private String seq;
 	private String name;
+	private String id;
 	private String pwd;
 	private Integer gender;
 	private String email;
@@ -92,6 +93,13 @@ public class User {
 	}
 	public void setDelNy(Integer delNy) {
 		this.delNy = delNy;
+	}
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 	//memberPhone
 	public String getMember_seq() {

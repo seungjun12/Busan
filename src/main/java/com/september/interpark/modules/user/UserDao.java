@@ -16,8 +16,10 @@ public class UserDao {
 	
 	private static String namespace = "com.september.interpark.modules.user.UserMapper";
 	
-	public int register(User dto) {
-		int result = sqlSession.in
+	public int insert(User dto) {
+		int result = sqlSession.insert(namespace + ".insert", dto);
+		System.out.println("dao result: " + result);
+		return result;
 	}
 
 

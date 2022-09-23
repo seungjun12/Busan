@@ -8,7 +8,7 @@
 
     <resultMap id="resultMapObj" type="com.september.interpark.modules.user.User"></resultMap>
 	
-	<insert id="register">
+	<insert id="insert">
 		INSERT INTO member(
 			id
 			,pwd
@@ -16,7 +16,6 @@
 			,name
 			,gender
 			,email
-			,(select number memberPhone aa WHERE 1=1 AND aa.member_seq = a.seq AND aa.dfny = 0)as number
 		)
 		VALUES(
 			#{id}
@@ -25,7 +24,6 @@
 			,#{name}
 			,#{gender}
 			,#{email}
-			,#{number}
 		)
 		<selectKey resultType="String" keyProperty="seq" order="AFTER">
 			SELECT last_insert_id()
