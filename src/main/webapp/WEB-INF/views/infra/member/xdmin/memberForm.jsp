@@ -360,7 +360,11 @@
 				<div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
-							<input class="form-control" type="text" placeholder="ID" aria-label="defalut input example" id="id" name="id" value="<c:out value="${dto.id }"/>">
+							<input class="form-control" type="text"
+							 placeholder="ID" aria-label="default input example" 
+							 id="id" name="id" value="<c:out value="${dto.id }"/>"
+							 >
+							 <div class="invalide-feeback" id="ifmmIdFeedback"></div>
 						</div>
 						<div class="col">
 							<input class="form-control" type="password" placeholder="PWD" aria-label="default input example" id="pwd" name="pwd" value="<c:out value="${dto.pwd }"/>">
@@ -569,6 +573,50 @@
     	$("#sample4_extraAddress").val('');
     	$("#sample4_postcode").val('');
     })
+    
+	$("#id").on("keyup", function(key){
+		
+/* 		if(!checkId('id', 2, 0, "영대소문자,숫자,특수문자(-_.),4~20자리만 입력 가능합니다")) {
+			return false;
+		} else { */
+		if(key.keyCode == 13){	
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				/* ,dataType:"json" */
+				,url: "/member/checkId"
+				/* ,data : $("#formLogin").serialize() */
+				,data : { "id" : $("#id").val() }
+				,success: function(response) {
+					if(response.rt == "success") {
+						document.getElementById("id").classList.remove('is-invalid');						
+						document.getElementById("id").classList.add('is-valid');
+	
+						document.getElementById("ifmmIdFeedback").classList.remove('invalid-feedback');
+						document.getElementById("ifmmIdFeedback").classList.add('valid-feedback');
+						document.getElementById("ifmmIdFeedback").innerText = "사용 가능 합니다.";
+						
+						document.getElementById("ifmmIdAllowedNy").value = 1;
+						
+					} else {
+						document.getElementById("id").classList.add('is-invalid');
+						document.getElementById("id").classList.remove('is-valid');
+						
+						document.getElementById("ifmmIdFeedback").classList.remove('valid-feedback');
+						document.getElementById("ifmmIdFeedback").classList.add('invalid-feedback');
+						document.getElementById("ifmmIdFeedback").innerText = "사용 불가능 합니다";
+						
+						document.getElementById("ifmmIdAllowedNy").value = 0;
+					}
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});
+		}/* } */
+	}); 
+	
     </script>
   
 

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class MemberServiceImpl implements MemberService{
 
@@ -52,7 +53,12 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 
-
+	@Override
+	public int selectOneIdCheck(Member dto) throws Exception {
+		int result = dao.selectOneIdCheck(dto);
+		System.out.println("service result: " + result);
+		return result;
+	}
 
 	
 	

@@ -1,5 +1,7 @@
 package com.september.interpark.modules.user;
 
-public class UserVo {
+import com.september.interpark.common.base.BaseVo;
+
+public class UserVo extends BaseVo{
 
 }

@@ -2,6 +2,8 @@ package com.september.interpark.modules.member;
 
 import java.util.List;
 
+import com.september.interpark.modules.user.User;
+
 
 
 public interface MemberService {
@@ -19,5 +21,8 @@ public interface MemberService {
 	public int uelete(Member dto) throws Exception;
 	
 	public int delete(MemberVo vo) throws Exception;
+	
+	public int selectOneIdCheck(Member dto) throws Exception;
+	
 
 }

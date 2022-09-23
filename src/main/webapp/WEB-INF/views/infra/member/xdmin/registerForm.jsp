@@ -18,7 +18,7 @@
 </head>
 <body>
 <div id="wrap">
-	<form method="post" action="userInst" onclick="register()" id="register">
+	<form method="post" action="">
 		<div id="top">
 			<h3 id="topLogo" onclick="location.href='../main/indexForm.html'" style="cursor: pointer;">INTERPARK</h3> 
 		</div>
@@ -28,7 +28,13 @@
 			<!-- 아이디 입력 -->
 			<div id="id">
 				<b>아이디</b>
-				<input class="form-control" type="text" placeholder="6~20자 영문,숫자" aria-label="default input example" id="id" name="id" value="<c:out value="${dto.id }"/>">
+				<input
+				 class="form-control" 
+				 type="text" placeholder="6~20자 영문,숫자" 
+				 aria-label="default input example" 
+				 id="id" name="id" value="<c:out value="${dto.id }"/>"
+				 >
+				 <div class="invalid-feedback" id="ifmmIdFeedback"></div>
 			</div>
 			<hr>
 			<!-- 비밀번호 입력 -->
@@ -47,11 +53,11 @@
 			<b>개인정보 유효기간</b>
 			<div class="checkbox" style="margin-left: 170px;">	
 				<div class="form-check form-check-inline">
-  					<input class="form-check-input" type="radio" name="inlineRadioOptions personalAgree" id="inlineRadio1 personalAgree1" value="8">
+  					<input class="form-check-input" type="radio" name="personalAgree" id="personalAgree1" value="8">
 					<label class="form-check-label" for="inlineRadio1">탈퇴 시까지</label>
 				</div>
 				<div class="form-check form-check-inline">
-  					<input class="form-check-input" type="radio" name="inlineRadioOptions personalAgree" id="inlineRadio2 personalAgree2" value="9">
+  					<input class="form-check-input" type="radio" name="personalAgree" id="personalAgree2" value="9">
   					<label class="form-check-label" for="inlineRadio2">1년</label>
 				</div>
 			</div>
@@ -71,11 +77,11 @@
 			<b>성별</b>
 			<div class="checkbox-gender">	
 				<div class="form-check form-check-inline">
-  					<input class="form-check-input" type="radio" name="inlineRadioOptions gender" id="inlineRadio1 gender1" value="6">
+  					<input class="form-check-input" type="radio" name="gender" id="gender1" value="6">
 					<label class="form-check-label" for="inlineRadio1">남</label>
 				</div>
 				<div class="form-check form-check-inline">
-  					<input class="form-check-input" type="radio" name="inlineRadioOptions gender" id="inlineRadio2 gender2" value="7">
+  					<input class="form-check-input" type="radio" name="gender" id="gender2" value="7">
   					<label class="form-check-label" for="inlineRadio2">여</label>
 				</div>
 			</div>
@@ -115,9 +121,11 @@
 			</div>
 			<div style="margin-top: 60px;">
 				<!-- 회원가입 버튼 -->
-				<button type="button" class="btn btn-secondary btn-lg" style="width: 100%" data-bs-toggle="modal" data-bs-target="#exampleModal" id="register">가입완료</button>
-				<!-- Modal -->
-				<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<span type="button" class="btn btn-secondary btn-lg" style="width: 100%" onclick="register();">가입완료</span>
+				
+				
+				<!-- 회원가입 Modal -->
+				<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   					<div class="modal-dialog">
     					<div class="modal-content">
       						<div class="modal-header">
@@ -128,11 +136,11 @@
        							 회원가입을 축하드립니다.
       						</div>
       						<div class="modal-footer">
-        						<button type="button" class="btn btn-secondary" onclick="location.href='../main/indexForm.html'" style="cursor: pointer;">닫기</button>
+        						<button type="button" class="btn btn-secondary" style="cursor: pointer;">닫기</button>
       						</div>
     					</div>
   					</div>
-				</div>			
+				</div>			 -->
 			</div>
 		</div><!-- register-wrap end -->	
 			<!-- 푸터 -->
@@ -152,13 +160,58 @@
 	
 </div><!-- wrap end -->	
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+	$("#id").on("keyup", function(key){
+		if(key.keyCode == 13){
+		/* if(!checkId('id', 2, 0, "영대소문자,숫자,특수문자(-_.),4~20자리만 입력 가능합니다")) {
+			return false;
+		} else { */
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				/* ,dataType:"json" */
+				,url: "/member/checkId"
+				/* ,data : $("#formLogin").serialize() */
+				,data : { "id" : $("#id").val() }
+				,success: function(response) {
+					if(response.rt == "success") {
+						document.getElementById("id").classList.remove('is-invalid');
+						document.getElementById("id").classList.add('is-valid');
+						
+						document.getElementById("ifmmIdFeedback").classList.remove('invalid-feedback');
+						document.getElementById("ifmmIdFeedback").classList.add('valid-feedback');
+						document.getElementById("ifmmIdFeedback").innerText = "사용 가능 합니다.";
+						
+						document.getElementById("ifmmIdAllowedNy").value = 1;
+						
+					} else {
+						document.getElementById("id").classList.add('is-invalid');
+						document.getElementById("id").classList.remove('is-valid');
+						
+						document.getElementById("ifmmIdFeedback").classList.remove('valid-feedback');
+						document.getElementById("ifmmIdFeedback").classList.add('invalid-feedback');
+						document.getElementById("ifmmIdFeedback").innerText = "사용 불가능 합니다";
+						
+						document.getElementById("ifmmIdAllowedNy").value = 0;
+					}
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});
+		}/* } */
+	});
+</script>	
 <script type="text/javascript">
 	function register(){
 		
-		document.getElementById('register')
+		document.getElementById('registerForm').submit();
+		
+		return false;
 	}
 </script>
-
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>

@@ -103,5 +103,29 @@
 	<delete id="delete">
 		DELETE FROM member WHERE seq = #{seq}
 	</delete>
+	
+	<select id="selectOneIdCheck" resultType="Integer">
+		SELECT COUNT(*)
+		FROM member WHERE id = #{id}
+	</select>
+	
+	<insert id="register">
+		INSERT INTO member(
+			id
+			,pwd
+			,personalAgree
+			,name
+			,gender
+			<!-- ,email -->
+		)VALUES(
+			#{id}
+			,#{pwd}
+			,#{personalAgree}
+			,#{name}
+			,#{gender}
+			<!-- ,#{email} -->
+		)
+	</insert>
+	
 
 </mapper>	
