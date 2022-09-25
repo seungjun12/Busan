@@ -24,5 +24,6 @@ public interface MemberService {
 	
 	public int selectOneIdCheck(Member dto) throws Exception;
 	
+	public int register(Member dto)throws Exception;
 
 }

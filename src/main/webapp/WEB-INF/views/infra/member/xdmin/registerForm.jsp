@@ -18,7 +18,7 @@
 </head>
 <body>
 <div id="wrap">
-	<form method="post" action="">
+	<form method="post" action="registerForm" id="registerForm" name="registerForm">
 		<div id="top">
 			<h3 id="topLogo" onclick="location.href='../main/indexForm.html'" style="cursor: pointer;">INTERPARK</h3> 
 		</div>
