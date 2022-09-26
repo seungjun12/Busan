@@ -76,9 +76,9 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="codeGrouplist.html">코드그룹관리</a>
-                        <a class="collapse-item active" href="codeList">코드관리</a>
-                        <a class="collapse-item" href="cards.html">회원관리</a>
+                        <a type="button" class="collapse-item" id="btnCodeGroup">코드그룹관리</a>
+                        <a type="button" class="collapse-item active" id="btnCode">코드관리</a>
+                        <a type="button" class="collapse-item" id="btnMember">회원관리</a>
                     </div>
                 </div>
             </li>
@@ -543,7 +543,8 @@
 	var goUrlUpdt = "/code/codeUpdt";				/* #-> */
 	var goUrlUele = "/code/codeUele";				/* #-> */
 	var goUrlDele = "/code/codeDele";				/* #-> */
-	
+	var goUrlCodeGroup = "/codeGroup/codeGroupList";
+	var goUrlMember = "/member/memberList";	
 	var seq = $("input:hidden[name=ccseq]");				/* #-> */
 	
 	var form = $("form[name=form]");
@@ -567,6 +568,18 @@
 	$("#btnList").on("click", function(){
 		formVo.attr("action", goUrlList).submit();
 	}); 
+	
+	$("#btnCode").on("click",function(){
+		$(location).attr("href",goUrlList);
+	});
+	
+	$("#btnCodeGroup").on("click",function(){
+		$(location).attr("href",goUrlCodeGroup);
+	});
+	
+	$("#btnMember").on("click",function(){
+		$(location).attr("href",goUrlMember);
+	});
 	
 	
 	</script>    

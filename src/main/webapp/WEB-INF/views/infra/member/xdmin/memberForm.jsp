@@ -75,9 +75,9 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="codeGrouplist.html">코드그룹관리</a>
-                        <a class="collapse-item" href="codeList.html">코드관리</a>
-                        <a class="collapse-item active" href="memberList">회원관리</a>
+                        <a type="button" class="collapse-item" id="btnCodeGroup">코드그룹관리</a>
+                        <a type="button" class="collapse-item" id="btnCode">코드관리</a>
+                        <a type="button" class="collapse-item active" id="btnMember">회원관리</a>
                     </div>
                 </div>
             </li>
@@ -616,6 +616,25 @@
 			});
 		}/* } */
 	}); 
+	
+    
+    /* 페이지 이동 버튼 */
+    
+    var goUrlCode = "/code/codeList";
+	var goUrlMember = "/member/memberList";
+	var goUrlCodeGroup = "/codeGroup/codeGroupList";
+	
+	$("#btnCodeGroup").on("click",function(){
+		$(location).attr("href",goUrlCodeGroup);
+	});
+	
+	$("#btnCode").on("click",function(){
+		$(location).attr("href",goUrlCode);
+	});
+	
+	$("#btnMember").on("click",function(){
+		$(location).attr("href",goUrlMember);
+	});
 	
     </script>
   

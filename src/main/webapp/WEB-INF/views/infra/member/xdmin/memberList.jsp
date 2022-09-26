@@ -76,9 +76,9 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="codeGrouplist.html">코드그룹관리</a>
-                        <a class="collapse-item" href="codeList.html">코드관리</a>
-                        <a class="collapse-item active" href="cards.html">회원관리</a>
+                        <a type="button" class="collapse-item" id="btnCodeGroup">코드그룹관리</a>
+                        <a type="button" class="collapse-item" id="btnCode">코드관리</a>
+                        <a type="button" class="collapse-item active" id="btnMember">회원관리</a>
                     </div>
                 </div>
             </li>
@@ -567,6 +567,8 @@
 	var goUrlUele = "/member/memberUele";				/* #-> */
 	var goUrlDele = "/member/memberDele";				/* #-> */
 	var goUrlView = "/member/memberView";
+	var goUrlCode = "/code/codeList";
+	var goUrlCodeGroup = "/codeGroup/codeGroupList";
 	
 	var seq = $("input:hidden[name=seq]");				/* #-> */
 	
@@ -590,6 +592,18 @@
 		seq.val(seqValue);
 		form.attr("action" , goUrlView).submit();
 	}
+	
+	$("#btnCodeGroup").on("click",function(){
+		$(location).attr("href",goUrlCodeGroup);
+	});
+	
+	$("#btnCode").on("click",function(){
+		$(location).attr("href",goUrlCode);
+	});
+	
+	$("#btnMember").on("click",function(){
+		$(location).attr("href",goUrlList);
+	});
 	
 
 	

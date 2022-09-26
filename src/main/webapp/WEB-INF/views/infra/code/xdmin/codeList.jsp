@@ -72,9 +72,9 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="codeGrouplist.html">코드그룹관리</a>
-                        <a class="collapse-item active" href="codeList.html">코드관리</a>
-                        <a class="collapse-item" href="memberList.html">회원관리</a>
+                        <a type="button" class="collapse-item" id="btnCodeGroup">코드그룹관리</a>
+                        <a type="button" class="collapse-item active" id="btnCode">코드관리</a>
+                        <a type="button" class="collapse-item" id="btnMember">회원관리</a>
                     </div>
                 </div>
             </li>
@@ -439,11 +439,9 @@
   						<i class="fa-regular fa-trash-can"></i>
 					</button>	
 				</a>
-				<a href="codeForm">	
-					<button type="button" class="btn btn-primary rightBtn" href="codeForm">
+					<button type="button" class="btn btn-primary rightBtn" id="btnCodeForm">
 						<i class="fa-solid fa-plus"></i>
-					</button>
-				</a>	
+					</button>	
 				<button type="button" class="btn btn-success rightBtn" style="margin-right: 5px;">
 					<i class="fa-solid fa-file"></i>
 				</button>
@@ -549,8 +547,10 @@
 	var goUrlUele = "/code/codeUele";				/* #-> */
 	var goUrlDele = "/code/codeDele";				/* #-> */
 	var goUrlView = "/code/codeView";
-	
+	var goUrlCodeGroup = "/codeGroup/codeGroupList";
+	var goUrlMember = "/member/memberList";	
 	var seq = $("input:hidden[name=ccseq]");				/* #-> */
+	var goUrlForm = "/code/codeForm"
 	
 	var form = $("form[name=form]");
 	var formVo = $("form[name=formVo]");
@@ -562,6 +562,23 @@
 	$("#btnSearch").on("click",function(){
 		form.attr("action", goUrlList).submit();
 	});
+	
+	$("#btnCodeGroup").on("click",function(){
+		$(location).attr("href",goUrlCodeGroup);
+	});
+	
+	$("#btnCode").on("click",function(){
+		$(location).attr("href",goUrlList);
+	});
+	
+	$("#btnMember").on("click",function(){
+		$(location).attr("href",goUrlMember);
+	});
+	
+	$("#btnCodeForm").on("click",function(){
+		$(location).attr("href",goUrlForm);
+	});
+	
 
 	goList = function(thisPage){
 		$("input:hidden[name=thisPage]").val(thisPage);
