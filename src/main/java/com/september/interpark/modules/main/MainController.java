@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class MainController {
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String indexForm(Locale locale, Model model) {
+	@RequestMapping(value = "main/index")
+	public String indexForm()throws Exception {
 		return "infra/main/xdmin/indexForm";
 	}
 	

@@ -549,56 +549,6 @@
     
     <!--  btn jquery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script>
-	var goUrlList = "/codeGroup/codeGroupList"; 			/* #-> */
-	var goUrlInst = "/codeGroup/codeGroupInst"; 			/* #-> */
-	var goUrlUpdt = "/codeGroup/codeGroupUpdt";				/* #-> */
-	var goUrlUele = "/codeGroup/codeGroupUele";				/* #-> */
-	var goUrlDele = "/codeGroup/codeGroupDele";				/* #-> */
-	var goUrlView = "/codeGroup/codeGroupView";
-	var goUrlForm = "/codeGroup/codeGroupForm";
-	var goUrlCode = "/code/codeList";
-	var goUrlMember = "/member/memberList";
-	
-	var seq = $("input:hidden[name=ccgseq]");				/* #-> */
-	
-	var form = $("form[name=form]");
-	var formVo = $("form[name=formVo]");
-	
-	$("#btnReset").on("click",function(){
-		$(location).attr("href",goUrlList);
-	});
-	
-	$("#btnSearch").on("click",function(){
-		form.attr("action", goUrlList).submit();
-	});
-	
-	
-	$("#btnForm").on("click",function(){
-		$(location).attr("href",goUrlForm);
-	});
-	
-	$("#btnCode").on("click" , function(){
-		$(location).attr("href",goUrlCode);
-	});
-	
-	$("#btnMember").on("click" , function(){
-		$(location).attr("href",goUrlMember);
-	});
-	
-	goList = function(thisPage){
-		$("input:hidden[name=thisPage]").val(thisPage);
-		form.attr("action" , goUrlList).submit();
-	}
-	
-	goView = function(seqValue) {
-    	/* if(keyValue != 0) seq.val(btoa(keyValue)); */
-    	seq.val(seqValue);
-		form.attr("action", goUrlView).submit();
-	}	
-	
-	</script>
-	
 	
     
 
@@ -612,41 +562,7 @@
     <!-- Custom scripts for all pages-->
     <script src="/resources/js/sb-admin-2.min.js"></script>
 	
-	<!-- checkBox -->
-	<script type="text/javascript">
-	
-		function checkSelectAll()  {
-	
-			const checkboxes = document.querySelectorAll('input[name="membercheck"]');
-	
-			const checked = document.querySelectorAll('input[name="membercheck"]:checked');
-	
-			const selectAll = document.querySelector('input[name="allmembercheck"]');
-			  
-			if(checkboxes.length === checked.length)  {
-			  selectAll.checked = true;
-			}else {
-			  selectAll.checked = false;
-			}
-			
-		}
-		
-		function selectall(selectall)  {
-			const checkboxes = document.getElementsByName('membercheck');
-			
-			checkboxes.forEach((checkbox) => {
-		    checkbox.checked = selectall.checked
-		  })
-		}
-		
-		function memberList(){
-			
-		}
-		
-		
-		
-		
-	</script>
+
 	
 	
 	
@@ -654,6 +570,7 @@
 
 	<!-- fontawsome -->
 	<script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="/resources/js/codeGroup/codeGroup.js"></script>	
 </body>
 
 </html>
