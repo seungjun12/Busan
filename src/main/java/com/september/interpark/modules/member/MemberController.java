@@ -82,7 +82,7 @@ public class MemberController {
 		
 		int result = service.selectOneIdCheck(dto);
 		
-		System.out.println("service result :" + result);
+		System.out.println("controller result :" + result);
 
 		if (result > 0) {
 			returnMap.put("rt", "fail");

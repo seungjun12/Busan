@@ -15,8 +15,8 @@ public class MainController {
 		return "infra/main/xdmin/indexForm";
 	}
 	
-	@RequestMapping(value = "/gameChoice", method = RequestMethod.GET)
-	public String gameChoiceForm(Locale locale, Model model) {
+	@RequestMapping(value = "main/gameChoice")
+	public String gameChoiceForm()throws Exception {
 		return "infra/main/xdmin/gameChoiceForm";
 	}
 	

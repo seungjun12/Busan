@@ -103,12 +103,7 @@
 	<delete id="delete">
 		DELETE FROM member WHERE seq = #{seq}
 	</delete>
-	
-	<select id="selectOneIdCheck" resultType="Integer">
-		SELECT COUNT(*)
-		FROM member WHERE id = #{id}
-	</select>
-	
+
 	<insert id="register">
 		INSERT INTO member(
 			id
@@ -120,6 +115,8 @@
 			,address
 			,address2
 			,addressCode
+			,emailCode
+			,delNy
 			<!-- ,email -->
 		)VALUES(
 			#{id}
@@ -131,12 +128,21 @@
 			,#{address}
 			,#{address2}
 			,#{addressCode}
+			,#{emailCode}
+			,#{1}
 			<!-- ,#{email} -->
 		)
 		<selectKey resultType="String" keyProperty="seq" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>		
 	</insert>
+	
+	<select id="selectOneIdCheck" resultType="Integer">
+		SELECT COUNT(*)
+		FROM member WHERE id = #{id}
+	</select>
+	
+
 	
 
 </mapper>	

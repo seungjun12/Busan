@@ -532,23 +532,7 @@
     
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-  	<script>
-  	var goUrlList = "/codeGroup/codeGroupList";
-  	var goUrlCode = "/code/codeList";
-	var goUrlMember = "/member/memberList";
-	
 
-	
-	$("#btnCode").on("click" , function(){
-		$(location).attr("href",goUrlCode);
-	});
-	
-	$("#btnMember").on("click" , function(){
-		$(location).attr("href",goUrlMember);
-	});
-	
-	
-	</script>
 	
     <!-- Bootstrap core JavaScript-->
     <script src="/resources/vendor/jquery/jquery.min.js"></script>
@@ -561,7 +545,7 @@
     <script src="/resources/js/sb-admin-2.min.js"></script>
 	
 	
-
+		
 	<!-- fontawsome -->
 	<script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="/resources/js/codeGroup/codeGroup.js"></script>	

@@ -1,9 +1,10 @@
 
 	$("#id").on("keyup", function(key){
-		if(key.keyCode == 13){
-		/* if(!checkId('id', 2, 0, "영대소문자,숫자,특수문자(-_.),4~20자리만 입력 가능합니다")) {
+		
+/* 		if(!checkId('id', 2, 0, "영대소문자,숫자,특수문자(-_.),4~20자리만 입력 가능합니다")) {
 			return false;
 		} else { */
+		if(key.keyCode == 13){	
 			$.ajax({
 				async: true 
 				,cache: false
@@ -14,9 +15,9 @@
 				,data : { "id" : $("#id").val() }
 				,success: function(response) {
 					if(response.rt == "success") {
-						document.getElementById("id").classList.remove('is-invalid');
+						document.getElementById("id").classList.remove('is-invalid');						
 						document.getElementById("id").classList.add('is-valid');
-						
+	
 						document.getElementById("ifmmIdFeedback").classList.remove('invalid-feedback');
 						document.getElementById("ifmmIdFeedback").classList.add('valid-feedback');
 						document.getElementById("ifmmIdFeedback").innerText = "사용 가능 합니다.";
@@ -55,14 +56,13 @@
     	$(location).attr("href",goUrlIndex);
     });
     
+  	$( function() {
+    	$( "#datepicker" ).datepicker();
+  	} );
+    
 	
 
-		function register(){
-			
-			document.getElementById('registerForm').submit();
-			
-			return false;
-		}
+
 
     //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
     function sample4_execDaumPostcode() {
@@ -119,5 +119,12 @@
             }
         }).open();
     }
+    
+    		function register(){
+			
+			document.getElementById('registerForm').submit();
+			
+			return false;
+		}
     
     

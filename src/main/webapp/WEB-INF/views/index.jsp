@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 <html lang="ko">
 <head>
 	<meta charset="utf-8">
@@ -17,7 +19,6 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@900&display=swap" rel="stylesheet">
 </head>
 <body>
-<form>
 <div id="wrap">	
 	<div id="topGnbbg">
 		<!-- 최상단 배너 -->
@@ -35,7 +36,7 @@
 				<li class="nav-item">
 				  <a class="nav-link disabled topGnb">투어</a>
 				</li>
-				<li class="topBanner" style="margin-left: 350px;"><a onclick="location.href='../member/loginForm.html'" style="cursor: pointer;">로그인</a>
+				<li class="topBanner" style="margin-left: 350px;"><a type="button" id="btnLogin">로그인</a>
 				<li class="topBanner" style="margin-left: 10px;"><a onclick="location.href='../member/registerForm.html'" style="cursor: pointer;">회원가입</a>
 				<li class="topBanner" style="margin-left: 10px;"><a onclick="location.href='../member/loginForm.html'" style="cursor: pointer;">예매확인/취소</a>
 				<li class="topBanner" style="margin-left: 10px;"><a onclick="location.href='../member/loginForm.html'" style="cursor: pointer;">마이페이지</a>
@@ -65,7 +66,7 @@
 				<li class="bottomGnbList">콘서트
 				<li class="bottomGnbList">연극
 				<li class="bottomGnbList">클래식/무용
-				<li class="bottomGnbList" onclick="location.href='teamChoiceForm.html'" style="cursor: pointer;">스포츠
+				<li class="bottomGnbList" id="btnGameChoice" style="cursor: pointer;">스포츠
 				<li class="bottomGnbList">레저
 				<li class="bottomGnbList">전시/행사
 				<li class="bottomGnbList">아동/가족
@@ -225,35 +226,27 @@
 	</div><!-- footerWrap end -->
 	
 	
-	<script type="text/javascript"></script>
 </div> <!-- wrap end -->
-</form>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-<script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
-<script type="text/javascript">
 
-/*버튼 0(Products)을 누르면  
-0. 버튼0, 1 붙은 주황색 제거
-0. 내용0,1,2 안보이게 하기
-1. 버튼 0이 주황색으로 하이라이트가 되어야함
-2. 내용 0이 보여야함*/
 
-//함수 호출 반복문
-for(let i = 0; i < $('.tab-button').length; i++){
-    tabOpen(i); 
-}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+	var goUrlLogin = "/user/login";
+	var goUrlgame = "/main/gameChoice"
 
-//함수에 보관
-function tabOpen(e){
-    $('.tab-button').eq(e).click(function(){
-        $('.tab-button').removeClass('active');
-        $('.tab-content').removeClass('show');
-        $('.tab-button').eq(e).addClass('active');
-        $('.tab-content').eq(e).addClass('show');
-    });
-}
+	$("#btnLogin").on("click",function(){
+		$(location).attr("href",goUrlLogin);
+	});
+	
+	$("#btnGameChoice").on("click",function(){
+		$(location).attr("href",goUrlgame);
+	});
+
 
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
+
 
 </body>
 </html>

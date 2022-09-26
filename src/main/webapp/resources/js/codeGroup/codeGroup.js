@@ -38,6 +38,23 @@
 		$(location).attr("href",goUrlCodeGroup);
 	});	
 	
+ 	$("#btnModify").on("click",function(){
+	form.attr("action", goUrlUpdt).submit();
+	});
+	
+	$("#btnUele").on("click",function(){
+		formVo.attr("action", goUrlUele).submit();
+	});
+	
+	$("#btnDelete").on("click", function(){
+		formVo.attr("action", goUrlDele).submit();
+	});
+	
+	$("#btnList").on("click", function(){
+		formVo.attr("action", goUrlCodeGroup).submit();
+	});                        //gorUrlList
+	
+	
 	goList = function(thisPage){
 		$("input:hidden[name=thisPage]").val(thisPage);
 		form.attr("action" , goUrlList).submit();

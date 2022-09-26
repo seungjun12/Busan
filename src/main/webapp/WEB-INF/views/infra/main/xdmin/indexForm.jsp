@@ -38,8 +38,8 @@
 				<li class="nav-item">
 				  <a class="nav-link disabled topGnb">투어</a>
 				</li>
-				<li class="topBanner" style="margin-left: 350px;"><a href="loginForm" style="cursor: pointer;">로그인</a>
-				<li class="topBanner" style="margin-left: 10px;"><a onclick="location.href='../member/registerForm.html'" style="cursor: pointer;">회원가입</a>
+				<li class="topBanner" style="margin-left: 350px;"><a type="button" id="btnLogin" style="cursor: pointer;">로그인</a>
+				<li class="topBanner" style="margin-left: 10px;"><a type="butoon" id="btnRegister" style="cursor: pointer;">회원가입</a>
 				<li class="topBanner" style="margin-left: 10px;"><a onclick="location.href='../member/loginForm.html'" style="cursor: pointer;">예매확인/취소</a>
 				<li class="topBanner" style="margin-left: 10px;"><a onclick="location.href='../member/loginForm.html'" style="cursor: pointer;">마이페이지</a>
 				<li class="topBanner" style="margin-left: 10px;">고객센터
@@ -233,30 +233,22 @@
 </form>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
-<script type="text/javascript">
 
-/*버튼 0(Products)을 누르면  
-0. 버튼0, 1 붙은 주황색 제거
-0. 내용0,1,2 안보이게 하기
-1. 버튼 0이 주황색으로 하이라이트가 되어야함
-2. 내용 0이 보여야함*/
-
-//함수 호출 반복문
-for(let i = 0; i < $('.tab-button').length; i++){
-    tabOpen(i); 
-}
-
-//함수에 보관
-function tabOpen(e){
-    $('.tab-button').eq(e).click(function(){
-        $('.tab-button').removeClass('active');
-        $('.tab-content').removeClass('show');
-        $('.tab-button').eq(e).addClass('active');
-        $('.tab-content').eq(e).addClass('show');
-    });
-}
-
-</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script>
+	var goUrlLogin = "/user/login"
+	var goUrlRegister = "/member/register"
+	
+		$("#btnLogin").on("click",function(){
+			$(location).attr("href",goUrlLogin);
+		});
+	
+		$("#btnRegister").on("click",function(){
+			$(location).attr("href",goUrlRegister);
+		});
+	
+	
+	</script>
 
 </body>
 </html>

@@ -15,7 +15,8 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Karla:wght@300&display=swap" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script> -->
+	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
 <body>
 <div id="wrap">
@@ -92,15 +93,20 @@
 			<b>이메일</b>
 			<input class="form-control" type="text" aria-label="default input example" style="width: 250px; display: inline-block;" placeholder="이메일">@
 			<div class="btn-group">
-  				<button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="margin-left: 40px;">
-    				선택
-  				</button>
-  				<ul class="dropdown-menu">
+  				<select class="form-select" id="emailCode" name="emailCode">
+  					<option>직접입력</option>
+  					<option value="1">naver.com</option>
+  					<option value="2">gmai.com</option>
+  					<option value="3">daum.com</option>
+  					<option value="4">nate.com</option>
+  				</select>
+  				
+  				<!-- <ul class="dropdown-menu">
     				<li><a class="dropdown-item" href="#">naver.com</a></li>
     				<li><a class="dropdown-item" href="#">gmail.com</a></li>
     				<li><a class="dropdown-item" href="#">daum.com</a></li>
     				<li><a class="dropdown-item" href="#">nate.com</a></li>
-  				</ul>
+  				</ul> -->
 			</div>
 			<hr>
 			<!-- 번호 입력 -->
@@ -113,7 +119,7 @@
 			<!-- 생년월일 -->
 			<div>
 				<b>생년월일</b>
-				<input class="form-control" type="text" aria-label="default input example" placeholder="ex)1999-99-99" id="dob" name="dob" value="<c:out value="${dto.dob }"/>">
+				<input class="form-control" type="text" aria-label="default input example" placeholder="ex)1999-99-99" id="dob datepicker" name="dob" value="<c:out value="${dto.dob }"/>">
 			</div>
 			<hr>
 			<!-- 주소등록 -->
@@ -174,7 +180,51 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script type="text/javascript" src="/resources/js/member/registerForm.js"></script>
+<script>	
+	$("#id").on("keyup", function(key){
+		
+/* 		if(!checkId('id', 2, 0, "영대소문자,숫자,특수문자(-_.),4~20자리만 입력 가능합니다")) {
+			return false;
+		} else { */
+		/* if(key.keyCode == 13){ */	
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				/* ,dataType:"json" */
+				,url: "/member/checkId"
+				/* ,data : $("#formLogin").serialize() */
+				,data : { "id" : $("#id").val() }
+				,success: function(response) {
+					if(response.rt == "success") {
+						document.getElementById("id").classList.remove('is-invalid');						
+						document.getElementById("id").classList.add('is-valid');
+	
+						document.getElementById("ifmmIdFeedback").classList.remove('invalid-feedback');
+						document.getElementById("ifmmIdFeedback").classList.add('valid-feedback');
+						document.getElementById("ifmmIdFeedback").innerText = "사용 가능 합니다.";
+						
+						document.getElementById("ifmmIdAllowedNy").value = 1;
+						
+					} else {
+						document.getElementById("id").classList.add('is-invalid');
+						document.getElementById("id").classList.remove('is-valid');
+						
+						document.getElementById("ifmmIdFeedback").classList.remove('valid-feedback');
+						document.getElementById("ifmmIdFeedback").classList.add('invalid-feedback');
+						document.getElementById("ifmmIdFeedback").innerText = "사용 불가능 합니다";
+						
+						document.getElementById("ifmmIdAllowedNy").value = 0;
+					}
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});
+		/* } *//* } */
+	});
+</script>	
+<!-- <script type="text/javascript" src="/resources/js/member/registerForm.js"></script> -->
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7f841982946149edfa0ce998dfc98894&libraries=services,clusterer,drawing"></script>
 </body>

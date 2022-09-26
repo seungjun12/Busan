@@ -360,8 +360,9 @@
 				<div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
-							<input class="form-control" type="text"
-							 placeholder="ID" aria-label="default input example" 
+							<input class="form-control" 
+							type="text" placeholder="ID" 
+							aria-label="default input example" 
 							 id="id" name="id" value="<c:out value="${dto.id }"/>"
 							 >
 							 <div class="invalide-feeback" id="ifmmIdFeedback"></div>

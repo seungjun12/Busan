@@ -586,54 +586,10 @@
     
   	<!-- btn bottom -->
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-  	<script>
-	var goUrlList = "/codeGroup/codeGroupList"; 			/* #-> */
-	var goUrlInst = "/codeGroup/codeGroupInst"; 			/* #-> */
-	var goUrlUpdt = "/codeGroup/codeGroupUpdt";				/* #-> */
-	var goUrlUele = "/codeGroup/codeGroupUele";				/* #-> */
-	var goUrlDele = "/codeGroup/codeGroupDele";				/* #-> */
-	var goUrlCode = "/code/codeList";
-	var goUrlMember = "/member/memberList";
-	var seq = $("input:hidden[name=ccgseq]");				/* #-> */
-	
-	var form = $("form[name=form]");
-	var formVo = $("form[name=formVo]");
-	
-	
- 	$("#btnModify").on("click",function(){
-		form.attr("action", goUrlUpdt).submit();
-	}); 
-	
-	
-	$("#btnUele").on("click",function(){
-		formVo.attr("action", goUrlUele).submit();
-	});
-	
-	
-	$("#btnDelete").on("click", function(){
-		formVo.attr("action", goUrlDele).submit();
-	});
-	
-	$("#btnList").on("click", function(){
-		formVo.attr("action", goUrlList).submit();
-	});     <!-- jquery -->
-	
-	$("#btnCodeGroup").on("click" , function(){
-		$(location).attr("href",goUrlList);
-	});
-	
-	$("#btnCode").on("click" , function(){
-		$(location).attr("href",goUrlCode);
-	});
-	
-	$("#btnMember").on("click" , function(){
-		$(location).attr("href",goUrlMember);
-	});
 	
 	
 	
 	
-	</script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
     <!-- Bootstrap core JavaScript-->
@@ -649,6 +605,7 @@
 
 	<!-- fontawsome -->
 	<script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="/resources/js/codeGroup/codeGroup.js"></script>
 </body>
 
 </html>
