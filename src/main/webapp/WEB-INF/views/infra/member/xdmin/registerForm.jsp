@@ -29,8 +29,9 @@
 		<form method="post" action="memberRegister" id="registerForm" name="registerForm">
 		<div id="register-wrap">
 			<!-- 아이디 입력 -->
-			<div id="id">
+			<div id="id2">
 				<b>아이디</b>
+				<input type="hidden" id="ifmmIdAllowedNy" name="ifmmIdAllowedNy" value="0">
 				<input
 				 class="form-control" 
 				 type="text" placeholder="6~20자 영문,숫자" 
@@ -43,13 +44,20 @@
 			<!-- 비밀번호 입력 -->
 			<div>
 				<b>비밀번호</b>
-				<input class="form-control" type="password" placeholder="8~12자 영문,숫자,특수문자" aria-label="default input example" id="pwd" name="pwd" value="<c:out value="${dto.pwd }"/>">
+				<input type="hidden" id="ifmmIdAllowedNy" name="ifmmIdAllowedNy" value="0">
+				<input class="form-control" 
+				type="password" placeholder="8~12자 영문,숫자,특수문자" 
+				aria-label="default input example" id="pwd" name="pwd" value="<c:out value="${dto.pwd }"/>"
+				>
 			</div>
 			<hr>
 			<!-- 비밀번호 확인 입력 -->
 			<div>
 				<b>비밀번호확인</b>
-				<input class="form-control" type="password" placeholder="8~12자 영문,숫자,특수문자" aria-label="default input example">
+				<input class="form-control" 
+				type="password" placeholder="8~12자 영문,숫자,특수문자" 
+				aria-label="default input example" id="pwd2">
+				<div class="invalid-feedback" id="pwdFeedback"></div>
 			</div>
 			<hr>
 			<!-- 개인정보 유효기간 버튼 -->
@@ -180,51 +188,8 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script>	
-	$("#id").on("keyup", function(key){
-		
-/* 		if(!checkId('id', 2, 0, "영대소문자,숫자,특수문자(-_.),4~20자리만 입력 가능합니다")) {
-			return false;
-		} else { */
-		/* if(key.keyCode == 13){ */	
-			$.ajax({
-				async: true 
-				,cache: false
-				,type: "post"
-				/* ,dataType:"json" */
-				,url: "/member/checkId"
-				/* ,data : $("#formLogin").serialize() */
-				,data : { "id" : $("#id").val() }
-				,success: function(response) {
-					if(response.rt == "success") {
-						document.getElementById("id").classList.remove('is-invalid');						
-						document.getElementById("id").classList.add('is-valid');
-	
-						document.getElementById("ifmmIdFeedback").classList.remove('invalid-feedback');
-						document.getElementById("ifmmIdFeedback").classList.add('valid-feedback');
-						document.getElementById("ifmmIdFeedback").innerText = "사용 가능 합니다.";
-						
-						document.getElementById("ifmmIdAllowedNy").value = 1;
-						
-					} else {
-						document.getElementById("id").classList.add('is-invalid');
-						document.getElementById("id").classList.remove('is-valid');
-						
-						document.getElementById("ifmmIdFeedback").classList.remove('valid-feedback');
-						document.getElementById("ifmmIdFeedback").classList.add('invalid-feedback');
-						document.getElementById("ifmmIdFeedback").innerText = "사용 불가능 합니다";
-						
-						document.getElementById("ifmmIdAllowedNy").value = 0;
-					}
-				}
-				,error : function(jqXHR, textStatus, errorThrown){
-					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-				}
-			});
-		/* } *//* } */
-	});
-</script>	
-<!-- <script type="text/javascript" src="/resources/js/member/registerForm.js"></script> -->
+
+<script type="text/javascript" src="/resources/js/member/registerForm.js"></script> 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7f841982946149edfa0ce998dfc98894&libraries=services,clusterer,drawing"></script>
 </body>

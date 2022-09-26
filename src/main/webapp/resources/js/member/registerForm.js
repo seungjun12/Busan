@@ -42,6 +42,45 @@
 		}/* } */
 	});
 	
+	$(function(){
+       $("#name").keyup(function (event) {
+            regexp = /[a-z0-9]|[ \[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
+            v = $(this).val();
+            if (regexp.test(v)) {
+                alert("한글만 입력가능 합니다.");
+                $(this).val(v.replace(regexp, ''));
+            }
+        });
+});
+
+	$("#pwd").on("focusout" , function(){
+		var num = 
+		
+	});
+ 
+ 	$("#pwd2").on("keyup",function(key){
+	var p1 = document.getElementById('pwd').value;
+	var p2 = document.getElementById('pwd2').value;
+	if(p1 == p2){
+		document.getElementById("pwd2").classList.remove('is-invalid');						
+		document.getElementById("pwd2").classList.add('is-valid');
+
+		document.getElementById("pwdFeedback").classList.remove('invalid-feedback');
+		document.getElementById("pwdFeedback").classList.add('valid-feedback');
+		document.getElementById("pwdFeedback").innerText = "일치합니다.";
+		return false;
+	}else{
+		document.getElementById("pwd2").classList.add('is-invalid');
+		document.getElementById("pwd2").classList.remove('is-valid');
+		
+		document.getElementById("pwdFeedback").classList.remove('valid-feedback');
+		document.getElementById("pwdFeedback").classList.add('invalid-feedback');
+		document.getElementById("pwdFeedback").innerText = "일치 하지 않습니다.";
+		
+		return true;
+	}
+});
+	
     $("#btnAddressClear").on("click" , function(){
     	$("#sample4_roadAddress").val('');
     	$("#sample4_jibunAddress").val('');
