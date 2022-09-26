@@ -297,7 +297,7 @@
 				<li class="tab-link" data-tab-target="#tab2"><span>좌석도/가격</span>
 				<li class="tab-link" data-tab-target="#tab3"><span>예매TIP</span>
 			</ul>	
-			<!-- 밑에 설명영역(예매/관람안내) -->
+			<!-- 예매/관람안내 -->
 			<div class="tabContentsWrapper tab-content current" id="tab1">
 				<div class="tabcontentsWrap current">
 				<h3><b>예매안내</b></h3>
@@ -379,6 +379,7 @@
 					</div>
 				</div>
 			</div>
+			<!-- 좌석도/가격 -->
 			<div class="tabContentsWrapper tab-content current" id="tab2">
 				<div class="tabcontentsWrap current">
 					<div class="dataContents">	
@@ -453,19 +454,17 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>
-        $(document).ready(function(){
-            $('ul.tabs li').click(function(){
-                var tab_id = $(this).attr('data-tab');
-
-                $('ul.tabs li').removeClass('current');
-                $('.tab-content').removeClass('current');
-
-                $(this).addClass('current');
-                $("#"+tab_id).addClass('current');
-            });
-
-        });
+        $(function(){
+        	$('ul.tab li').click(function(){
+        		var activeTab = $(this).attr('data-tab');
+        		$('ul.tab li').removeClass('on');
+        		$('.tabcont').removeClass('on');
+        		$(this).addClass('on');
+        		$('#' + activeTab).addClass('on');
+        	})
+        })
         
 </script>
 <script langauge="javascript">
