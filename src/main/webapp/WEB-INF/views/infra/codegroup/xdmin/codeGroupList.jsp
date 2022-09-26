@@ -64,7 +64,6 @@
             <div class="sidebar-heading">
                 관리
             </div>
-
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item active">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
@@ -77,8 +76,8 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item active" href="codeGrouplist">코드그룹관리</a>
-                        <a class="collapse-item" href="codeList">코드관리</a>
-                        <a class="collapse-item" href="memberList.html">회원관리</a>
+                        <a type="button" class="collapse-item" id="btnCode">코드관리</a>
+                        <a type="button" class="collapse-item" id="btnMember">회원관리</a>
                     </div>
                 </div>
             </li>
@@ -558,6 +557,8 @@
 	var goUrlDele = "/codeGroup/codeGroupDele";				/* #-> */
 	var goUrlView = "/codeGroup/codeGroupView";
 	var goUrlForm = "/codeGroup/codeGroupForm";
+	var goUrlCode = "/code/codeList";
+	var goUrlMember = "/member/memberList";
 	
 	var seq = $("input:hidden[name=ccgseq]");				/* #-> */
 	
@@ -573,10 +574,15 @@
 	});
 	
 	
-	
 	$("#btnForm").on("click",function(){
 		$(location).attr("href",goUrlForm);
 	});
+	
+	$("#btnCode").on("click" , function(){
+		$(location).attr("href",goUrlCode);
+	});
+	
+	$("")
 	
 	goList = function(thisPage){
 		$("input:hidden[name=thisPage]").val(thisPage);
@@ -630,6 +636,12 @@
 		    checkbox.checked = selectall.checked
 		  })
 		}
+		
+		function memberList(){
+			
+		}
+		
+		
 		
 		
 	</script>

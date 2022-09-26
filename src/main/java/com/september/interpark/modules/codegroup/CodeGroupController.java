@@ -14,7 +14,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Controller
-@RequestMapping(value="codeGroup")
 public class CodeGroupController {
 
 	@Autowired /* new 객체 만들기 */
@@ -28,7 +27,7 @@ public class CodeGroupController {
 		vo.setParamsPaging(service.selectOneCount(vo));		
 	}
 
-	@RequestMapping(value = "codeGroupList")
+	@RequestMapping(value = "codeGroup/codeGroupList")
 	public String codeGroupList(@ModelAttribute("vo")  CodeGroupVo vo , Model model) throws Exception {
 		
 		System.out.println("vo.getShValue(): " +vo.getShValue());
@@ -42,12 +41,12 @@ public class CodeGroupController {
 		return "infra/codegroup/xdmin/codeGroupList";
 	}	
 	
-	@RequestMapping(value = "codeGroupForm")
+	@RequestMapping(value = "codeGroup/codeGroupForm")
 	public String codeGroupForm() throws Exception {
 		return "infra/codegroup/xdmin/codeGroupForm";
 	}
 	
-	@RequestMapping(value = "codeGroupInst")
+	@RequestMapping(value = "codeGroup/codeGroupInst")
 	public String codeGroupInst(CodeGroupVo vo,CodeGroup dto , RedirectAttributes redirectAttributes) throws Exception {
 		
 		service.insert(dto);
@@ -59,7 +58,7 @@ public class CodeGroupController {
 		return "redirect:/codeGroup/codeGroupView";
 	}
 	
-	@RequestMapping(value="codeGroupView")
+	@RequestMapping(value="codeGroup/codeGroupView")
 	public String codeGroupView(@ModelAttribute("vo") CodeGroupVo vo, CodeGroup dto, Model model)throws Exception{
 	
 		
@@ -71,19 +70,19 @@ public class CodeGroupController {
 	}
 	
 	
-	@RequestMapping(value="codeGroupUpdt")
+	@RequestMapping(value="codeGroup/codeGroupUpdt")
 	public String codeGroupUpdt(CodeGroupVo vo, CodeGroup dto, RedirectAttributes redirectAttributes)throws Exception{
 			service.update(dto);
 			return "redirect:/codeGroup/codeGroupList";	
 	}
 	
-	@RequestMapping( value = "codeGroupUele")
+	@RequestMapping( value = "codeGroup/codeGroupUele")
 	public String codeGroupUele(CodeGroupVo vo, CodeGroup dto,  RedirectAttributes redirectAttributes) throws Exception {
 		service.uelete(dto);
 		return "redirect:/codeGroup/codeGroupList";
 	}
 	
-	@RequestMapping(value = "codeGroupDele")
+	@RequestMapping(value = "codeGroup/codeGroupDele")
 	public String nationalityDele(CodeGroupVo vo,RedirectAttributes redirectAttributes) throws Exception{
 		service.delete(vo);
 		return "redirect:/codeGroup/codeGroupList";
