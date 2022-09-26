@@ -68,7 +68,7 @@
 				<li class="bottomGnbList">콘서트
 				<li class="bottomGnbList">연극
 				<li class="bottomGnbList">클래식/무용
-				<li class="bottomGnbList" onclick="location.href='teamChoiceForm.html'" style="cursor: pointer;">스포츠
+				<li class="bottomGnbList" id="btnGameChoice" style="cursor: pointer">스포츠
 				<li class="bottomGnbList">레저
 				<li class="bottomGnbList">전시/행사
 				<li class="bottomGnbList">아동/가족
@@ -238,6 +238,7 @@
 	<script>
 	var goUrlLogin = "/user/login"
 	var goUrlRegister = "/member/register"
+	var goUrlGame = "/main/gameChoice"
 	
 		$("#btnLogin").on("click",function(){
 			$(location).attr("href",goUrlLogin);
@@ -245,6 +246,10 @@
 	
 		$("#btnRegister").on("click",function(){
 			$(location).attr("href",goUrlRegister);
+		});
+		
+		$("#btnGameChoice").on("click",function(){
+			$(location).attr("href",goUrlGame);
 		});
 	
 	

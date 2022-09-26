@@ -22,6 +22,7 @@
 </head>
 <body>
 <div>	
+	<form>
 	<div id="topGnbbg">
 		<!-- 최상단 배너 -->
 		<div id="topGnb">
@@ -446,7 +447,7 @@
 	
 	</div><!-- footerWrap end -->
 	
-	
+	</form>
 	
 </div> <!-- wrap end -->
 

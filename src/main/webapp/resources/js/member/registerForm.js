@@ -53,10 +53,6 @@
         });
 });
 
-	$("#pwd").on("focusout" , function(){
-		var num = 
-		
-	});
  
  	$("#pwd2").on("keyup",function(key){
 	var p1 = document.getElementById('pwd').value;
@@ -98,6 +94,12 @@
   	$( function() {
     	$( "#datepicker" ).datepicker();
   	} );
+  	
+  	//충돌방지
+  	var $jQ = jQuery.noConflict();
+	$jQ(document).ready(function(){
+		$jQ('h1').text('충돌방지 해결');
+	});
     
 	
 

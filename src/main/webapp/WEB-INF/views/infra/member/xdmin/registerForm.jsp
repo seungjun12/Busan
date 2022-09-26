@@ -15,8 +15,12 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Karla:wght@300&display=swap" rel="stylesheet">
-	<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script> -->
-	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	
+	<!-- datepicker -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css"
+	
+	
 </head>
 <body>
 <div id="wrap">
@@ -31,7 +35,7 @@
 			<!-- 아이디 입력 -->
 			<div id="id2">
 				<b>아이디</b>
-				<input type="hidden" id="ifmmIdAllowedNy" name="ifmmIdAllowedNy" value="0">
+				<!-- <input type="hidden" id="ifmmIdAllowedNy" name="ifmmIdAllowedNy" value="0"> -->
 				<input
 				 class="form-control" 
 				 type="text" placeholder="6~20자 영문,숫자" 
@@ -186,8 +190,17 @@
 	
 </div><!-- wrap end -->	
 
-
+<!-- jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<!-- datepicker -->
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+
+<!-- bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script> 
+
 
 <script type="text/javascript" src="/resources/js/member/registerForm.js"></script> 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

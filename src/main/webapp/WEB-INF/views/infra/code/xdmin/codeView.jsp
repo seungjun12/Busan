@@ -470,10 +470,10 @@
 							</button>
 						</div>
 						<div class="col" style="text-align: right;">
-							<button type="button" class="btn btn-danger" id="btnModalDelete" name="btnModalDelete">
+							<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleModal">
 								<i class="fa-solid fa-x"></i>
 							</button>
-							<button type="button" class="btn btn-danger" id="btnModalUelete" name="btnModalUelete">
+							<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ueleModal">
 								<i class="fa-regular fa-trash-can"></i>
 							</button>
 							<button type="button" class="btn btn-primary"  id="btnModify" name="btnModify">
@@ -534,7 +534,44 @@
         </div>
     </div>
 
-
+	<!-- uele Modal -->
+	<div class="modal fade" id="ueleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">삭제</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body">
+	        사용여부 삭제 하시겠습니까?
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+	        <button type="button" class="btn btn-danger" id="btnUele" name="btnUele">삭제</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<!--delete Modal -->
+	<div class="modal fade" id="deleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="staticBackdropLabel">삭제</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body">
+	        완전삭제 하시겠습니까?
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+	        <button type="button" class="btn btn-danger" id="btnDelete" name="btnDelete">삭제</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>	
+	
   	<!-- btn bottom -->
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   	<script>
@@ -556,12 +593,12 @@
 	}); 
 		
 	
-	$("#btnModalUelete").on("click",function(){
+	$("#btnUele").on("click",function(){
 		form.attr("action", goUrlUele).submit();
 	});
 	
 	
-	$("#btnModalDelete").on("click", function(){
+	$("#btnDelete").on("click", function(){
 		form.attr("action", goUrlDele).submit();
 	});
 	
@@ -583,7 +620,9 @@
 	
 	
 	</script>    
-  
+
+	<!-- modal -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>   
 
     <!-- Bootstrap core JavaScript-->
     <script src="/resources/vendor/jquery/jquery.min.js"></script>

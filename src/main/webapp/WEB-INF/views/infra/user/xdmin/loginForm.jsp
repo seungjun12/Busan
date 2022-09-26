@@ -34,8 +34,8 @@
 				<li class="nav-item">
 				  <a class="nav-link disabled topGnb">투어</a>
 				</li>
-				<li class="topBanner" style="margin-left: 350px;"><a onclick="location.href='loginForm.html'" style="cursor: pointer;">로그인</a>
-				<li class="topBanner" style="margin-left: 10px;"><a onclick="location.href='registerForm.html'" style="cursor: pointer;">회원가입</a>
+				<li class="topBanner" style="margin-left: 350px;"><a type="button" id="btnLogin">로그인</a>
+				<li class="topBanner" style="margin-left: 10px;"><a type="button" class="btnRegister">회원가입</a>
 				<li class="topBanner" style="margin-left: 10px;"><a>예매확인/취소</a>
 				<li class="topBanner" style="margin-left: 10px;"><a>마이페이지</a>
 				<li class="topBanner" style="margin-left: 10px;">고객센터
@@ -120,7 +120,7 @@
 		<div id="loginBottom">
 			<a href="javascript:popup()"  style="cursor: pointer;">아이디 찾기</a>
 			<a style="margin-left: 10px;">비밀번호 찾기</a>
-			<a style="margin-left: 10px; cursor: pointer;" onclick="location.href='registerForm.html'">회원가입</a>
+			<a style="margin-left: 10px;" type="button" class="btnRegister">회원가입</a>
 		</div>
 		<div id="loginBottomImage">
 			<img alt="" src="/resources/img/loginBottomImg.png">
@@ -179,6 +179,33 @@
 	
 </div> <!-- wrap end -->
 
+<!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>	
+	
+	var goUrlIndex = "/main/index";
+	var goUrlLogin = "/user/login";
+	var goUrlgame = "/main/gameChoice"
+	var goUrlRegister = "/member/register"
+
+    $("#btnIndex").on("click",function(){
+    	$(location).attr("href",goUrlIndex);
+    });
+	
+	$("#btnLogin").on("click",function(){
+		$(location).attr("href",goUrlLogin);
+	});
+	
+	$("#btnGameChoice").on("click",function(){
+		$(location).attr("href",goUrlgame);
+	});	
+	
+	$(".btnRegister").on("click",function(){
+		$(location).attr("href",goUrlRegister);
+	});
+	
+</script>	
+	
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
 <script langauge="javascript">
