@@ -75,7 +75,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item active" href="codeGrouplist">코드그룹관리</a>
+                        <a class="collapse-item active" href="codeGroupList">코드그룹관리</a>
                         <a type="button" class="collapse-item" id="btnCode">코드관리</a>
                         <a type="button" class="collapse-item" id="btnMember">회원관리</a>
                     </div>
@@ -582,7 +582,9 @@
 		$(location).attr("href",goUrlCode);
 	});
 	
-	$("")
+	$("#btnMember").on("click" , function(){
+		$(location).attr("href",goUrlMember);
+	});
 	
 	goList = function(thisPage){
 		$("input:hidden[name=thisPage]").val(thisPage);
