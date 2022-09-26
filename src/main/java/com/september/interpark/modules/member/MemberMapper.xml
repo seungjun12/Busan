@@ -116,6 +116,10 @@
 			,personalAgree
 			,name
 			,gender
+			,dob
+			,address
+			,address2
+			,addressCode
 			<!-- ,email -->
 		)VALUES(
 			#{id}
@@ -123,8 +127,15 @@
 			,#{personalAgree}
 			,#{name}
 			,#{gender}
+			,#{dob}
+			,#{address}
+			,#{address2}
+			,#{addressCode}
 			<!-- ,#{email} -->
 		)
+		<selectKey resultType="String" keyProperty="seq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>		
 	</insert>
 	
 

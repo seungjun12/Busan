@@ -572,6 +572,8 @@
     	$("#sample4_detailAddress").val('');
     	$("#sample4_extraAddress").val('');
     	$("#sample4_postcode").val('');
+    	$("#ifmaLatArray0").val('');
+    	$("#ifmaLngArray0").val('');
     })
     
 	$("#id").on("keyup", function(key){

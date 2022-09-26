@@ -15,10 +15,11 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Karla:wght@300&display=swap" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </head>
 <body>
 <div id="wrap">
-	<form method="post" action="registerForm" id="registerForm" name="registerForm">
+	<form method="post" action="memberRegister" id="registerForm" name="registerForm">
 		<div id="top">
 			<h3 id="topLogo" onclick="location.href='../main/indexForm.html'" style="cursor: pointer;">INTERPARK</h3> 
 		</div>
@@ -108,13 +109,23 @@
 				<button type="button" class="btn btn-light">인증번호받기</button>
 			</div>
 			<hr>
-			<!-- 이벤트 수신 동의 -->
-			<div class="form-check" style="margin-top: 30px;">
-  				<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-  				<label class="form-check-label" for="flexRadioDefault1">
-    				SMS, 이메일로 상품 및 이벤트 정보를 받겠습니다.(선택)
-  				</label>
+			<!-- 생년월일 -->
+			<div>
+				<b>생년월일</b>
+				<input class="form-control" type="text" aria-label="default input example" placeholder="ex)1999-99-99" id="dob" name="dob" value="<c:out value="${dto.dob }"/>">
 			</div>
+			<hr>
+			<!-- 주소등록 -->
+			<div>
+			<input type="text" id="sample4_postcode" placeholder="우편번호"  name="addressCode" value="<c:out value="${dto.addressCode}"/>">
+			<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기">
+			<button type="button" id="btnAddressClear" class="btn-close" aria-label="Close"></button>
+			<input type="text" id="sample4_roadAddress" placeholder="도로명주소"  name="address" value="<c:out value="${dto.address }"/>" style="width: 400px;">
+			<input type="text" id="sample4_jibunAddress" placeholder="지번주소" style="width: 400px;">
+			<span id="guide" style="color:#999;display:none"></span>
+			<input type="text" id="sample4_detailAddress" placeholder="상세주소"  name="address2"  value="<c:out value="${dto.address2 }"/>" style="width: 400px;">
+			</div>
+			
 			</form>
 			<div id="agreep">
 				<p>만 14세 미만 회원은 법정대리인(부모님) 동의를 받은 경우만 회원가입이 가능합니다.</p>
@@ -160,6 +171,7 @@
 	
 </div><!-- wrap end -->	
 
+<!-- jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>
 	$("#id").on("keyup", function(key){
@@ -203,16 +215,85 @@
 			});
 		}/* } */
 	});
+	
+    $("#btnAddressClear").on("click" , function(){
+    	$("#sample4_roadAddress").val('');
+    	$("#sample4_jibunAddress").val('');
+    	$("#sample4_detailAddress").val('');
+    	$("#sample4_extraAddress").val('');
+    	$("#sample4_postcode").val('');
+    })
 </script>	
-<script type="text/javascript">
-	function register(){
-		
-		document.getElementById('registerForm').submit();
-		
-		return false;
-	}
-</script>
+	<script type="text/javascript">
+		function register(){
+			
+			document.getElementById('registerForm').submit();
+			
+			return false;
+		}
+	</script> 
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7f841982946149edfa0ce998dfc98894&libraries=services,clusterer,drawing"></script>
+	<script>
+    //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
+    function sample4_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+                // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var roadAddr = data.roadAddress; // 도로명 주소 변수
+                var extraRoadAddr = ''; // 참고 항목 변수
+
+                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                    extraRoadAddr += data.bname;
+                }
+                // 건물명이 있고, 공동주택일 경우 추가한다.
+                if(data.buildingName !== '' && data.apartment === 'Y'){
+                   extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+                // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                if(extraRoadAddr !== ''){
+                    extraRoadAddr = ' (' + extraRoadAddr + ')';
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('sample4_postcode').value = data.zonecode;
+                document.getElementById("sample4_roadAddress").value = roadAddr;
+                document.getElementById("sample4_jibunAddress").value = data.jibunAddress;
+                
+                // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
+                if(roadAddr !== ''){
+                    document.getElementById("sample4_extraAddress").value = extraRoadAddr;
+                } else {
+                    document.getElementById("sample4_extraAddress").value = '';
+                }
+
+                 var guideTextBox = document.getElementById("guide");
+                // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
+                if(data.autoRoadAddress) {
+                    var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
+                    guideTextBox.innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
+                    guideTextBox.style.display = 'block';
+
+                } else if(data.autoJibunAddress) {
+                    var expJibunAddr = data.autoJibunAddress;
+                    guideTextBox.innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
+                    guideTextBox.style.display = 'block';
+                } else {
+                    guideTextBox.innerHTML = '';
+                    guideTextBox.style.display = 'none';
+                } 
+            }
+        }).open();
+    }
+    
+    
+	</script>
+
+
 </body>
 </html>

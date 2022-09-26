@@ -97,6 +97,13 @@ public class MemberController {
 		return "infra/member/xdmin/registerForm";
 	}
 	
+	@RequestMapping(value = "member/memberRegister")
+	public String memberRegister(Member dto)throws Exception{
+		int result = service.register(dto);
+		System.out.println("controller result :" + result);
+		return "redirect:/member/register";
+	}
+	
 	
 	
 }
