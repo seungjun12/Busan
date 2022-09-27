@@ -52,9 +52,9 @@
 	<!-- 중간 배너 -->
 	<div id="middleGnb">
 		<h2 style="display: inline-block;">
-			<a style="font-family: 'IBM Plex Sans KR', sans-serif; cursor: pointer;" onclick="location.href='../main/indexForm.html'" >티켓</a>
+			<a style="font-family: 'IBM Plex Sans KR', sans-serif; cursor: pointer; text-decoration: none; color: " class="btnIndex">티켓</a>
 		</h2>
-		<img alt="" src="/resources/img/ticketInterParkLogo.png" style="margin-bottom: 10px; cursor: pointer;" onclick="location.href='../main/indexForm.html'">
+		<img alt="" src="/resources/img/ticketInterParkLogo.png" style="margin-bottom: 10px; cursor: pointer;" class="btnIndex">
 		<input class="form-control" type="text" aria-label="default input example" style="width: 300px; display: inline-block; margin-left: 20px;">
 		<img alt="" src="/resources/img/searchRightPlay.png" style="margin-left: 10px;">
 		<a>| 영화 |</a>
@@ -465,6 +465,12 @@
         		$('#' + activeTab).addClass('on');
         	})
         })
+        
+	var goUrlIndex ="/main/index";
+        
+        $(".btnIndex").on("click",function(){
+        	$(location).attr("href",goUrlIndex);
+        });
         
 </script>
 <script langauge="javascript">

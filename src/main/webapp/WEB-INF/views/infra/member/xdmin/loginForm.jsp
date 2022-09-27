@@ -186,7 +186,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>	
 	
-	var goUrlIndexView = "/main/indexView";
+	/* var goUrlIndexView = "/main/indexView"; */
 	var goUrlIndex = "/main/index";
 	var goUrlLogin = "/member/login";
 	var goUrlgame = "/main/gameChoice";
@@ -229,7 +229,7 @@
 						location.href = URL_INDEX_ADMIN;
 					} */
 					
-					location.href = goUrlIndexView;
+					location.href = goUrlIndex;
 				} else {
 					alert("회원없음");
 				}

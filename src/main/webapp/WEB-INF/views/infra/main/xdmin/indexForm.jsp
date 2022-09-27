@@ -38,22 +38,36 @@
 				<li class="nav-item">
 				  <a class="nav-link disabled topGnb">투어</a>
 				</li>
-				<li class="topBanner" style="margin-left: 350px;"><a type="button" id="btnLogin" style="cursor: pointer;">로그인</a>
-				<li class="topBanner" style="margin-left: 10px;"><a type="butoon" id="btnRegister" style="cursor: pointer;">회원가입</a>
-				<li class="topBanner" style="margin-left: 10px;"><a onclick="location.href='../member/loginForm.html'" style="cursor: pointer;">예매확인/취소</a>
-				<li class="topBanner" style="margin-left: 10px;"><a onclick="location.href='../member/loginForm.html'" style="cursor: pointer;">마이페이지</a>
+				<c:choose>
+					<c:when test="${empty dto.sessSeq}"> <!-- 으아 이거 해결해보자 -->
+						<li class="topBanner" style="margin-left: 350px;"><a type="button" id="btnLogin" style="cursor: pointer;">로그인</a>
+						<li class="topBanner" style="margin-left: 10px;"><a type="butoon" id="btnRegister" style="cursor: pointer;">회원가입</a>
+						<li class="topBanner" style="margin-left: 10px;"><a type="button" id="btnLogin" style="cursor: pointer;">예매확인/취소</a>
+						<li class="topBanner" style="margin-left: 10px;"><a  type="button" id="btnLogin" style="cursor: pointer;">마이페이지</a>						
+					</c:when>
+					<c:otherwise>
+						<li class="topBanner" style="margin-left: 350px;"><a type="button" id="btnLogout" style="cursor: pointer;">로그아웃</a>
+						<li class="topBanner" style="margin-left: 10px;"><span><c:out value="${sessName }"/>님</span>
+						<li class="topBanner" style="margin-left: 10px;"><a type="button" id="btnLogin" style="cursor: pointer;">예매확인/취소</a>
+						<li class="topBanner" style="margin-left: 10px;"><a  type="button" id="btnLogin" style="cursor: pointer;">마이페이지</a>
+					</c:otherwise>
+				</c:choose>			
 				<li class="topBanner" style="margin-left: 10px;">고객센터
 				<li class="topBanner" style="margin-left: 10px;">모바일APP
 				<li class="topBanner" style="margin-left: 10px;">Language
+				<span><c:out value="${sessName }"/>
 			</ul>
+			<%-- sessSeq: <br>
+			sessName: <c:out value="${sessName }"/><br>
+			sessId: <c:out value="${sessId }"/><br> --%>
 		</div>
 	</div>
 	<!-- 중간 배너 -->
 	<div id="middleGnb">
 		<h2 style="display: inline-block;">
-			<a style="font-family: 'IBM Plex Sans KR', sans-serif; cursor: pointer;" onclick="location.href='../main/indexForm.html'" >티켓</a>
+			<a style="font-family: 'IBM Plex Sans KR', sans-serif; cursor: pointer;" class="btnIndex">티켓</a>
 		</h2>
-		<img alt="" src="/resources/img/ticketInterParkLogo.png" style="margin-bottom: 10px; cursor: pointer;" onclick="location.href='../main/indexForm.html'">
+		<img alt="" src="/resources/img/ticketInterParkLogo.png" style="margin-bottom: 10px; cursor: pointer;" class="btnIndex">
 		<input class="form-control" type="text" aria-label="default input example" style="width: 300px; display: inline-block; margin-left: 20px;">
 		<img alt="" src="/resources/img/searchRightPlay.png" style="margin-left: 10px;">
 		<a>| 영화 |</a>
@@ -239,6 +253,7 @@
 	var goUrlLogin = "/member/login"
 	var goUrlRegister = "/member/register"
 	var goUrlGame = "/main/gameChoice"
+	var goUrlIndex = "/main/index"
 	
 		$("#btnLogin").on("click",function(){
 			$(location).attr("href",goUrlLogin);
@@ -251,6 +266,12 @@
 		$("#btnGameChoice").on("click",function(){
 			$(location).attr("href",goUrlGame);
 		});
+		
+		$(".btnIndex").on("click",function(){
+			$(location).attr("href",goUrlIndex);
+		});
+		
+		
 	
 	
 	</script>

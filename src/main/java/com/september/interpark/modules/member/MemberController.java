@@ -169,6 +169,22 @@ public class MemberController {
 		}
 		return returnMap;
 	}	
+	
+	//로그아웃 연습
+	@ResponseBody
+	@RequestMapping(value = "/member/logoutProc")
+	public Map<String, Object> logoutProc(Member dto, HttpSession httpSession) throws Exception{
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		Member rtMember = service.selectOneId(dto);
+		Member rtMember2 = service.selectOneLogin(dto);
+		
+		httpSession.setAttribute("sessSeq", rtMember2.getSeq());
+		httpSession.setAttribute("sessId", rtMember2.getId());
+		httpSession.setAttribute("sessName", rtMember2.getName());
+		
+		returnMap.put("sessSeq", "");
+		return returnMap;
+	}
 
 
 }//class end

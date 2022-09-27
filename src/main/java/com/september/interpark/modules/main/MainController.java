@@ -15,11 +15,6 @@ public class MainController {
 		return "infra/main/xdmin/indexForm";
 	}
 	
-	@RequestMapping(value = "main/indexView")
-	public String index()throws Exception{
-		return "infra/main/xdmin/indexView";
-	}
-	
 	@RequestMapping(value = "main/gameChoice")
 	public String gameChoiceForm()throws Exception {
 		return "infra/main/xdmin/gameChoiceForm";
