@@ -239,7 +239,7 @@ sessId: <c:out value="${sessId }"/><br>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	<script>
-	var goUrlLogin = "/user/login"
+	var goUrlLogin = "/member/login"
 	var goUrlRegister = "/member/register"
 	var goUrlGame = "/main/gameChoice"
 	

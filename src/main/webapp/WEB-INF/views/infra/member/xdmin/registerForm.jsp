@@ -127,7 +127,7 @@
 			<!-- 번호 입력 -->
 			<div>
 				<b>휴대폰</b>
-				<input class="form-control" type="text" placeholder="010 1234 5678" aria-label="default input example" id="number" name="number"  value="<c:out value="${dto.number }"/>">			
+				<input class="form-control" type="text" placeholder="010-1234-5678" aria-label="default input example" id="number" name="number"  value="<c:out value="${dto.number }"/>">			
 				<!-- <button type="button" class="btn btn-light">인증번호받기</button> -->
 			</div>
 			<hr>

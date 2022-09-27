@@ -34,8 +34,8 @@
 				<li class="nav-item">
 				  <a class="nav-link disabled topGnb">투어</a>
 				</li>
-				<li class="topBanner" style="margin-left: 350px;"><a type="button" id="btnLoginForm">로그인</a>
-				<li class="topBanner" style="margin-left: 10px;"><a type="button" class="btnRegister">회원가입</a>
+				<li class="topBanner" style="margin-left: 350px;"><a type="button" class="btnLoginForm">로그인</a>
+				<li class="topBanner" style="margin-left: 10px;"><a type="button" class="btnRegister" style="text-decoration: none; color: black">회원가입</a>
 				<li class="topBanner" style="margin-left: 10px;"><a>예매확인/취소</a>
 				<li class="topBanner" style="margin-left: 10px;"><a>마이페이지</a>
 				<li class="topBanner" style="margin-left: 10px;">고객센터
@@ -47,9 +47,9 @@
 	<!-- 중간 배너 -->
 	<div id="middleGnb">
 		<h2 style="display: inline-block;">
-			<a style="font-family: 'IBM Plex Sans KR', sans-serif; cursor: pointer;" onclick="location.href='../main/indexForm.html'" >티켓</a>
+			<a style="font-family: 'IBM Plex Sans KR', sans-serif; cursor: pointer; text-decoration: none; color: black " class="btnIndex" >티켓</a>
 		</h2>
-		<img alt="" src="/resources/img/ticketInterParkLogo.png" style="margin-bottom: 10px; cursor: pointer;" onclick="location.href='../main/indexForm.html'">
+		<img alt="" src="/resources/img/ticketInterParkLogo.png" style="margin-bottom: 10px; cursor: pointer;" class="btnIndex">
 		<input class="form-control" type="text" aria-label="default input example" style="width: 300px; display: inline-block; margin-left: 20px;">
 		<img alt="" src="/resources/img/searchRightPlay.png" style="margin-left: 10px;">
 		<a>| 영화 |</a>
@@ -186,17 +186,17 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>	
 	
-	var goUrlIndexView = "/main/indexView"
+	var goUrlIndexView = "/main/indexView";
 	var goUrlIndex = "/main/index";
 	var goUrlLogin = "/member/login";
 	var goUrlgame = "/main/gameChoice";
 	var goUrlRegister = "/member/register";
 
-    $("#btnIndex").on("click",function(){
+    $(".btnIndex").on("click",function(){
     	$(location).attr("href",goUrlIndex);
     });
 	
-	$("#btnLoginForm").on("click",function(){
+	$(".btnLoginForm").on("click",function(){
 		$(location).attr("href",goUrlLogin);
 	});
 	
