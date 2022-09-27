@@ -118,7 +118,7 @@
 			,emailCode
 			,delNy
 			,email
-			,(SELECT number From memberPhone aa WHERE 1=1 AND aa.seqOther = a.seq)as number
+			<!-- ,(SELECT number From memberPhone aa WHERE 1=1 AND aa.seqOther = a.seq )as number -->
 		)VALUES(
 			#{id}
 			,#{pwd}
@@ -130,9 +130,10 @@
 			,#{address2}
 			,#{addressCode}
 			,#{emailCode}
-			,#{1}
+			,1
 			,#{email}
-		)FROM member a
+			<!-- ,#{number} -->
+		)
 		<selectKey resultType="String" keyProperty="seq" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>		
