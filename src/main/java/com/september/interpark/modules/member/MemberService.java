@@ -2,7 +2,6 @@ package com.september.interpark.modules.member;
 
 import java.util.List;
 
-import com.september.interpark.modules.user.User;
 
 
 
@@ -25,5 +24,9 @@ public interface MemberService {
 	public int selectOneIdCheck(Member dto) throws Exception;
 	
 	public int register(Member dto)throws Exception;
+	
+	public Member selectOneId(Member dto) throws Exception;
+	
+	public Member selectOneLogin(Member dto) throws Exception;
 
 }

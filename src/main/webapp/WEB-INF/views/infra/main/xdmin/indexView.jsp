@@ -9,14 +9,18 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>로그인 화면</title>
+	<title>메인화면</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-	<link href="/resources/css/loginForm_style.css" rel="stylesheet" type="text/css">
+	<link href="/resources/css/indexForm_style.css" rel="stylesheet" type="text/css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@600&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@900&display=swap" rel="stylesheet">
 </head>
 <body>
+<form>
 <div id="wrap">	
 	<div id="topGnbbg">
 		<!-- 최상단 배너 -->
@@ -34,10 +38,10 @@
 				<li class="nav-item">
 				  <a class="nav-link disabled topGnb">투어</a>
 				</li>
-				<li class="topBanner" style="margin-left: 350px;"><a type="button" id="btnLogin">로그인</a>
-				<li class="topBanner" style="margin-left: 10px;"><a type="button" class="btnRegister">회원가입</a>
-				<li class="topBanner" style="margin-left: 10px;"><a>예매확인/취소</a>
-				<li class="topBanner" style="margin-left: 10px;"><a>마이페이지</a>
+				<li class="topBanner" style="margin-left: 350px;"><a type="button" id="btnLogin" style="cursor: pointer;">로그인</a>
+				<li class="topBanner" style="margin-left: 10px;"><a type="butoon" id="btnRegister" style="cursor: pointer;">회원가입</a>
+				<li class="topBanner" style="margin-left: 10px;"><a onclick="location.href='../member/loginForm.html'" style="cursor: pointer;">예매확인/취소</a>
+				<li class="topBanner" style="margin-left: 10px;"><a onclick="location.href='../member/loginForm.html'" style="cursor: pointer;">마이페이지</a>
 				<li class="topBanner" style="margin-left: 10px;">고객센터
 				<li class="topBanner" style="margin-left: 10px;">모바일APP
 				<li class="topBanner" style="margin-left: 10px;">Language
@@ -64,7 +68,7 @@
 				<li class="bottomGnbList">콘서트
 				<li class="bottomGnbList">연극
 				<li class="bottomGnbList">클래식/무용
-				<li class="bottomGnbList" onclick="location.href='../main/gameChoiceForm.html'" style="cursor: pointer;">스포츠
+				<li class="bottomGnbList" id="btnGameChoice" style="cursor: pointer">스포츠
 				<li class="bottomGnbList">레저
 				<li class="bottomGnbList">전시/행사
 				<li class="bottomGnbList">아동/가족
@@ -79,53 +83,101 @@
 			</ul>
 		</div>		
 	</div>	
-	<!-- 로그인 영역 -->
-	<div id="login">
-		<!-- 아이디 비번 입력영역 -->
-		<!-- 오른쪽 이미지 영역 -->
-		<div id="loginImage">
-			<img alt="" src="/resources/img/loginRightPhone.png">
-			<img alt="" src="/resources/img/loginRightAdd.png" style="margin-top: 10px;">
+	<!-- 이미지 영역 -->
+	<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  		<div class="carousel-inner">
+   			<div class="carousel-item active">
+      			<img src="/resources/img/carousel1.png" class="d-block w-100" alt="..." <!-- id="image" -->
+    		</div>
+   			<div class="carousel-item">
+      			<img src="/resources/img/carousel2.png" class="d-block w-100" alt="..." <!-- id="image" -->
+    		</div>
+    		<div class="carousel-item">
+      			<img src="/resources/img/carousel3.png" class="d-block w-100" alt="..." <!-- id="image" -->
+    		</div>
+  		</div> 
+	</div>
+	<!-- 밑에 배너들 시작 -->
+	<div id="contentWrap">
+		<div id="contendTop">
+			<img alt="" src="/resources/img/contentTop.png">
 		</div>
-		<!-- 아이디 비번 입력영역 -->
-		<div id="loginInput">
-			<input class="form-control" type="text" aria-label="default input example" placeholder="아이디">
-			<input class="form-control" type="password" aria-label="default input example" placeholder="비밀번호" style="margin-top: 10px;">
-			<button type="button" class="btn btn-danger" style="width: 420px; margin-top: 15px;" onclick="location.href='..//main/indexFormLogin.html'" style="cursor: pointer;">로그인</button>
-			<!-- 자동로그인 아이디저장 체크버튼 -->
-			<div id="loginCheck">	
-				<div class="form-check form-check-inline">
-	  				<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-	 			 	<label class="form-check-label" for="inlineRadio1">자동로그인</label>
+		<div>
+			<img alt="" src="/resources/img/contentMiddle.png">
+		</div>
+		<!-- 랭킹영역 --><!-- 안됭이ㅣㅣㅣㅇ 여기부터 ㄱㄱ -->
+			<div class="rankigListWrap">
+				<div class="rankingTitle">
+					<h3><b>RANKING</b></h3>
 				</div>
-				<div class="form-check form-check-inline">
-	 	 			<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-	  				<label class="form-check-label" for="inlineRadio2">아이디저장</label>
-				</div>			
-			</div>
+				<div class="container mt-5">
+			      <ul class="list">
+			        <li class="tab-button">Products</li>
+			        <li class="tab-button active">Information</li>
+			        <li class="tab-button">Shipping</li>
+			      </ul>
+			    
+			      <div class="tab-content">
+			        <p>상품설명입니다. Product</p>
+			      </div>
+			      <div class="tab-content show">
+			        <p>상품정보입니다. Info</p>
+			      </div>
+			      <div class="tab-content">
+			        <p>배송정보입니다. Shipping</p>
+			      </div>
+			    </div>
+			</div>  
+			
+			
+		
+		
+		
+		<!-- 중간 이미지 -->
+		<div>
+			<img alt="" src="/resources/img/mainImage.png">
 		</div>
-		<!-- 네이버 카카오 로그인 영역 -->
-		<div id="snsLogin">
-			<button type="button" class="btn btn-outline-success" style="width: 420px;">네이버 로그인</button>
-			<button type="button" class="btn btn-outline-warning" style="width: 420px; margin-top: 10px;">카카오 로그인</button>
-			<button type="button" class="btn btn-outline-primary" style="width: 420px; margin-top: 10px;">페이스북 로그인</button>
-			<button type="button" class="btn btn-outline-dark" style="width: 420px; margin-top: 10px;">구글 로그인</button>
+		<!-- today banner -->
+		<div class="todayBanner">
+			<img alt="" src="/resources/img/todayBanner.png">
 		</div>
-		<!-- 로그인 밑에 설명영역 -->
-		<div id="loginAnswer">
-			개인정보 보호를 위해 공용 PC에서 사용 후 SNSN 계정의 로그아웃 상태를 반드시 확인해주세요.
-			<hr>
+		<!-- 뮤지컬 글 -->
+		<div class="bannerAnswer">
+			<h3>MUSICAL</h3>
 		</div>
-		<!-- 아이디 비번 찾기,회원가입 영역 -->
-		<div id="loginBottom">
-			<a href="javascript:popup()"  style="cursor: pointer;">아이디 찾기</a>
-			<a style="margin-left: 10px;">비밀번호 찾기</a>
-			<a style="margin-left: 10px;" type="button" class="btnRegister">회원가입</a>
+		<!-- 뮤지컬 이미지 -->
+		<div>
+			<img alt="" src="/resources/img/musicalImage.png">
 		</div>
-		<div id="loginBottomImage">
-			<img alt="" src="/resources/img/loginBottomImg.png">
+		<!-- 콘서트 글 -->
+		<div class="bannerAnswer">
+			<h3>CONCERT</h3>
 		</div>
-	</div><!-- login end -->
+		<!-- 콘서트 이미지 -->
+		<div>
+			<img alt="" src="/resources/img/concertImage.png">		
+		</div>
+		<!-- play&classic글 -->
+		<div class="bannerAnswer">
+			<h3>PLAY&CLASSIC</h3>
+		</div>
+		<!-- play&classic이미지 -->
+		<div>
+			<img alt="" src="/resources/img/play&classicImage.png">		
+		</div>
+		<!-- 스포츠 영역 -->
+		<div class="bannerAnswer">
+			<h3>SPORTS%EXHIBITION&THEATER</h3>
+		</div>
+		<!-- 스포츠 이미지 -->
+		<div>
+			<img alt="" src="/resources/img/playImage.png">		
+		</div>
+		<!-- 하단 배너 -->
+		<div class="bottomBanner">
+			<img alt="" src="/resources/img/bottomBanner.png">
+		</div>
+	</div><!-- contentWrap end -->
 	<!-- footer영역 시작 -->
 	<div id="footerWrap">
 		<div id="footerTop">
@@ -175,45 +227,36 @@
 	
 	</div><!-- footerWrap end -->
 	
+sessSeq: <c:out value="${sessSeq }"/><br>
+sessName: <c:out value="${sessName }"/><br>
+sessId: <c:out value="${sessId }"/><br>	
 	
-	
+	<script type="text/javascript"></script>
 </div> <!-- wrap end -->
-
-<!-- jquery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script>	
-	
-	var goUrlIndex = "/main/index";
-	var goUrlLogin = "/user/login";
-	var goUrlgame = "/main/gameChoice"
-	var goUrlRegister = "/member/register"
-
-    $("#btnIndex").on("click",function(){
-    	$(location).attr("href",goUrlIndex);
-    });
-	
-	$("#btnLogin").on("click",function(){
-		$(location).attr("href",goUrlLogin);
-	});
-	
-	$("#btnGameChoice").on("click",function(){
-		$(location).attr("href",goUrlgame);
-	});	
-	
-	$(".btnRegister").on("click",function(){
-		$(location).attr("href",goUrlRegister);
-	});
-	
-</script>	
-	
+</form>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
-<script langauge="javascript">
-	function popup(){
-		var url="findIdForm.html";
-		var option="width544px, height=300px, top=200px"
-		window.open(url,"",option);
-	}
-</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script>
+	var goUrlLogin = "/user/login"
+	var goUrlRegister = "/member/register"
+	var goUrlGame = "/main/gameChoice"
+	
+		$("#btnLogin").on("click",function(){
+			$(location).attr("href",goUrlLogin);
+		});
+	
+		$("#btnRegister").on("click",function(){
+			$(location).attr("href",goUrlRegister);
+		});
+		
+		$("#btnGameChoice").on("click",function(){
+			$(location).attr("href",goUrlGame);
+		});
+	
+	
+	</script>
+
 </body>
 </html>

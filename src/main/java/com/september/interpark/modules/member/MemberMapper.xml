@@ -130,7 +130,7 @@
 			,#{address2}
 			,#{addressCode}
 			,#{emailCode}
-			,1
+			,#{delNy}
 			,#{email}
 			<!-- ,#{number} -->
 		)
@@ -144,6 +144,27 @@
 		FROM member WHERE id = #{id}
 	</select>
 	
+	<select id="selectOneId" resultMap="resultMapObj">
+		SELECT
+			a.seq
+			,a.id
+		FROM
+			member a
+		WHERE 1=1
+			AND a.id = #{id}		
+	</select>
+	
+	<select id="selectOneLogin" resultMap="resultMapObj">
+		SELECT
+			a.seq
+			,a.id
+			,a.name
+		FROM
+			member a
+		WHERE 1=1 
+			AND a.id = #{id}
+			<if test="pwd != null and !pwd.equals('')">AND a.pwd = #{pwd}</if> 		
+	</select>
 
 	
 

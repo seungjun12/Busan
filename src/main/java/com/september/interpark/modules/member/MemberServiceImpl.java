@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.september.interpark.common.util.UtilSecurity;
+
 
 @Service
 public class MemberServiceImpl implements MemberService{
@@ -20,9 +22,10 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public int insert(Member dto) throws Exception {
-		int result=dao.insert(dto);
-		System.out.println("service result: "+result);
-		return result;
+		dto.setPwd(UtilSecurity.encryptSha256(dto.getPwd()));
+    	dto.setName(dto.getName());
+		/* dto.setIfmmPwdModDate(UtilDateTime.nowDate()); */
+		return dao.insert(dto);
 	}
 
 	@Override
@@ -62,7 +65,20 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public int register(Member dto) throws Exception {
+		dto.setPwd(UtilSecurity.encryptSha256(dto.getPwd()));
+    	dto.setName(dto.getName());
+		/* dto.setIfmmPwdModDate(UtilDateTime.nowDate()); */
 		return dao.register(dto);
+	}
+
+	@Override
+	public Member selectOneId(Member dto) throws Exception {
+		return dao.selectOneId(dto);
+	}
+
+	@Override
+	public Member selectOneLogin(Member dto) throws Exception {
+		return dao.selectOneLogin(dto);
 	}
 	
 	

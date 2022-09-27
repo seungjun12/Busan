@@ -110,11 +110,12 @@
   				<select class="form-select" id="emailCode" name="emailCode">
   					<option>직접입력</option>
   					<option value="1">naver.com</option>
-  					<option value="2">gmai.com</option>
+  					<option value="2">gmail.com</option>
   					<option value="3">daum.com</option>
   					<option value="4">nate.com</option>
   				</select>
-  				
+  			<!-- 삭제여부? -->
+  			<input type="hidden" value="1" id="delNy" name="delNy" value="<c:out value="${dto.delNy }"/>">	
   				<!-- <ul class="dropdown-menu">
     				<li><a class="dropdown-item" href="#">naver.com</a></li>
     				<li><a class="dropdown-item" href="#">gmail.com</a></li>

@@ -57,5 +57,17 @@ public class MemberDao {
 		System.out.println("dao result: " +result);
 		return result;
 	}
+	
+	public Member selectOneId(Member dto) {
+		Member result =sqlSession.selectOne(namespace + ".selectOneId", dto);
+		System.out.println("dao result: " + result);
+		return result;
+	}
+	
+	public Member selectOneLogin(Member dto) {
+		Member result = sqlSession.selectOne(namespace + ".selectOneLogin", dto);
+		System.out.println("dao result: " + result);
+		return result;
+	}
 }	
 
