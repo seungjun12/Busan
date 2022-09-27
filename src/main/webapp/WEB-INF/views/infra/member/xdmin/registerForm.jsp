@@ -143,6 +143,7 @@
 			<input type="text" id="sample4_jibunAddress" placeholder="지번주소" style="width: 400px;">
 			<span id="guide" style="color:#999;display:none"></span>
 			<input type="text" id="sample4_detailAddress" placeholder="상세주소"  name="address2"  value="<c:out value="${dto.address2 }"/>" style="width: 400px;">
+			<input type="text" id="sample4_extraAddress" placeholder="참고항목" style="width: 400px;" >
 			</div>
 			
 			</form>
@@ -179,12 +180,8 @@
 					Copyright @ Interpark corp.ALL rights reserved.
 				</div>
 			</div>
-					
-		
-			
-		
-		
-		
+							
+				
 		
 		
 	
@@ -202,8 +199,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script> 
 
 
-<script type="text/javascript" src="/resources/js/member/registerForm.js"></script> 
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7f841982946149edfa0ce998dfc98894&libraries=services,clusterer,drawing"></script>
+<script type="text/javascript" src="/resources/js/member/registerForm.js"></script> 
 </body>
 </html>
