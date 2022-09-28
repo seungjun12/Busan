@@ -18,40 +18,12 @@
 </head>
 <body>
 <div id="wrap">	
-	<div id="topGnbbg">
-		<!-- 최상단 배너 -->
-		<div id="topGnb">
-			<ul class="nav nav-tabs">
-				<li class="nav-item">
-				  <a class="nav-link disabled topGnb">홈</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link disabled topGnb">도서</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link active topGnb" aria-current="page" href="#">티켓</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link disabled topGnb">투어</a>
-				</li>
-				<li class="topBanner" style="margin-left: 350px;"><a onclick="location.href='../main/indexForm.html'" style="cursor: pointer;">로그아웃</a>
-				<li class="topBanner" style="margin-left: 10px;"><a onclick="location.href='registerForm.html'" style="cursor: pointer;">회원가입</a>
-				<li class="topBanner" style="margin-left: 10px;"><a>예매확인/취소</a>
-				<li class="topBanner" style="margin-left: 10px;"><a>마이페이지</a>
-				<li class="topBanner" style="margin-left: 10px;">고객센터
-				<li class="topBanner" style="margin-left: 10px;">모바일APP
-				<li class="topBanner" style="margin-left: 10px;">Language
-			</ul>
-		</div>
-	</div>
-	<!-- 중간 배너 -->
-	<div id="middleGnb">
-		<h2 style="display: inline-block;">
-			<a style="font-family: 'IBM Plex Sans KR', sans-serif; cursor: pointer;" onclick="location.href='../main/indexForm.html'" >티켓</a>
-		</h2>
-		<img alt="" src="/resources/img/ticketInterParkLogo.png" style="margin-bottom: 10px; cursor: pointer;" onclick="location.href='../main/indexForm.html'">
-		<input class="form-control" type="text" aria-label="default input example" style="width: 300px; display: inline-block; margin-left: 100px;">
-	</div>	
+	<!-- 상단배너 s -->
+	<%@include file="../../../common/xdmin/includeV1/topvanner.jsp"%>
+	<!-- 상단배너 e -->
+	<!-- 중간배너 s -->
+	<%@include file="../../../common/xdmin/includeV1/viewTopVanner.jsp"%>
+	<!-- 중간배너 e -->
 	<!-- 메인 시작 -->
 	<div class="mainWrap">	
 		<div id="openIdWrap">
@@ -66,7 +38,7 @@
 						<div class="myLevel">
 							<img alt="하트모양입니다" src="/resources//heartImg.png">
 							<p class="infoTxt">
-								박승준님은 현재
+								<c:out value="${sessName }"/>님은 현재
 								<span>WELCOME</span>
 								등급입니다
 							</p>
@@ -77,7 +49,7 @@
 					<div class="mainMenu">
 						<!-- 회원정보수정 -->
 						<div class="menuBox infoModify">
-							<a onclick="location.href='informationMod.html'" style="cursor: pointer;">
+							<a id="btnInformationMod" style="cursor: pointer;">
 								<p>회원정보수정</p>
 								<span class="noti">
 									본인인증,휴대폰 번호 등
@@ -88,7 +60,7 @@
 						</div>
 						<!-- 비밀번호 변경 -->
 						<div id="password" class="menuBox password">
-							<a onclick="location.href='pwdModForm.html'" style="cursor: pointer;">
+							<a id="btnPwdMod" style="cursor: pointer;">
 								<p>비밀번호변경</p>
 								<span class="noti">
 									주기적인 변경으로
@@ -199,6 +171,28 @@
 	
 	
 </div> <!-- wrap end -->
+<!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>	
+	var goUrlInformationMod = "/member/informationMod";
+	var goUrlPwdMod = "/member/pwdMod"
+	var goUrlIndex = "/main/index";
+	
+	$("#btnInformationMod").on("click",function(){
+		$(location).attr("href",goUrlInformationMod);
+	});
+
+	$("#btnPwdMod").on("click",function(){
+		$(location).attr("href",goUrlPwdMod);
+	});
+	
+	$(".btnIndex").on("click",function(){
+		$(location).attr("href",goUrlIndex);
+	});
+	
+</script>
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>

@@ -80,6 +80,14 @@ public class MemberServiceImpl implements MemberService{
 	public Member selectOneLogin(Member dto) throws Exception {
 		return dao.selectOneLogin(dto);
 	}
+
+	/*
+	 * @Override public Member selectMember(MemberVo vo) throws Exception { Member
+	 * result=dao.selectMember(vo); System.out.println("service result: " + result);
+	 * return result; }
+	 */
+	
+	
 	
 	
 

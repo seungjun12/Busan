@@ -69,5 +69,11 @@ public class MemberDao {
 		System.out.println("dao result: " + result);
 		return result;
 	}
+	
+	/*
+	 * public Member selectMember(MemberVo vo) { Member result
+	 * =sqlSession.selectOne(namespace + "selectMember" , vo);
+	 * System.out.println("dao result :" +result); return result; }
+	 */
 }	
 

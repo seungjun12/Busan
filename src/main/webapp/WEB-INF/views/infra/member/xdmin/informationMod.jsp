@@ -18,40 +18,12 @@
 </head>
 <body>
 <div id="wrap">	
-	<div id="topGnbbg">
-		<!-- 최상단 배너 -->
-		<div id="topGnb">
-			<ul class="nav nav-tabs">
-				<li class="nav-item">
-				  <a class="nav-link disabled topGnb">홈</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link disabled topGnb">도서</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link active topGnb" aria-current="page" href="#">티켓</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link disabled topGnb">투어</a>
-				</li>
-				<li class="topBanner" style="margin-left: 350px;"><a onclick="location.href='../main/indexForm.html'" style="cursor: pointer;">로그아웃</a>
-				<li class="topBanner" style="margin-left: 10px;"><a onclick="location.href='registerForm.html'" style="cursor: pointer;">회원가입</a>
-				<li class="topBanner" style="margin-left: 10px;"><a>예매확인/취소</a>
-				<li class="topBanner" style="margin-left: 10px;"><a>마이페이지</a>
-				<li class="topBanner" style="margin-left: 10px;">고객센터
-				<li class="topBanner" style="margin-left: 10px;">모바일APP
-				<li class="topBanner" style="margin-left: 10px;">Language
-			</ul>
-		</div>
-	</div>
-	<!-- 중간 배너 -->
-	<div id="middleGnb">
-		<h2 style="display: inline-block;">
-			<a style="font-family: 'IBM Plex Sans KR', sans-serif; cursor: pointer;" onclick="location.href='../main/indexForm.html'" >티켓</a>
-		</h2>
-		<img alt="" src="/resources/img/ticketInterParkLogo.png" style="margin-bottom: 10px; cursor: pointer;" onclick="location.href='../main/indexForm.html'">
-		<input class="form-control" type="text" aria-label="default input example" style="width: 300px; display: inline-block; margin-left: 100px;">
-	</div>	
+	<!-- 상단배너 s -->
+	<%@include file="../../../common/xdmin/includeV1/topvanner.jsp"%>
+	<!-- 상단배너 e -->	
+	<!-- 중간배너 s -->
+	<%@include file="../../../common/xdmin/includeV1/viewTopVanner.jsp"%>
+	<!-- 중간배너 e -->
 	<!-- 매인 시작 -->
 	<div class="mainWrap">
 		<div id="openIdWrap">
@@ -59,52 +31,9 @@
 				<h1>INTERPARK</h1>
 			</div>
 			<div class="whiteWrap">
-				<!-- 왼쪽 영역 -->
-				<div class="leftWrap">
-					<!-- 왼쪽 위 등급 -->
-					<div class="gradeWrap">
-						<span>박승준님은</span>
-						<br>
-						<u>WELCOME</u>
-						<span>등급입니다.</span>
-					</div>
-					<div class="memberFunction">
-						<!-- 회원정보수정 -->
-						<div class="memberModify leftFunction">
-							<a onclick="location.href='informationMod.html'" style="cursor: pointer;">
-								<i class="fa-solid fa-user-gear"></i>
-								<span>회원정보수정</span>
-							</a>
-						</div>
-						<!-- 비밀번호변경 -->
-						<div class="leftFunction">
-							<a onclick="location.href='pwdModForm.html'" style="cursor: pointer;">
-								<i class="fa-solid fa-lock-open"></i>
-								<span>비밀번호변경</span>
-							</a>
-						</div>
-						<!-- 배송지관리 -->
-						<div class="leftFunction">
-							<i class="fa-solid fa-box"></i>
-							<span>배송지관리</span>
-						</div>
-						<!-- SNS연결설정 -->
-						<div class="leftFunction">
-							<i class="fa-brands fa-google"></i>
-							<span>SNS연결설정</span>
-						</div>
-						<!-- 로그인 관리 -->
-						<div class="leftFunction">
-							<i class="fa-solid fa-key"></i>
-							<span>로그인 관리</span>
-						</div>
-						<!-- 회원탈퇴 -->
-						<div class="leftFunction">
-							<i class="fa-solid fa-door-open"></i>
-							<span>회원탈퇴</span>
-						</div>
-					</div>
-				</div><!-- leftWrap end -->
+			<!-- 왼쪽배너 s -->
+			<%@include file="../../../common/xdmin/includeV1/viewLeftVanner.jsp"%>
+			<!-- 왼쪽배너 e -->
 				<!-- 오른쪽 영역 -->
 				<div class="rightWrap">
 					<div class="modifyWrap">
@@ -121,7 +50,7 @@
 									아이디
 								</div>
 								<div class="col">
-									tmdwns0908
+									<c:out value="${item.id }"/>
 								</div>	
 							</div>
 						</div>
@@ -132,7 +61,7 @@
 									이름
 								</div>
 								<div class="col-6">
-									박승준
+									<c:out value="${item.name }"/>
 								</div>
 								<div class="col-3 modifyBtn">
 									<button type="button" class="btn btn-light">수정</button>
@@ -146,7 +75,7 @@
 									휴대폰번호
 								</div>
 								<div class="col-6">
-									010-5188-1135
+									<%-- <c:out value="${item.number }"/> --%> <!-- 해결해야됨!! -->
 								</div>
 								<div class="col-3 modifyBtn">
 									<button type="button" class="btn btn-light">수정</button>
@@ -160,7 +89,7 @@
 									이메일
 								</div>
 								<div class="col-6">
-									vndan110@naver.com
+									<c:out value="${item.email }"/>
 								</div>
 								<div class="col-3 modifyBtn">
 									<button type="button" class="btn btn-light">수정</button>
@@ -174,7 +103,7 @@
 									생년월일
 								</div>
 								<div class="col">
-									1998-09-08
+									<c:out value="${item.dob }"/>
 								</div>	
 							</div>
 						</div>
@@ -186,11 +115,11 @@
 								</div>
 								<div class="col">
 									<div class="form-check form-check-inline">
-  										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" disabled>
+  										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="gender6" value="6" disabled <c:if test="${item.gender eq 6 }">selected</c:if>>
   										<label class="form-check-label" for="inlineRadio3">남</label>
 									</div>
 									<div class="form-check form-check-inline">
-  										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" disabled>
+  										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="gender7" value="7" disabled <c:if test="${item.gender eq 7 }">selected</c:if>>
   										<label class="form-check-label" for="inlineRadio3">여</label>
 									</div>									
 								</div>	
@@ -215,11 +144,11 @@
 								</div>
 								<div class="col">
 									<div class="form-check form-check-inline">
-  										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+  										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="agree8" value="8" <c:if test="${item.personalAgree eq 8 }">selected</c:if>>
   										<label class="form-check-label" for="inlineRadio1">1년</label>
 									</div>
 									<div class="form-check form-check-inline">
-  										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+  										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="agree9" value="9" <c:if test="${item.personalAgree eq 9 }">selected</c:if>>
   										<label class="form-check-label" for="inlineRadio2">탈퇴시까지</label>
 									</div>																		
 								</div>	
@@ -319,7 +248,26 @@
 	
 	
 </div> <!-- wrap end -->
+<!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>	
+	var goUrlInformationMod = "/member/informationMod";
+	var goUrlPwdMod = "/member/pwdMod"
+	var goUrlIndex = "/main/index";
+	
+	$("#btnInformationMod").on("click",function(){
+		$(location).attr("href",goUrlInformationMod);
+	});
 
+	$("#btnPwdMod").on("click",function(){
+		$(location).attr("href",goUrlPwdMod);
+	});
+	
+	$(".btnIndex").on("click",function(){
+		$(location).attr("href",goUrlIndex);
+	});
+	
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
 </body>

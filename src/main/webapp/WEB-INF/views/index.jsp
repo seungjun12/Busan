@@ -20,32 +20,9 @@
 </head>
 <body>
 <div id="wrap">	
-	<div id="topGnbbg">
-		<!-- 최상단 배너 -->
-		<div id="topGnb">
-			<ul class="nav nav-tabs">
-				<li class="nav-item">
-				  <a class="nav-link disabled topGnb">홈</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link disabled topGnb">도서</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link active topGnb" aria-current="page" href="#">티켓</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link disabled topGnb">투어</a>
-				</li>
-				<li class="topBanner" style="margin-left: 350px;"><a type="button" id="btnLogin">로그인</a>
-				<li class="topBanner" style="margin-left: 10px;"><a onclick="location.href='../member/registerForm.html'" style="cursor: pointer;">회원가입</a>
-				<li class="topBanner" style="margin-left: 10px;"><a onclick="location.href='../member/loginForm.html'" style="cursor: pointer;">예매확인/취소</a>
-				<li class="topBanner" style="margin-left: 10px;"><a onclick="location.href='../member/loginForm.html'" style="cursor: pointer;">마이페이지</a>
-				<li class="topBanner" style="margin-left: 10px;">고객센터
-				<li class="topBanner" style="margin-left: 10px;">모바일APP
-				<li class="topBanner" style="margin-left: 10px;">Language
-			</ul>
-		</div>
-	</div>
+	<!-- 상단배너 s -->
+	<%@include file="../../../common/xdmin/includeV1/topvanner.jsp"%>
+	<!-- 상단배너 e -->
 	<!-- 중간 배너 -->
 	<div id="middleGnb">
 		<h2 style="display: inline-block;">
@@ -234,7 +211,7 @@
 	var goUrlLogin = "/member/login";
 	var goUrlgame = "/main/gameChoice";
 
-	$("#btnLogin").on("click",function(){
+	$(".btnLogin").on("click",function(){
 		$(location).attr("href",goUrlLogin);
 	});
 	

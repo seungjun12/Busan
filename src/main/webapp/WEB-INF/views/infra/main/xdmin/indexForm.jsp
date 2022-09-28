@@ -22,46 +22,9 @@
 <body>
 <form>
 <div id="wrap">	
-	<div id="topGnbbg">
-		<!-- 최상단 배너 -->
-		<div id="topGnb">
-			<ul class="nav nav-tabs">
-				<li class="nav-item">
-				  <a class="nav-link disabled topGnb">홈</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link disabled topGnb">도서</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link active topGnb" aria-current="page" href="#">티켓</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link disabled topGnb">투어</a>
-				</li>
-				<c:choose>
-					<c:when test="${empty dto.sessSeq}"> <!-- 으아 이거 해결해보자 -->
-						<li class="topBanner" style="margin-left: 350px;"><a type="button" id="btnLogin" style="cursor: pointer;">로그인</a>
-						<li class="topBanner" style="margin-left: 10px;"><a type="butoon" id="btnRegister" style="cursor: pointer;">회원가입</a>
-						<li class="topBanner" style="margin-left: 10px;"><a type="button" id="btnLogin" style="cursor: pointer;">예매확인/취소</a>
-						<li class="topBanner" style="margin-left: 10px;"><a  type="button" id="btnLogin" style="cursor: pointer;">마이페이지</a>						
-					</c:when>
-					<c:otherwise>
-						<li class="topBanner" style="margin-left: 350px;"><a type="button" id="btnLogout" style="cursor: pointer;">로그아웃</a>
-						<li class="topBanner" style="margin-left: 10px;"><span><c:out value="${sessName }"/>님</span>
-						<li class="topBanner" style="margin-left: 10px;"><a type="button" id="btnLogin" style="cursor: pointer;">예매확인/취소</a>
-						<li class="topBanner" style="margin-left: 10px;"><a  type="button" id="btnLogin" style="cursor: pointer;">마이페이지</a>
-					</c:otherwise>
-				</c:choose>			
-				<li class="topBanner" style="margin-left: 10px;">고객센터
-				<li class="topBanner" style="margin-left: 10px;">모바일APP
-				<li class="topBanner" style="margin-left: 10px;">Language
-				<span><c:out value="${sessName }"/>
-			</ul>
-			<%-- sessSeq: <br>
-			sessName: <c:out value="${sessName }"/><br>
-			sessId: <c:out value="${sessId }"/><br> --%>
-		</div>
-	</div>
+	<!-- 상단배너 s -->
+	<%@include file="../../../common/xdmin/includeV1/topvanner.jsp"%>
+	<!-- 상단배너 e -->
 	<!-- 중간 배너 -->
 	<div id="middleGnb">
 		<h2 style="display: inline-block;">
@@ -250,16 +213,17 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	<script>
-	var goUrlLogin = "/member/login"
-	var goUrlRegister = "/member/register"
-	var goUrlGame = "/main/gameChoice"
-	var goUrlIndex = "/main/index"
+	var goUrlLogin = "/member/login";
+	var goUrlRegister = "/member/register";
+	var goUrlGame = "/main/gameChoice";
+	var goUrlIndex = "/main/index";
+	var goUrlMemberView = "/member/memberViewForm";
 	
-		$("#btnLogin").on("click",function(){
+		$(".btnLogin").on("click",function(){
 			$(location).attr("href",goUrlLogin);
 		});
 	
-		$("#btnRegister").on("click",function(){
+		$(".btnRegister").on("click",function(){
 			$(location).attr("href",goUrlRegister);
 		});
 		
@@ -270,6 +234,11 @@
 		$(".btnIndex").on("click",function(){
 			$(location).attr("href",goUrlIndex);
 		});
+		
+		$("#btnMemberView").on("click",function(){
+			$(location).attr("href",goUrlMemberView);
+		});
+		
 		
 		
 	

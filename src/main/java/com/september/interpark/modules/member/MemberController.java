@@ -171,20 +171,38 @@ public class MemberController {
 	}	
 	
 	//로그아웃 연습
-	@ResponseBody
-	@RequestMapping(value = "/member/logoutProc")
-	public Map<String, Object> logoutProc(Member dto, HttpSession httpSession) throws Exception{
-		Map<String, Object> returnMap = new HashMap<String, Object>();
-		Member rtMember = service.selectOneId(dto);
-		Member rtMember2 = service.selectOneLogin(dto);
+	/*
+	 * @ResponseBody
+	 * 
+	 * @RequestMapping(value = "/member/logoutProc") public Map<String, Object>
+	 * logoutProc(Member dto, HttpSession httpSession) throws Exception{ Map<String,
+	 * Object> returnMap = new HashMap<String, Object>(); Member rtMember =
+	 * service.selectOneId(dto); Member rtMember2 = service.selectOneLogin(dto);
+	 * 
+	 * httpSession.setAttribute("sessSeq", rtMember2.getSeq());
+	 * httpSession.setAttribute("sessId", rtMember2.getId());
+	 * httpSession.setAttribute("sessName", rtMember2.getName());
+	 * 
+	 * returnMap.put("sessSeq", null); return returnMap; }
+	 */
+	
+	@RequestMapping(value = "member/memberViewForm")
+	public String memberViewForm(@ModelAttribute("vo") MemberVo vo,Model model)throws Exception{
 		
-		httpSession.setAttribute("sessSeq", rtMember2.getSeq());
-		httpSession.setAttribute("sessId", rtMember2.getId());
-		httpSession.setAttribute("sessName", rtMember2.getName());
-		
-		returnMap.put("sessSeq", "");
-		return returnMap;
+		  Member item=service.selectOne(vo); model.addAttribute("item", item);
+		  System.out.println("controller item" + item);
+		 
+		return "infra/member/xdmin/memberViewForm";
 	}
-
+	
+	@RequestMapping(value = "member/informationMod")
+	public String informationMod()throws Exception{
+		return "infra/member/xdmin/informationMod";
+	}
+	
+	@RequestMapping(value = "member/pwdMod")
+	public String pwdMod()throws Exception{
+		return "infra/member/xdmin/pwdModForm";
+	}
 
 }//class end

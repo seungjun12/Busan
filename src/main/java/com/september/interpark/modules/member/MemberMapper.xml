@@ -166,6 +166,12 @@
 			<if test="pwd != null and !pwd.equals('')">AND a.pwd = #{pwd}</if> 		
 	</select>
 
-	
+<!-- 	<select id="selectMember" resultMap="resultMapObj">
+		SELECT
+			a.*
+		FROM member a
+		WHERE 1=1
+			AND sessSeq = #{sessSeq}	
+	</select> -->
 
 </mapper>	
