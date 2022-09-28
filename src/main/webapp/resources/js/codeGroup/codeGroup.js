@@ -7,6 +7,7 @@
 	var goUrlForm = "/codeGroup/codeGroupForm";
 	var goUrlCode = "/code/codeList";
 	var goUrlMember = "/member/memberList";
+	var goUrlHome = "/admin/home";
 	
 	var seq = $("input:hidden[name=ccgseq]");				/* #-> */
 	
@@ -52,7 +53,11 @@
 	
 	$("#btnList").on("click", function(){
 		formVo.attr("action", goUrlCodeGroup).submit();
-	});                        //gorUrlList
+	});                         //gorUrlList
+	
+	$("#btnHome").on("click", function(){
+		$(location).attr("href",goUrlHome);
+	});                        
 	
 	
 	goList = function(thisPage){

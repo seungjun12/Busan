@@ -30,5 +30,7 @@ public interface MemberService {
 	public Member selectOneLogin(Member dto) throws Exception;
 	
 	/* public Member selectMember(MemberVo vo)throws Exception; */
+	
+	public int pwdUpdate(Member dto) throws Exception;
 
 }

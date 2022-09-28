@@ -8,27 +8,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
+@RequestMapping(value = "/main/")
 public class MainController {
 	
-	@RequestMapping(value = "main/index")
+	@RequestMapping(value = "index")
 	public String indexForm()throws Exception {
 		return "infra/main/xdmin/indexForm";
 	}
 	
-	@RequestMapping(value = "main/gameChoice")
+	@RequestMapping(value = "gameChoice")
 	public String gameChoiceForm()throws Exception {
 		return "infra/main/xdmin/gameChoiceForm";
 	}
 	
-	@RequestMapping(value = "/teamChoice", method = RequestMethod.GET)
-	public String teamChoiceForm(Locale locale, Model model) {
-		return "infra/main/xdmin/teamChoiceForm";
-	}
-	
-	@RequestMapping(value = "/seatChoice", method = RequestMethod.GET)
-	public String seatChoiceForm(Locale locale, Model model) {
-		return "infra/main/xdmin/seatChoiceForm";
-	}
+
 
 	
 	

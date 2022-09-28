@@ -18,12 +18,13 @@ import com.september.interpark.common.constants.Constants;
 
 
 @Controller
+@RequestMapping(value = "/member/")
 public class MemberController {
 
 	@Autowired
 	MemberServiceImpl service;
 	
-	@RequestMapping(value="member/memberList")
+	@RequestMapping(value="memberList")
 	public String memberList(@ModelAttribute("vo") MemberVo vo , Model model)throws Exception{
 		
 		System.out.println("vo.getShValue(): "+vo.getShValue());
@@ -38,12 +39,12 @@ public class MemberController {
 		return "infra/member/xdmin/memberList";
 	}
 	
-	@RequestMapping(value = "member/memberForm")
+	@RequestMapping(value = "memberForm")
 	public String memberForm() throws Exception{
 		return "infra/member/xdmin/memberForm";
 	}
 	
-	@RequestMapping(value = "member/memberInst")
+	@RequestMapping(value = "memberInst")
 	public String memberInst(MemberVo vo, Member dto, RedirectAttributes redirectAttributes) throws Exception {
 		
 		service.insert(dto);
@@ -55,7 +56,7 @@ public class MemberController {
 		return "redirect:/member/memberList";
 	}
 	
-	@RequestMapping(value = "member/memberView")
+	@RequestMapping(value = "memberView")
 	public String memberView(@ModelAttribute("vo") MemberVo vo,Model model) throws Exception {
 		Member item=service.selectOne(vo);
 		model.addAttribute("item", item);
@@ -63,26 +64,26 @@ public class MemberController {
 		return "infra/member/xdmin/memberView";
 	}
 	
-	@RequestMapping(value = "member/memberUpdt")
+	@RequestMapping(value = "memberUpdt")
 	public String memberUpdt(MemberVo vo,Member dto, RedirectAttributes redirectAttributes) throws Exception {
 		service.update(dto);
 		return "redirect:/member/memberList";
 	}
 	
-	@RequestMapping(value = "member/memberUele")
+	@RequestMapping(value = "memberUele")
 	public String memberUele(MemberVo vo , Member dto , RedirectAttributes redirectAttributes) throws Exception {
 		service.uelete(dto);
 		return "redirect:/member/memberList";
 	}
 	
-	@RequestMapping(value = "member/memberDele")
+	@RequestMapping(value = "memberDele")
 	public String memberDele(MemberVo vo , RedirectAttributes redirectAttributes)throws Exception {
 		service.delete(vo);
 		return "redirect:/member/memberList";
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "member/checkId")
+	@RequestMapping(value = "checkId")
 	public Map<String, Object> checkId(Member dto) throws Exception {
 
 		Map<String, Object> returnMap = new HashMap<String, Object>();
@@ -99,24 +100,24 @@ public class MemberController {
 		return returnMap;
 	}	
 	
-	@RequestMapping(value = "member/register")
+	@RequestMapping(value = "register")
 	public String registerForm()throws Exception{
 		return "infra/member/xdmin/registerForm";
 	}
 	
-	@RequestMapping(value = "member/memberRegister")
+	@RequestMapping(value = "memberRegister")
 	public String memberRegister(Member dto)throws Exception{
 		service.register(dto);
 		return "redirect:/main/index";
 	}
 	
-	@RequestMapping(value = "member/login")
+	@RequestMapping(value = "login")
 	public String login()throws Exception{
 		return "infra/member/xdmin/loginForm";
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "/member/loginProc")
+	@RequestMapping(value = "loginProc")
 	public Map<String, Object> loginProc(Member dto, HttpSession httpSession) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 
@@ -138,6 +139,12 @@ public class MemberController {
 				httpSession.setAttribute("sessSeq", rtMember2.getSeq());
 				httpSession.setAttribute("sessId", rtMember2.getId());
 				httpSession.setAttribute("sessName", rtMember2.getName());
+				httpSession.setAttribute("sessEmail", rtMember2.getEmail());
+				httpSession.setAttribute("sessDob", rtMember2.getDob());
+				httpSession.setAttribute("sessGender", rtMember2.getGender());
+				httpSession.setAttribute("sessPersonal", rtMember2.getPersonalAgree());
+				httpSession.setAttribute("sessPwd", rtMember2.getPwd());
+				
 
 				/*
 				 * rtMember2.setIflgResultNy(1); service.insertLogLogin(rtMember2);
@@ -152,7 +159,6 @@ public class MemberController {
 				 * returnMap.put("changePwd", "true"); }
 				 */
 				 
-
 				returnMap.put("rt", "success");
 			} else {
 //				dto.setSeq(rtMember.getSeq());
@@ -164,7 +170,7 @@ public class MemberController {
 		} else {
 //			dto.setIflgResultNy(0);
 //			service.insertLogLogin(dto);
-
+			
 			returnMap.put("rt", "fail");
 		}
 		return returnMap;
@@ -186,23 +192,38 @@ public class MemberController {
 	 * returnMap.put("sessSeq", null); return returnMap; }
 	 */
 	
-	@RequestMapping(value = "member/memberViewForm")
-	public String memberViewForm(@ModelAttribute("vo") MemberVo vo,Model model)throws Exception{
+	@RequestMapping(value = "memberViewForm")
+	public String memberViewForm()throws Exception{
 		
-		  Member item=service.selectOne(vo); model.addAttribute("item", item);
-		  System.out.println("controller item" + item);
+		 
 		 
 		return "infra/member/xdmin/memberViewForm";
 	}
 	
-	@RequestMapping(value = "member/informationMod")
+	@RequestMapping(value = "informationMod")
 	public String informationMod()throws Exception{
-		return "infra/member/xdmin/informationMod";
+		 return "infra/member/xdmin/informationMod";
 	}
 	
-	@RequestMapping(value = "member/pwdMod")
+	@RequestMapping(value = "pwdMod")
 	public String pwdMod()throws Exception{
 		return "infra/member/xdmin/pwdModForm";
 	}
-
+	
+	@ResponseBody
+	@RequestMapping(value = "logoutProc")
+	public Map<String, Object> logoutProc(HttpSession httpSession) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		/* UtilCookie.deleteCookie(); */
+		httpSession.invalidate();
+		returnMap.put("rt", "success");
+		return returnMap;
+	}
+	
+	@RequestMapping(value = "pwdUpdt")
+	public String pwdUpdate(Member dto)throws Exception{
+		service.pwdUpdate(dto);
+		return "infra/member/xdmin/informationMod";
+	}
+	
 }//class end

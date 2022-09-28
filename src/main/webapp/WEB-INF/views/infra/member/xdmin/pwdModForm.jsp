@@ -49,12 +49,13 @@
 						</div>
 						<!-- 새 비밀번호입력 -->
 						<div class="pwdModify">
-							<input class="form-control" type="password" placeholder="새 비밀번호" aria-label="default input example">
+							<input class="form-control" type="password" placeholder="새 비밀번호" aria-label="default input example" id="pwd" name="pwd" value="<c:out value="${sessPwd }"/>">
 							<p>  영문,숫자,특수문자 8~12자로 입력해주세요</p>
 						</div>
 						<!-- 새 비밀번호 확인 -->
 						<div class="pwdModify">
-							<input class="form-control" type="password" placeholder="새 비밀번호 확인" aria-label="default input example">						
+							<input class="form-control" type="password" placeholder="새 비밀번호 확인" aria-label="default input example" id="pwd2">						
+							<div class="invalid-feedback" id="pwdFeedback"></div>
 							<p>  영문,숫자,특수문자 8~12자로 입력해주세요</p>
 						</div>
 						<!-- 비밀번호 입력 밑에 설명 -->
@@ -71,7 +72,7 @@
 									<button type="button" class="btn btn-outline-danger" onclick="location.href='memberViewForm.html'">취소</button>
 								</div>
 								<div class="col">
-									<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">변경</button>
+									<button type="button" class="btn btn-outline-secondary" id="btnPwdRegister">변경</button>
 								</div>
 								<!-- Modal -->
 								<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -163,6 +164,7 @@
 	var goUrlInformationMod = "/member/informationMod";
 	var goUrlPwdMod = "/member/pwdMod"
 	var goUrlIndex = "/main/index";
+	var goUrlPwdModRegister ="/member/pwdUpdt";
 	
 	$("#btnInformationMod").on("click",function(){
 		$(location).attr("href",goUrlInformationMod);
@@ -174,6 +176,33 @@
 	
 	$(".btnIndex").on("click",function(){
 		$(location).attr("href",goUrlIndex);
+	});
+	
+	$("#btnPwdRegister").on("click",function(){
+		$(location).attr("href",goUrlPwdModRegister);
+	});
+	
+	$("#pwd2").on("keyup",function(key){
+		var p1 = document.getElementById('pwd').value;
+		var p2 = document.getElementById('pwd2').value;
+		if(p1 == p2){
+			document.getElementById("pwd2").classList.remove('is-invalid');						
+			document.getElementById("pwd2").classList.add('is-valid');
+
+			document.getElementById("pwdFeedback").classList.remove('invalid-feedback');
+			document.getElementById("pwdFeedback").classList.add('valid-feedback');
+			document.getElementById("pwdFeedback").innerText = "일치합니다.";
+			return false;
+		}else{
+			document.getElementById("pwd2").classList.add('is-invalid');
+			document.getElementById("pwd2").classList.remove('is-valid');
+			
+			document.getElementById("pwdFeedback").classList.remove('valid-feedback');
+			document.getElementById("pwdFeedback").classList.add('invalid-feedback');
+			document.getElementById("pwdFeedback").innerText = "일치 하지 않습니다.";
+			
+			return true;
+		}
 	});
 	
 </script>

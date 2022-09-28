@@ -159,6 +159,11 @@
 			a.seq
 			,a.id
 			,a.name
+			,a.email
+			,a.dob
+			,a.gender
+			,a.personalAgree
+			,a.pwd
 		FROM
 			member a
 		WHERE 1=1 
@@ -173,5 +178,13 @@
 		WHERE 1=1
 			AND sessSeq = #{sessSeq}	
 	</select> -->
+	
+	<update id="pwdUpdate">
+		UPDAT member
+		SET
+			pwd = #{pwd}
+		WHERE
+			seq = #{seq}	
+	</update>
 
 </mapper>	

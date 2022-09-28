@@ -50,7 +50,7 @@
 									아이디
 								</div>
 								<div class="col">
-									<c:out value="${item.id }"/>
+									<c:out value="${sessId }"/>
 								</div>	
 							</div>
 						</div>
@@ -61,7 +61,7 @@
 									이름
 								</div>
 								<div class="col-6">
-									<c:out value="${item.name }"/>
+									<c:out value="${sessName}"/>
 								</div>
 								<div class="col-3 modifyBtn">
 									<button type="button" class="btn btn-light">수정</button>
@@ -89,7 +89,7 @@
 									이메일
 								</div>
 								<div class="col-6">
-									<c:out value="${item.email }"/>
+									<c:out value="${sessEmail }"/>
 								</div>
 								<div class="col-3 modifyBtn">
 									<button type="button" class="btn btn-light">수정</button>
@@ -103,7 +103,7 @@
 									생년월일
 								</div>
 								<div class="col">
-									<c:out value="${item.dob }"/>
+									<c:out value="${sessDob }"/>
 								</div>	
 							</div>
 						</div>
@@ -115,11 +115,11 @@
 								</div>
 								<div class="col">
 									<div class="form-check form-check-inline">
-  										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="gender6" value="6" disabled <c:if test="${item.gender eq 6 }">selected</c:if>>
+  										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="gender6" value="6" disabled <c:if test="${sessGender eq 6 }">selected</c:if>>
   										<label class="form-check-label" for="inlineRadio3">남</label>
 									</div>
 									<div class="form-check form-check-inline">
-  										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="gender7" value="7" disabled <c:if test="${item.gender eq 7 }">selected</c:if>>
+  										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="gender7" value="7" disabled <c:if test="${sessGender eq 7 }">selected</c:if>>
   										<label class="form-check-label" for="inlineRadio3">여</label>
 									</div>									
 								</div>	
@@ -144,11 +144,11 @@
 								</div>
 								<div class="col">
 									<div class="form-check form-check-inline">
-  										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="agree8" value="8" <c:if test="${item.personalAgree eq 8 }">selected</c:if>>
+  										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="agree8" value="8" <c:if test="${sessPersonal eq 8 }">selected</c:if>>
   										<label class="form-check-label" for="inlineRadio1">1년</label>
 									</div>
 									<div class="form-check form-check-inline">
-  										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="agree9" value="9" <c:if test="${item.personalAgree eq 9 }">selected</c:if>>
+  										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="agree9" value="9" <c:if test="${sessPersonal eq 9 }">selected</c:if>>
   										<label class="form-check-label" for="inlineRadio2">탈퇴시까지</label>
 									</div>																		
 								</div>	

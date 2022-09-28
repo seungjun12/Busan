@@ -23,6 +23,26 @@
 	
 	<context:component-scan base-package="com.september.interpark" /> <!-- 팩키지 이름과 동일해야 한다 -->
 	
+	<!-- session interceptor s 2022.03.13 for logincheck -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/**"/> 
+			<exclude-mapping path="/resources/**" /> 
+			<exclude-mapping path="/member/login" />
+			<exclude-mapping path="/member/loginProc" />
+			<exclude-mapping path="/member/register" />			
+			<exclude-mapping path="/main/index" />
+			<exclude-mapping path="/codeGroup/**" />
+			<exclude-mapping path="/code/**" /> 
+			<!-- <exclude-mapping path="/member/**" /> -->			
+			<!-- <exclude-mapping path="/member/findIdPwdForm" />
+			<exclude-mapping path="/test/**" />
+			<exclude-mapping path="/rest/**" /> -->   
+			<beans:bean id="checkLoginSessionInterception" class="com.september.interpark.common.interceptor.CheckLoginSessionInterception"/>
+		</interceptor>
+	</interceptors>	
+	<!-- session interceptor e 2022.03.13 for logincheck -->
+	
 	
 	
 </beans:beans>

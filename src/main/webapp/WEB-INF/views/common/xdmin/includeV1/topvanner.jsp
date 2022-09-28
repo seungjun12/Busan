@@ -33,8 +33,44 @@
 				<li class="topBanner" style="margin-left: 10px;">모바일APP
 				<li class="topBanner" style="margin-left: 10px;">Languages
 			</ul>
-			<%-- sessSeq: <br>
-			sessName: <c:out value="${sessName }"/><br>
-			sessId: <c:out value="${sessId }"/><br> --%>
+			<%-- sessName: <c:out value="${sessName }"/><br>
+			sessId: <c:out value="${sessId }"/><br> 
+			sessEmail: <c:out value="${sessEmail}"/><br> 
+			sessAdress: <c:out value="${sessAdress}"/><br>
+			sessSeq :<c:out value="${sessSeq }"/> --%>   
 		</div>
 	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script>
+	/* 로그아웃 */ 
+		$("#btnLogout").on("click", function(){
+			/* if(validation() == false) return false; */
+			
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				/* ,dataType:"json" */
+				,url: "/member/logoutProc"
+				/* ,data : $("#formLogin").serialize() */
+				,data : {}
+				,success: function(response) {
+					if(response.rt == "success") {
+						/* if(response.changePwd == "true") {
+							location.href = URL_CHANGE_PWD_FORM;
+						} else {
+							location.href = URL_INDEX_ADMIN;
+						} */
+						
+						location.href = goUrlIndex;
+					} else {
+						alert("회원없음");
+					}
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});
+		});
+		</script>	
+		

@@ -21,41 +21,12 @@
 	<!-- 상단배너 s -->
 	<%@include file="../../../common/xdmin/includeV1/topvanner.jsp"%>
 	<!-- 상단배너 e -->
-	<!-- 중간 배너 -->
-	<div id="middleGnb">
-		<h2 style="display: inline-block;">
-			<a style="font-family: 'IBM Plex Sans KR', sans-serif; cursor: pointer; text-decoration: none; color: black " class="btnIndex" >티켓</a>
-		</h2>
-		<img alt="" src="/resources/img/ticketInterParkLogo.png" style="margin-bottom: 10px; cursor: pointer;" class="btnIndex">
-		<input class="form-control" type="text" aria-label="default input example" style="width: 300px; display: inline-block; margin-left: 20px;">
-		<img alt="" src="/resources/img/searchRightPlay.png" style="margin-left: 10px;">
-		<a>| 영화 |</a>
-		<img alt="" src="/resources/img/searchRightDiscount.png" style="width: 240px;">
-	</div>
-	<!-- 하단 배너 -->
-	<div id="bottomGnb">
-		<div id="bottomGnbList">
-			<ul class="bottomGnbList">
-				<li class="bottomGnbList"><a><i class="fa-solid fa-align-justify"></i></a>
-				<li class="bottomGnbList">뮤지컬
-				<li class="bottomGnbList">콘서트
-				<li class="bottomGnbList">연극
-				<li class="bottomGnbList">클래식/무용
-				<li class="bottomGnbList" onclick="location.href='../main/gameChoiceForm.html'" style="cursor: pointer;">스포츠
-				<li class="bottomGnbList">레저
-				<li class="bottomGnbList">전시/행사
-				<li class="bottomGnbList">아동/가족
-				<li class="bottomGnbList">TOPING
-			</ul>					
-		</div>
-		<div id="bottomGnbRight">
-			<ul class="bottomGnbList">		
-				<li class="bottomGnbList"><i class="fa-regular fa-bookmark"></i>랭킹
-				<li class="bottomGnbList">지역
-				<li class="bottomGnbList"><i class="fa-solid fa-location-dot"></i>공연장
-			</ul>
-		</div>		
-	</div>	
+	<!-- 중간배너 s-->
+	<%@include file="../../../common/xdmin/includeV1/middlevanner.jsp"%>
+	<!-- 중간배너 e -->
+	<!-- 하단배너 s -->
+	<%@include file="../../../common/xdmin/includeV1/bottomvanner.jsp"%>	
+	<!-- 하단배너 e -->
 	<!-- 로그인 영역 -->
 	<div id="login">
 		<!-- 아이디 비번 입력영역 -->
@@ -216,6 +187,8 @@
 			}
 		});
 	});
+	
+	
 	
 </script>	
 	
