@@ -35,6 +35,7 @@
 			<%@include file="../../../common/xdmin/includeV1/viewLeftVanner.jsp"%>
 			<!-- 왼쪽배너 e -->
 				<!-- 오른쪽 영역 -->
+				<form name="form" method="post">
 				<div class="rightWrap">
 					<div class="modifyWrap">
 						<div class="memberHead">
@@ -50,7 +51,7 @@
 									아이디
 								</div>
 								<div class="col">
-									<c:out value="${sessId }"/>
+									<c:out value="${item.id }"/>
 								</div>	
 							</div>
 						</div>
@@ -61,7 +62,7 @@
 									이름
 								</div>
 								<div class="col-6">
-									<c:out value="${sessName}"/>
+									<c:out value="${item.name}"/>
 								</div>
 								<div class="col-3 modifyBtn">
 									<button type="button" class="btn btn-light">수정</button>
@@ -89,7 +90,7 @@
 									이메일
 								</div>
 								<div class="col-6">
-									<c:out value="${sessEmail }"/>
+									<c:out value="${item.email }"/>
 								</div>
 								<div class="col-3 modifyBtn">
 									<button type="button" class="btn btn-light">수정</button>
@@ -103,7 +104,7 @@
 									생년월일
 								</div>
 								<div class="col">
-									<c:out value="${sessDob }"/>
+									<c:out value="${item.dob }"/>
 								</div>	
 							</div>
 						</div>
@@ -115,11 +116,11 @@
 								</div>
 								<div class="col">
 									<div class="form-check form-check-inline">
-  										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="gender6" value="6" disabled <c:if test="${sessGender eq 6 }">selected</c:if>>
+  										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="gender6" value="6" disabled <c:if test="${item.gender eq 6 }">selected</c:if>>
   										<label class="form-check-label" for="inlineRadio3">남</label>
 									</div>
 									<div class="form-check form-check-inline">
-  										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="gender7" value="7" disabled <c:if test="${sessGender eq 7 }">selected</c:if>>
+  										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="gender7" value="7" disabled <c:if test="${item.gender eq 7 }">selected</c:if>>
   										<label class="form-check-label" for="inlineRadio3">여</label>
 									</div>									
 								</div>	
@@ -144,11 +145,11 @@
 								</div>
 								<div class="col">
 									<div class="form-check form-check-inline">
-  										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="agree8" value="8" <c:if test="${sessPersonal eq 8 }">selected</c:if>>
+  										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="agree8" value="8" <c:if test="${item.personalAgree eq 8 }">selected</c:if>>
   										<label class="form-check-label" for="inlineRadio1">1년</label>
 									</div>
 									<div class="form-check form-check-inline">
-  										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="agree9" value="9" <c:if test="${sessPersonal eq 9 }">selected</c:if>>
+  										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="agree9" value="9" <c:if test="${item.personalAgree eq 9 }">selected</c:if>>
   										<label class="form-check-label" for="inlineRadio2">탈퇴시까지</label>
 									</div>																		
 								</div>	
@@ -188,7 +189,7 @@
 						</div>
 					</div>
 				</div>
-				
+				</form>
 				
 				
 				
@@ -196,54 +197,9 @@
 		</div>
 	</div>
 
-	<!-- footer영역 시작 -->
-	<div id="footerWrap">
-		<div id="footerTop">
-			<div id="footerTopList">	
-				<ul class="footerList">
-					<li class="footerListLi" style="margin-left: 0px;"><b>개인정보처리방침</b>
-					<li class="footerListLi">청소년 보호정책</li>
-					<li class="footerListLi">이용약관</li>
-					<li class="footerListLi">티켓판매 안내</li>
-					<li class="footerListLi">IR</li>
-					<li class="footerListLi">회사소개</li>
-					<li class="footerListLi">채용공고</li>
-					<li class="footerListLi">우수고객제도</li>
-					<li class="footerListLi">제휴/광고안내</li>
-					<li class="footerListLi">
-						<div class="btn-group dropup">
-  							<button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 0px;">
-    							Language
-  							</button>
-  							<ul class="dropdown-menu">
-    							<li>Korean
-    							<li>English
-    							<li>Japanese
-    							<li>Chinese
-  							</ul>
-						</div>
-					</li>
-				</ul>
-			</div>
-			<div id="footerBottom">
-				<dl>
-					<dt>
-						<img alt="" src="/resources/img/interparkLogoFooter.png">
-					</dt>				
-					<dd>
-						<span style="vertical-align: top;">주식회사 인터파크</span>
-					</dd>
-					<dd>
-						06168 서울시 강남구 삼성로 512 삼성동빌딩 10층(삼성동) | 대표이사 김강세 | 사업자등록번호 824-81-02515
-					</dd>
-					<dd>
-						통신판매업신고 2022-서울강남-02179 | Copyright 2015 INTERPARK ALL rights reserved.
-					</dd>
-				</dl>
-			</div>
-		
-		</div>
-	</div><!-- footerWrap end -->
+	<!-- 푸터 s -->
+	<%@include file="../../../common/xdmin/includeV1/footer.jsp"%>
+	<!-- 푸터 e -->
 	
 	
 	
@@ -256,7 +212,7 @@
 	var goUrlIndex = "/main/index";
 	
 	$("#btnInformationMod").on("click",function(){
-		$(location).attr("href",goUrlInformationMod);
+		$location.attr("href",goUrlInformationMod);
 	});
 
 	$("#btnPwdMod").on("click",function(){

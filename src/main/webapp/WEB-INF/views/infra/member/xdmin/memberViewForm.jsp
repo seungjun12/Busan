@@ -25,6 +25,8 @@
 	<%@include file="../../../common/xdmin/includeV1/viewTopVanner.jsp"%>
 	<!-- 중간배너 e -->
 	<!-- 메인 시작 -->
+	<form id="MForm" name="MForm">
+	<input type="hidden" id="sessSeq" name="sessSeq">
 	<div class="mainWrap">	
 		<div id="openIdWrap">
 			<div class="logoTop">
@@ -36,7 +38,7 @@
 					<!-- 맴버등급 나오는 곳 -->
 					<div class="memberClass">
 						<div class="myLevel">
-							<img alt="하트모양입니다" src="/resources//heartImg.png">
+							<img alt="하트모양입니다" src="/resources/img/heartImg.png">
 							<p class="infoTxt">
 								<c:out value="${sessName }"/>님은 현재
 								<span>WELCOME</span>
@@ -49,7 +51,8 @@
 					<div class="mainMenu">
 						<!-- 회원정보수정 -->
 						<div class="menuBox infoModify">
-							<a id="btnInformationMod" style="cursor: pointer;">
+							<a href="javascript:goView(<c:out value="${sessSeq }"/>)" style="cursor: pointer;">  
+							<!-- <a id="btnInformationMod" style="cursor: pointer;"> -->
 								<p>회원정보수정</p>
 								<span class="noti">
 									본인인증,휴대폰 번호 등
@@ -119,68 +122,27 @@
 		
 		</div>
 	</div><!-- mainWrap end -->
-	<!-- footer영역 시작 -->
-	<div id="footerWrap">
-		<div id="footerTop">
-			<div id="footerTopList">	
-				<ul class="footerList">
-					<li class="footerListLi" style="margin-left: 0px;"><b>개인정보처리방침</b>
-					<li class="footerListLi">청소년 보호정책</li>
-					<li class="footerListLi">이용약관</li>
-					<li class="footerListLi">티켓판매 안내</li>
-					<li class="footerListLi">IR</li>
-					<li class="footerListLi">회사소개</li>
-					<li class="footerListLi">채용공고</li>
-					<li class="footerListLi">우수고객제도</li>
-					<li class="footerListLi">제휴/광고안내</li>
-					<li class="footerListLi">
-						<div class="btn-group dropup">
-  							<button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 0px;">
-    							Language
-  							</button>
-  							<ul class="dropdown-menu">
-    							<li>Korean
-    							<li>English
-    							<li>Japanese
-    							<li>Chinese
-  							</ul>
-						</div>
-					</li>
-				</ul>
-			</div>
-			<div id="footerBottom">
-				<dl>
-					<dt>
-						<img alt="" src="/resources/img/interparkLogoFooter.png">
-					</dt>				
-					<dd>
-						<span style="vertical-align: top;">주식회사 인터파크</span>
-					</dd>
-					<dd>
-						06168 서울시 강남구 삼성로 512 삼성동빌딩 10층(삼성동) | 대표이사 김강세 | 사업자등록번호 824-81-02515
-					</dd>
-					<dd>
-						통신판매업신고 2022-서울강남-02179 | Copyright 2015 INTERPARK ALL rights reserved.
-					</dd>
-				</dl>
-			</div>
-		
-	
-	</div><!-- footerWrap end -->
+	</form>
+	<!-- 푸터 s -->
+	<%@include file="../../../common/xdmin/includeV1/footer.jsp"%>
+	<!-- 푸터 e -->
 	
 	
 	
 </div> <!-- wrap end -->
 <!-- jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script>	
+<script>
 	var goUrlInformationMod = "/member/informationMod";
 	var goUrlPwdMod = "/member/pwdMod"
 	var goUrlIndex = "/main/index";
+	var goUrlRegisterConfirm ="/member/registerConfirm";
+	var seq = $("input:hidden[name=sessSeq]")
+	var form = $("form[name=MForm]");
 	
 	$("#btnInformationMod").on("click",function(){
 		$(location).attr("href",goUrlInformationMod);
-	});
+	}); 
 
 	$("#btnPwdMod").on("click",function(){
 		$(location).attr("href",goUrlPwdMod);
@@ -190,6 +152,14 @@
 		$(location).attr("href",goUrlIndex);
 	});
 	
+	$("#btnRegisterConfirm").on("click",function(){
+		$(location).attr("href",goUrlRegisterConfirm);
+	});
+	
+	goView = function(seqValue){
+		seq.val(seqValue);
+		form.attr("action" ,goUrlInformationMod).submit();
+	} 
 
 	
 </script>

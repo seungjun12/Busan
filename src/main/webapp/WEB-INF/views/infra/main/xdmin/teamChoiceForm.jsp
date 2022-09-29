@@ -18,67 +18,15 @@
 </head>     
 <body>
 <div id="wrap">	
-	<div id="topGnbbg">
-		<!-- 최상단 배너 -->
-		<div id="topGnb">
-			<ul class="nav nav-tabs">
-				<li class="nav-item">
-				  <a class="nav-link disabled topGnb">홈</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link disabled topGnb">도서</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link active topGnb" aria-current="page" href="#">티켓</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link disabled topGnb">투어</a>
-				</li>
-				<li class="topBanner" style="margin-left: 350px;"><a onclick="location.href='loginForm.html'" style="cursor: pointer;">로그인</a>
-				<li class="topBanner" style="margin-left: 10px;"><a onclick="location.href='registerForm.html'" style="cursor: pointer;">회원가입</a>
-				<li class="topBanner" style="margin-left: 10px;"><a>예매확인/취소</a>
-				<li class="topBanner" style="margin-left: 10px;"><a>마이페이지</a>
-				<li class="topBanner" style="margin-left: 10px;">고객센터
-				<li class="topBanner" style="margin-left: 10px;">모바일APP
-				<li class="topBanner" style="margin-left: 10px;">Language
-			</ul>
-		</div>
-	</div>
-	<!-- 중간 배너 -->
-	<div id="middleGnb">
-		<h2 style="display: inline-block;">
-			<a style="font-family: 'IBM Plex Sans KR', sans-serif; cursor: pointer;" onclick="location.href='../main/indexForm.html'" >티켓</a>
-		</h2>
-		<img alt="" src="/resources/img/ticketInterParkLogo.png" style="margin-bottom: 10px; cursor: pointer;" onclick="location.href='../main/indexForm.html'">
-		<input class="form-control" type="text" aria-label="default input example" style="width: 300px; display: inline-block; margin-left: 20px;">
-		<img alt="" src="/resources/img/searchRightPlay.png" style="margin-left: 10px;">
-		<a>| 영화 |</a>
-		<img alt="" src="/resources/img/searchRightDiscount.png" style="width: 240px;">
-	</div>
-	<!-- 하단 배너 -->
-	<div id="bottomGnb">
-		<div id="bottomGnbList">
-			<ul class="bottomGnbList">
-				<li class="bottomGnbList"><a><i class="fa-solid fa-align-justify"></i></a>
-				<li class="bottomGnbList">뮤지컬
-				<li class="bottomGnbList">콘서트
-				<li class="bottomGnbList">연극
-				<li class="bottomGnbList">클래식/무용
-				<li class="bottomGnbList" >스포츠
-				<li class="bottomGnbList">레저
-				<li class="bottomGnbList">전시/행사
-				<li class="bottomGnbList">아동/가족
-				<li class="bottomGnbList">TOPING
-			</ul>					
-		</div>
-		<div id="bottomGnbRight">
-			<ul class="bottomGnbList">		
-				<li class="bottomGnbList"><i class="fa-regular fa-bookmark"></i>랭킹
-				<li class="bottomGnbList">지역
-				<li class="bottomGnbList"><i class="fa-solid fa-location-dot"></i>공연장
-			</ul>
-		</div>		
-	</div>
+	<!-- 상단배너 s -->
+	<%@include file="../../../common/xdmin/includeV1/topvanner.jsp"%>
+	<!-- 상단배너 e -->
+	<!-- 중간배너 s-->
+	<%@include file="../../../common/xdmin/includeV1/middlevanner.jsp"%>
+	<!-- 중간배너 e -->
+	<!-- 하단배너 s -->
+	<%@include file="../../../common/xdmin/includeV1/bottomvanner.jsp"%>	
+	<!-- 하단배너 e -->
 	<!-- 배너 밑 이미지 영역 -->
 	<div class="sportsWrap">
 		<div>
@@ -152,7 +100,7 @@
     				<h5 class="card-title">SSG 랜더스</h5>
     				<p class="card-text">인천SSG랜더스필드</p>
     				<p class="card-text" style="font-size: xx-small">SSG LANDERS</p>
-    				<a href="#" class="btn btn-danger" onclick="location.href='gameChoiceForm.html'" style="cursor: pointer;">예매하기<a>
+    				<a type="button" class="btn btn-danger" id="btnGameChoice" style="cursor: pointer;">예매하기<a>
   				</div>
 			</div>
 			<div class="card" style="width: 18rem; margin-top: 20px;">
@@ -188,58 +136,57 @@
 	</div><!-- sportWrap end -->
 		
 	
-	<!-- footer영역 시작 -->
-	<div id="footerWrap">
-		<div id="footerTop">
-			<div id="footerTopList">	
-				<ul class="footerList">
-					<li class="footerListLi" style="margin-left: 0px;"><b>개인정보처리방침</b>
-					<li class="footerListLi">청소년 보호정책</li>
-					<li class="footerListLi">이용약관</li>
-					<li class="footerListLi">티켓판매 안내</li>
-					<li class="footerListLi">IR</li>
-					<li class="footerListLi">회사소개</li>
-					<li class="footerListLi">채용공고</li>
-					<li class="footerListLi">우수고객제도</li>
-					<li class="footerListLi">제휴/광고안내</li>
-					<li class="footerListLi">
-						<div class="btn-group dropup">
-  							<button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 0px;">
-    							Language
-  							</button>
-  							<ul class="dropdown-menu">
-    							<li>Korean
-    							<li>English
-    							<li>Japanese
-    							<li>Chinese
-  							</ul>
-						</div>
-					</li>
-				</ul>
-			</div>
-			<div id="footerBottom">
-				<dl>
-					<dt>
-						<img alt="" src="/resources/img/interparkLogoFooter.png">
-					</dt>				
-					<dd>
-						<span style="vertical-align: top;">주식회사 인터파크</span>
-					</dd>
-					<dd>
-						06168 서울시 강남구 삼성로 512 삼성동빌딩 10층(삼성동) | 대표이사 김강세 | 사업자등록번호 824-81-02515
-					</dd>
-					<dd>
-						통신판매업신고 2022-서울강남-02179 | Copyright 2015 INTERPARK ALL rights reserved.
-					</dd>
-				</dl>
-			</div>
-		
-	
-	</div><!-- footerWrap end -->
+	<!-- 푸터 s -->
+	<%@include file="../../../common/xdmin/includeV1/footer.jsp"%>
+	<!-- 푸터 e -->
 	
 	
 	
 </div> <!-- wrap end -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script>
+	var goUrlLogin = "/member/login";
+	var goUrlRegister = "/member/register";
+	var goUrlGame = "/main/gameChoice";
+	var goUrlIndex = "/main/index";
+	var goUrlMemberView = "/member/memberViewForm";
+	var goUrlRegisterConfirm ="/member/registerConfirm";
+	var goUrlTeamChoice = "/main/teamChoice";
+	
+		$(".btnLogin").on("click",function(){
+			$(location).attr("href",goUrlLogin);
+		});
+	
+		$(".btnRegister").on("click",function(){
+			$(location).attr("href",goUrlRegister);
+		});
+		
+		$("#btnGameChoice").on("click",function(){
+			$(location).attr("href",goUrlGame);
+		});
+		
+		$(".btnIndex").on("click",function(){
+			$(location).attr("href",goUrlIndex);
+		});
+		
+		$("#btnMemberView").on("click",function(){
+			$(location).attr("href",goUrlMemberView);
+		});
+		
+		$("#btnRegisterConfirm").on("click",function(){
+			$(location).attr("href",goUrlRegisterConfirm);
+		});
+		
+		$("#btnTeamChoice").on("click",function(){
+			$(location).attr("href",goUrlTeamChoice);
+		});		
+		
+			
+		
+	
+	
+	</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>

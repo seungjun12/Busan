@@ -18,6 +18,11 @@ public class MainController {
 		return "infra/main/xdmin/gameChoiceForm";
 	}
 	
+	@RequestMapping(value = "teamChoice")
+	public String teamChoice()throws Exception{
+		return "infra/main/xdmin/teamChoiceForm";
+	}
+	
 
 
 	

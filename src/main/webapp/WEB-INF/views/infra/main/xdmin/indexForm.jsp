@@ -33,7 +33,7 @@
 	<!-- 하단배너 e -->	
 	<!-- 이미지 영역 -->
 	<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-  		<div class="carousel-inner">
+  		<div class="carousel-inner"> 
    			<div class="carousel-item active">
       			<img src="/resources/img/carousel1.png" class="d-block w-100" alt="..." <!-- id="image" -->
     		</div>
@@ -43,7 +43,7 @@
     		<div class="carousel-item">
       			<img src="/resources/img/carousel3.png" class="d-block w-100" alt="..." <!-- id="image" -->
     		</div>
-  		</div> 
+  		</div>  
 	</div>
 	<!-- 밑에 배너들 시작 -->
 	<div id="contentWrap">
@@ -126,57 +126,11 @@
 			<img alt="" src="/resources/img/bottomBanner.png">
 		</div>
 	</div><!-- contentWrap end -->
-	<!-- footer영역 시작 -->
-	<div id="footerWrap">
-		<div id="footerTop">
-			<div id="footerTopList">	
-				<ul class="footerList">
-					<li class="footerListLi" style="margin-left: 0px;"><b>개인정보처리방침</b>
-					<li class="footerListLi">청소년 보호정책</li>
-					<li class="footerListLi">이용약관</li>
-					<li class="footerListLi">티켓판매 안내</li>
-					<li class="footerListLi">IR</li>
-					<li class="footerListLi">회사소개</li>
-					<li class="footerListLi">채용공고</li>
-					<li class="footerListLi">우수고객제도</li>
-					<li class="footerListLi">제휴/광고안내</li>
-					<li class="footerListLi">
-						<div class="btn-group dropup">
-  							<button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 0px;">
-    							Language
-  							</button>
-  							<ul class="dropdown-menu">
-    							<li>Korean
-    							<li>English
-    							<li>Japanese
-    							<li>Chinese
-  							</ul>
-						</div>
-					</li>
-				</ul>
-			</div>
-			<div id="footerBottom">
-				<dl>
-					<dt>
-						<img alt="" src="/resources/img/interparkLogoFooter.png">
-					</dt>				
-					<dd>
-						<span style="vertical-align: top;">주식회사 인터파크</span>
-					</dd>
-					<dd>
-						06168 서울시 강남구 삼성로 512 삼성동빌딩 10층(삼성동) | 대표이사 김강세 | 사업자등록번호 824-81-02515
-					</dd>
-					<dd>
-						통신판매업신고 2022-서울강남-02179 | Copyright 2015 INTERPARK ALL rights reserved.
-					</dd>
-				</dl>
-			</div>
-		
-	
-	</div><!-- footerWrap end -->
+	<!-- 푸터 s -->
+	<%@include file="../../../common/xdmin/includeV1/footer.jsp"%>
+	<!-- 푸터 e -->
 	
 	
-	<script type="text/javascript"></script>
 </div> <!-- wrap end -->
 </form>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
@@ -189,6 +143,8 @@
 	var goUrlGame = "/main/gameChoice";
 	var goUrlIndex = "/main/index";
 	var goUrlMemberView = "/member/memberViewForm";
+	var goUrlRegisterConfirm ="/member/registerConfirm";
+	var goUrlTeamChoice = "/main/teamChoice";
 	
 		$(".btnLogin").on("click",function(){
 			$(location).attr("href",goUrlLogin);
@@ -209,6 +165,14 @@
 		$("#btnMemberView").on("click",function(){
 			$(location).attr("href",goUrlMemberView);
 		});
+		
+		$("#btnRegisterConfirm").on("click",function(){
+			$(location).attr("href",goUrlRegisterConfirm);
+		});
+		
+		$("#btnTeamChoice").on("click",function(){
+			$(location).attr("href",goUrlTeamChoice);
+		});		
 		
 			
 		

@@ -86,11 +86,20 @@ public class MemberServiceImpl implements MemberService{
 		return dao.pwdUpdate(dto);
 	}
 
+	@Override
+	public Member selectMember(MemberVo vo) throws Exception {
+		Member result = dao.selectMember(vo);
+		System.out.println("service result: " + result);
+		return result;
+	}
+
 	/*
 	 * @Override public Member selectMember(MemberVo vo) throws Exception { Member
 	 * result=dao.selectMember(vo); System.out.println("service result: " + result);
 	 * return result; }
 	 */
+	
+	
 	
 	
 	

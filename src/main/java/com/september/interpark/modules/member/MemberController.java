@@ -24,6 +24,7 @@ public class MemberController {
 	@Autowired
 	MemberServiceImpl service;
 	
+	//관리자 리스트 화면 가기
 	@RequestMapping(value="memberList")
 	public String memberList(@ModelAttribute("vo") MemberVo vo , Model model)throws Exception{
 		
@@ -39,11 +40,13 @@ public class MemberController {
 		return "infra/member/xdmin/memberList";
 	}
 	
+	//관리자 맴버등록폼 가기
 	@RequestMapping(value = "memberForm")
 	public String memberForm() throws Exception{
 		return "infra/member/xdmin/memberForm";
 	}
 	
+	//관리자 맴버 등록하기
 	@RequestMapping(value = "memberInst")
 	public String memberInst(MemberVo vo, Member dto, RedirectAttributes redirectAttributes) throws Exception {
 		
@@ -56,6 +59,7 @@ public class MemberController {
 		return "redirect:/member/memberList";
 	}
 	
+	//관리자 맴버 상세보기
 	@RequestMapping(value = "memberView")
 	public String memberView(@ModelAttribute("vo") MemberVo vo,Model model) throws Exception {
 		Member item=service.selectOne(vo);
@@ -64,24 +68,28 @@ public class MemberController {
 		return "infra/member/xdmin/memberView";
 	}
 	
+	//관리자 맴버 정보 업데이트
 	@RequestMapping(value = "memberUpdt")
 	public String memberUpdt(MemberVo vo,Member dto, RedirectAttributes redirectAttributes) throws Exception {
 		service.update(dto);
 		return "redirect:/member/memberList";
 	}
 	
+	//관리자 맴버 정보 사용여부 삭제
 	@RequestMapping(value = "memberUele")
 	public String memberUele(MemberVo vo , Member dto , RedirectAttributes redirectAttributes) throws Exception {
 		service.uelete(dto);
 		return "redirect:/member/memberList";
 	}
 	
+	//관리자 맴버 정보 완전삭제
 	@RequestMapping(value = "memberDele")
 	public String memberDele(MemberVo vo , RedirectAttributes redirectAttributes)throws Exception {
 		service.delete(vo);
 		return "redirect:/member/memberList";
 	}
 
+	//유저 회원가입 아이디 중복 체크
 	@ResponseBody
 	@RequestMapping(value = "checkId")
 	public Map<String, Object> checkId(Member dto) throws Exception {
@@ -100,22 +108,27 @@ public class MemberController {
 		return returnMap;
 	}	
 	
+	//유저 회원가입 화면가기
 	@RequestMapping(value = "register")
 	public String registerForm()throws Exception{
 		return "infra/member/xdmin/registerForm";
 	}
 	
+	
+	//유저 회원가입
 	@RequestMapping(value = "memberRegister")
 	public String memberRegister(Member dto)throws Exception{
 		service.register(dto);
 		return "redirect:/main/index";
 	}
 	
+	//유저 로그인 화면가기
 	@RequestMapping(value = "login")
 	public String login()throws Exception{
 		return "infra/member/xdmin/loginForm";
 	}
 	
+	//유저 로그인하기
 	@ResponseBody
 	@RequestMapping(value = "loginProc")
 	public Map<String, Object> loginProc(Member dto, HttpSession httpSession) throws Exception {
@@ -192,24 +205,27 @@ public class MemberController {
 	 * returnMap.put("sessSeq", null); return returnMap; }
 	 */
 	
+	//유저 마이페이지 가기
 	@RequestMapping(value = "memberViewForm")
 	public String memberViewForm()throws Exception{
-		
-		 
-		 
 		return "infra/member/xdmin/memberViewForm";
 	}
 	
+	//유저 회원정보수정가기
 	@RequestMapping(value = "informationMod")
-	public String informationMod()throws Exception{
+	public String informationMod(@ModelAttribute MemberVo vo , Model model)throws Exception{
+		Member item = service.selectMember(vo);
+		model.addAttribute("item", item);
 		 return "infra/member/xdmin/informationMod";
 	}
 	
+	//유저 비밀번호 변경 화면가기
 	@RequestMapping(value = "pwdMod")
 	public String pwdMod()throws Exception{
 		return "infra/member/xdmin/pwdModForm";
 	}
 	
+	//유저 로그아웃 하기
 	@ResponseBody
 	@RequestMapping(value = "logoutProc")
 	public Map<String, Object> logoutProc(HttpSession httpSession) throws Exception {
@@ -220,10 +236,17 @@ public class MemberController {
 		return returnMap;
 	}
 	
+	//유저 비밀번호 변경하기
 	@RequestMapping(value = "pwdUpdt")
 	public String pwdUpdate(Member dto)throws Exception{
 		service.pwdUpdate(dto);
 		return "infra/member/xdmin/informationMod";
+	}
+	
+	//유저 예매확인 취소가기
+	@RequestMapping(value = "registerConfirm")
+	public String registerConfirm()throws Exception{
+		return "infra/member/xdmin/registerConfirm";
 	}
 	
 }//class end

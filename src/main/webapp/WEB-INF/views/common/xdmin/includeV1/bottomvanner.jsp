@@ -8,7 +8,7 @@
 				<li class="bottomGnbList">콘서트
 				<li class="bottomGnbList">연극
 				<li class="bottomGnbList">클래식/무용
-				<li class="bottomGnbList" id="btnGameChoice" style="cursor: pointer">스포츠
+				<li class="bottomGnbList" id="btnTeamChoice" style="cursor: pointer">스포츠
 				<li class="bottomGnbList">레저
 				<li class="bottomGnbList">전시/행사
 				<li class="bottomGnbList">아동/가족

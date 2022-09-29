@@ -25,7 +25,7 @@
 					<c:otherwise>
 						<li class="topBanner" style="margin-left: 350px;"><a type="button" id="btnLogout" style="cursor: pointer;">로그아웃</a>
 						<li class="topBanner" style="margin-left: 10px;"><span><c:out value="${sessName }"/>님</span>
-						<li class="topBanner" style="margin-left: 10px;"><a type="button" style="cursor: pointer;">예매확인/취소</a>
+						<li class="topBanner" style="margin-left: 10px;"><a type="button" id="btnRegisterConfirm" style="cursor: pointer;">예매확인/취소</a>
 						<li class="topBanner" style="margin-left: 10px;"><a  type="button" id="btnMemberView" style="cursor: pointer;">마이페이지</a>
 					</c:otherwise>
 				</c:choose>			

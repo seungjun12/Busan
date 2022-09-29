@@ -78,6 +78,12 @@ public class MemberDao {
 
 	public int pwdUpdate(Member dto) {return sqlSession.update(namespace + ".pwdUpdate", dto);}
 	
+	public Member selectMember(MemberVo vo) {
+		Member result = sqlSession.selectOne(namespace + ".selectMember", vo);
+		System.out.println("dao result: " + result);
+		return result;
+	}
+	
 	
 }//class end	
 
