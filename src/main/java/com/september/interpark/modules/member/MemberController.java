@@ -238,9 +238,9 @@ public class MemberController {
 	
 	//유저 비밀번호 변경하기
 	@RequestMapping(value = "pwdUpdt")
-	public String pwdUpdate(Member dto)throws Exception{
+	public String pwdUpdate(Member dto , RedirectAttributes redirectAttributes)throws Exception{
 		service.pwdUpdate(dto);
-		return "infra/member/xdmin/informationMod";
+		return "redirect:/member/memberViewForm";
 	}
 	
 	//유저 예매확인 취소가기

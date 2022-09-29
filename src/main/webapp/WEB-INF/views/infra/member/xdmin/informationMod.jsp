@@ -76,7 +76,7 @@
 									휴대폰번호
 								</div>
 								<div class="col-6">
-									<%-- <c:out value="${item.number }"/> --%> <!-- 해결해야됨!! -->
+									<c:out value="${item.number }"/>
 								</div>
 								<div class="col-3 modifyBtn">
 									<button type="button" class="btn btn-light">수정</button>

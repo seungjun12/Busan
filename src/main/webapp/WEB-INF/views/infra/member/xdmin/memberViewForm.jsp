@@ -51,7 +51,7 @@
 					<div class="mainMenu">
 						<!-- 회원정보수정 -->
 						<div class="menuBox infoModify">
-							<a href="javascript:goView(<c:out value="${sessSeq }"/>)" style="cursor: pointer;">  
+							<a href="javascript:goInformation(<c:out value="${sessSeq }"/>)" style="cursor: pointer; text-decoration: none; color: black">  
 							<!-- <a id="btnInformationMod" style="cursor: pointer;"> -->
 								<p>회원정보수정</p>
 								<span class="noti">
@@ -156,10 +156,15 @@
 		$(location).attr("href",goUrlRegisterConfirm);
 	});
 	
-	goView = function(seqValue){
+	goInformation = function(seqValue){
 		seq.val(seqValue);
 		form.attr("action" ,goUrlInformationMod).submit();
-	} 
+	};
+	
+	goPwdMod = function(seqValue){
+		seq.val(seqValue);
+		form.attr("action" , goUrlPwdMod).submit();
+	};
 
 	
 </script>

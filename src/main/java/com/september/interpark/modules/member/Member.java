@@ -16,6 +16,7 @@ public class Member {
 	private String addressCode;
 	private Integer delNy;
 	private String number;
+	private String sessSeq;
 	
 	
 	//////////////////////////////////////////////
@@ -102,6 +103,12 @@ public class Member {
 	}
 	public void setNumber(String number) {
 		this.number = number;
+	}
+	public String getSessSeq() {
+		return sessSeq;
+	}
+	public void setSessSeq(String sessSeq) {
+		this.sessSeq = sessSeq;
 	}
 
 

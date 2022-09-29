@@ -35,6 +35,8 @@
 			<%@include file="../../../common/xdmin/includeV1/viewLeftVanner.jsp"%>
 			<!-- 왼쪽배너 e -->
 				<!-- 오른쪽 영역 -->
+				<form id="form" name="form" method="post" >
+				<input type="hidden"  name="sessSeq" <c:out value="${sessSeq }"/>>
 				<div class="rightWrap">
 					<div class="modifyWrap">
 						<div class="memberHead">
@@ -48,8 +50,10 @@
 							<p>개인정보를 안전하게 보호하세요</p>
 						</div>
 						<!-- 새 비밀번호입력 -->
+						<%-- <c:out value="${sessSeq }"/> --%>
+						<%-- <input type="hidden" id="seq" name="seq" value="<c:out value="${item.seq }"/>"> --%>
 						<div class="pwdModify">
-							<input class="form-control" type="password" placeholder="새 비밀번호" aria-label="default input example" id="pwd" name="pwd" value="<c:out value="${sessPwd }"/>">
+							<input class="form-control" type="password" placeholder="새 비밀번호" aria-label="default input example" id="pwd" name="pwd" value="<c:out value="${item.pwd }"/>">
 							<p>  영문,숫자,특수문자 8~12자로 입력해주세요</p>
 						</div>
 						<!-- 새 비밀번호 확인 -->
@@ -75,7 +79,7 @@
 									<button type="button" class="btn btn-outline-secondary" id="btnPwdRegister">변경</button>
 								</div>
 								<!-- Modal -->
-								<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+								<!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 								  <div class="modal-dialog">
 								    <div class="modal-content">
 								      <div class="modal-header">
@@ -91,14 +95,14 @@
 								      </div>
 								    </div>
 								  </div>
-								</div>
+								</div> -->
 							
 							</div>
 						</div>
 						
 					</div>
 				</div>
-				
+				</form>
 				
 				
 				
@@ -117,9 +121,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>	
 	var goUrlInformationMod = "/member/informationMod";
-	var goUrlPwdMod = "/member/pwdMod"
+	var goUrlPwdMod = "/member/pwdMod";
 	var goUrlIndex = "/main/index";
 	var goUrlPwdModRegister ="/member/pwdUpdt";
+	
+	var seq = $("input:hidden[name=sessSeq]");
+	var form = $("form[name=form]");
 	
 	$("#btnInformationMod").on("click",function(){
 		$(location).attr("href",goUrlInformationMod);
@@ -134,7 +141,7 @@
 	});
 	
 	$("#btnPwdRegister").on("click",function(){
-		$(location).attr("href",goUrlPwdModRegister);
+		form.attr("action",goUrlPwdModRegister).submit();
 	});
 	
 	$("#pwd2").on("keyup",function(key){
