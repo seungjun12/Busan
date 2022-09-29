@@ -35,8 +35,8 @@
 			<%@include file="../../../common/xdmin/includeV1/viewLeftVanner.jsp"%>
 			<!-- 왼쪽배너 e -->
 				<!-- 오른쪽 영역 -->
-				<form id="form" name="form" method="post" >
-				<input type="hidden"  name="sessSeq" value="<c:out value="${sessSeq }"/>">
+				<form id="mform" name="mform" method="post" >
+				<input type="hidden"  name="sessSeq" id="sessSeq" value="<c:out value="${sessSeq }"/>">
 				<div class="rightWrap">
 					<div class="modifyWrap">
 						<div class="memberHead">
@@ -126,11 +126,11 @@
 	var goUrlPwdModRegister ="/member/pwdUpdt";
 	
 	var seq = $("input:hidden[name=sessSeq]");
-	var form = $("form[name=form]");
+	var form = $("form[name=mform]");
 	
-	$("#btnInformationMod").on("click",function(){
+	/* $("#btnInformationMod").on("click",function(){
 		$(location).attr("href",goUrlInformationMod);
-	});
+	}); */
 
 	$("#btnPwdMod").on("click",function(){
 		$(location).attr("href",goUrlPwdMod);
@@ -166,6 +166,11 @@
 			return true;
 		}
 	});
+	
+	goInformation = function(seqValue){
+		seq.val(seqValue);
+		form.attr("action" ,goUrlInformationMod).submit();
+	};
 	
 </script>
 

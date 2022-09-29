@@ -11,7 +11,7 @@
 					<div class="memberFunction">
 						<!-- 회원정보수정 -->
 						<div class="memberModify leftFunction">
-							<a id="btnInformationMod" style="cursor: pointer;">
+							<a href="javascript:goInformation(<c:out value="${sessSeq} "/>)" style="cursor: pointer; text-decoration: none; color: black">
 								<i class="fa-solid fa-user-gear"></i>
 								<span>회원정보수정</span>
 							</a>

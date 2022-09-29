@@ -69,7 +69,7 @@
 		</div>
 		<!-- 아이디 비번 찾기,회원가입 영역 -->
 		<div id="loginBottom">
-			<a id="btnIdFind"  style="cursor: pointer;">아이디 찾기</a>
+			<a type="button" id="btnIdFind"  style="cursor: pointer;">아이디 찾기</a>
 			<a style="margin-left: 10px;">비밀번호 찾기</a>
 			<a style="margin-left: 10px;" type="button" class="btnRegister">회원가입</a>
 		</div>

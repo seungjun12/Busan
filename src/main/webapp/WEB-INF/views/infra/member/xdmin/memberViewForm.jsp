@@ -161,10 +161,10 @@
 		form.attr("action" ,goUrlInformationMod).submit();
 	};
 	
-	goPwdMod = function(seqValue){
+	/* goPwdMod = function(seqValue){
 		seq.val(seqValue);
 		form.attr("action" , goUrlPwdMod).submit();
-	};
+	}; */
 
 	
 </script>
