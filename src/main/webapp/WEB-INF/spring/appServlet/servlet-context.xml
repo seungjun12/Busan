@@ -34,6 +34,7 @@
 			<exclude-mapping path="/main/index" />
 			<exclude-mapping path="/codeGroup/**" />
 			<exclude-mapping path="/code/**" /> 
+			<exclude-mapping path="/member/findId" /> 
 			<!-- <exclude-mapping path="/member/**" /> -->			
 			<!-- <exclude-mapping path="/member/findIdPwdForm" />
 			<exclude-mapping path="/test/**" />

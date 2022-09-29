@@ -36,7 +36,7 @@
 			<!-- 왼쪽배너 e -->
 				<!-- 오른쪽 영역 -->
 				<form id="form" name="form" method="post" >
-				<input type="hidden"  name="sessSeq" <c:out value="${sessSeq }"/>>
+				<input type="hidden"  name="sessSeq" value="<c:out value="${sessSeq }"/>">
 				<div class="rightWrap">
 					<div class="modifyWrap">
 						<div class="memberHead">

@@ -249,4 +249,10 @@ public class MemberController {
 		return "infra/member/xdmin/registerConfirm";
 	}
 	
+	//유저 아이디 찾기
+	@RequestMapping(value = "findId")
+	public String findId()throws Exception{
+		return "infra/member/xdmin/findId";
+	}
+	
 }//class end

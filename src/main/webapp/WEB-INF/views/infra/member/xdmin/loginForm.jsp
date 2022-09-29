@@ -69,7 +69,7 @@
 		</div>
 		<!-- 아이디 비번 찾기,회원가입 영역 -->
 		<div id="loginBottom">
-			<a href="javascript:popup()"  style="cursor: pointer;">아이디 찾기</a>
+			<a id="btnIdFind"  style="cursor: pointer;">아이디 찾기</a>
 			<a style="margin-left: 10px;">비밀번호 찾기</a>
 			<a style="margin-left: 10px;" type="button" class="btnRegister">회원가입</a>
 		</div>
@@ -96,6 +96,7 @@
 	var goUrlRegister = "/member/register";
 	var goUrlRegisterConfirm ="/member/registerConfirm";
 	var goUrlTeamChoice = "/main/teamChoice";
+	var goUrlIdFind = "/member/findId"
 
     $(".btnIndex").on("click",function(){
     	$(location).attr("href",goUrlIndex);
@@ -119,6 +120,10 @@
 	
 	$("#btnTeamChoice").on("click",function(){
 		$(location).attr("href",goUrlTeamChoice);
+	});
+	
+	$("#btnIdFind").on("click",function(){
+		$(location).attr("href",goUrlIdFind);
 	});
 	
 	/* 로그인 */ 
