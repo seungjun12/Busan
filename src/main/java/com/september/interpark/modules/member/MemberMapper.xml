@@ -221,7 +221,6 @@
 		UPDATE member
 		SET
 			name = #{name}
-			,number = #{number}
 			,email = #{email}
 		WHERE
 			seq = #{sessSeq}	

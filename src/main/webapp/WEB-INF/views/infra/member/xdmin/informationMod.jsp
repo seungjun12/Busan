@@ -35,7 +35,8 @@
 			<%@include file="../../../common/xdmin/includeV1/viewLeftVanner.jsp"%>
 			<!-- 왼쪽배너 e -->
 				<!-- 오른쪽 영역 -->
-				<form name="form" method="post">
+				<form name="mform" id="mform" method="post">
+				<input type="hidden"  name="sessSeq" id="sessSeq" value="<c:out value="${sessSeq }"/>">
 				<div class="rightWrap">
 					<div class="modifyWrap">
 						<div class="memberHead">
@@ -62,7 +63,7 @@
 									이름
 								</div>
 								<div class="col-6">
-									<input id="nameModify" readonly value="<c:out value="${item.name}"/>">
+									<input id="nameModify" name="name"  readonly value="<c:out value="${item.name}"/>">
 								</div>
 								<div class="col-3 modifyBtn">
 									<button type="button" id="btnNameModify" class="btn btn-light">수정</button>
@@ -76,7 +77,7 @@
 									휴대폰번호
 								</div>
 								<div class="col-6">
-									<input readonly id="numberModify" value="<c:out value="${item.number }"/>">
+									<input readonly id="numberModify" name="number" value="<c:out value="${item.number }"/>">
 								</div>
 								<div class="col-3 modifyBtn">
 									<button type="button" id="btnNumberModify" class="btn btn-light">수정</button>
@@ -90,7 +91,7 @@
 									이메일
 								</div>
 								<div class="col-6">
-									<input readonly id="emailModify" value="<c:out value="${item.email }"/>">
+									<input readonly id="emailModify" name="email" value="<c:out value="${item.email }"/>">
 								</div>
 								<div class="col-3 modifyBtn">
 									<button type="button" id="btnEmailModify" class="btn btn-light">수정</button>
@@ -213,6 +214,9 @@
 	var goUrlMemberUpdate = "/member/memberUpdate"
 	var goUrlMemberView = "/member/memberViewForm";
 	
+	var seq = $("input:hidden[name=sessSeq]");
+	var form = $("form[name=mform]");
+	
 	$("#btnInformationMod").on("click",function(){
 		$location.attr("href",goUrlInformationMod);
 	});
@@ -238,7 +242,7 @@
 	});
 	
 	$("#btnMemberUpdate").on("click" , function(){
-		$(location).attr("href" ,goUrlMemberUpdate);
+		form.attr("action" ,goUrlMemberUpdate).submit();
 	});
 	
 	$("#btnMemberView").on("click",function(){

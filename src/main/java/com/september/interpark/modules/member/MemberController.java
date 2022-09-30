@@ -261,7 +261,7 @@ public class MemberController {
 	@RequestMapping(value = "memberUpdate")
 	public String memberUpdate(Member dto)throws Exception{
 		service.memberUpdate(dto);
-		return "infra/member/xdmin/memberViewForm";
+		return "redirect:/member/memberViewForm";
 	}
 	
 	

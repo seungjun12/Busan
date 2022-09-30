@@ -53,7 +53,7 @@
 						<%-- <c:out value="${sessSeq }"/> --%>
 						<%-- <input type="hidden" id="seq" name="seq" value="<c:out value="${item.seq }"/>"> --%>
 						<div class="pwdModify">
-							<input class="form-control" type="password" placeholder="새 비밀번호" aria-label="default input example" id="pwd" name="pwd" value="<c:out value="${item.pwd }"/>">
+							<input class="form-control" type="password" placeholder="새 비밀번호" aria-label="default input example"  name="pwd" value="<c:out value="${item.pwd }"/>">
 							<p>  영문,숫자,특수문자 8~12자로 입력해주세요</p>
 						</div>
 						<!-- 새 비밀번호 확인 -->
@@ -73,7 +73,7 @@
 						<div class="container-flid finalBtn">
 							<div class="row">
 								<div class="col-6">
-									<button type="button" class="btn btn-outline-danger" onclick="location.href='memberViewForm.html'">취소</button>
+									<button type="button" class="btn btn-outline-danger" id="btnMemberView">취소</button>
 								</div>
 								<div class="col">
 									<button type="button" class="btn btn-outline-secondary" id="btnPwdRegister">변경</button>
@@ -124,6 +124,7 @@
 	var goUrlPwdMod = "/member/pwdMod";
 	var goUrlIndex = "/main/index";
 	var goUrlPwdModRegister ="/member/pwdUpdt";
+	var goUrlMemberView = "/member/memberViewForm";
 	
 	var seq = $("input:hidden[name=sessSeq]");
 	var form = $("form[name=mform]");
@@ -142,6 +143,10 @@
 	
 	$("#btnPwdRegister").on("click",function(){
 		form.attr("action",goUrlPwdModRegister).submit();
+	});
+	
+	$("#btnMemberView").on("click",function(){
+		$(location).attr("href",goUrlMemberView);
 	});
 	
 	$("#pwd2").on("keyup",function(key){
