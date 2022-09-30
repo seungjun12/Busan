@@ -34,5 +34,9 @@ public interface MemberService {
 	public int pwdUpdate(Member dto) throws Exception;
 	
 	public Member selectMember(MemberVo vo) throws Exception;
+	
+	public List<Member> selectRegister(MemberVo vo)throws Exception;
+	
+	public int memberUpdate(Member dto) throws Exception;
 
 }

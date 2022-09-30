@@ -84,6 +84,15 @@ public class MemberDao {
 		return result;
 	}
 	
+	public List<Member>selectRegister(MemberVo vo){
+		List<Member> reglist=sqlSession.selectList(namespace +".selectRegister", vo);
+		System.out.println("dao reglist: " + reglist);
+		return reglist;
+	}
+	
+	//회원정보 수정
+	public int memberUpdate(Member dto) {return sqlSession.update(namespace + ".memberUpdate", dto);}
+	
 	
 }//class end	
 

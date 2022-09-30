@@ -23,3 +23,13 @@
 			</ul>
 		</div>		
 	</div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+		<script>
+			var goUrlGame = "/main/gameChoice";
+			
+			$("#btnGameChoice").on("click",function(){
+				$(location).attr("href",goUrlGame);
+			});
+			
+		</script>

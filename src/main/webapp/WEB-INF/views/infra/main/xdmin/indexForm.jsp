@@ -20,8 +20,9 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@900&display=swap" rel="stylesheet">
 </head>
 <body>
-<form>
 <div id="wrap">	
+	<form id="indexForm" name="indexForm">
+	<input type="hidden" id="sessSeq" name="sessSeq">
 	<!-- 상단배너 s -->
 	<%@include file="../../../common/xdmin/includeV1/topvanner.jsp"%>
 	<!-- 상단배너 e -->
@@ -32,6 +33,7 @@
 	<%@include file="../../../common/xdmin/includeV1/bottomvanner.jsp"%>	
 	<!-- 하단배너 e -->	
 	<!-- 이미지 영역 -->
+	
 	<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
   		<div class="carousel-inner"> 
    			<div class="carousel-item active">
@@ -129,52 +131,45 @@
 	<!-- 푸터 s -->
 	<%@include file="../../../common/xdmin/includeV1/footer.jsp"%>
 	<!-- 푸터 e -->
-	
+	</form>
 	
 </div> <!-- wrap end -->
-</form>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	<script>
-	var goUrlLogin = "/member/login";
-	var goUrlRegister = "/member/register";
-	var goUrlGame = "/main/gameChoice";
-	var goUrlIndex = "/main/index";
-	var goUrlMemberView = "/member/memberViewForm";
+	
+	
+	
+	
+	
 	var goUrlRegisterConfirm ="/member/registerConfirm";
 	var goUrlTeamChoice = "/main/teamChoice";
 	
-		$(".btnLogin").on("click",function(){
-			$(location).attr("href",goUrlLogin);
-		});
 	
-		$(".btnRegister").on("click",function(){
-			$(location).attr("href",goUrlRegister);
-		});
+	var seq = $("input:hidden[name=sessSeq]");
+	var indexForm = $("form[name=indexForm]");
+	
 		
-		$("#btnGameChoice").on("click",function(){
-			$(location).attr("href",goUrlGame);
-		});
+	
 		
-		$(".btnIndex").on("click",function(){
-			$(location).attr("href",goUrlIndex);
-		});
 		
-		$("#btnMemberView").on("click",function(){
-			$(location).attr("href",goUrlMemberView);
-		});
 		
-		$("#btnRegisterConfirm").on("click",function(){
+		
+		
+		
+		
+		
+		/* $("#btnRegisterConfirm").on("click",function(){
 			$(location).attr("href",goUrlRegisterConfirm);
-		});
+		}); */
 		
 		$("#btnTeamChoice").on("click",function(){
 			$(location).attr("href",goUrlTeamChoice);
 		});		
 		
-			
+		
 		
 	
 	

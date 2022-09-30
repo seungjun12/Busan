@@ -9,3 +9,12 @@
 		<a>| 영화 |</a>
 		<img alt="" src="/resources/img/searchRightDiscount.png" style="width: 240px;">
 	</div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+		<script>
+		var goUrlIndex = "/main/index";
+		
+		$(".btnIndex").on("click",function(){
+			$(location).attr("href",goUrlIndex);
+		});
+		</script>

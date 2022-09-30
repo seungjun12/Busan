@@ -1,5 +1,7 @@
 package com.september.interpark.common.base;
 
+import java.sql.Date;
+
 import com.september.interpark.common.constants.Constants;
 
 public class BaseVo {
@@ -29,6 +31,22 @@ public class BaseVo {
 	//
 	private String mainkey;
 	
+	//register
+	private String regseq;
+	public String getRegseq() {
+		return regseq;
+	}
+	public void setRegseq(String regseq) {
+		this.regseq = regseq;
+	}
+	private String regmember_seq;
+	private Date registerDob;
+	private String registerNumber;
+	private String registerName;
+	private String dateUse;
+	private Integer count;
+	private Date deleteDate;
+	private String state;
 	
 public void setParamsPaging(int totalRows) {
 		
@@ -199,6 +217,54 @@ public void setParamsPaging(int totalRows) {
 
 	public void setMainkey(String mainkey) {
 		this.mainkey = mainkey;
+	}
+	public String getRegmember_seq() {
+		return regmember_seq;
+	}
+	public void setRegmember_seq(String regmember_seq) {
+		this.regmember_seq = regmember_seq;
+	}
+	public Date getRegisterDob() {
+		return registerDob;
+	}
+	public void setRegisterDob(Date registerDob) {
+		this.registerDob = registerDob;
+	}
+	public String getRegisterNumber() {
+		return registerNumber;
+	}
+	public void setRegisterNumber(String registerNumber) {
+		this.registerNumber = registerNumber;
+	}
+	public String getRegisterName() {
+		return registerName;
+	}
+	public void setRegisterName(String registerName) {
+		this.registerName = registerName;
+	}
+	public String getDateUse() {
+		return dateUse;
+	}
+	public void setDateUse(String dateUse) {
+		this.dateUse = dateUse;
+	}
+	public Integer getCount() {
+		return count;
+	}
+	public void setCount(Integer count) {
+		this.count = count;
+	}
+	public Date getDeleteDate() {
+		return deleteDate;
+	}
+	public void setDeleteDate(Date deleteDate) {
+		this.deleteDate = deleteDate;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
 	}
 
 	

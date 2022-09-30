@@ -25,7 +25,7 @@
 					<c:otherwise>
 						<li class="topBanner" style="margin-left: 350px;"><a type="button" id="btnLogout" style="cursor: pointer;">로그아웃</a>
 						<li class="topBanner" style="margin-left: 10px;"><span><c:out value="${sessName }"/>님</span>
-						<li class="topBanner" style="margin-left: 10px;"><a type="button" id="btnRegisterConfirm" style="cursor: pointer;">예매확인/취소</a>
+						<li class="topBanner" style="margin-left: 10px;"><a href="javascript:goRegisterConfirm(<c:out value="${sessSeq }"/>)" style="cursor: pointer; text-decoration: none; color: black">예매확인/취소</a>
 						<li class="topBanner" style="margin-left: 10px;"><a  type="button" id="btnMemberView" style="cursor: pointer;">마이페이지</a>
 					</c:otherwise>
 				</c:choose>			
@@ -72,5 +72,27 @@
 				}
 			});
 		});
+	
+		var goUrlLogin = "/member/login";
+		var goUrlRegister = "/member/register";
+		var goUrlMemberView = "/member/memberViewForm";
+		
+		$(".btnLogin").on("click",function(){
+			$(location).attr("href",goUrlLogin);
+		});
+		
+		$(".btnRegister").on("click",function(){
+			$(location).attr("href",goUrlRegister);
+		});
+		
+		$("#btnMemberView").on("click",function(){
+			$(location).attr("href",goUrlMemberView);
+		});
+		
+		goRegisterConfirm = function(seqValue){
+			seq.val(seqValue);
+			indexForm.attr("action" , goUrlRegisterConfirm).submit();
+		};
+	
 		</script>	
 		

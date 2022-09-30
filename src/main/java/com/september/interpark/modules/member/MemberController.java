@@ -243,9 +243,11 @@ public class MemberController {
 		return "redirect:/member/memberViewForm";
 	}
 	
-	//유저 예매확인 취소가기
+	//유저 예매확인,취소가기
 	@RequestMapping(value = "registerConfirm")
-	public String registerConfirm()throws Exception{
+	public String registerConfirm(@ModelAttribute MemberVo vo , Model model)throws Exception{
+		List<Member> reglist = service.selectRegister(vo);
+		System.out.println("controller reglist: " + reglist);
 		return "infra/member/xdmin/registerConfirm";
 	}
 	
@@ -254,5 +256,7 @@ public class MemberController {
 	public String findId()throws Exception{
 		return "infra/member/xdmin/findId";
 	}
+	
+	
 	
 }//class end

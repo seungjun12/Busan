@@ -28,14 +28,16 @@
 	<%@include file="../../../common/xdmin/includeV1/bottomvanner.jsp"%>	
 	<!-- 하단배너 e -->
 	<!-- 매인랩 시작 -->
+	<form name="form" method="post">
 	<div class="mainWrap">
 		<div class="rightCancel">
 			<i class="fa-solid fa-star"></i>
 			<span>예매내역확인,취소</span>
-		</div>	
+		</div>
+		<input type="hidden" id="sessSeq" name="sessSeq" value="<c:out value="${sessSeq }"/>">
 		<!-- 조회기간 선택 -->
 		<div class="selectPeriod">
-			<span id="colorRed">박승준</span>
+			<span id="colorRed"><c:out value="${sessName }"/></span>
 			<span>님의 지난 일주일간의 티켓 예매내역 입니다.</span>
 		</div>
 		<div class="selectBox">
@@ -47,23 +49,41 @@
 		</div>
 		<table class="table">
   			<thead class="table-secondary">
-   				<td>예매일</td>
-   				<td>예약번호</td>
-   				<td>상품명</td>
-   				<td>이용일/매수</td>
-   				<td>취소가능일</td>
-   				<td>현재상태</td>
+   				<tr>
+	   				<td>예매일</td>
+	   				<td>예약번호</td>
+	   				<td>상품명</td>
+	   				<td>이용일</td>
+	   				<td>매수</td>
+	   				<td>취소가능일</td>
+	   				<td>현재상태</td>
+  				</tr>
   			</thead>
+  			<c:choose>
+  				<c:when test="${fn:length(reglist) eq 0 }">
+  					<tr>
+  						<td class="text-center" colspan="7">예매내역이 없습니다.</td>
+  					</tr>
+  				</c:when> 
+  				<c:otherwise> 
+  				<c:forEach items="${reglist }" var="reglist" varStatus="status">		
   			<tbody>
-				<td>2022.08.16</td>
-				<td>T1917720570</td>
-				<td>SSG vs 삼성(일반 회원 상품)</td>
-				<td>2022.08.18 14:00<br>1매</td>
-				<td>2022.08.17 07:00</td>
-				<td>예매</td>    
+				<tr>
+					<td><c:out value="${reglist.registerDob }" /></td>
+					<td><c:out value="${reglist.registerNumber }" /></td>
+					<td><c:out value="${reglist.registerName }"/></td>
+					<td><c:out value="${reglist.dateUse }"/></td>
+					<td><c:out value="${reglist.count }"/>장</td>
+					<td><c:out value="${reglist.deleteDate }"/></td>
+					<td><c:out value="${reglist.state }"/></td>    
+  				</tr>
   			</tbody>
+  				</c:forEach>
+  				</c:otherwise> 
+			</c:choose> 
 		</table>		
 	</div><!-- mainWrap end -->
+	</form>
 	<!-- 푸터 s -->
 	<%@include file="../../../common/xdmin/includeV1/footer.jsp"%>
 	<!-- 푸터 e -->

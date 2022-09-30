@@ -1,4 +1,4 @@
-
+	//아이디 중복체크
 	$("#id").on("keyup", function(key){
 		
 /* 		if(!checkId('id', 2, 0, "영대소문자,숫자,특수문자(-_.),4~20자리만 입력 가능합니다")) {
@@ -42,18 +42,45 @@
 		}/* } */
 	});
 	
+	//한글이름만 가능하게 하기
 	$(function(){
        $("#name").keyup(function (event) {
             regexp = /[a-z0-9]|[ \[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
             v = $(this).val();
             if (regexp.test(v)) {
-                alert("한글만 입력가능 합니다.");
+                document.getElementById("pwd").classList.add('is-invalid');
+			document.getElementById("pwd").classList.remove('is-valid');//여기서부터
                 $(this).val(v.replace(regexp, ''));
             }
         });
 });
 
- 
+	//비밀번호 조건 확인
+	$("#pwd").on("focusout",function(key){
+		var regExp = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+		var p1 = $("#pwd").val();
+		
+		if(p1.match(regExp) == null){
+			document.getElementById("pwd").classList.add('is-invalid');
+			document.getElementById("pwd").classList.remove('is-valid');
+			
+			document.getElementById("pwdFeedback2").innerText = "비밀번호 조건에 맞지 않습니다.";
+			document.getElementById("pwdFeedback2").classList.remove('valid-feedback');
+			document.getElementById("pwdFeedback2").classList.add('invalid-feedback');
+			$("#pwd2").attr('readonly',true);
+		}else{
+			document.getElementById("pwd").classList.remove('is-invalid');
+			document.getElementById("pwd").classList.add('is-valid');
+			$("#pwd2").attr('readonly',false);
+		}
+		
+	})
+
+
+
+
+	
+ 	//비밀번호 비밀번호 확인 둘이 같은지 체크
  	$("#pwd2").on("keyup",function(key){
 	var p1 = document.getElementById('pwd').value;
 	var p2 = document.getElementById('pwd2').value;

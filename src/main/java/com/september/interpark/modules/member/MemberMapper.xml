@@ -200,5 +200,31 @@
 		WHERE
 			seq = #{sessSeq}	
 	</update>
+	
+	<!-- 유저 예매 확인 -->
+	<select id="selectRegister" resultMap="resultMapObj">
+		SELECT
+			a.registerDob
+			,a.registerNumber
+			,a.registerName
+			,a.dateUse
+			,a.count
+			,a.deleteDate
+			,state
+		FROM registerConfirm a
+		WHERE 1=1
+			AND regmember_seq = #{sessSeq}	
+	</select>
+	
+	<!-- 회원 정보 수정 -->
+	<update id="memberUpdate">
+		UPDATE member
+		SET
+			name = #{name}
+			,number = #{number}
+			,email = #{email}
+		WHERE
+			seq = #{sessSeq}	
+	</update>	
 
 </mapper>	

@@ -62,10 +62,10 @@
 									이름
 								</div>
 								<div class="col-6">
-									<c:out value="${item.name}"/>
+									<input id="nameModify" readonly value="<c:out value="${item.name}"/>">
 								</div>
 								<div class="col-3 modifyBtn">
-									<button type="button" class="btn btn-light">수정</button>
+									<button type="button" id="btnNameModify" class="btn btn-light">수정</button>
 								</div>
 							</div>
 						</div>
@@ -76,10 +76,10 @@
 									휴대폰번호
 								</div>
 								<div class="col-6">
-									<c:out value="${item.number }"/>
+									<input readonly id="numberModify" value="<c:out value="${item.number }"/>">
 								</div>
 								<div class="col-3 modifyBtn">
-									<button type="button" class="btn btn-light">수정</button>
+									<button type="button" id="btnNumberModify" class="btn btn-light">수정</button>
 								</div>
 							</div>
 						</div>
@@ -90,10 +90,10 @@
 									이메일
 								</div>
 								<div class="col-6">
-									<c:out value="${item.email }"/>
+									<input readonly id="emailModify" value="<c:out value="${item.email }"/>">
 								</div>
 								<div class="col-3 modifyBtn">
-									<button type="button" class="btn btn-light">수정</button>
+									<button type="button" id="btnEmailModify" class="btn btn-light">수정</button>
 								</div>
 							</div>
 						</div>
@@ -221,6 +221,18 @@
 	
 	$(".btnIndex").on("click",function(){
 		$(location).attr("href",goUrlIndex);
+	});
+	
+	$("#btnNameModify").on("click" , function(){
+		$("#nameModify").attr('readonly' , false);
+	});
+	
+	$("#btnNumberModify").on("click" , function(){
+		$("#numberModify").attr('readonly' , false);
+	});
+	
+	$("#btnEmailModify").on("click" , function(){
+		$("#emailModify").attr('readonly' , false);
 	});
 	
 </script>

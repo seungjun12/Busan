@@ -93,6 +93,23 @@ public class MemberServiceImpl implements MemberService{
 		return result;
 	}
 
+	@Override
+	public List<Member> selectRegister(MemberVo vo) throws Exception {
+		List<Member> reglist = dao.selectRegister(vo);
+		System.out.println("service reglist: " + reglist);
+		return reglist;
+	}
+
+	@Override
+	public int memberUpdate(Member dto) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	
+
+	
+
 	/*
 	 * @Override public Member selectMember(MemberVo vo) throws Exception { Member
 	 * result=dao.selectMember(vo); System.out.println("service result: " + result);

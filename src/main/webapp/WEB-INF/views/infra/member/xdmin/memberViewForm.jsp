@@ -137,6 +137,7 @@
 	var goUrlPwdMod = "/member/pwdMod"
 	var goUrlIndex = "/main/index";
 	var goUrlRegisterConfirm ="/member/registerConfirm";
+	
 	var seq = $("input:hidden[name=sessSeq]")
 	var form = $("form[name=MForm]");
 	

@@ -44,6 +44,7 @@
 				 aria-label="default input example" 
 				 id="id" name="id" value="<c:out value="${dto.id }"/>"
 				 >
+				 <!-- <button type="button" id="id" name="id">중복확인</button> -->
 				 <div class="invalid-feedback" id="ifmmIdFeedback"></div>
 			</div>
 			<hr>
@@ -55,15 +56,16 @@
 				type="password" placeholder="8~12자 영문,숫자,특수문자" 
 				aria-label="default input example" id="pwd" name="pwd" value="<c:out value="${dto.pwd }"/>"
 				>
+				<div id="pwdFeedback2"></div>
 			</div>
 			<hr>
 			<!-- 비밀번호 확인 입력 -->
 			<div>
 				<b>비밀번호확인</b>
 				<input class="form-control" 
-				type="password" placeholder="8~12자 영문,숫자,특수문자" 
-				aria-label="default input example" id="pwd2">
-				<div class="invalid-feedback" id="pwdFeedback"></div>
+				type="password"  placeholder="8~12자 영문,숫자,특수문자" 
+				aria-label="default input example" readonly id="pwd2">
+				<div class="invalid-feedback"  id="pwdFeedback"></div>
 			</div>
 			<hr>
 			<!-- 개인정보 유효기간 버튼 -->
