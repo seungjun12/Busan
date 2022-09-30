@@ -257,6 +257,13 @@ public class MemberController {
 		return "infra/member/xdmin/findId";
 	}
 	
+	//유저 회원정보수정
+	@RequestMapping(value = "memberUpdate")
+	public String memberUpdate(Member dto)throws Exception{
+		service.memberUpdate(dto);
+		return "infra/member/xdmin/memberViewForm";
+	}
+	
 	
 	
 }//class end

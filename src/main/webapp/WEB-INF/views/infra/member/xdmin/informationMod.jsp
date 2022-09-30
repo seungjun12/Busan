@@ -162,10 +162,10 @@
 						<div class="container-flid finalBtn">
 							<div class="row">
 								<div class="col-6">
-									<button type="button" class="btn btn-outline-danger">취소</button>
+									<button type="button" class="btn btn-outline-danger" id="btnMemberView">취소</button>
 								</div>
 								<div class="col">
-									<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">변경</button>
+									<button type="button" class="btn btn-danger" id="btnMemberUpdate">변경</button>
 									<!-- Modal -->
 									<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 									  <div class="modal-dialog">
@@ -210,6 +210,8 @@
 	var goUrlInformationMod = "/member/informationMod";
 	var goUrlPwdMod = "/member/pwdMod"
 	var goUrlIndex = "/main/index";
+	var goUrlMemberUpdate = "/member/memberUpdate"
+	var goUrlMemberView = "/member/memberViewForm";
 	
 	$("#btnInformationMod").on("click",function(){
 		$location.attr("href",goUrlInformationMod);
@@ -233,6 +235,14 @@
 	
 	$("#btnEmailModify").on("click" , function(){
 		$("#emailModify").attr('readonly' , false);
+	});
+	
+	$("#btnMemberUpdate").on("click" , function(){
+		$(location).attr("href" ,goUrlMemberUpdate);
+	});
+	
+	$("#btnMemberView").on("click",function(){
+		$(location).attr("href",goUrlMemberView);
 	});
 	
 </script>
