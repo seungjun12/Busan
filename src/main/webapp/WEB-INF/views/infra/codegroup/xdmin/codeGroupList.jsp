@@ -293,7 +293,7 @@
 
 	<!-- fontawsome -->
 	<script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="/resources/js/common/admin.js"></script>	
+	<script type="text/javascript" src="/resources/js/codeGroup/codeGroup.js"></script>	
 </body>
 
 </html>
