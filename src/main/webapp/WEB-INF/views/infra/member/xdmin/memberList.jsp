@@ -112,7 +112,7 @@
 					    	<td>#</td>
 					    	<td>이름</td>
 					    	<td class="td3">아이디</td>
-					    	<td class="td3">비밀번호</td>
+					    	<!-- <td class="td3">비밀번호</td> -->
 					    	<td class="td4">성별</td>
 					    	<td class="td5">이메일</td>
 					    	<td class="td6">휴대폰</td>
@@ -126,7 +126,7 @@
 					  	<c:choose> 
 					  		<c:when test="${fn:length(list) eq 0}">
 					  			<tr>
-					  				<td class="text-center" colspan="12">There is no data!</td>
+					  				<td class="text-center" colspan="11">There is no data!</td>
 					  			</tr>
 					  		</c:when> 
 					  		<c:otherwise>
@@ -137,7 +137,7 @@
 						    	<td><c:out value="${list.seq }"/></td>
 						    	<td><a href="javascript:goView(<c:out value="${list.seq }"/>)" class="text-decoration-none"><c:out value="${list.name }"/></td>
 						    	<td><c:out value="${list.id }"/></td>
-						    	<td><c:out value="${list.pwd }"/></td>
+						    	<%-- <td><c:out value="${list.pwd }"/></td> --%>
 						    	<td>
 						    		<c:forEach items="${listCodeGender}" var="listGender" varStatus="statusGender">
 										<c:if test="${list.gender eq listGender.ccseq}"><c:out value="${listGender.ccnameko }"/></c:if>
