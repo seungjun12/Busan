@@ -302,71 +302,7 @@
 	</div>    
     
     <!--  btn jquery-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script>
-	var goUrlList = "/member/memberList"; 			/* #-> */
-	var goUrlInst = "/member/memberInst"; 			/* #-> */
-	var goUrlUpdt = "/member/memberUpdt";				/* #-> */
-	var goUrlUele = "/member/memberUele";				/* #-> */
-	var goUrlDele = "/member/memberDele";				/* #-> */
-	var goUrlView = "/member/memberView";
-    var goUrlCode = "/code/codeList";
-	var goUrlMember = "/member/memberList";
-	var goUrlCodeGroup = "/codeGroup/codeGroupList";	
-	var seq = $("input:hidden[name=seq]");				/* #-> */
-	
-	var form = $("form[name=form]");
-	var formVo = $("form[name=formVo]");
-	
-	$("#btnReset").on("click",function(){
-		$(location).attr("href",goUrlList);
-	});
-	
-	$("#btnSearch").on("click",function(){
-		form.attr("action", goUrlList).submit();
-	});
-	
-	$("#btnModify").on("click" , function(){
-		form.attr("action" , goUrlUpdt).submit();
-	})
-	
-	$("#btnUele").on("click" , function(){
-		form.attr("action" , goUrlUele).submit();
-	})
-	
-	$("#btnDelete").on("click" , function(){
-		form.attr("action" , goUrlDele).submit();
-	})
-	
-	$("#btnList").on("click" , function(){
-		form.attr("action" , goUrlList).submit();
-	})
-	
-	goList = function(thisPage){
-		$("input:hidden[name=thisPage]").val(thisPage);
-		formVo.attr("action" , goUrlList).submit();
-	}	
-	
-	goView = function(seqValue){
-		seq.val(seqValue);
-		form.attr("action" , goUrlView).submit();
-	}
-	
-	$("#btnCodeGroup").on("click",function(){
-		$(location).attr("href",goUrlCodeGroup);
-	});
-	
-	$("#btnCode").on("click",function(){
-		$(location).attr("href",goUrlCode);
-	});
-	
-	$("#btnMember").on("click",function(){
-		$(location).attr("href",goUrlMember);
-	});
-	
-
-	
-	</script>       
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>      
 	
 	<!-- modal -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script> 	
@@ -385,73 +321,8 @@
 	<!-- fontawsome -->
 	<script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
 	
-	<script type="text/javascript">
-		function test() {
-			if(document.getElementById('name').value == '' || document.getElementById('name').value == null){
-				alert("이름 입력해")
-				document.getElementById('name').value="";
-				document.getElementById('name').focus();
-				return false;
-			}
-			
-			if(document.getElementById('id').value == '' || document.getElementById('id').value == null){
-				alert("아이디 입력해")
-				document.getElementById('id').value="";
-				document.getElementById('id').focus();
-				return false;
-			}
-			
-			if(document.getElementById('pwd').value == '' || document.getElementById('pwd').value == null){
-				alert("비밀번호 입력해")
-				document.getElementById('pwd').value="";
-				document.getElementById('pwd').focus();
-				return false;
-			}
-			
-			if(document.getElementById('email').value == '' || document.getElementById('email').value == null){
-				alert("이메일 입력해")
-				document.getElementById('email').value="";
-				document.getElementById('email').focus();
-				return false;
-			}
-			
-			if(document.getElementById('address').value == '' || document.getElementById('address').value == null){
-				alert("주소 입력해")
-				document.getElementById('address').value="";
-				document.getElementById('address').focus();
-				return false;
-			}
-			
-			if(document.getElementById('address2').value == '' || document.getElementById('address2').value == null){
-				alert("상세주소 입력해")
-				document.getElementById('address2').value="";
-				document.getElementById('address2').focus();
-				return false;
-			}
-			
-			if(document.getElementById('address2').value == '' || document.getElementById('address2').value == null){
-				alert("상세주소 입력해")
-				document.getElementById('address2').value="";
-				document.getElementById('address2').focus();
-				return false;
-			}
-			
-			if(document.getElementById('addressCode').value == '' || document.getElementById('addressCode').value == null){
-				alert("집코드 입력해")
-				document.getElementById('addressCode').value="";
-				document.getElementById('addressCode').focus();
-				return false;
-			}
-			
-			document.getElementById('memberFormReg').submit();
-			
-			return false;
-			
-			
-		}
-	
-	
-	</script>
+	<!-- js address -->
+	<script type="text/javascript" src="/resources/js/member/member.js"></script>
 </body>
 
 </html>

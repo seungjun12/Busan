@@ -280,60 +280,8 @@
     </div> 
     
     <!--  btn jquery-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script>
-	var goUrlList = "/member/memberList"; 			/* #-> */
-	var goUrlInst = "/member/memberInst"; 			/* #-> */
-	var goUrlUpdt = "/member/memberUpdt";				/* #-> */
-	var goUrlUele = "/member/memberUele";				/* #-> */
-	var goUrlDele = "/member/memberDele";				/* #-> */
-	var goUrlView = "/member/memberView";
-	var goUrlCode = "/code/codeList";
-	var goUrlCodeGroup = "/codeGroup/codeGroupList";
-	var goUrlHome = "/admin/home";
-	
-	var seq = $("input:hidden[name=seq]");				/* #-> */
-	
-	var form = $("form[name=form]");
-	var formVo = $("form[name=formVo]");
-	
-	$("#btnReset").on("click",function(){
-		$(location).attr("href",goUrlList);
-	});
-	
-	$("#btnSearch").on("click",function(){
-		form.attr("action", goUrlList).submit();
-	});
-	
-	goList = function(thisPage){
-		$("input:hidden[name=thisPage]").val(thisPage);
-		form.attr("action" , goUrlList).submit();
-	}	
-	
-	goView = function(seqValue){
-		seq.val(seqValue);
-		form.attr("action" , goUrlView).submit();
-	}
-	
-	$("#btnCodeGroup").on("click",function(){
-		$(location).attr("href",goUrlCodeGroup);
-	});
-	
-	$("#btnCode").on("click",function(){
-		$(location).attr("href",goUrlCode);
-	});
-	
-	$("#btnMember").on("click",function(){
-		$(location).attr("href",goUrlList);
-	});
-	
-	$("#btnHome").on("click", function(){
-		$(location).attr("href",goUrlHome);
-	});
-	
-	</script>     
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>     
        
-
     <!-- Bootstrap core JavaScript-->
     <script src="/resources/vendor/jquery/jquery.min.js"></script>
     <script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -343,37 +291,12 @@
 
     <!-- Custom scripts for all pages-->
     <script src="/resources/js/sb-admin-2.min.js"></script>
-	
-	<!-- checkBox -->
-	<script type="text/javascript">
-	
-		function checkSelectAll()  {
-	
-			const checkboxes = document.querySelectorAll('input[name="membercheck"]');
-	
-			const checked = document.querySelectorAll('input[name="membercheck"]:checked');
-	
-			const selectAll = document.querySelector('input[name="allmembercheck"]');
-			  
-			if(checkboxes.length === checked.length)  {
-			  selectAll.checked = true;
-			}else {
-			  selectAll.checked = false;
-			}
-			
-		}
-		
-		function selectall(selectall)  {
-			const checkboxes = document.getElementsByName('membercheck');
-			
-			checkboxes.forEach((checkbox) => {
-		    checkbox.checked = selectall.checked
-		  })
-		}
-	</script>
 
 	<!-- fontawsome -->
 	<script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
+
+	<!-- js address -->
+	<script type="text/javascript" src="/resources/js/member/member.js"></script>
 </body>
 
 </html>
