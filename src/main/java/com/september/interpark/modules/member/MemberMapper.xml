@@ -210,7 +210,7 @@
 			,a.dateUse
 			,a.count
 			,a.deleteDate
-			,state
+			,a.state
 		FROM registerConfirm a
 		WHERE 1=1
 			AND regmember_seq = #{sessSeq}	

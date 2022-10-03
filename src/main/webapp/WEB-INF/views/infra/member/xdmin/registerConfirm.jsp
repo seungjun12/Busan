@@ -87,48 +87,6 @@
 	<!-- 푸터 s -->
 	<%@include file="../../../common/xdmin/includeV1/footer.jsp"%>
 	<!-- 푸터 e -->
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-	<script>
-	var goUrlLogin = "/member/login";
-	var goUrlRegister = "/member/register";
-	var goUrlGame = "/main/gameChoice";
-	var goUrlIndex = "/main/index";
-	var goUrlMemberView = "/member/memberViewForm";
-	var goUrlRegisterConfirm ="/member/registerConfirm";
-	var goUrlTeamChoice = "/main/teamChoice";
-	
-		$(".btnLogin").on("click",function(){
-			$(location).attr("href",goUrlLogin);
-		});
-	
-		$(".btnRegister").on("click",function(){
-			$(location).attr("href",goUrlRegister);
-		});
-		
-		$("#btnGameChoice").on("click",function(){
-			$(location).attr("href",goUrlGame);
-		});
-		
-		$(".btnIndex").on("click",function(){
-			$(location).attr("href",goUrlIndex);
-		});
-		
-		$("#btnMemberView").on("click",function(){
-			$(location).attr("href",goUrlMemberView);
-		});
-		
-		$("#btnRegisterConfirm").on("click",function(){
-			$(location).attr("href",goUrlRegisterConfirm);
-		});
-		
-		$("#btnTeamChoice").on("click",function(){
-			$(location).attr("href",goUrlTeamChoice);
-		});	
-		
-	
-	
-	</script>	
 	
 	
 </div> <!-- wrap end -->

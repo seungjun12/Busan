@@ -136,7 +136,6 @@
 	var goUrlInformationMod = "/member/informationMod";
 	var goUrlPwdMod = "/member/pwdMod"
 	var goUrlIndex = "/main/index";
-	var goUrlRegisterConfirm ="/member/registerConfirm";
 	
 	var seq = $("input:hidden[name=sessSeq]")
 	var form = $("form[name=MForm]");
@@ -153,9 +152,6 @@
 		$(location).attr("href",goUrlIndex);
 	});
 	
-	$("#btnRegisterConfirm").on("click",function(){
-		$(location).attr("href",goUrlRegisterConfirm);
-	});
 	
 	goInformation = function(seqValue){
 		seq.val(seqValue);

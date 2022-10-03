@@ -90,37 +90,8 @@
 <script>	
 	
 	/* var goUrlIndexView = "/main/indexView"; */
-	var goUrlIndex = "/main/index";
-	var goUrlLogin = "/member/login";
-	var goUrlgame = "/main/gameChoice";
-	var goUrlRegister = "/member/register";
-	var goUrlRegisterConfirm ="/member/registerConfirm";
-	var goUrlTeamChoice = "/main/teamChoice";
 	var goUrlIdFind = "/member/findId"
-
-    $(".btnIndex").on("click",function(){
-    	$(location).attr("href",goUrlIndex);
-    });
 	
-	$(".btnLogin").on("click",function(){
-		$(location).attr("href",goUrlLogin);
-	});
-	
-	$("#btnGameChoice").on("click",function(){
-		$(location).attr("href",goUrlgame);
-	});	
-	
-	$(".btnRegister").on("click",function(){
-		$(location).attr("href",goUrlRegister);
-	});
-	
-	$("#btnRegisterConfirm").on("click",function(){
-		$(location).attr("href",goUrlRegisterConfirm);
-	});
-	
-	$("#btnTeamChoice").on("click",function(){
-		$(location).attr("href",goUrlTeamChoice);
-	});
 	
 	$("#btnIdFind").on("click",function(){
 		$(location).attr("href",goUrlIdFind);

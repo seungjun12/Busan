@@ -1,6 +1,6 @@
 package com.september.interpark.modules.member;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Member {
 	
