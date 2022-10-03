@@ -295,52 +295,6 @@
 	
   	<!-- btn bottom -->
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-  	<script>
-	var goUrlList = "/code/codeList"; 			/* #-> */
-	var goUrlInst = "/code/codeInst"; 			/* #-> */
-	var goUrlUpdt = "/code/codeUpdt";				/* #-> */
-	var goUrlUele = "/code/codeUele";				/* #-> */
-	var goUrlDele = "/code/codeDele";				/* #-> */
-	var goUrlCodeGroup = "/codeGroup/codeGroupList";
-	var goUrlMember = "/member/memberList";	
-	var seq = $("input:hidden[name=ccseq]");				/* #-> */
-	
-	var form = $("form[name=form]");
-	var formVo = $("form[name=formVo]");
-	
-	
- 	$("#btnModify").on("click",function(){
-		form.attr("action", goUrlUpdt).submit();
-	}); 
-		
-	
-	$("#btnUele").on("click",function(){
-		form.attr("action", goUrlUele).submit();
-	});
-	
-	
-	$("#btnDelete").on("click", function(){
-		form.attr("action", goUrlDele).submit();
-	});
-	
-	$("#btnList").on("click", function(){
-		formVo.attr("action", goUrlList).submit();
-	}); 
-	
-	$("#btnCode").on("click",function(){
-		$(location).attr("href",goUrlList);
-	});
-	
-	$("#btnCodeGroup").on("click",function(){
-		$(location).attr("href",goUrlCodeGroup);
-	});
-	
-	$("#btnMember").on("click",function(){
-		$(location).attr("href",goUrlMember);
-	});
-	
-	
-	</script>    
 
 	<!-- modal -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>   
@@ -360,48 +314,9 @@
 	<!-- fontawsome -->
 	<script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
 	
-	<script type="text/javascript">
-	function test() {
-		
-		if(document.getElementById('ccnameko').value == '' || document.getElementById('ccnameko').value == null){
-			alert("한글코드 이름 다시 입력해주세요")
-			document.getElementById('ccnameko').value="";
-			document.getElementById('ccnameko').focus();
-			return false;
-		}
-		
-		if(document.getElementById('ccnameeg').value == '' || document.getElementById('ccnameko').value == null){
-			alert("영어코드 이름 다시 입력해주세요")
-			document.getElementById('ccnameeg').value="";
-			document.getElementById('ccnameeg').focus();
-			return false;
-		}
-		
-		if(document.getElementById('ccuseNy').value == '' || document.getElementById('ccuseNy').value == null){
-			alert("사용여부 선택해주세요")
-			document.getElementById('ccuseNy').value="";
-			document.getElementById('ccuseNy').focus();
-			return false;
-		}
-		
-		if(document.getElementById('ccorder').value == '' || document.getElementById('ccorder').value == null){
-			alert("순서 입력해주세요")
-			document.getElementById('ccorder').value="";
-			document.getElementById('ccorder').focus();
-			return false;
-		}
-		
-		if(document.getElementById('ccdelNy').value == '' || document.getElementById('ccdelNy').value == null){
-			alert("삭제 여부 선택해주세요")
-			document.getElementById('ccdelNy').value="";
-			document.getElementById('ccdelNy').focus();
-			return false;
-		}
-		
-		document.getElementById('codeFormReg').submit();
-		
-	}	
-	</script>
+	<!-- js address -->
+	<script type="text/javascript" src="/resources/js/code/code.js"></script>
+	
 </body>
 
 </html>

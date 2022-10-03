@@ -1,4 +1,4 @@
-var goUrlCodeGroup = "/codeGroup/codeGroupList"; 			/* #-> */
+	var goUrlCodeGroup = "/codeGroup/codeGroupList"; 			/* #-> */
 	var goUrlInst = "/codeGroup/codeGroupInst"; 			/* #-> */
 	var goUrlUpdt = "/codeGroup/codeGroupUpdt";				/* #-> */
 	var goUrlUele = "/codeGroup/codeGroupUele";				/* #-> */
