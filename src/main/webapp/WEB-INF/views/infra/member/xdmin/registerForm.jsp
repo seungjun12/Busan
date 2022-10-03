@@ -21,6 +21,21 @@
   	<link rel="stylesheet" href="/resources/demos/style.css">
   	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  	<script>
+  	$(function() {
+  	//input을 datepicker로 선언
+  	$("#datepicker").datepicker({
+  	dateFormat: 'yy-mm-dd' //달력 날짜 형태
+  	,showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
+  	,showMonthAfterYear:true // 월- 년 순서가아닌 년도 - 월 순서
+  	,changeYear: true //option값 년 선택 가능
+  	,changeMonth: true //option값 월 선택 가능
+  	});
+  	
+  //초기값을 오늘 날짜로 설정해줘야 합니다.
+  	$('#datepicker').datepicker('setDate', 'today'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
+  	});
+</script>
 	
 	
 </head>
@@ -136,7 +151,7 @@
 			<!-- 생년월일 -->
 			<div>
 				<b>생년월일</b>
-				<input class="form-control" type="text" aria-label="default input example" placeholder="ex)1999-99-99" id="datepickers" name="dob" value="<c:out value="${dto.dob }"/>">
+				<input class="form-control" type="text" aria-label="default input example" placeholder="ex)1999-99-99" id="datepicker" name="dob" value="<c:out value="${dto.dob }"/>">
 			</div>
 			<hr>
 			<!-- 주소등록 -->
@@ -194,14 +209,10 @@
 
 <!-- jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script>
-$( function() {
-    $( "#datepickers" ).datepicker();
-  } );
-</script>
+
 
 <!-- bootstrap -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>  -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>  
 
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> 
