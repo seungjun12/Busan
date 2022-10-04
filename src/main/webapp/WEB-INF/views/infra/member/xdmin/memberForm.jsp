@@ -230,7 +230,7 @@
 									<i class="fa-regular fa-trash-can"></i>
 								</button>
 							</a>
-							<span type="button" class="btn btn-primary" onclick="test();">
+							<span type="button" class="btn btn-primary" onclick="memberRegister();">
 								<i class="fa-solid fa-plus"></i>
 							</span>
 						</div>

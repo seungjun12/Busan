@@ -152,7 +152,7 @@
     })
     
     //맴버 등록
-    function test() {
+    function memberRegister() {
 		document.getElementById('memberFormReg').submit();
 		return false;
 		}

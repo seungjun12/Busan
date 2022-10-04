@@ -31,7 +31,6 @@ public class MemberController {
 		System.out.println("vo.getShValue(): "+vo.getShValue());
 		System.out.println("vo.getShOption(): "+vo.getShOption());
 		System.out.println("vo.getShdelNy(): " + vo.getShdelNy());
-		
 		vo.setShdelNy(vo.getShdelNy() == null ? 1 : vo.getShdelNy());
 		vo.setParamsPaging(service.selectOneCount(vo));
 		List<Member> list = service.selectList(vo); 
@@ -247,6 +246,7 @@ public class MemberController {
 	@RequestMapping(value = "registerConfirm")
 	public String registerConfirm(@ModelAttribute MemberVo vo , Model model)throws Exception{
 		List<Member> reglist = service.selectRegister(vo);
+		model.addAttribute("reglist", reglist);
 		System.out.println("controller reglist: " + reglist);
 		return "infra/member/xdmin/registerConfirm";
 	}
