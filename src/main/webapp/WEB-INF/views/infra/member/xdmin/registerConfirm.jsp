@@ -29,6 +29,7 @@
 	<!-- 하단배너 e -->
 	<!-- 매인랩 시작 -->
 	<form name="form" method="post">
+	<%-- <input type="hidden" name="regmember_seq" value="<c:out value="${dto.regmember_seq }"/>"> --%>
 	<div class="mainWrap">
 		<div class="rightCancel">
 			<i class="fa-solid fa-star"></i>

@@ -1,5 +1,22 @@
 package com.september.interpark.modules.main;
 
-public class MainServiceImpl {
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class MainServiceImpl implements MainService{
+
+	@Autowired
+	MainDao dao;
+
+	@Override
+	public List<Main> selectList(MainVo vo) throws Exception {
+		List<Main> list = dao.selectList(vo);
+		return list;
+	}
+	
+	
+	
 }

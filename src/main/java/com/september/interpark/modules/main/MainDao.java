@@ -1,5 +1,7 @@
 package com.september.interpark.modules.main;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.inject.Inject;
 
@@ -15,5 +17,9 @@ public class MainDao {
 	
 	private static String namespace = "com.september.interpark.modules.main.MainMapper";
 	
+	public List<Main>selectList(MainVo vo){
+		List<Main> list = sqlSession.selectList(namespace + ".selectList", vo);
+		return list;
+	}
 	
 }

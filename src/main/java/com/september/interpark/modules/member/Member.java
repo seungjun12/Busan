@@ -17,11 +17,10 @@ public class Member {
 	private String address2;
 	private String addressCode;
 	private Integer delNy;
-	private String number;
 	private String sessSeq;
+	
 	// registerConfirm
 	private String regseq;
-	
 	private String regmember_seq;
 	private Date registerDob;
 	private String registerNumber;
@@ -31,6 +30,9 @@ public class Member {
 	private Date deleteDate;
 	private String state;
 	
+	// memberphone
+	private String number;
+	private Integer dfny;
 	
 	
 	
@@ -180,7 +182,13 @@ public class Member {
 	public void setState(String state) {
 		this.state = state;
 	}
-
+	public Integer getDfny() {
+		return dfny;
+	}
+	public void setDfny(Integer dfny) {
+		this.dfny = dfny;
+	}
+	
 	
 
 	

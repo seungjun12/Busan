@@ -8,6 +8,15 @@
 
     <resultMap id="resultMapObj" type="com.september.interpark.modules.main.Main"></resultMap>
 	
-
+	<select id="selectList" resultMap="resultMapObj">
+		SELECT
+			a.gameseq
+			,a.dob
+			,a.where
+			,a.time
+			,a.whoHome
+			,a.whoAway
+		FROM games a	
+	</select>
 
 </mapper>

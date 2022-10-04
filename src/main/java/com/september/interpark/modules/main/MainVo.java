@@ -1,5 +1,7 @@
 package com.september.interpark.modules.main;
 
-public class MainVo {
+import com.september.interpark.common.base.BaseVo;
+
+public class MainVo extends BaseVo {
 
 }

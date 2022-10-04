@@ -118,9 +118,88 @@ padding: 10px;
 display: block;
 }
 
+.ticketToday {
+    overflow: hidden;
+    width: 960px;
+    margin-bottom: 45px;
+}
 
+.ticketToday .ticketTodayBanners {
+    width: 976px;
+    height: 340px;
+}
 
+.ticketToday .ticketTodayCube.hasRoll {
+    position: relative;
+}
 
+.ticketToday .ticketTodayCube {
+    float: left;
+    width: 228px;
+    height: 340px;
+    margin-right: 16px;
+}
+
+.ticketToday .ticketTodayCube.hasRoll .items.selected {
+    display: block;
+}
+
+.ticketToday .ticketTodayCube.hasRoll .items {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.ticketToday .items {
+    text-align: center;
+}
+
+.ticketToday .ticketTodayCube.goodMorning .items .contents {
+    top: 13px;
+}
+
+.ticketToday .ticketTodayCube.goodMorning .items .contents .label {
+    height: 67px;
+    margin-bottom: 12px;
+    background-position: center -220px;
+}
+
+.ticketToday .ticketTodayCube .items .contents .label {
+    height: 27px;
+    background: url(//ticketimage.interpark.com/TicketImage/2015/20150429_main/img/cubeLabels.png) center 100px no-repeat;
+}
+
+.ticketToday .ticketTodayCube .items .contents .contentTxt {
+    display: block;
+    padding-top: 12px;
+    background: url(//ticketimage.interpark.com/TicketImage/2015/20150429_main/img/cubeLabels.png) center -429px no-repeat;
+    text-decoration: none;
+}
+
+.ticketToday .ticketTodayCube .items .contents .contentTxt span {
+    overflow: hidden;
+    display: block;
+    width: 174px;
+    height: 15px;
+    margin: 0 auto 2px;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #999;
+}
+
+.ticketToday .ticketTodayCube .items .contents .contentTxt b {
+    overflow: hidden;
+    display: block;
+    width: 174px;
+    height: 18px;
+    margin: 0 auto;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #333;
+}
 
 
 .todayBanner{

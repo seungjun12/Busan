@@ -119,7 +119,7 @@
 	</delete>
 
 	<insert id="register">
-		INSERT INTO member(
+		INSERT <!-- ALL --> INTO member(
 			id
 			,pwd
 			,personalAgree
@@ -132,8 +132,8 @@
 			,emailCode
 			,delNy
 			,email
-			<!-- ,(SELECT number From memberPhone aa WHERE 1=1 AND aa.seqOther = a.seq )as number -->
-		)VALUES(
+		)
+		VALUES(
 			#{id}
 			,#{pwd}
 			,#{personalAgree}
@@ -146,8 +146,15 @@
 			,#{emailCode}
 			,#{delNy}
 			,#{email}
-			<!-- ,#{number} -->
 		)
+		<!-- INTO memberPhone(
+			number
+			,dfny
+		) -->
+		<!-- VALUES(
+			#{number}
+			,0
+		) -->
 		<selectKey resultType="String" keyProperty="seq" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>		

@@ -72,178 +72,78 @@
 				<b>예매하기</b>
 			</div>
 			<!-- 게임 테이블 -->
-			<div class="gameTable">
-				<!-- 게임 날짜 -->
-				<div class="gameDate">
-					<span class="fontDate"> 08.10</span>
-					<span class="fontWeak">(수)</span>
-				</div>
-				<!-- 게임 시간 -->
-				<div class="gameTime">
-					<span class="fontTime">18:30</span>
-				</div>
-				<!-- 게임 하는 팀들  -->
-				<div class="teamMatch">
-					<div class="team1">
-						<img alt="ssg로고입니다" src="/resources/img/ssgLogo2.png">
-						<span class="logoName">SSG 랜더스</span>
+			<c:choose>
+				<c:when test="${fn:length(list) eq 0 }">
+					<div class="gameTable">
+						경기가 없습니다.
 					</div>
-					<div class="vs">
-						<span id="vs">VS</span>
-					</div>
-					<div class="team2">
-						<img alt="lg로고입니다" src="/resources/img/lgLogo.png">
-						<span class="logoName">LG 트윈스</span>
-					</div>
-				</div>
-				<div class="div"></div>
-				<!-- 경기 하는 곳 -->
-				<div class="ground">
-					<div>
-						<div>홈</div>
-						<span>인천SSG랜더스필드</span>
-					</div>
-				</div>
-				<!-- 예매하기 버튼 -->
-				<button type="button" class="btn btn-danger" style="width: 128px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">예매하기</button>
-				<!-- Modal -->
-				<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-				  <div class="modal-dialog">
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <h5 class="modal-title" id="staticBackdropLabel">문자를 입력해주세요.</h5>
-				        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				      </div>
-				      <label for="captcha" style="display:block">자동 로그인 방지</label>
-					<div style="overflow:hidden">
-						<div style="float:left">
-							<img title="캡차이미지" src="/captchaImg.do" alt="캡차이미지"/>
-							<div id="ccaudio" style="display:none"></div>
+				</c:when>
+				<c:otherwise>
+				<c:forEach items="${list }" var="list" varStatus="status"> 
+					<div class="gameTable">
+						<!-- 게임 날짜 -->
+						<div class="gameDate">
+							<span class="fontDate"> <c:out value="${list.dob }"/></span>
+							<span class="fontWeak">(수)</span>
+						</div>
+						<!-- 게임 시간 -->
+						<div class="gameTime">
+							<span class="fontTime"><c:out value="${list.time }"/></span>
+						</div>
+						<!-- 게임 하는 팀들  -->
+						<div class="teamMatch">
+							<div class="team1">
+								<img alt="ssg로고입니다" src="/resources/img/ssgLogo2.png">
+								<span class="logoName"><c:out value="${list.whoHome }"/></span>
+							</div>
+							<div class="vs">
+								<span id="vs">VS</span>
+							</div>
+							<div class="team2">
+								<img alt="lg로고입니다" src="/resources/img/lgLogo.png">
+								<span class="logoName"><c:out value="${list.whoAway }"/></span>
+							</div>
+						</div>
+						<div class="div"></div>
+						<!-- 경기 하는 곳 -->
+						<div class="ground">
+							<div>
+								<div>홈</div>
+								<span><c:out value="${list.where }"/></span>
+							</div>
+						</div>
+						<!-- 예매하기 버튼 -->
+						<button type="button" class="btn btn-danger" style="width: 128px;" data-bs-toggle="modal" data-bs-target="#staticBackdrops">예매하기</button>
+						<!-- Modal -->
+						<div class="modal fade" id="staticBackdrops" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+						  <div class="modal-dialog">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <h5 class="modal-title" id="staticBackdropLabel">문자를 입력해주세요.</h5>
+						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						      </div>
+						      <label for="captcha" style="display:block">자동 로그인 방지</label>
+							<div style="overflow:hidden">
+								<div style="float:left">
+									<img title="캡차이미지" src="/captchaImg.do" alt="캡처이미지"/>
+									<div id="ccaudio" style="display:none"></div>
+								</div>
+							</div>
+							<div style="padding:3px">
+								<input id="reload" type="button" onclick="javaScript:getImage()" value="새로고침"/>
+								<input id="soundOn" type="button" onclick="javaScript:audio()" value="음성듣기"/>
+							</div>
+							<div style="padding:3px">	
+								<input id="answer" type="text" value="">
+								<input id="check" type="button" value="확인"/>
+							</div>
+						    </div>
+						  </div>
 						</div>
 					</div>
-					<div style="padding:3px">
-						<input id="reload" type="button" onclick="javaScript:getImage()" value="새로고침"/>
-						<input id="soundOn" type="button" onclick="javaScript:audio()" value="음성듣기"/>
-					</div>
-					<div style="padding:3px">	
-						<input id="answer" type="text" value="">
-						<input id="check" type="button" value="확인"/>
-					</div>
-				    </div>
-				  </div>
-				</div>
-			</div>
-			<div class="gameTable">
-				<!-- 게임 날짜 -->
-				<div class="gameDate">
-					<span class="fontDate"> 08.11</span>
-					<span class="fontWeak">(목)</span>
-				</div>
-				<!-- 게임 시간 -->
-				<div class="gameTime">
-					<span class="fontTime">18:00</span>
-				</div>
-				<!-- 게임 하는 팀들  -->
-				<div class="teamMatch">
-					<div class="team1">
-						<img alt="ssg로고입니다" src="/resources/img/ssgLogo2.png">
-						<span class="logoName">SSG 랜더스</span>
-					</div>
-					<div class="vs">
-						<span id="vs">VS</span>
-					</div>
-					<div class="team2">
-						<img alt="lg로고입니다" src="/resources/img/lgLogo.png">
-						<span class="logoName">LG 트윈스</span>
-					</div>
-				</div>
-				<div class="div"></div>
-				<!-- 경기 하는 곳 -->
-				<div class="ground">
-					<div>
-						<div>홈</div>
-						<span>인천SSG랜더스필드</span>
-					</div>
-				</div>
-				<!-- 예매하기 버튼 -->
-				<button type="button" class="btn btn-danger" style="width: 128px;">예매하기</button>
-			</div>
-			<!-- 예매 날짜 아직 아닌곳-->
-			<div class="nogameTable">
-				<!-- 게임 날짜 -->
-				<div class="gameDate">
-					<span class="fontDate"> 08.12</span>
-					<span class="fontWeak">(금)</span>
-				</div>
-				<!-- 게임 시간 -->
-				<div class="gameTime">
-					<span class="fontTime">18:30</span>
-				</div>
-				<!-- 게임 하는 팀들  -->
-				<div class="teamMatch">
-					<div class="team1">
-						<img alt="ssg로고입니다" src="/resources/img/ssgLogo2.png">
-						<span class="logoName">SSG 랜더스</span>
-					</div>
-					<div class="vs">
-						<span id="vs">VS</span>
-					</div>
-					<div class="team2">
-						<img alt="삼성로고 입니다" src="/resources/img/samsungLogo.png">
-						<span class="logoName">삼성 라이온즈</span>
-					</div>
-				</div>
-				<div class="div"></div>
-				<!-- 경기 하는 곳 -->
-				<div class="ground">
-					<div>
-						<div>홈</div>
-						<span>인천SSG랜더스필드</span>
-					</div>
-				</div>
-				<!-- 예매 날짜 알려주는 곳 -->
-				<div class="btns">
-					<span style="display: table-cell; vertical-align: middle; text-align: center;">판매예정</span>
-				</div>
-			</div>
-			<!-- 예매 날짜 아직 아닌곳-->
-			<div class="nogameTable">
-				<!-- 게임 날짜 -->
-				<div class="gameDate">
-					<span class="fontDate"> 08.13</span>
-					<span class="fontWeak">(토)</span>
-				</div>
-				<!-- 게임 시간 -->
-				<div class="gameTime">
-					<span class="fontTime">14:00</span>
-				</div>
-				<!-- 게임 하는 팀들  -->
-				<div class="teamMatch">
-					<div class="team1">
-						<img alt="ssg로고입니다" src="/resources/img/ssgLogo2.png">
-						<span class="logoName">SSG 랜더스</span>
-					</div>
-					<div class="vs">
-						<span id="vs">VS</span>
-					</div>
-					<div class="team2">
-						<img alt="삼성로고 입니다" src="/resources/img/samsungLogo.png">
-						<span class="logoName">삼성 라이온즈</span>
-					</div>
-				</div>
-				<div class="div"></div>
-				<!-- 경기 하는 곳 -->
-				<div class="ground">
-					<div>
-						<div>홈</div>
-						<span>인천SSG랜더스필드</span>
-					</div>
-				</div>
-				<!-- 예매 날짜 알려주는 곳 -->
-				<div class="btns">
-					<span style="display: table-cell; vertical-align: middle; text-align: center;">판매예정</span>
-				</div>
-			</div>					
+				</c:forEach>
+				</c:otherwise>
+			</c:choose>
 		</div><!-- sportsDetailContents end -->
 		<!-- 밑에 설명영역 탭 -->
 		<div class="sportsTabWrapper tabModule">

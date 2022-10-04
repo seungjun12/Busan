@@ -87,7 +87,32 @@
 		<div>
 			<img alt="" src="/resources/img/mainImage.png">
 		</div>
+		<!-- 티켓 투데이 -->
+		<!-- <div class="ticketToday">
+			<div class="ticketTodayBanners">
+				<div class="ticketTodayCube hasRoll goodMorning">
+					<div class="items selected">
+						<div class="contents">
+							<div class="label"></div>
+							<span class="contentTxt">
+								<span>10월의 혜택! 혜택 어10션~</span>
+								<b style="color:#ff7a38 ">　</b>
+							</span>
+						</div>
+						<img src="http://ticketimage.interpark.com/TCMS4/Main/202209/TicketTodayNew_TicketTodayGoodMorning_b7079efd-092e-40a6-b69e-92a3fd4440d9.jpg" alt="">
+					</div>
+				</div>
+			
+			
+			
+			
+			
+			</div>
+		</div> -->
 		<!-- today banner -->
+		
+		
+		
 		<div class="todayBanner">
 			<img alt="" src="/resources/img/todayBanner.png">
 		</div>
