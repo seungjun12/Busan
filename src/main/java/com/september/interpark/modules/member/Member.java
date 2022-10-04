@@ -33,6 +33,8 @@ public class Member {
 	// memberphone
 	private String number;
 	private Integer dfny;
+	private String phmember_seq;
+	private String mpSeq;
 	
 	
 	
@@ -188,6 +190,21 @@ public class Member {
 	public void setDfny(Integer dfny) {
 		this.dfny = dfny;
 	}
+	public String getPhmember_seq() {
+		return phmember_seq;
+	}
+	public void setPhmember_seq(String phmember_seq) {
+		this.phmember_seq = phmember_seq;
+	}
+	public String getMpSeq() {
+		return mpSeq;
+	}
+	public void setMpSeq(String mpSeq) {
+		this.mpSeq = mpSeq;
+	}
+	
+	
+	
 	
 	
 

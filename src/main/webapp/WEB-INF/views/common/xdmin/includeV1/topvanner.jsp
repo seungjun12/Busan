@@ -76,6 +76,7 @@
 		var goUrlLogin = "/member/login";
 		var goUrlRegister = "/member/register";
 		var goUrlMemberView = "/member/memberViewForm";
+		var goUrlRegisterConfirm ="/member/registerConfirm";
 		
 		$(".btnLogin").on("click",function(){
 			$(location).attr("href",goUrlLogin);

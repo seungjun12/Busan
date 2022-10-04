@@ -125,7 +125,7 @@
 						      <label for="captcha" style="display:block">자동 로그인 방지</label>
 							<div style="overflow:hidden">
 								<div style="float:left">
-									<img title="캡차이미지" src="/captchaImg.do" alt="캡처이미지"/>
+									<!-- <img title="캡차이미지" src="/captchaImg.do" alt="캡처이미지"/> -->
 									<div id="ccaudio" style="display:none"></div>
 								</div>
 							</div>
@@ -311,7 +311,7 @@
 	}
 	 */
 	 
-	 window.onload = function(){
+/* 	 window.onload = function(){
 			getImage();	// 이미지 가져오기
 			
 			document.querySelector('#check').addEventListener('click', function(){
@@ -352,7 +352,7 @@
 		}
 		function audioPlayer(objUrl){
 			document.querySelector('#ccaudio').innerHTML = '<bgsoun src="' +objUrl +'">';
-		}
+		} */
 		
 	
 </script>

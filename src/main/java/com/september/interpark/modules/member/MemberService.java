@@ -9,7 +9,11 @@ public interface MemberService {
 
 	public List<Member> selectList(MemberVo vo) throws Exception;
 	
+	//관리자 회원기입1
 	public int insert(Member dto) throws Exception;  
+	
+	//관리자 회원기입2
+	public int insert2(Member dto)throws Exception;
 	
 	public Member selectOne(MemberVo vo) throws Exception;
 	
@@ -23,7 +27,11 @@ public interface MemberService {
 	
 	public int selectOneIdCheck(Member dto) throws Exception;
 	
+	//유저 회원가입1
 	public int register(Member dto)throws Exception;
+	
+	//유저 회원가입2
+	public int register2(Member dto)throws Exception;
 	
 	public Member selectOneId(Member dto) throws Exception;
 	

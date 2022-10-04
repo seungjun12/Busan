@@ -20,12 +20,19 @@ public class MemberServiceImpl implements MemberService{
 		return list;
 	}
 
+	//관리자 회원기입1
 	@Override
 	public int insert(Member dto) throws Exception {
 		dto.setPwd(UtilSecurity.encryptSha256(dto.getPwd()));
     	dto.setName(dto.getName());
 		/* dto.setIfmmPwdModDate(UtilDateTime.nowDate()); */
 		return dao.insert(dto);
+	}
+	
+	//관리자 회원기입2
+	@Override
+	public int insert2(Member dto) throws Exception {
+		return dao.insert2(dto);
 	}
 
 	@Override
@@ -34,6 +41,8 @@ public class MemberServiceImpl implements MemberService{
 		System.out.println("service result: " + result);
 		return result;
 	}
+
+	
 
 	@Override
 	public int selectOneCount(MemberVo vo) throws Exception {
@@ -63,6 +72,7 @@ public class MemberServiceImpl implements MemberService{
 		return result;
 	}
 
+	//유저 회원가입1
 	@Override
 	public int register(Member dto) throws Exception {
 		dto.setPwd(UtilSecurity.encryptSha256(dto.getPwd()));
@@ -70,11 +80,19 @@ public class MemberServiceImpl implements MemberService{
 		/* dto.setIfmmPwdModDate(UtilDateTime.nowDate()); */
 		return dao.register(dto);
 	}
+	
+	//유저 회원가입2
+	@Override
+	public int register2(Member dto) throws Exception {
+		return dao.register2(dto);
+	}
 
 	@Override
 	public Member selectOneId(Member dto) throws Exception {
 		return dao.selectOneId(dto);
 	}
+
+	
 
 	@Override
 	public Member selectOneLogin(Member dto) throws Exception {

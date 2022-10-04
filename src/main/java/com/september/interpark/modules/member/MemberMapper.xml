@@ -24,7 +24,7 @@
 		<include refid="Base.selectListUpperForMysql" />	
 			SELECT
 				a.*
-				,(SELECT number FROM memberPhone aa WHERE 1=1 AND aa.seqOther = a.seq AND aa.dfny = 0)as number
+				,(SELECT number FROM memberPhone aa WHERE 1=1 AND aa.phmember_seq = a.seq AND aa.dfny = 0)as number 
 			<include refid="selectCommon" />
 			ORDER BY a.seq DESC
 			<include refid="Base.selectListLowerForMysql" />	
@@ -35,6 +35,7 @@
 		<include refid="selectCommon" />
 	</select>
 	
+	<!--  관리자 회원기입1 -->
 	<insert id="insert">
 		INSERT INTO member(
 			name
@@ -63,7 +64,20 @@
 		<selectKey resultType="String" keyProperty="seq" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
+	</insert>
 	
+	<!-- 관리자 회원기입2 -->
+	<insert id="insert2">
+		INSERT INTO memberPhone(
+			number
+			,dfny
+		)VALUES(
+			#{number}
+			,0
+		)	
+		<selectKey resultType="String" keyProperty="seq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
 	</insert>
 	
 	<select id="selectOne" resultMap="resultMapObj">
@@ -118,8 +132,9 @@
 		DELETE FROM member WHERE seq = #{seq}
 	</delete>
 
+
 	<insert id="register">
-		INSERT ALL INTO member(
+		INSERT INTO member(
 			id
 			,pwd
 			,personalAgree
@@ -147,17 +162,23 @@
 			,#{delNy}
 			,#{email}
 		)
-		INTO memberPhone(
-			number
-			,dfny
-		) 
-		VALUES(
-			#{number}
-			,0
-		) 
 		<selectKey resultType="String" keyProperty="seq" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>		
+	</insert>
+	
+	<insert id="register2">
+		INSERT INTO memberPhone(
+			number
+			,dfny
+		)
+		VALUES(
+			#{number}
+			,0
+		)
+		<selectKey resultType="String" keyProperty="seq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
 	</insert>
 	
 	<select id="selectOneIdCheck" resultType="Integer">

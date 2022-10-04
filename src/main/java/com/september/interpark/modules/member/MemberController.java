@@ -50,6 +50,7 @@ public class MemberController {
 	public String memberInst(MemberVo vo, Member dto, RedirectAttributes redirectAttributes) throws Exception {
 		
 		service.insert(dto);
+		service.insert2(dto);
 		
 		vo.setSeq(dto.getSeq());
 		
@@ -118,6 +119,7 @@ public class MemberController {
 	@RequestMapping(value = "memberRegister")
 	public String memberRegister(Member dto)throws Exception{
 		service.register(dto);
+		service.register2(dto);
 		return "redirect:/main/index";
 	}
 	

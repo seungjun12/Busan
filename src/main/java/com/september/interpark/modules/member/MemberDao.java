@@ -28,9 +28,17 @@ public class MemberDao {
 		return list;
 	}
 	
+	//관리자 회원기입1
 	public int insert(Member dto) {
 		int result=sqlSession.insert(namespace + ".insert", dto);
 		System.out.println("dao result: " +result);
+		return result;
+	}
+	
+	//관리자 회원기입2
+	public int insert2(Member dto) {
+		int result = sqlSession.insert(namespace + ".insert2", dto);
+		System.out.println("dao result: " + result );
 		return result;
 	}
 	
@@ -52,9 +60,17 @@ public class MemberDao {
 		return result;
 	}
 	
+	//유저 회원가입1
 	public int register(Member dto) {
 		int result=sqlSession.insert(namespace + ".register", dto);
 		System.out.println("dao result: " +result);
+		return result;
+	}
+	
+	//유저 회원가입2
+	public int register2(Member dto) {
+		int result = sqlSession.insert(namespace + ".register2", dto);
+		System.out.println("dao result: " + result);
 		return result;
 	}
 	
