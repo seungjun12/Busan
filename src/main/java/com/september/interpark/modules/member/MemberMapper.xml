@@ -71,9 +71,11 @@
 		INSERT INTO memberPhone(
 			number
 			,dfny
+			,phmember_seq
 		)VALUES(
 			#{number}
 			,0
+			,#{seq}
 		)	
 		<selectKey resultType="String" keyProperty="seq" order="AFTER">
 			SELECT last_insert_id()
@@ -171,10 +173,12 @@
 		INSERT INTO memberPhone(
 			number
 			,dfny
+			,phmember_seq
 		)
 		VALUES(
 			#{number}
 			,0
+			,#{seq}
 		)
 		<selectKey resultType="String" keyProperty="seq" order="AFTER">
 			SELECT last_insert_id()
@@ -253,5 +257,58 @@
 		WHERE
 			seq = #{sessSeq}	
 	</update>	
+	
+	<!-- 아이디찾기1 -->
+	<select id="selectOneName" resultMap="resultMapObj">
+		SELECT
+			a.seq
+			,a.name
+		FROM
+			member a
+		WHERE 1=1
+			AND a.name = #{name}		
+	</select>
+	
+	<!-- 아이디찾기2 -->
+	<select id="selectFindId" resultMap="resultMapObj">
+		SELECT
+			a.seq
+			,a.name
+			,a.id
+			,b.number
+		FROM member a
+		LEFT JOIN memberPhone b on b.phmember_seq = a.seq	
+		WHERE 1=1
+			AND a.name = #{name}
+			<if test="number != null and !number.equals('')">AND b.number = #{number}</if>
+	</select>
+	
+	<select id="selectOneIdd" resultMap="resultMapObj">
+		SELECT
+			a.seq
+			,a.id
+		FROM member a
+		WHERE 1=1
+			AND a.id = #{id}		
+	</select>
+	
+	
+	
+	<!-- 비밀번호찾기2 -->
+	<select id="selectFindPwd" resultMap="resultMapObj">
+		SELECT
+			a.seq
+			,a.id
+			,a.name
+			,b.number
+		FROM member a
+		LEFT JOIN memberPhone b on b.phmember_seq = a.seq
+		WHERE 1=1
+			AND a.id = #{id}
+			<if test="name != null and !name.equals('')">AND a.name = #{name}</if>
+			<if test="number != null and !number.equals('')">AND b.number = #{number}</if>	
+	</select>
+	
+
 
 </mapper>	

@@ -33,8 +33,9 @@ public interface MemberService {
 	//유저 회원가입2
 	public int register2(Member dto)throws Exception;
 	
+	//유저 로그인1
 	public Member selectOneId(Member dto) throws Exception;
-	
+	//유저 로그인2
 	public Member selectOneLogin(Member dto) throws Exception;
 	
 	/* public Member selectMember(MemberVo vo)throws Exception; */
@@ -46,5 +47,19 @@ public interface MemberService {
 	public List<Member> selectRegister(MemberVo vo)throws Exception;
 	
 	public int memberUpdate(Member dto) throws Exception;
+	
+	//유저 아이디 찾기1 
+	public Member selectOneName(Member dto)throws Exception;
+	
+	//유저 아이디 찾기2
+	public Member selectFindId(Member dto)throws Exception;
+	
+	//유저 비밀번호 찾기1
+	public Member selectOneIdd(Member dto)throws Exception;
+	
+	//유저 비밀번호 찾기2
+	public Member selectFindPwd(Member dto)throws Exception;
+	
+	
 
 }

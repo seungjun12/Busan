@@ -100,6 +100,7 @@
 					<div class="row">
 						<div class="col-6">
 							<input class="form-control" type="text" placeholder="한글,숫자" aria-label="default input example" id="ccgNameKo" name="ccgNameKo" value="<c:out value="${dto.ccgNameKo }"/>">
+							<%-- <input type="hidden" id="ccgRegTime" name="ccgRegTime" value="<c:out value="${dto.ccgRegTime}"/>"> --%>
 						</div>
 						<div class="col">
 							<input class="form-control" type="text" placeholder="영문(대소문자),숫자" aria-label="default input example" id="ccgNameEg" name="ccgNameEg" value="<c:out value="${dto.ccgNameEg }"/>">

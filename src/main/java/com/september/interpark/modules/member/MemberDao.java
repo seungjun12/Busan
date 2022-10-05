@@ -109,6 +109,36 @@ public class MemberDao {
 	//회원정보 수정
 	public int memberUpdate(Member dto) {return sqlSession.update(namespace + ".memberUpdate", dto);}
 	
+	//아이디 찾기1
+	public Member selectOneName(Member dto) {
+		Member result = sqlSession.selectOne(namespace +".selectOneName", dto);
+		System.out.println("dao result: " + result);
+		return result;
+	}
+	
+	//아이디 찾기2
+	public Member selectFindId(Member dto) {
+		Member result = sqlSession.selectOne(namespace + ".selectFindId", dto);
+		System.out.println("dao result: " + result);
+		return result;
+	}
+	
+	//비밀번호 찾기1
+	public Member selectOneIdd(Member dto) {
+		Member result =sqlSession.selectOne(namespace + ".selectOneIdd", dto);
+		System.out.println("dao result: " + result);
+		return result;
+	}
+	
+	
+	//비밀번호 찾기2
+	public Member selectFindPwd(Member dto) {
+		Member result = sqlSession.selectOne(namespace + ".selectFindPwd", dto);
+		System.out.println("dao result: " + result);
+		return result;
+	}
+	
+	
 	
 }//class end	
 

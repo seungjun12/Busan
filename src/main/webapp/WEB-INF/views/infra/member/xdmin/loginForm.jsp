@@ -69,9 +69,9 @@
 		</div>
 		<!-- 아이디 비번 찾기,회원가입 영역 -->
 		<div id="loginBottom">
-			<a type="button" id="btnIdFind"  style="cursor: pointer;">아이디 찾기</a>
-			<a style="margin-left: 10px;">비밀번호 찾기</a>
-			<a style="margin-left: 10px;" type="button" class="btnRegister">회원가입</a>
+			<a type="button" onclick="popupId()"  style="cursor: pointer;">아이디 찾기</a>
+			<a type="button" style="margin-left: 10px; cursor: pointer;" onclick="popupPwd()">비밀번호 찾기</a>
+			<a type="button" style="margin-left: 10px;" class="btnRegister">회원가입</a>
 		</div>
 		<div id="loginBottomImage">
 			<img alt="" src="/resources/img/loginBottomImg.png">
@@ -91,10 +91,14 @@
 	
 	/* var goUrlIndexView = "/main/indexView"; */
 	var goUrlIdFind = "/member/findId"
-	
+	var goUrlRegister = "/member/register"
 	
 	$("#btnIdFind").on("click",function(){
 		$(location).attr("href",goUrlIdFind);
+	});
+	
+	$(".btnRegister").on("click",function(){
+		$(location).attr("href",goUrlRegister);
 	});
 	
 	/* 로그인 */ 
@@ -135,10 +139,18 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
 <script langauge="javascript">
-	function popup(){
-		var url="findIdForm.html";
-		var option="width544px, height=300px, top=200px"
+	function popupId(){
+		var url="/member/findId";
+		var option="width=544, height=772, top=10"
 		window.open(url,"",option);
+		
+	}
+	
+	function popupPwd(){
+		var url="/member/findPwd";
+		var option="width=544, height=772, top=10"
+		window.open(url,"",option);
+		
 	}
 </script>
 </body>

@@ -1,5 +1,9 @@
 package com.september.interpark.modules.codegroup;
 
+import java.sql.Date;
+import java.time.LocalDate;
+
+
 public class CodeGroup {
 
 	private String ccgseq;
@@ -10,6 +14,8 @@ public class CodeGroup {
 	private Integer ccgorder;
 	private Integer ccg_seq;
 	private Integer ccgdelNy;
+	private Date ccgRegTime;
+	private Date ccgModiTime;
 	
 	public String getCcgseq() {
 		return ccgseq;
@@ -59,10 +65,21 @@ public class CodeGroup {
 	public void setCcgdelNy(Integer ccgdelNy) {
 		this.ccgdelNy = ccgdelNy;
 	}
+	public Date getCcgRegTime() {
+		return ccgRegTime;
+	}
+	public void setCcgRegTime(Date ccgRegTime) {
+		this.ccgRegTime = ccgRegTime;
+	}
+	public Date getCcgModiTime() {
+		return ccgModiTime;
+	}
+	public void setCcgModiTime(Date ccgModiTime) {
+		this.ccgModiTime = ccgModiTime;
+	}
 	
 	
-	
-	
+	LocalDate ccgRegTime1 = LocalDate.now();
 	
 	
 	

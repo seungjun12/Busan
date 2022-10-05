@@ -266,6 +266,134 @@ public class MemberController {
 		return "redirect:/member/memberViewForm";
 	}
 	
+	//유저 아이디 찾기 실행
+	@ResponseBody
+	@RequestMapping(value = "findIdProc")
+	public Map<String, Object> findIdProc(Member dto, HttpSession httpSession) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+
+		Member rtMember = service.selectOneName(dto);
+
+		if (rtMember != null) {
+			Member rtMember2 = service.selectFindId(dto);
+
+			if (rtMember2 != null) {
+				
+				/*
+				 * if(dto.getAutoLogin() == true) {
+				 * UtilCookie.createCookie(Constants.COOKIE_NAME_SEQ, rtMember2.getIfmmSeq(),
+				 * Constants.COOKIE_DOMAIN, Constants.COOKIE_PATH, Constants.COOKIE_MAXAGE); }
+				 * else { // by pass }
+				 */
+				
+				httpSession.setAttribute("sessSeq", rtMember2.getSeq());
+				httpSession.setAttribute("sessId", rtMember2.getId());
+				httpSession.setAttribute("sessName", rtMember2.getName());
+				
+
+				/*
+				 * rtMember2.setIflgResultNy(1); service.insertLogLogin(rtMember2);
+				 * 
+				 * Date date = rtMember2.getIfmmPwdModDate(); LocalDateTime
+				 * ifmmPwdModDateLocalDateTime = LocalDateTime.ofInstant(date.toInstant(),
+				 * ZoneId.systemDefault());
+				 * 
+				 * 
+				 * if (ChronoUnit.DAYS.between(ifmmPwdModDateLocalDateTime,
+				 * UtilDateTime.nowLocalDateTime()) > Constants.PASSWOPRD_CHANGE_INTERVAL) {
+				 * returnMap.put("changePwd", "true"); }
+				 */
+				 
+				returnMap.put("rt", "success");
+			} else {
+//				dto.setSeq(rtMember.getSeq());
+//				dto.setIflgResultNy(0);
+//				service.insertLogLogin(dto);
+
+				returnMap.put("rt", "fail");
+			}
+		} else {
+//			dto.setIflgResultNy(0);
+//			service.insertLogLogin(dto);
+			
+			returnMap.put("rt", "fail");
+		}
+		return returnMap;
+	}		
 	
+	//아이디 찾기 결과화면
+	@RequestMapping(value = "findIdResult")
+	public String findIdResult()throws Exception{
+		return "infra/member/xdmin/findIdResult";
+	}
+	
+	//유저 비밀번호 찾기
+	@RequestMapping(value = "findPwd")
+	public String findPwd()throws Exception{
+		return "infra/member/xdmin/findPwd";
+	}
+	
+	//유저 비밀번호 찾기 실행
+		@ResponseBody
+		@RequestMapping(value = "findPwdProc")
+		public Map<String, Object> findPwdProc(Member dto, HttpSession httpSession) throws Exception {
+			Map<String, Object> returnMap = new HashMap<String, Object>();
+
+			Member rtMember = service.selectOneIdd(dto);
+
+			if (rtMember != null) {
+				Member rtMember2 = service.selectFindPwd(dto);
+
+				if (rtMember2 != null) {
+					
+					/*
+					 * if(dto.getAutoLogin() == true) {
+					 * UtilCookie.createCookie(Constants.COOKIE_NAME_SEQ, rtMember2.getIfmmSeq(),
+					 * Constants.COOKIE_DOMAIN, Constants.COOKIE_PATH, Constants.COOKIE_MAXAGE); }
+					 * else { // by pass }
+					 */
+					
+					httpSession.setAttribute("sessSeq", rtMember2.getSeq());
+					httpSession.setAttribute("sessId", rtMember2.getId());
+					httpSession.setAttribute("sessName", rtMember2.getName());
+					
+
+					/*
+					 * rtMember2.setIflgResultNy(1); service.insertLogLogin(rtMember2);
+					 * 
+					 * Date date = rtMember2.getIfmmPwdModDate(); LocalDateTime
+					 * ifmmPwdModDateLocalDateTime = LocalDateTime.ofInstant(date.toInstant(),
+					 * ZoneId.systemDefault());
+					 * 
+					 * 
+					 * if (ChronoUnit.DAYS.between(ifmmPwdModDateLocalDateTime,
+					 * UtilDateTime.nowLocalDateTime()) > Constants.PASSWOPRD_CHANGE_INTERVAL) {
+					 * returnMap.put("changePwd", "true"); }
+					 */
+					 
+					returnMap.put("rt", "success");
+				} else {
+//					dto.setSeq(rtMember.getSeq());
+//					dto.setIflgResultNy(0);
+//					service.insertLogLogin(dto);
+
+					returnMap.put("rt", "fail");
+				}
+			} else {
+//				dto.setIflgResultNy(0);
+//				service.insertLogLogin(dto);
+				
+				returnMap.put("rt", "fail");
+			}
+			return returnMap;
+		}
+		
+		//비밀번호 찾기 결과화면
+		@RequestMapping(value = "findPwdResult")
+		public String findPwdResult()throws Exception{
+			return "infra/member/xdmin/findPwdResult";
+		}
+		
+		
 	
 }//class end

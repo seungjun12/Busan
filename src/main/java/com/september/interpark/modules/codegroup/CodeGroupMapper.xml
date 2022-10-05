@@ -41,6 +41,8 @@
 			,ccguseNy
 			,ccgdelNy
 			,ccgorder
+			,ccgRegTime
+			,ccgModiTime
 		)
 		VALUES(
 			#{ccgNameKo}
@@ -48,6 +50,8 @@
 			,#{ccguseNy}
 			,#{ccgdelNy}
 			,#{ccgorder}
+			,#{ccgRegTime}
+			,#{ccgModiTime}
 		)
 		<selectKey resultType="String" keyProperty="ccgseq" order="AFTER">
 			SELECT last_insert_id()

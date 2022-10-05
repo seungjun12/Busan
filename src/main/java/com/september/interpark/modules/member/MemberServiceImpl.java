@@ -122,6 +122,34 @@ public class MemberServiceImpl implements MemberService{
 	public int memberUpdate(Member dto) throws Exception {
 		return dao.memberUpdate(dto);
 	}
+
+	//유저 아이디 찾기1
+	@Override
+	public Member selectOneName(Member dto) throws Exception {
+		return dao.selectOneName(dto);
+	}
+
+	//유저 아이디 찾기2
+	@Override
+	public Member selectFindId(Member dto) throws Exception {
+		return dao.selectFindId(dto);
+	}
+
+	//유저 비밀번호 찾기1
+	@Override
+	public Member selectOneIdd(Member dto) throws Exception {
+		return dao.selectOneIdd(dto);
+	}
+	
+	//유저 비밀번호 찾기2
+	@Override
+	public Member selectFindPwd(Member dto) throws Exception {
+		return dao.selectFindPwd(dto);
+	}
+
+
+
+	
 	
 	
 

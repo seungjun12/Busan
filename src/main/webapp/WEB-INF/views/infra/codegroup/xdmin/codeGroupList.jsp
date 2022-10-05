@@ -139,11 +139,11 @@
 						    		<td><c:out value="${list.ccgseq }"/></td>
 							    	<td><c:out value="${list.ccgseqOther }"/></td>
 							    	<%-- <td><c:out value="${list.ccgNameKo }"/></td> --%> 
-							    	<td><a href="javascript:goView(<c:out value="${list.ccgseq }"/>)" class="text-decoration-none"><c:out value="${list.ccgNameKo }"/></a></td> 
+							    	<td><a href="javascript:goView(<c:out value="${list.ccgseq }"/> )" class="text-decoration-none"><c:out value="${list.ccgNameKo }"/></a></td> 
 							    	<td><c:out value="${list.ccgNameEg }"/></td>
 							    	<td><c:out value="${list.ccg_seq }"/></td>
-							    	<td></td>
-							    	<td></td>
+							    	<td><c:out value="${list.ccgRegTime }"/></td>
+							    	<td><c:out value="${list.ccgModiTime }"/></td>
 							    	<td><c:out value="${list.ccgorder }"/></td>
 							    	<td><c:out value="${list.ccgdelNy }"/></td> 
 						  		</tr>

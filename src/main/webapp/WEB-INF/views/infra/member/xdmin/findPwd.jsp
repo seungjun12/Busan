@@ -9,16 +9,16 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>아이디 찾기</title>
+	<title>비밀번호 찾기</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 	<link href="/resources/css/findIdForm_style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div id="searchWrap">
-	<!-- 아이디 찾기 헤더 -->
+	<!-- 비밀번호 찾기 헤더 -->
 	<div class="popHeaderWrap">
 		<h1 class="popTitle">
-			<span>아이디 찾기</span>
+			<span>비밀번호 찾기</span>
 		</h1>
 	</div>
 	<!-- 콘텐츠 시작 -->
@@ -27,25 +27,26 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-6">				
-					<button type="button" class="btn btn-danger" id="btnIdFind">아이디 찾기</button>
+					<button type="button" class="btn btn-secondary" id="btnIdFind">아이디 찾기</button>
 				</div>	
 				<div class="col">	
-					<button type="button" class="btn btn-secondary" id="btnPwdFind">비밀번호 찾기</button>
+					<button type="button" class="btn btn-danger" id="btnPwdFind">비밀번호 찾기</button>
 				</div>
 			</div>
 		</div>
-		<!-- 아이디 찾기 영역 -->
+		<!-- 비밀번호 찾기 영역 -->
 		<div class="idsearchWrap">
 			<!-- 알림 -->
 			<div class="notiArea">
-				<span>아이디를 찾을 방법을 선택해주세요.</span>
+				<span>비밀번호를 찾을 방법을 선택해주세요.</span>
 			</div>
 			<div class="searchType">
 				<span>등록된 휴대폰번호로 찾기</span>
+				<input class="form-control" type="text" placeholder="아이디" aria-label="default input example" id="id" name="id" value="<c:out value="${dto.id }" />">
 				<input class="form-control" type="text" placeholder="이름" aria-label="default input example" id="name" name="name" value="<c:out value="${dto.name }" />">
 				<input class="form-control" type="text" placeholder="휴대폰번호" aria-label="default input example" id="number" name="number" value="<c:out value="${dto.number }" />">
 			</div>
-			<button type="button" class="btn btn-danger" id="btnFindId">확인</button>
+			<button type="button" class="btn btn-danger" id="btnFindPwd">확인</button>
 		</div>
 	</div><!-- contentesWrap end -->
 </div><!-- searchWrap end -->
@@ -55,12 +56,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>	
 	
-	var goUrlFindIdResult = "/member/findIdResult";
 	var goUrlIdFind = "/member/findId";
 	var goUrlPwdFind = "/member/findPwd";
+	var goUrlFindPwdResult = "/member/findPwdResult"
 	
-	/* 로그인 */ 
-	$("#btnFindId").on("click", function(){
+	/* 비밀번호 찾기 */ 
+	$("#btnFindPwd").on("click", function(){
 		/* if(validation() == false) return false; */
 		
 		$.ajax({
@@ -68,9 +69,9 @@
 			,cache: false
 			,type: "post"
 			/* ,dataType:"json" */
-			,url: "/member/findIdProc"
+			,url: "/member/findPwdProc"
 			/* ,data : $("#formLogin").serialize() */
-			,data : { "name" : $("#name").val(), "number" : $("#number").val(), /* "autoLogin" : $("#autoLogin").is(":checked") */}
+			,data : { "id" : $("#id").val(), "name" : $("#name").val(), "number" : $("#number").val(), /* "autoLogin" : $("#autoLogin").is(":checked") */}
 			,success: function(response) {
 				if(response.rt == "success") {
 					/* if(response.changePwd == "true") {
@@ -79,7 +80,7 @@
 						location.href = URL_INDEX_ADMIN;
 					} */
 					
-					location.href = goUrlFindIdResult;
+					location.href = goUrlFindPwdResult;
 				} else {
 					alert("회원없음");
 				}
