@@ -209,6 +209,86 @@
 						</div>
 					</div>
 				</div>
+				<div class="container-fluid codeGroupName ">
+					<div class="row">
+						<div class="col-6">
+							<label for="memberUploadedImage" class="form-label input-file-button">이미지첨부</label>
+						</div>
+						<div class="col">
+							<label for="memberUploadedFile" class="form-label input-file-button">파일첨부</label>
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupInput">
+					<div class="row">
+						<div class="col-6">
+							<input class="form-control form-control-sm" id="memberUploadedImage" name="memberUploadedImage" type="file" multiple="multiple" style="display: none;" onchange="upload('memberUploadedImage',1, 0, 1, 0, 0, 1)">
+							<div class="addScroll">
+								<ul id="ulFile1" class="list-group">
+								</ul>
+							</div>
+						</div>
+						<div class="col-6">
+							<input class="form-control form-control-sm" id="memberUploadedFile" name="memberUploadedFile" type="file" multiple="multiple" style="display: none;" onChange="upload('memberUploadedFile', 2, 0, 2, 0, 0, 2);" >
+							<div class="addScroll">
+								<ul id="ulFile2" class="list-group">
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupName ">
+					<div class="row">
+						<div class="col-6">
+							<label for="memberUploadedImage" class="form-label input-file-button">이미지첨부</label>
+						</div>
+						<div class="col">
+							<label for="memberUploadedFile" class="form-label input-file-button">파일첨부</label>
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupInput">
+					<div class="row">
+						<div class="col-6">
+							<input class="form-control form-control-sm" id="memberUploadedImage" name="memberUploadedImage" type="file" multiple="multiple" style="display: none;" onChange="upload('memberUploadedImage', 1, 0, 1, 0, 0, 1);">
+				 			<div class="addScroll">
+								<div style="display: inline-block; height: 95px;">
+									<img src="/resources/common/image/default_111.jpg" class="rounded" width= "85px" height="85px">
+									<div style="position: relative; top:-85px; left:5px"><span style="color: red;">X</span></div>
+								</div>
+				 			</div>
+						</div>
+						<div class="col-6">
+							<input class="form-control form-control-sm" id="memberUploadedFile" name="memberUploadedFile" type="file" multiple="multiple" style="display: none;" onChange="upload('memberUploadedFile', 2, 0, 2, 0, 0, 2);" >
+							<div class="addScroll">
+								<ul id="ulFile2" class="list-group">
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupName ">
+					<div class="row">
+						<div class="col-6">
+							파일첨부
+						</div>
+						<div class="col">
+							
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid codeGroupInput">
+					<div class="row">
+						<div class="col-6">
+							<input type="file">
+						</div>
+						<div class="col-6">
+							
+						</div>
+					</div>
+				</div>
+				
+				
 				</form>								
 				<div class="container-fluid lastBtn">
 					<div class="row">
