@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AdminController {
 	
-
-
+	@RequestMapping(value = "/")
+	public String starts()throws Exception{
+		return "infra/admin/xdmin/start";
+	}
 	
 	@RequestMapping(value = "admin/login")
 	public String login()throws Exception{
