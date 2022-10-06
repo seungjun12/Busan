@@ -21,7 +21,7 @@
 </head>
 <body>
 <div id="wrap">	
-	<form id="form" name="form">
+	<form method="post" name="form">
 	<!-- 상단배너 s -->
 	<%@include file="../../../common/xdmin/includeV1/topvanner.jsp"%>
 	<!-- 상단배너 e -->

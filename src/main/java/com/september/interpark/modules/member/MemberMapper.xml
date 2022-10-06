@@ -101,7 +101,7 @@
 			,(SELECT number FROM memberPhone aa WHERE 1=1 AND aa.seqOther = a.seq)as number
 		FROM member a
 		WHERE 1=1
-			AND seq = #{sessSeq}	
+			AND seq = #{seq}	
 	</select>
 	
 	<update id="update">

@@ -79,7 +79,7 @@
 			 <div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
-							<input class="form-control" type="text" placeholder="코드그룹 이름(한글)" aria-label="default input example">
+							<input class="form-control" type="text" placeholder="코드그룹 " aria-label="default input example">
 						</div>
 						<div class="col">
 						<input class="form-control" type="text" placeholder="영문(대소문자),숫자" aria-label="default input example">
@@ -104,6 +104,7 @@
 						</div>
 						<div class="col">
 							<input class="form-control" type="text" placeholder="영문(대소문자),숫자" aria-label="default input example" id="ccgNameEg" name="ccgNameEg" value="<c:out value="${dto.ccgNameEg }"/>">
+							<div class="invalid-feedback" id="ccgNameEgFeedback"></div>
 						</div>
 					</div>
 				</div>
@@ -171,7 +172,8 @@
 							<input type="radio" id="test3" name="test" value="3">test3
 						</div>
 						<div class="col-6">
-							<input class="form-control" type="text"  aria-label="default input example" value="<c:out value="${item.ccgNameKo }"/>">
+							<button type="button" class="btn btn-danger">이미지 첨부</button>
+							<input type="text">
 						</div>
 					</div>
 				</div>

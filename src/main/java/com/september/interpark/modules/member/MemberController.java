@@ -214,7 +214,7 @@ public class MemberController {
 	
 	//유저 회원정보수정가기
 	@RequestMapping(value = "informationMod")
-	public String informationMod(@ModelAttribute MemberVo vo , Model model)throws Exception{
+	public String informationMod(@ModelAttribute("vo") MemberVo vo , Model model)throws Exception{
 		Member item = service.selectMember(vo);
 		model.addAttribute("item", item);
 		 return "infra/member/xdmin/informationMod";

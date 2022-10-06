@@ -36,7 +36,7 @@
 			<!-- 왼쪽배너 e -->
 				<!-- 오른쪽 영역 -->
 				<form name="mform" id="mform" method="post">
-				<input type="hidden"  name="sessSeq" id="sessSeq" value="<c:out value="${sessSeq }"/>">
+				<%-- <input type="hidden"  name="sessSeq" id="sessSeq" value="<c:out value="${sessSeq }"/>"> --%>
 				<div class="rightWrap">
 					<div class="modifyWrap">
 						<div class="memberHead">
@@ -213,7 +213,7 @@
 	var goUrlIndex = "/main/index";
 	var goUrlMemberUpdate = "/member/memberUpdate"
 	
-	var seq = $("input:hidden[name=sessSeq]");
+	var seq = $("input:hidden[name=seq]");
 	var form = $("form[name=mform]");
 	
 	$("#btnInformationMod").on("click",function(){

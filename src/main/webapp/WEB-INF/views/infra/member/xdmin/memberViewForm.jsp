@@ -25,8 +25,8 @@
 	<%@include file="../../../common/xdmin/includeV1/viewTopVanner.jsp"%>
 	<!-- 중간배너 e -->
 	<!-- 메인 시작 -->
-	<form id="MForm" name="MForm">
-	<input type="hidden" id="sessSeq" name="sessSeq">
+	<form method="post" name="form">
+	<input type="hidden" name="seq" value="<c:out value="${sessSeq }" />">
 	<div class="mainWrap">	
 		<div id="openIdWrap">
 			<div class="logoTop">
@@ -137,8 +137,8 @@
 	var goUrlPwdMod = "/member/pwdMod"
 	var goUrlIndex = "/main/index";
 	
-	var seq = $("input:hidden[name=sessSeq]")
-	var form = $("form[name=MForm]");
+	var seq = $("input:hidden[name=seq]")
+	var form = $("form[name=form]");
 	
 	$("#btnInformationMod").on("click",function(){
 		$(location).attr("href",goUrlInformationMod);
@@ -156,7 +156,7 @@
 	goInformation = function(seqValue){
 		seq.val(seqValue);
 		form.attr("action" ,goUrlInformationMod).submit();
-	};
+	}
 	
 	/* goPwdMod = function(seqValue){
 		seq.val(seqValue);
