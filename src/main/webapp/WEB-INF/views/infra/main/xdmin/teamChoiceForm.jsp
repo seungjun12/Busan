@@ -18,6 +18,7 @@
 </head>     
 <body>
 <div id="wrap">	
+	<form id="form" name="form" method="post">
 	<!-- 상단배너 s -->
 	<%@include file="../../../common/xdmin/includeV1/topvanner.jsp"%>
 	<!-- 상단배너 e -->
@@ -141,7 +142,7 @@
 	<!-- 푸터 e -->
 	
 	
-	
+	</form>
 </div> <!-- wrap end -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -153,6 +154,9 @@
 	var goUrlMemberView = "/member/memberViewForm";
 	var goUrlRegisterConfirm ="/member/registerConfirm";
 	var goUrlTeamChoice = "/main/teamChoice";
+	
+	var seq = $("input:hidden[name=sessSeq]");
+	var form = $("form[name=form]");
 	
 		$(".btnLogin").on("click",function(){
 			$(location).attr("href",goUrlLogin);

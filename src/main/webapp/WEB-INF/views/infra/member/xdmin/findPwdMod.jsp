@@ -23,6 +23,7 @@
 	</div>
 	<!-- 콘텐츠 시작 -->
 	<form id="form" name="form" method="post">
+	<input type="hidden"  name="sessSeq" id="sessSeq" value="<c:out value="${sessSeq }"/>">
 		<div class="contentsWrap">
 			<!-- 아이디 비번 탭 -->
 			<div class="container-fluid">
@@ -46,7 +47,7 @@
 	  					<div>새 비밀번호</div>
 	  					<input class="form-control" placeholder="새 비밀번호" 
 	  					type="password" aria-label="default input example"
-	  					id="pwd" value="<c:out value="${dto.pwd }" />">
+	  					id="pwd" name="pwd" value="<c:out value="${item.pwd }" />">
 	  					<div id="pwdFeedback2"></div>
 	  					<div>새 비밀번호확인</div>
 	  					<input class="form-control" placeholder="새 비밀번호 확인" 
@@ -55,7 +56,7 @@
 	  					<div id="pwdFeedback"></div>
 					</div>
 				</div>
-				<button type="button" class="btn btn-danger" id="btnPwdMod" onclick="popupClose()" style="margin-top: 30px;">비밀번호 변경</button>
+				<button type="button" class="btn btn-danger" id="btnPwdMod" style="margin-top: 30px;">비밀번호 변경</button>
 			</div>
 		</div><!-- contentesWrap end -->
 	</form>
@@ -68,7 +69,7 @@
 	
 	<script>
 	
-	var goUrlPwdMod = "/member/findPwdModify";
+	
 	
 	
 	//비밀번호 조건 확인
@@ -116,7 +117,11 @@
 		}
 	});
 	
-	//새비밀번호 변경
+		var goUrlPwdMod = "/member/findPwdModify";
+		var form = $("form[name=form]");
+		var seq = $("input:hidden[name=sessSeq]");
+		
+		//새비밀번호 변경
 		
 		$("#btnPwdMod").on("click",function(){
 			form.attr("action",goUrlPwdMod).submit();

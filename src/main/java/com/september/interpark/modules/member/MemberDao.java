@@ -106,8 +106,11 @@ public class MemberDao {
 		return reglist;
 	}
 	
-	//회원정보 수정
-	public int memberUpdate(Member dto) {return sqlSession.update(namespace + ".memberUpdate", dto);}
+	//회원정보 수정1
+	public int memberUpdate1(Member dto) {return sqlSession.update(namespace + ".memberUpdate1", dto);}
+	
+	//회원정보 수정2
+	public int memberUpdate2(Member dto) {return sqlSession.update(namespace +".memberUpdate2", dto);}
 	
 	//아이디 찾기1
 	public Member selectOneName(Member dto) {

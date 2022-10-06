@@ -53,7 +53,8 @@
 						<%-- <c:out value="${sessSeq }"/> --%>
 						<%-- <input type="hidden" id="seq" name="seq" value="<c:out value="${item.seq }"/>"> --%>
 						<div class="pwdModify">
-							<input class="form-control" type="password" placeholder="새 비밀번호" aria-label="default input example"  name="pwd" value="<c:out value="${item.pwd }"/>">
+							<input class="form-control" type="password" placeholder="새 비밀번호" aria-label="default input example" id="pwd" name="pwd" value="<c:out value="${item.pwd }"/>">
+							<div id="pwdFeedback2"></div>
 							<p>  영문,숫자,특수문자 8~12자로 입력해주세요</p>
 						</div>
 						<!-- 새 비밀번호 확인 -->
@@ -148,6 +149,27 @@
 	$("#btnMemberView").on("click",function(){
 		$(location).attr("href",goUrlMemberView);
 	});
+	
+	//비밀번호 조건 확인
+	$("#pwd").on("focusout",function(key){
+		var regExp = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+		var p1 = $("#pwd").val();
+		
+		if(p1.match(regExp) == null){
+			document.getElementById("pwd").classList.add('is-invalid');
+			document.getElementById("pwd").classList.remove('is-valid');
+			
+			document.getElementById("pwdFeedback2").innerText = "비밀번호 조건에 맞지 않습니다.";
+			document.getElementById("pwdFeedback2").classList.remove('valid-feedback');
+			document.getElementById("pwdFeedback2").classList.add('invalid-feedback');
+			$("#pwd2").attr('readonly',true);
+		}else{
+			document.getElementById("pwd").classList.remove('is-invalid');
+			document.getElementById("pwd").classList.add('is-valid');
+			$("#pwd2").attr('readonly',false);
+		}
+		
+	})
 	
 	$("#pwd2").on("keyup",function(key){
 		var p1 = document.getElementById('pwd').value;

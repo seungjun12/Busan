@@ -199,7 +199,6 @@
 								<span type="button" class="btn btn-primary" onclick="test();" ><!-- 등록 버튼 -->
 									<i class="fa-solid fa-plus"></i>
 								</span>						
-							<span style="cursor: pointer;"> span연습용</span>
 						</div>
 					</div>
 				</div>

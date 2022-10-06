@@ -21,8 +21,7 @@
 </head>
 <body>
 <div id="wrap">	
-	<form id="indexForm" name="indexForm">
-	<input type="hidden" id="sessSeq" name="sessSeq">
+	<form id="form" name="form">
 	<!-- 상단배너 s -->
 	<%@include file="../../../common/xdmin/includeV1/topvanner.jsp"%>
 	<!-- 상단배너 e -->
@@ -174,7 +173,7 @@
 	
 	
 	var seq = $("input:hidden[name=sessSeq]");
-	var indexForm = $("form[name=indexForm]");
+	var form = $("form[name=form]");
 	
 		
 	

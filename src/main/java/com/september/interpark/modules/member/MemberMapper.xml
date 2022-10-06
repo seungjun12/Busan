@@ -248,8 +248,8 @@
 			AND regmember_seq = #{sessSeq}	
 	</select>
 	
-	<!-- 회원 정보 수정 -->
-	<update id="memberUpdate">
+	<!-- 회원 정보 수정1 -->
+	<update id="memberUpdate1">
 		UPDATE member
 		SET
 			name = #{name}
@@ -257,6 +257,15 @@
 		WHERE
 			seq = #{sessSeq}	
 	</update>	
+	
+	<!-- 회원 정보 수정2 -->
+	<update id="memberUpdate2">
+		UPDATE memberPhone
+		SET
+			number=#{number}
+		WHERE
+			phmember_seq = #{sessSeq}	
+	</update>
 	
 	<!-- 아이디찾기1 -->
 	<select id="selectOneName" resultMap="resultMapObj">

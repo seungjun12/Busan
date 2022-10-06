@@ -22,7 +22,7 @@
 </head>
 <body>
 <div>	
-	<form>
+	<form id="form" name="form" method="post">
 	<!-- 상단배너 s -->
 	<%@include file="../../../common/xdmin/includeV1/topvanner.jsp"%>
 	<!-- 상단배너 e -->
@@ -84,7 +84,7 @@
 						<!-- 게임 날짜 -->
 						<div class="gameDate">
 							<span class="fontDate"> <c:out value="${list.dob }"/></span>
-							<span class="fontWeak">(수)</span>
+							<!-- <span class="fontWeak">(수)</span> -->
 						</div>
 						<!-- 게임 시간 -->
 						<div class="gameTime">
@@ -147,13 +147,15 @@
 		</div><!-- sportsDetailContents end -->
 		<!-- 밑에 설명영역 탭 -->
 		<div class="sportsTabWrapper tabModule">
-			<ul>
-				<li class="tab-link current active" data-tab-target="#tab1"><span>예매/관람안내</span>
-				<li class="tab-link" data-tab-target="#tab2"><span>좌석도/가격</span>
-				<li class="tab-link" data-tab-target="#tab3"><span>예매TIP</span>
+			<div class="tabWrapper">
+			<ul class="tabWrap">
+				<li class="active" onclick="fnShowTabIframe(1,'');" id="SportsTab1"><span>예매/관람안내</span>
+				<li class onclick="fnShowTabIframe(2,'');" id="SportsTab2"><span>좌석도/가격</span>
+				<li class onclick="fnShowTabIframe(4,'');" id="SportsTab4"><span>예매TIP</span>
 			</ul>	
+			</div>
 			<!-- 예매/관람안내 -->
-			<div class="tabContentsWrapper tab-content current" id="tab1">
+			<div class="tabContentsWrapper>
 				<div class="tabcontentsWrap current">
 				<h3><b>예매안내</b></h3>
 				<div class="dataContents">	
@@ -248,9 +250,8 @@
 					</div>
 				</div>
 			</div>
+		</div>
 		
-		
-		</div>	
 		
 		
 	
@@ -303,59 +304,48 @@
 	});
         
 </script>
-<script langauge="javascript">
-	/* function popup(){
-		var url="seatChoiceForm.html";
-		var option="width544px, height=300px, top=200px"
-		window.open(url,"",option);
+
+<script>
+jQuery(window).load(function () {
+    var Test = jQuery("#TestParam").val();
+    var DefaultTab = jQuery("#DefaultTab").val();
+
+    jQuery("#CurrentPage").val("0");
+    GetGoodsInfoList("N");
+    fnShowTabIframe(DefaultTab, Test);
+	sportsTabsClick(jQuery("#SportsTab" + DefaultTab));
+
+	// 예매내역보기 클릭 시 응답하기 위한 PostMessage event 주입
+	if (typeof window.addEventListener != 'undefined') {
+		window.addEventListener('message', fnRedirectMyPage);
+	} else if (typeof window.attachEvent != 'undefined') {
+		window.attachEvent('onmessage', fnRedirectMyPage);
 	}
-	 */
-	 
-/* 	 window.onload = function(){
-			getImage();	// 이미지 가져오기
-			
-			document.querySelector('#check').addEventListener('click', function(){
-				var params = {answer : document.querySelector('#answer').getAttribute('value')};
-				AF.ajax('${ctx}/chkAnswer.do', params, function(returnData){
-					if(returnData == 200){
-						alert('입력값이 일치합니다.');
-						// 성공 코드
-					}else{
-						alert('입력값이 일치하지 않습니다.');
-						getImage();
-						document.querySelector('#answer').setAttribute('value', '');
-					}
-				}, 'json');
-			});
-		}
-		/*매번 랜덤값을 파라미터로 전달하는 이유 : IE의 경우 매번 다른 임의 값을 전달하지 않으면 '새로고침' 클릭해도 정상 호출되지 않아 이미지가 변경되지 않는 문제가 발생된다*/
-		function audio(){
-			var rand = Math.random();
-			var uAgent = navigator.userAgent;
-			var soundUrl = '${ctx}/captchaAudio.do?rand='+rand;
-			if(uAgent.indexOf('Trident')>-1 || uAgent.indexOf('MISE')>-1){	/*IE 경우 */
-				audioPlayer(soundUrl);
-			}else if(!!document.createElement('audio').canPlayType){ /*Chrome 경우 */
-				try {
-					new Audio(soundUrl).play();
-				} catch (e) {
-					audioPlayer(soundUrl);
-				}
-			}else{
-				window.open(soundUrl,'','width=1,height=1');
-			}
-		}
-		function getImage(){
-			var rand = Math.random();
-			var url = '${ctx}/captchaImg.do?rand='+rand;
-			document.querySelector('img').setAttribute('src', url);
-		}
-		function audioPlayer(objUrl){
-			document.querySelector('#ccaudio').innerHTML = '<bgsoun src="' +objUrl +'">';
-		} */
-		
-	
+});
+
+//예매/관람안내, 좌석도/가격, 예매TIP 세팅
+function fnShowTabIframe(strTabNo, test) {
+    var strTeamCode = jQuery("#TeamCode").val();
+    jQuery.ajax({
+        type: "post",
+        url: "/Contents/Sports/GoodsInfoContents",
+        data: "strTeamCode=" + strTeamCode + "&strTabNo=" + strTabNo + "&Test=" + test,
+        dataType: "html",
+        success: function (data) {
+            var ContentsHtml = data;
+            if (strTabNo != "4") {
+                jQuery(".tabContentsWrapper").html("").html(jQuery(ContentsHtml).filter(".wrap").html());
+            }
+            else {
+                jQuery(".tabContentsWrapper").html("").html(ContentsHtml);
+            }
+        }
+    });
+
+    return;
+}
 </script>
+
 <script src="src/index.js"></script>
 </body>
 </html>

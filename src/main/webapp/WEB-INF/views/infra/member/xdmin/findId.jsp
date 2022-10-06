@@ -59,7 +59,7 @@
 	var goUrlIdFind = "/member/findId";
 	var goUrlPwdFind = "/member/findPwd";
 	
-	/* 로그인 */ 
+	/* 아이디 찾기 */ 
 	$("#btnFindId").on("click", function(){
 		/* if(validation() == false) return false; */
 		

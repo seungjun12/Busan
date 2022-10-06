@@ -118,9 +118,16 @@ public class MemberServiceImpl implements MemberService{
 		return reglist;
 	}
 
+	//회원정보 수정 1
 	@Override
-	public int memberUpdate(Member dto) throws Exception {
-		return dao.memberUpdate(dto);
+	public int memberUpdate1(Member dto) throws Exception {
+		return dao.memberUpdate1(dto);
+	}
+	
+	//회원정보 수정2
+	@Override
+	public int memberUpdate2(Member dto)throws Exception {
+		return dao.memberUpdate2(dto);
 	}
 
 	//유저 아이디 찾기1

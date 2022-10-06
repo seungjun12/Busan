@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <div id="topGnbbg">
+<input type="hidden" id="sessSeq" name="sessSeq">
 		<!-- 최상단 배너 -->
 		<div id="topGnb">
 			<ul class="nav nav-tabs">
@@ -92,7 +93,7 @@
 		
 		goRegisterConfirm = function(seqValue){
 			seq.val(seqValue);
-			indexForm.attr("action" , goUrlRegisterConfirm).submit();
+			form.attr("action" , goUrlRegisterConfirm).submit();
 		};
 	
 		</script>	

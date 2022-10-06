@@ -262,7 +262,8 @@ public class MemberController {
 	//유저 회원정보수정
 	@RequestMapping(value = "memberUpdate")
 	public String memberUpdate(Member dto)throws Exception{
-		service.memberUpdate(dto);
+		service.memberUpdate1(dto);
+		service.memberUpdate2(dto);
 		return "redirect:/member/memberViewForm";
 	}
 	
@@ -398,7 +399,7 @@ public class MemberController {
 		@RequestMapping(value = "findPwdModify")
 		public String findPwdModify(Member dto)throws Exception{
 			service.pwdUpdate(dto);
-			return "infra/member/xdmin/findPwdResult";
+			return "infra/member/xdmin/findPwdEnd";
 		}
 		
 		

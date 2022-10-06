@@ -46,7 +46,11 @@ public interface MemberService {
 	
 	public List<Member> selectRegister(MemberVo vo)throws Exception;
 	
-	public int memberUpdate(Member dto) throws Exception;
+	//회원정보 수정1
+	public int memberUpdate1(Member dto) throws Exception;
+	
+	//회원정보 수정1
+	public int memberUpdate2(Member dto)throws Exception;
 	
 	//유저 아이디 찾기1 
 	public Member selectOneName(Member dto)throws Exception;

@@ -18,6 +18,7 @@
 </head>
 <body>
 <div id="wrap">	
+	<form id="form" name="form" method="post">
 	<!-- 상단배너 s -->
 	<%@include file="../../../common/xdmin/includeV1/topvanner.jsp"%>
 	<!-- 상단배너 e -->
@@ -89,7 +90,7 @@
 	<%@include file="../../../common/xdmin/includeV1/footer.jsp"%>
 	<!-- 푸터 e -->
 	
-	
+	</form>
 </div> <!-- wrap end -->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
