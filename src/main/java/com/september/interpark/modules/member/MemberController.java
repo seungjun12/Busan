@@ -391,6 +391,13 @@ public class MemberController {
 		//비밀번호 찾기 결과화면
 		@RequestMapping(value = "findPwdResult")
 		public String findPwdResult()throws Exception{
+			return "infra/member/xdmin/findPwdMod";
+		}
+		
+		//비밀번호 찾기_새로운비밀번호
+		@RequestMapping(value = "findPwdModify")
+		public String findPwdModify(Member dto)throws Exception{
+			service.pwdUpdate(dto);
 			return "infra/member/xdmin/findPwdResult";
 		}
 		
