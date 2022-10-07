@@ -280,7 +280,7 @@
 				<div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
-							<input type="file" id="img1" name="img1" multiple="multiple" onchange="upload('img1',1)">
+							<input type="file" id="img1" name="img1" multiple="multiple" onchange="upload('img1',1,1)">
 						</div>
 						<div class="col-6">
 							

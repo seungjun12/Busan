@@ -299,12 +299,10 @@
 		
 		//
 		
-//		upload = function(objName , seq, allowedMaxTotalFileNumber ,allowedExtdiv , allowedEachFileSize ){
+		upload = function(objName , seq, allowedMaxTotalFileNumber ,allowedExtdiv , allowedEachFileSize ){
 			//var obj =document.getElementById('img1').files;
 			//var obj = $("input[name=img1]")[0].files;
-			//var obj2 = $("input[name=memberUploadedImage]")[0].files;
-//			var obj = $("#" + objName +"")[0].files;
-//			var fileCount = obj.length;
+			//var obj2 = $("input[name=memberUploadedImage]")[0].files;			var obj = $("#" + objName +"")[0].files;
 			//var obj2 = $("input[naem=memberUploadedImage]")[0].files;
 			
 			//alert(obj);
@@ -314,15 +312,19 @@
 			//	alert(obj[i].name + ":" + obj[i].size);
 			//}
 			
-//			var totalFileSize=0;
-//			var fileCount =obj.length;
+			var totalFileSize=0;
+			var obj = $("#" + objName +"")[0].files;
+			var fileCount =obj.length;
 			
-//			if(fileCount >allowedMaxTotalFileNumber){
-//				alert("파일 갯수 초과");
-//				return false;
-//			}else{
-//				alert("괜찮아요!")
-//			};
+			allowedMaxTotalFileNumber = allowedMaxTotalFileNumber == 0 ? MAX_TOTAL_FILE_NUMBER :allowedMaxTotalFileNumber;
+			allowedEachFileSize = allowedEachFileSize == 0? MAX_EACH_FILE_SIZE :allowedEachFileSize;
+			
+			if(fileCount >allowedMaxTotalFileNumber){
+				alert("파일 갯수 초과");	
+				return false;
+			}else{
+				alert("괜찮아요!")
+			};
 			
 			
 			
