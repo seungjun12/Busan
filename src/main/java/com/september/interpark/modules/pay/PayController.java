@@ -1,32 +1,29 @@
 package com.september.interpark.modules.pay;
 
-import java.util.Locale;
-
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
+@RequestMapping(value = "/pay/")
 public class PayController {
 
-	@RequestMapping(value = "/priceSelect", method = RequestMethod.GET)
-	public String priceSelectForm(Locale locale, Model model) {
+	@RequestMapping(value = "priceSelect")
+	public String priceSelectForm()throws Exception {
 		return "infra/pay/xdmin/priceSelectForm";
 	}
 	
-	@RequestMapping(value = "/delivery", method = RequestMethod.GET)
-	public String deliveryForm(Locale locale, Model model) {
+	@RequestMapping(value = "delivery")
+	public String deliveryForm()throws Exception {
 		return "infra/pay/xdmin/deliveryForm";
 	}
 	
-	@RequestMapping(value = "/pay", method = RequestMethod.GET)
-	public String payForm(Locale locale, Model model) {
+	@RequestMapping(value = "pay")
+	public String payForm()throws Exception {
 		return "infra/pay/xdmin/payForm";
 	}
 	
-	@RequestMapping(value = "/payComplete", method = RequestMethod.GET)
-	public String payCompleteForm(Locale locale, Model model) {
+	@RequestMapping(value = "payComplete")
+	public String payCompleteForm()throws Exception {
 		return "infra/pay/xdmin/payCompleteForm";
 	}
 }

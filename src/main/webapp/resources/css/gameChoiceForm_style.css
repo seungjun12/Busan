@@ -1,6 +1,4 @@
-body * {
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, "맑은 고딕", "Malgun Gothic", "돋움", Dotum, Helvetica, "Apple SD Gothic Neo", sans-serif;
-}
+
 
 #topGnbbg{
 	background: #ededf3;
@@ -55,7 +53,6 @@ body * {
 
 .wrap{
 	background: #eee;
-	text-align: left;
 }
 
 .sportsDetailHeader{
@@ -225,7 +222,7 @@ body * {
 	float: left;
 	width: 145px;
 	height: 120px;
-	margin-right: 22px;
+	margin-right: 49px;
 }
 
 .modal-footer >button{
@@ -288,7 +285,7 @@ button > a{
 	font-size: 13px;
 }
 
-.sportsTabWrapper{
+ .sportsTabWrapper{
 	width: 960px;
 	padding-bottom: 40px;
 	background-color: #fff;
@@ -296,19 +293,40 @@ button > a{
 	margin: auto;
 }
 
-.sportsTabWrapper .tabWrapper ul.tabWrap {
+.sportsTabWrapper  ul.tabWrap {
     display: table;
     width: 100%;
     height: 60px;
     background-color: #2f323b;
     table-layout: fixed;
+} 
+
+.tabWrapper > ul{
+	list-style: none;
+	text-align: center;
+	
 }
 
-.sportsTabWrapper .tabContentsWrapper {
-    padding: 40px 40px 0;
+.tabWrapper > ul > li{
+	display: table-cell;
+	vertical-align: middle;
+	margin-right: 30px;
+	cursor: pointer;
 }
 
-.sportsTabWrapper .tabContentsWrapper .tabcontentsWrap.current {
+.tabWrap{
+	padding-left: 0px;
+}
+
+.active{
+	background-color: #fff;
+}
+
+.tabContentsWrapper {
+   	padding: 40px 40px 0;
+}
+
+/* .sportsTabWrapper .tabContentsWrapper .tabcontentsWrap.current {
     display: block;
 }
 
@@ -368,8 +386,8 @@ button > a{
 
 .dataContents > p{
 	height: 24px;
-	font-size: 13px;
-}
+	font-size: 13px; 
+}  */ */
 
 
 

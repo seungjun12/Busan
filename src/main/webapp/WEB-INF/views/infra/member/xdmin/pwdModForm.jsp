@@ -17,6 +17,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
+<form id="mform" name="mform" method="post" >
 <div id="wrap">	
 	<!-- 상단배너 s -->
 	<%@include file="../../../common/xdmin/includeV1/topvanner.jsp"%>
@@ -35,8 +36,7 @@
 			<%@include file="../../../common/xdmin/includeV1/viewLeftVanner.jsp"%>
 			<!-- 왼쪽배너 e -->
 				<!-- 오른쪽 영역 -->
-				<form id="mform" name="mform" method="post" >
-				<input type="hidden"  name="sessSeq" id="sessSeq" value="<c:out value="${sessSeq }"/>">
+				
 				<div class="rightWrap">
 					<div class="modifyWrap">
 						<div class="memberHead">

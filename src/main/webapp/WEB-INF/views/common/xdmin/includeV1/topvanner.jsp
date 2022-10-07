@@ -1,6 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <div id="topGnbbg">
-<input type="hidden" id="sessSeq" name="sessSeq">
+<input type="hidden"  name="sessSeq" value="${sessSeq }"> 
+<input type="hidden"  name="sessId" value="${sessId }">
+<input type="hidden"  name="sessName" value="${sessName }">
+<input type="hidden"  name="sessEmail" value="${sessEmail }">
+<input type="hidden"  name="sessDob" value="${sessDob }">
+<input type="hidden"  name="sessGender" value="${sessGender }">
+<input type="hidden"  name="sessPersonalAgree" value="${sessPersonalAgree }">
+<input type="hidden"  name="sessPwd" value="${sessPwd }">
+<input type="hidden"  name="sessAdminDiv" value="${sessAdminDiv }">
 		<!-- 최상단 배너 -->
 		<div id="topGnb">
 			<ul class="nav nav-tabs">

@@ -222,7 +222,7 @@
 				<div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
-							<input class="form-control form-control-sm" id="memberUploadedImage" name="memberUploadedImage" type="file" multiple="multiple" style="display: none;" onchange="upload('memberUploadedImage',1, 0, 1, 0, 0, 1)">
+							<input class="form-control form-control-sm" id="memberUploadedImage" name="memberUploadedImage" type="file" multiple="multiple" style="display: none;" onchange="upload('memberUploadedImage',2)">
 							<div class="addScroll">
 								<ul id="ulFile1" class="list-group">
 								</ul>
@@ -259,7 +259,7 @@
 				 			</div>
 						</div>
 						<div class="col-6">
-							<input class="form-control form-control-sm" id="memberUploadedFile" name="memberUploadedFile" type="file" multiple="multiple" style="display: none;" onChange="upload('memberUploadedFile', 2, 0, 2, 0, 0, 2);" >
+							<input class="form-control form-control-sm" id="memberUploadedFile" name="memberUploadedFile" type="file" multiple="multiple" style="display: none;">
 							<div class="addScroll">
 								<ul id="ulFile2" class="list-group">
 								</ul>
@@ -280,14 +280,14 @@
 				<div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
-							<input type="file">
+							<input type="file" id="img1" name="img1" multiple="multiple" onchange="upload('img1',1)">
 						</div>
 						<div class="col-6">
 							
 						</div>
 					</div>
 				</div>
-				
+				<span type="button" class="btn btn-secondary" >이미지첨부 확인버튼</span>
 				
 				</form>								
 				<div class="container-fluid lastBtn">
