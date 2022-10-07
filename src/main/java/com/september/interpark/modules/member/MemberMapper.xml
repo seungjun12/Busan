@@ -149,6 +149,7 @@
 			,emailCode
 			,delNy
 			,email
+			,adminDiv
 		)
 		VALUES(
 			#{id}
@@ -163,6 +164,7 @@
 			,#{emailCode}
 			,#{delNy}
 			,#{email}
+			,1
 		)
 		<selectKey resultType="String" keyProperty="seq" order="AFTER">
 			SELECT last_insert_id()

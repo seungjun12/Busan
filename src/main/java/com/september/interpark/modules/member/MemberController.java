@@ -296,9 +296,9 @@ public class MemberController {
 		return "infra/member/xdmin/findId";
 	}
 	
-	//유저 회원정보수정
+	//유저 회원정보수정  수정하자 마자 정보 변경되게 만들어야하는데
 	@RequestMapping(value = "memberUpdate")
-	public String memberUpdate(Member dto)throws Exception{
+	public String memberUpdate(Member dto , HttpSession httpSession)throws Exception{
 		service.memberUpdate1(dto);
 		service.memberUpdate2(dto);
 		return "redirect:/member/memberViewForm";
