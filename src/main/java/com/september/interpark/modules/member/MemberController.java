@@ -190,6 +190,43 @@ public class MemberController {
 		return returnMap;
 	}	
 	
+	//관리자 로그인하기
+		@ResponseBody
+		@RequestMapping(value = "loginProcAdmin")
+		public Map<String, Object> loginProcAdmin(Member dto, HttpSession httpSession) throws Exception {
+			Map<String, Object> returnMap = new HashMap<String, Object>();
+
+			Member rtMember = service.selectOneId(dto);
+
+			if (rtMember != null) {
+				Member rtMember2 = service.selectOneLoginAdmin(dto);
+
+				if (rtMember2 != null) {
+					
+					
+					httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE); // 60second * 30 = 30minute
+					httpSession.setAttribute("sessSeq", rtMember2.getSeq());
+					httpSession.setAttribute("sessId", rtMember2.getId());
+					httpSession.setAttribute("sessName", rtMember2.getName());
+					httpSession.setAttribute("sessEmail", rtMember2.getEmail());
+					httpSession.setAttribute("sessDob", rtMember2.getDob());
+					httpSession.setAttribute("sessGender", rtMember2.getGender());
+					httpSession.setAttribute("sessPersonal", rtMember2.getPersonalAgree());
+					httpSession.setAttribute("sessPwd", rtMember2.getPwd());
+					
+					 
+					returnMap.put("rt", "success");
+				} else {
+
+					returnMap.put("rt", "fail");
+				}
+			} else {
+				
+				returnMap.put("rt", "fail");
+			}
+			return returnMap;
+		}
+	
 	//로그아웃 연습
 	/*
 	 * @ResponseBody

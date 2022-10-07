@@ -18,6 +18,7 @@ public class Member {
 	private String addressCode;
 	private Integer delNy;
 	private String sessSeq;
+	private Integer adminDiv;
 	
 	// registerConfirm
 	private String regseq;
@@ -201,6 +202,12 @@ public class Member {
 	}
 	public void setMpSeq(String mpSeq) {
 		this.mpSeq = mpSeq;
+	}
+	public Integer getAdminDiv() {
+		return adminDiv;
+	}
+	public void setAdminDiv(Integer adminDiv) {
+		this.adminDiv = adminDiv;
 	}
 	
 	

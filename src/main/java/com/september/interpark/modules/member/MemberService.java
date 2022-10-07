@@ -33,10 +33,14 @@ public interface MemberService {
 	//유저 회원가입2
 	public int register2(Member dto)throws Exception;
 	
-	//유저 로그인1
+	//로그인
 	public Member selectOneId(Member dto) throws Exception;
+	
 	//유저 로그인2
 	public Member selectOneLogin(Member dto) throws Exception;
+	
+	//관리자 로그인
+	public Member selectOneLoginAdmin(Member dto)throws Exception;
 	
 	/* public Member selectMember(MemberVo vo)throws Exception; */
 	

@@ -190,6 +190,7 @@
 		FROM member WHERE id = #{id}
 	</select>
 	
+	<!-- 로그인 -->
 	<select id="selectOneId" resultMap="resultMapObj">
 		SELECT
 			a.seq
@@ -200,6 +201,7 @@
 			AND a.id = #{id}		
 	</select>
 	
+	<!-- 유저 로그인 -->
 	<select id="selectOneLogin" resultMap="resultMapObj">
 		SELECT
 			a.seq
@@ -210,11 +212,33 @@
 			,a.gender
 			,a.personalAgree
 			,a.pwd
+			,a.adminDiv
 		FROM
 			member a
 		WHERE 1=1 
 			AND a.id = #{id}
-			<if test="pwd != null and !pwd.equals('')">AND a.pwd = #{pwd}</if> 		
+			<if test="pwd != null and !pwd.equals('')">AND a.pwd = #{pwd}</if>
+			AND a.adminDiv = 1 		
+	</select>
+	
+	<!-- 관리자 로그인 -->
+	<select id="selectOneLoginAdmin" resultMap="resultMapObj">
+		SELECT
+			a.seq
+			,a.id
+			,a.name
+			,a.email
+			,a.dob
+			,a.gender
+			,a.personalAgree
+			,a.pwd
+			,a.adminDiv
+		FROM
+			member a
+		WHERE 1=1 
+			AND a.id = #{id}
+			<if test="pwd != null and !pwd.equals('')">AND a.pwd = #{pwd}</if>
+			AND a.adminDiv = 2 		
 	</select>
 
 <!-- 	<select id="selectMember" resultMap="resultMapObj">

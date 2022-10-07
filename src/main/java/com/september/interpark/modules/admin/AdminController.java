@@ -12,12 +12,12 @@ public class AdminController {
 		return "infra/admin/xdmin/start";
 	}
 	
-	@RequestMapping(value = "admin/login")
+	@RequestMapping(value = "/admin/login")
 	public String login()throws Exception{
 		return "infra/admin/xdmin/login";
 	}
 	
-	@RequestMapping(value = "admin/home")
+	@RequestMapping(value = "/admin/home")
 	public String home()throws Exception{
 		return "infra/admin/xdmin/home";
 	}

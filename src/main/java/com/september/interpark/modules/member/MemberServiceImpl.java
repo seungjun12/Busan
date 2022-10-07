@@ -87,18 +87,24 @@ public class MemberServiceImpl implements MemberService{
 		return dao.register2(dto);
 	}
 
+	//로그인
 	@Override
 	public Member selectOneId(Member dto) throws Exception {
 		return dao.selectOneId(dto);
 	}
 
-	
-
+    //유저 로그인
 	@Override
 	public Member selectOneLogin(Member dto) throws Exception {
 		return dao.selectOneLogin(dto);
 	}
-
+	
+	//관리자 로그인
+	@Override
+	public Member selectOneLoginAdmin(Member dto) throws Exception {
+		return dao.selectOneLoginAdmin(dto);
+	}
+	
 	@Override
 	public int pwdUpdate(Member dto) throws Exception {
 		return dao.pwdUpdate(dto);

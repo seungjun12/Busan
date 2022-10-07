@@ -40,6 +40,7 @@
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
+                        <form method="post">
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
                             <div class="col-lg-6">
@@ -50,12 +51,12 @@
                                     <form class="user">
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="ID">
+                                                id="id" name="id" aria-describedby="emailHelp"
+                                                placeholder="ID" value="<c:out value="${dto.id }"/>">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                                id="pwd" name="pwd" placeholder="Password" value="<c:out value="${dto.pwd }"/>">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -65,7 +66,7 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <button type="button" id="btnHome" class="btn btn-primary btn-user btn-block">
+                                        <button type="button" id="btnLoginAdmin" class="btn btn-primary btn-user btn-block">
                                             로그인
                                         </button>
                                         <hr>
@@ -89,6 +90,7 @@
                                 </div>
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
 
@@ -101,9 +103,37 @@
     <script>
     	var goUrlHome ="/admin/home"
     		
-    		$("#btnHome").on("click",function(){
-    			$(location).attr("href",goUrlHome);
+   
+    	/* 로그인 */ 
+    	$("#btnLoginAdmin").on("click", function(){
+    		/* if(validation() == false) return false; */
+    		
+    		$.ajax({
+    			async: true 
+    			,cache: false
+    			,type: "post"
+    			/* ,dataType:"json" */
+    			,url: "/member/loginProcAdmin"
+    			/* ,data : $("#formLogin").serialize() */
+    			,data : { "id" : $("#id").val(), "pwd" : $("#pwd").val(), /* "autoLogin" : $("#autoLogin").is(":checked") */}
+    			,success: function(response) {
+    				if(response.rt == "success") {
+    					/* if(response.changePwd == "true") {
+    						location.href = URL_CHANGE_PWD_FORM;
+    					} else {
+    						location.href = URL_INDEX_ADMIN;
+    					} */
+    					
+    					location.href = goUrlHome;
+    				} else {
+    					alert("회원없음");
+    				}
+    			}
+    			,error : function(jqXHR, textStatus, errorThrown){
+    				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+    			}
     		});
+    	});    	
     	
     </script>
 

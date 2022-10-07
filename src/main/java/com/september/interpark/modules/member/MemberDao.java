@@ -80,8 +80,16 @@ public class MemberDao {
 		return result;
 	}
 	
+	//유저 로그인
 	public Member selectOneLogin(Member dto) {
 		Member result = sqlSession.selectOne(namespace + ".selectOneLogin", dto);
+		System.out.println("dao result: " + result);
+		return result;
+	}
+	
+	//관리자 로그인
+	public Member selectOneLoginAdmin(Member dto) {
+		Member result = sqlSession.selectOne(namespace + ".selectOneLoginAdmin", dto);
 		System.out.println("dao result: " + result);
 		return result;
 	}
