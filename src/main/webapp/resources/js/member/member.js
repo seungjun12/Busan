@@ -260,7 +260,7 @@
 				document.getElementById('email').focus();
 				return false;
 			}
-			df
+
 			if(document.getElementById('address').value == '' || document.getElementById('address').value == null){
 				alert("주소 입력해주십쇼")
 				document.getElementById('address').value="";
