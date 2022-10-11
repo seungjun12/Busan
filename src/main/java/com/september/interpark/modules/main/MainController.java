@@ -18,25 +18,24 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import nl.captcha.Captcha;
 
 @Controller
-@RequestMapping(value = "/main/")
 public class MainController {
 	
 	@Autowired
 	MainServiceImpl service;
 	
-	@RequestMapping(value = "index")
+	@RequestMapping(value = "/main/index")
 	public String indexForm()throws Exception {
 		return "infra/main/xdmin/indexForm";
 	}
 	
-	@RequestMapping(value = "gameChoice")
+	@RequestMapping(value = "/main/gameChoice")
 	public String gameChoiceForm(@ModelAttribute("vo") MainVo vo , Model model)throws Exception {
 		List<Main> list = service.selectList(vo);
 		model.addAttribute("list", list);
 		return "infra/main/xdmin/gameChoiceForm";
 	}
 	
-	@RequestMapping(value = "teamChoice")
+	@RequestMapping(value = "/main/teamChoice")
 	public String teamChoice()throws Exception{
 		return "infra/main/xdmin/teamChoiceForm";
 	}
@@ -81,7 +80,7 @@ public class MainController {
 			return result;
 		}
 		
-		@RequestMapping(value = "seatChoice")
+		@RequestMapping(value = "/main/seatChoice")
 		public String seatChoice()throws Exception{
 			return "infra/main/xdmin/seatChoiceForm";
 		}	

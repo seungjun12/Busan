@@ -114,19 +114,26 @@
 						</div>
 						<!-- 예매하기 버튼 -->
 						<input type="hidden" id="gameseq" name="gameseq">
-						<button type="button" class="btn btn-danger" style="width: 128px; float: right" onclick="popupSeatChoice()">예매하기</button>
+						<button type="button" class="btn btn-danger" style="width: 128px; float: right" data-bs-toggle="modal" data-bs-target="#staticBackdrop">예매하기</button>
 						<!-- Modal -->
-						<!-- <div class="modal fade" id="staticBackdrops" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+						 <div class="modal fade" id="staticBackdrops" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 						  <div class="modal-dialog">
 						    <div class="modal-content">
 						      <div class="modal-header">
 						        <h5 class="modal-title" id="staticBackdropLabel">문자를 입력해주세요.</h5>
 						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						      </div>
-						      <label for="captcha" style="display:block">자동 로그인 방지</label>
+						    </div>
+						  </div>
+						</div> 
+					</div>
+				</c:forEach>
+				</c:otherwise>
+			</c:choose>
+			<label for="captcha" style="display:block">자동 로그인 방지</label>
 							<div style="overflow:hidden">
 								<div style="float:left">
-									<img title="캡차이미지" src="/captchaImg.do" alt="캡처이미지"/>
+									<img title="캡차이미지" src="main/captchaImg.do" alt="캡처이미지"/>
 									<div id="ccaudio" style="display:none"></div>
 								</div>
 							</div>
@@ -138,13 +145,6 @@
 								<input id="answer" type="text" value="">
 								<input id="check" type="button" value="확인"/>
 							</div>
-						    </div>
-						  </div>
-						</div> -->
-					</div>
-				</c:forEach>
-				</c:otherwise>
-			</c:choose>
 		</div><!-- sportsDetailContents end -->
 		<!-- 밑에 설명영역 탭 -->
 		<div class="sportsTabWrapper tabModule">
@@ -331,45 +331,51 @@
         
 </script>
 
-<script>
-jQuery(window).load(function () {
-    var Test = jQuery("#TestParam").val();
-    var DefaultTab = jQuery("#DefaultTab").val();
+<script type="text/javascript">
 
-    jQuery("#CurrentPage").val("0");
-    GetGoodsInfoList("N");
-    fnShowTabIframe(DefaultTab, Test);
-	sportsTabsClick(jQuery("#SportsTab" + DefaultTab));
-
-	// 예매내역보기 클릭 시 응답하기 위한 PostMessage event 주입
-	if (typeof window.addEventListener != 'undefined') {
-		window.addEventListener('message', fnRedirectMyPage);
-	} else if (typeof window.attachEvent != 'undefined') {
-		window.attachEvent('onmessage', fnRedirectMyPage);
-	}
-});
-
-//예매/관람안내, 좌석도/가격, 예매TIP 세팅
-function fnShowTabIframe(strTabNo, test) {
-    var strTeamCode = jQuery("#TeamCode").val();
-    jQuery.ajax({
-        type: "post",
-        url: "/Contents/Sports/GoodsInfoContents",
-        data: "strTeamCode=" + strTeamCode + "&strTabNo=" + strTabNo + "&Test=" + test,
-        dataType: "html",
-        success: function (data) {
-            var ContentsHtml = data;
-            if (strTabNo != "4") {
-                jQuery(".tabContentsWrapper").html("").html(jQuery(ContentsHtml).filter(".wrap").html());
-            }
-            else {
-                jQuery(".tabContentsWrapper").html("").html(ContentsHtml);
-            }
-        }
-    });
-
-    return;
+window.onload = function(){
+	getImage();	// 이미지 가져오기
+	
+	document.querySelector('#check' ).addEventListener('click', function(){
+		var params = {answer : document.querySelector('#answer').getAttribute('value')};
+		AF.ajax('${ctx}/chkAnswer.do', params, function(returnData){
+			if(returnData == 200){
+				alert('입력값이 일치합니다.');
+				// 성공 코드
+			}else{
+				alert('입력값이 일치하지 않습니다.');
+				getImage();
+				document.querySelector('#answer').setAttribute('value', '');
+			}
+		}, 'json');
+	});
 }
+/*매번 랜덤값을 파라미터로 전달하는 이유 : IE의 경우 매번 다른 임의 값을 전달하지 않으면 '새로고침' 클릭해도 정상 호출되지 않아 이미지가 변경되지 않는 문제가 발생된다*/
+function audio(){
+	var rand = Math.random();
+	var uAgent = navigator.userAgent;
+	var soundUrl = '${ctx}/captchaAudio.do?rand='+rand;
+	if(uAgent.indexOf('Trident')>-1 || uAgent.indexOf('MISE')>-1){	/*IE 경우 */
+		audioPlayer(soundUrl);
+	}else if(!!document.createElement('audio').canPlayType){ /*Chrome 경우 */
+		try {
+			new Audio(soundUrl).play();
+		} catch (e) {
+			audioPlayer(soundUrl);
+		}
+	}else{
+		window.open(soundUrl,'','width=1,height=1');
+	}
+}
+function getImage(){
+	var rand = Math.random();
+	var url = '${ctx}/captchaImg.do?rand='+rand;
+	document.querySelector('img').setAttribute('src', url);
+}
+function audioPlayer(objUrl){
+	document.querySelector('#ccaudio').innerHTML = '<bgsoun src="' +objUrl +'">';
+}
+
 </script>
 
 <script src="src/index.js"></script>
