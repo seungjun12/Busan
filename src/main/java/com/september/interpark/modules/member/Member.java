@@ -11,7 +11,7 @@ public class Member {
 	private Integer gender;
 	private String email;
 	private Integer emailCode;
-	private Integer personalAgree;
+	private String personalAgree;
 	private String dob;
 	private String address;
 	private String address2;
@@ -77,10 +77,11 @@ public class Member {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Integer getPersonalAgree() {
+	
+	public String getPersonalAgree() {
 		return personalAgree;
 	}
-	public void setPersonalAgree(Integer personalAgree) {
+	public void setPersonalAgree(String personalAgree) {
 		this.personalAgree = personalAgree;
 	}
 	public String getDob() {

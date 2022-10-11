@@ -301,6 +301,10 @@ public class MemberController {
 	public String memberUpdate(Member dto , HttpSession httpSession , RedirectAttributes redirectAttributes)throws Exception{
 		service.memberUpdate1(dto);
 		service.memberUpdate2(dto);
+		
+		httpSession.setAttribute("sessName", dto.getName()); //내일 물어보자!
+		
+		
 		return "redirect:/member/memberViewForm";
 	}
 	

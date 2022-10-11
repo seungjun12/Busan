@@ -130,7 +130,7 @@
 							</div>
 						</div>
 						<!-- 본인인증 -->
-						<div class="container-fluid idBottom">
+						<!-- <div class="container-fluid idBottom">
 							<div class="row">
 								<div class="col-3">
 									본인인증
@@ -139,7 +139,7 @@
 									인증 완료되었습니다.(인증일:2021-04-15)
 								</div>	
 							</div>
-						</div>
+						</div> -->
 						<!-- 휴먼방지기간 -->
 						<div class="container-fluid idBottom">
 							<div class="row">
@@ -148,7 +148,7 @@
 								</div>
 								<div class="col">
 									<div class="form-check form-check-inline">
-  										<input class="form-check-input" type="radio" name="personalAgreeOption" id="agree8" value="8"  <c:if test="${item.personalAgree eq 8 }">checked</c:if>>
+  										<input class="form-check-input" type="radio" name="personalAgreeOption" id="agree8" value="8"> <c:if test="${item.personalAgree eq 8 }">checked</c:if>
   										<label class="form-check-label" for="inlineRadio1">1년</label>
 									</div>
 									<div class="form-check form-check-inline">
