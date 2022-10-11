@@ -55,7 +55,7 @@
 			<img alt="" src="/resources/img/contentMiddle.png">
 		</div>
 		<!-- 랭킹영역 --><!-- 안됭이ㅣㅣㅣㅇ 여기부터 ㄱㄱ -->
-			<div class="rankigListWrap">
+		<!-- 	<div class="rankigListWrap">
 				<div class="rankingTitle">
 					<h3><b>RANKING</b></h3>
 				</div>
@@ -76,7 +76,7 @@
 			        <p>배송정보입니다. Shipping</p>
 			      </div>
 			    </div>
-			</div>  
+			</div>   -->
 			
 			
 		
