@@ -35,9 +35,9 @@
   	,maxDate : new Date ('today')
   	});
   	
-  //초기값을 오늘 날짜로 설정해줘야 합니다.
+ /*  //초기값을 오늘 날짜로 설정해줘야 합니다.
   	$('#datepicker').datepicker('setDate', 'today'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
-  	});
+  	}); */
 </script>
 <script>
 $(document).ready(function(){               
@@ -60,8 +60,7 @@ $(document).ready(function(){
 	
 </head>
 <body>
-<div id="wrap">
-	
+	<div id="wrap">
 		<div id="top">
 			<a type="button" id="btnIndex"><h3 id="topLogo">INTERPARK</h3></a> 
 		</div>
@@ -89,9 +88,9 @@ $(document).ready(function(){
 				<input type="hidden" id="ifmmIdAllowedNy" name="ifmmIdAllowedNy" value="0">
 				<input class="form-control" 
 				type="password" placeholder="8~12자 영문,숫자,특수문자" 
-				aria-label="default input example" id="pwd" name="pwd" value="<c:out value="${dto.pwd }"/>"
+				aria-label="default input example" id="pwd2" name="pwd2" 
 				>
-				<div id="pwdFeedback2"></div>
+				<div class="invalid-feedback" id="pwdFeedback2"></div>
 			</div>
 			<hr>
 			<!-- 비밀번호 확인 입력 -->
@@ -99,7 +98,9 @@ $(document).ready(function(){
 				<b>비밀번호확인</b>
 				<input class="form-control" 
 				type="password"  placeholder="8~12자 영문,숫자,특수문자" 
-				aria-label="default input example" readonly id="pwd2">
+				aria-label="default input example" readonly id="pwd"
+				name="pwd"
+				value="<c:out value="${dto.pwd }"/>">
 				<div class="invalid-feedback"  id="pwdFeedback"></div>
 			</div>
 			<hr>
@@ -142,14 +143,14 @@ $(document).ready(function(){
 			<hr>
 			<!-- 이메일 입력 -->
 			<b>이메일</b>
-			<input class="form-control" type="text" aria-label="default input example" style="width: 250px; display: inline-block;" placeholder="이메일" id="email" name="email"  value="<c:out value="${dto.email }"/>">@
+			<input class="form-control" type="text" aria-label="default input example" style="width: 250px; display: inline-block;" placeholder="이메일" id="email" name="email"  value="<c:out value="${dto.email }"/>">
 			<div class="btn-group">
   				<select class="form-select" id="emailCode" name="emailCode">
   					<option>직접입력</option>
-  					<option value="1">naver.com</option>
-  					<option value="2">gmail.com</option>
-  					<option value="3">daum.com</option>
-  					<option value="4">nate.com</option>
+  					<option value="1">@naver.com</option>
+  					<option value="2">@gmail.com</option>
+  					<option value="3">@daum.com</option>
+  					<option value="4">@nate.com</option>
   				</select>
   			<!-- 삭제여부? -->
   			<input type="hidden" value="1" id="delNy" name="delNy" value="<c:out value="${dto.delNy }"/>">	
@@ -164,26 +165,29 @@ $(document).ready(function(){
 			<!-- 번호 입력 -->
 			<div>
 				<b>휴대폰</b>
-				<input class="form-control" type="text" placeholder="010-1234-5678" aria-label="default input example" id="number" name="number"  value="<c:out value="${dto.number }"/>">			
+				<input class="form-control" type="text" 
+				placeholder="010-1234-5678" aria-label="default input example" 
+				id="number" name="number"  value="<c:out value="${dto.number }"/>"
+				oninput="autoHyphen(this)" maxlength="13">			
 				<!-- <button type="button" class="btn btn-light">인증번호받기</button> -->
 			</div>
 			<hr>
 			<!-- 생년월일 -->
 			<div>
 				<b>생년월일</b>
-				<input class="form-control" type="text" aria-label="default input example" placeholder="ex)1999-99-99" id="datepicker" name="dob" value="<c:out value="${dto.dob }"/>">
+				<input class="form-control" type="text"  aria-label="default input example" placeholder="ex)1999-99-99" id="datepicker" name="dob" value="<c:out value="${dto.dob }"/>">
 			</div>
 			<hr>
 			<!-- 주소등록 -->
 			<div>
-			<input type="text" id="sample4_postcode" placeholder="우편번호"  name="addressCode" value="<c:out value="${dto.addressCode}"/>">
+			<input type="text" id="sample4_postcode" placeholder="우편번호"  name="addressCode" readonly value="<c:out value="${dto.addressCode}"/>">
 			<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기">
 			<button type="button" id="btnAddressClear" class="btn-close" aria-label="Close"></button>
-			<input type="text" id="sample4_roadAddress" placeholder="도로명주소"  name="address" value="<c:out value="${dto.address }"/>" style="width: 400px;">
-			<input type="text" id="sample4_jibunAddress" placeholder="지번주소" style="width: 400px;">
+			<input type="text" id="sample4_roadAddress" placeholder="도로명주소"  readonly name="address" value="<c:out value="${dto.address }"/>" style="width: 400px;">
+			<input type="text" id="sample4_jibunAddress" placeholder="지번주소" readonly style="width: 400px;">
 			<span id="guide" style="color:#999;display:none"></span>
 			<input type="text" id="sample4_detailAddress" placeholder="상세주소"  name="address2"  value="<c:out value="${dto.address2 }"/>" style="width: 400px;">
-			<input type="text" id="sample4_extraAddress" placeholder="참고항목" style="width: 400px;" >
+			<input type="text" id="sample4_extraAddress" placeholder="참고항목" readonly style="width: 400px;" >
 			</div>
 			
 			</form>

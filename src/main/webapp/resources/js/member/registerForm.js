@@ -1,10 +1,10 @@
 	//아이디 중복체크
-	$("#id").on("keyup", function(key){
+	$("#id").on("focusout", function(key){
 		
 /* 		if(!checkId('id', 2, 0, "영대소문자,숫자,특수문자(-_.),4~20자리만 입력 가능합니다")) {
 			return false;
 		} else { */
-		if(key.keyCode == 13){	
+		//if(key.keyCode == 13){	
 			$.ajax({
 				async: true 
 				,cache: false
@@ -39,7 +39,7 @@
 					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
 				}
 			});
-		}/* } */
+		/* } */
 	});
 	
 	//한글이름만 가능하게 하기
@@ -56,22 +56,22 @@
 });
 
 	//비밀번호 조건 확인
-	$("#pwd").on("focusout",function(key){
+	$("#pwd2").on("focusout",function(key){
 		var regExp = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
-		var p1 = $("#pwd").val();
+		var p1 = $("#pwd2").val();
 		
 		if(p1.match(regExp) == null){
-			document.getElementById("pwd").classList.add('is-invalid');
-			document.getElementById("pwd").classList.remove('is-valid');
+			document.getElementById("pwd2").classList.add('is-invalid');
+			document.getElementById("pwd2").classList.remove('is-valid');
 			
 			document.getElementById("pwdFeedback2").innerText = "비밀번호 조건에 맞지 않습니다.";
 			document.getElementById("pwdFeedback2").classList.remove('valid-feedback');
 			document.getElementById("pwdFeedback2").classList.add('invalid-feedback');
-			$("#pwd2").attr('readonly',true);
+			$("#pwd").attr('readonly',true);
 		}else{
-			document.getElementById("pwd").classList.remove('is-invalid');
-			document.getElementById("pwd").classList.add('is-valid');
-			$("#pwd2").attr('readonly',false);
+			document.getElementById("pwd2").classList.remove('is-invalid');
+			document.getElementById("pwd2").classList.add('is-valid');
+			$("#pwd").attr('readonly',false);
 		}
 		
 	})
@@ -81,20 +81,20 @@
 
 	
  	//비밀번호 비밀번호 확인 둘이 같은지 체크
- 	$("#pwd2").on("keyup",function(key){
-	var p1 = document.getElementById('pwd').value;
-	var p2 = document.getElementById('pwd2').value;
+ 	$("#pwd").on("keyup",function(key){
+	var p1 = document.getElementById('pwd2').value;
+	var p2 = document.getElementById('pwd').value;
 	if(p1 == p2){
-		document.getElementById("pwd2").classList.remove('is-invalid');						
-		document.getElementById("pwd2").classList.add('is-valid');
+		document.getElementById("pwd").classList.remove('is-invalid');						
+		document.getElementById("pwd").classList.add('is-valid');
 
 		document.getElementById("pwdFeedback").classList.remove('invalid-feedback');
 		document.getElementById("pwdFeedback").classList.add('valid-feedback');
 		document.getElementById("pwdFeedback").innerText = "일치합니다.";
 		return false;
 	}else{
-		document.getElementById("pwd2").classList.add('is-invalid');
-		document.getElementById("pwd2").classList.remove('is-valid');
+		document.getElementById("pwd").classList.add('is-invalid');
+		document.getElementById("pwd").classList.remove('is-valid');
 		
 		document.getElementById("pwdFeedback").classList.remove('valid-feedback');
 		document.getElementById("pwdFeedback").classList.add('invalid-feedback');
@@ -193,9 +193,83 @@
     // 등록
     		function register(){
 			
+			if(document.getElementById('id').value == '' || document.getElementById('id').value == null){
+				alert("아이디 입력해주십쇼")
+				document.getElementById('id').value="";
+				document.getElementById('id').focus();
+				return false;
+			}
+			
+			if(document.getElementById('pwd').value == '' || document.getElementById('pwd').value == null
+			|| document.getElementById('pwd').value != document.getElementById('pwd2').value
+			){
+				alert("비밀번호 확인해주세요")
+				document.getElementById('pwd').value="";
+				document.getElementById('pwd').focus();
+				return false;
+			}
+			
+			/*if(document.getElementByName('personalAgree').value == '' || document.getElementByName('personalAgree').value == null){
+				alert("개인정보 유효기간 체크해주세요")
+				document.getElementByName('personalAgree').value="";
+				document.getElementByName('personalAgree').focus();
+				return false;
+			}*/
+			
+			if(document.getElementById('name').value == '' || document.getElementById('name').value == null){
+				alert("이름 입력해주세요")
+				document.getElementById('name').value="";
+				document.getElementById('name').focus();
+				return false;
+			}
+			
+			if(document.getElementById('email').value == '' || document.getElementById('email').value == null){
+				alert("이메일 입력해주세요")
+				document.getElementById('email').value="";
+				document.getElementById('email').focus();
+				return false;
+			}
+			
+			if(document.getElementById('number').value == '' || document.getElementById('number').value == null){
+				alert("번호 입력해주십쇼")
+				document.getElementById('number').value="";
+				document.getElementById('number').focus();
+				return false;
+			}
+			
+			if(document.getElementById('addressCode').value == '' || document.getElementById('addressCode').value == null){
+				alert("우편번호 입력해주세요")
+				document.getElementById('addressCode').value="";
+				document.getElementById('addressCode').focus();
+				return false;
+			}
+			
+			if(document.getElementById('address').value == '' || document.getElementById('address').value == null){
+				alert("도로명주소 입력해주세요")
+				document.getElementById('address').value="";
+				document.getElementById('address').focus();
+				return false;
+			}
+			
+			if(document.getElementById('address2').value == '' || document.getElementById('address2').value == null){
+				alert("상세주소 입력해주세요")
+				document.getElementById('address2').value="";
+				document.getElementById('address2').focus();
+				return false;
+			}
+			
+			
+			
+			
 			document.getElementById('registerForm').submit();
 			
 			return false;
 		}
-    
-    
+		
+		//전화번호 하이픈
+		const autoHyphen = (target) => {
+		target.value = target.value
+		.replace(/[^0-9]/g, '')
+		.replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
+	    }
+	    
