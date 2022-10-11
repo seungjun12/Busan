@@ -114,37 +114,44 @@
 						</div>
 						<!-- 예매하기 버튼 -->
 						<input type="hidden" id="gameseq" name="gameseq">
-						<button type="button" class="btn btn-danger" style="width: 128px; float: right" data-bs-toggle="modal" data-bs-target="#staticBackdrop">예매하기</button>
-						<!-- Modal -->
-						 <div class="modal fade" id="staticBackdrops" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-						  <div class="modal-dialog">
-						    <div class="modal-content">
-						      <div class="modal-header">
-						        <h5 class="modal-title" id="staticBackdropLabel">문자를 입력해주세요.</h5>
-						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-						      </div>
-						    </div>
-						  </div>
-						</div> 
+						<button type="button" class="btn btn-danger" style="width: 128px; float: right" data-bs-toggle="modal" data-bs-target="#staticBackdrops">예매하기</button>
+						
+						<div class="modal fade" id="staticBackdrops" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+							<div class="modal-dialog">
+  								<div class="modal-content">
+    								<div class="modal-header">
+      									<h1 class="modal-title fs-5" id="staticBackdropLabel">부정예매방지</h1>
+      									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    								</div>
+    								<div class="modal-body">
+      									<label for="captcha" style="display:block">자동 로그인 방지</label>
+											<div style="overflow:hidden">
+												<div style="float:left">
+													<img title="캡차이미지" src="/captchaImg.do" alt="캡처이미지"/>
+													<div id="ccaudio" style="display:none"></div>
+												</div>
+											</div>
+											<div style="padding:3px">
+												<input id="reload" type="button" onclick="javaScript:getImage()" value="새로고침"/>
+												<input id="soundOn" type="button" onclick="javaScript:audio()" value="음성듣기"/>
+											</div>
+											<div style="padding:3px">	
+												<input id="answer" type="text" value="">
+												<input id="check" type="button" value="확인"/>
+											</div>
+    								</div>
+    								<!-- <div class="modal-footer">
+      									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      									<button type="button" class="btn btn-primary">Understood</button>
+    								</div> -->
+  								</div>
+							</div>
+						</div>
 					</div>
 				</c:forEach>
 				</c:otherwise>
 			</c:choose>
-			<label for="captcha" style="display:block">자동 로그인 방지</label>
-							<div style="overflow:hidden">
-								<div style="float:left">
-									<img title="캡차이미지" src="main/captchaImg.do" alt="캡처이미지"/>
-									<div id="ccaudio" style="display:none"></div>
-								</div>
-							</div>
-							<div style="padding:3px">
-								<input id="reload" type="button" onclick="javaScript:getImage()" value="새로고침"/>
-								<input id="soundOn" type="button" onclick="javaScript:audio()" value="음성듣기"/>
-							</div>
-							<div style="padding:3px">	
-								<input id="answer" type="text" value="">
-								<input id="check" type="button" value="확인"/>
-							</div>
+							
 		</div><!-- sportsDetailContents end -->
 		<!-- 밑에 설명영역 탭 -->
 		<div class="sportsTabWrapper tabModule">
@@ -378,6 +385,5 @@ function audioPlayer(objUrl){
 
 </script>
 
-<script src="src/index.js"></script>
 </body>
 </html>
