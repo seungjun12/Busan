@@ -298,7 +298,7 @@ public class MemberController {
 	
 	//유저 회원정보수정  수정하자 마자 정보 변경되게 만들어야하는데
 	@RequestMapping(value = "memberUpdate")
-	public String memberUpdate(Member dto , HttpSession httpSession)throws Exception{
+	public String memberUpdate(Member dto , HttpSession httpSession , RedirectAttributes redirectAttributes)throws Exception{
 		service.memberUpdate1(dto);
 		service.memberUpdate2(dto);
 		return "redirect:/member/memberViewForm";

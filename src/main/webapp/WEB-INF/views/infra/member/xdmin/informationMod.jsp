@@ -17,6 +17,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
+<form name="mform" id="mform" method="post">
 <div id="wrap">	
 	<!-- 상단배너 s -->
 	<%@include file="../../../common/xdmin/includeV1/topvanner.jsp"%>
@@ -35,8 +36,7 @@
 			<%@include file="../../../common/xdmin/includeV1/viewLeftVanner.jsp"%>
 			<!-- 왼쪽배너 e -->
 				<!-- 오른쪽 영역 -->
-				<form name="mform" id="mform" method="post">
-				<%-- <input type="hidden"  name="sessSeq" id="sessSeq" value="<c:out value="${sessSeq }"/>"> --%>
+				 
 				<div class="rightWrap">
 					<div class="modifyWrap">
 						<div class="memberHead">
@@ -63,7 +63,7 @@
 									이름
 								</div>
 								<div class="col-6">
-									<input id="nameModify" name="name"  readonly value="<c:out value="${item.name}"/>">
+									<input id="nameModify" name="name" style="border: none"  readonly value="<c:out value="${item.name}"/>">
 								</div>
 								<div class="col-3 modifyBtn">
 									<button type="button" id="btnNameModify" class="btn btn-light">수정</button>
@@ -77,7 +77,9 @@
 									휴대폰번호
 								</div>
 								<div class="col-6">
-									<input readonly id="numberModify" name="number" value="<c:out value="${item.number }"/>">
+									<input readonly id="numberModify" name="number" 
+									style="border: none" value="<c:out value="${item.number }"/>"
+									oninput="autoHyphen(this)" maxlength="13">
 								</div>
 								<div class="col-3 modifyBtn">
 									<button type="button" id="btnNumberModify" class="btn btn-light">수정</button>
@@ -91,7 +93,7 @@
 									이메일
 								</div>
 								<div class="col-6">
-									<input readonly id="emailModify" name="email" value="<c:out value="${item.email }"/>">
+									<input readonly id="emailModify" name="email" style="border: none" value="<c:out value="${item.email }"/>">
 								</div>
 								<div class="col-3 modifyBtn">
 									<button type="button" id="btnEmailModify" class="btn btn-light">수정</button>
@@ -117,11 +119,11 @@
 								</div>
 								<div class="col">
 									<div class="form-check form-check-inline">
-  										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="gender6" value="6" disabled <c:if test="${item.gender eq 6 }">selected</c:if>>
+  										<input class="form-check-input" type="radio" name="genderOption" id="gender6" value="6" disabled <c:if test="${item.gender eq 6 }">checked</c:if>>
   										<label class="form-check-label" for="inlineRadio3">남</label>
 									</div>
 									<div class="form-check form-check-inline">
-  										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="gender7" value="7" disabled <c:if test="${item.gender eq 7 }">selected</c:if>>
+  										<input class="form-check-input" type="radio" name="genderOption" id="gender7" value="7" disabled <c:if test="${item.gender eq 7 }">checked</c:if>>
   										<label class="form-check-label" for="inlineRadio3">여</label>
 									</div>									
 								</div>	
@@ -146,12 +148,12 @@
 								</div>
 								<div class="col">
 									<div class="form-check form-check-inline">
-  										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="agree8" value="8" <c:if test="${item.personalAgree eq 8 }">selected</c:if>>
+  										<input class="form-check-input" type="radio" name="personalAgreeOption" id="agree8" value="8"  <c:if test="${item.personalAgree eq 8 }">checked</c:if>>
   										<label class="form-check-label" for="inlineRadio1">1년</label>
 									</div>
 									<div class="form-check form-check-inline">
-  										<input class="form-check-input" type="radio" name="inlineRadioOptions" id="agree9" value="9" <c:if test="${item.personalAgree eq 9 }">selected</c:if>>
-  										<label class="form-check-label" for="inlineRadio2">탈퇴시까지</label>
+  										<input class="form-check-input" type="radio" name="personalAgreeOption" id="agree9" value="9" <c:if test="${item.personalAgree eq 9 }">checked</c:if>>
+  										<label class="form-check-label" for="inlineRadio1">탈퇴시까지</label>
 									</div>																		
 								</div>	
 							</div>
@@ -243,6 +245,13 @@
 	$("#btnMemberUpdate").on("click" , function(){
 		form.attr("action" ,goUrlMemberUpdate).submit();
 	});
+	
+	//전화번호 하이픈
+	const autoHyphen = (target) => {
+	target.value = target.value
+	.replace(/[^0-9]/g, '')
+	.replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
+    }
 	
 	
 </script>

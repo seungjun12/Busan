@@ -83,11 +83,11 @@
 		
 		
 		<!-- 중간 이미지 -->
-		<div>
-			<img alt="" src="/resources/img/mainImage.png">
+		<div class="flexBanner">
+			<img src="http://ticketimage.interpark.com/TCMS4/Main/202109/MainBarBanner_MainBarBanner6_291cdc4c-5cd8-4114-9a0c-747df0724522.jpg" alt="티켓MD샵">
 		</div>
 		<!-- 티켓 투데이 -->
-		<!-- <div class="ticketToday">
+		<div class="ticketToday">
 			<div class="ticketTodayBanners">
 				<div class="ticketTodayCube hasRoll goodMorning">
 					<div class="items selected">
@@ -95,61 +95,107 @@
 							<div class="label"></div>
 							<span class="contentTxt">
 								<span>10월의 혜택! 혜택 어10션~</span>
-								<b style="color:#ff7a38 ">　</b>
 							</span>
 						</div>
 						<img src="http://ticketimage.interpark.com/TCMS4/Main/202209/TicketTodayNew_TicketTodayGoodMorning_b7079efd-092e-40a6-b69e-92a3fd4440d9.jpg" alt="">
 					</div>
 				</div>
-			
-			
-			
-			
-			
+				<div class="ticketTodayCube hasRoll toping">
+					<div class="items selected">
+						<div class="contents">
+							<div class="label"></div>
+							<span class="contentTxt">
+								<span>10%</span>
+							</span>
+						</div>
+						<img src="http://ticketimage.interpark.com/TCMS4/Main/202209/TicketTodayNew_TicketTodayToping_677fd852-7782-4e34-aad3-c8c165d18846.jpg" alt="">
+					</div>
+				</div>
+				<div class="ticketTodayCube hasRoll tchu">
+					<div class="items selected">
+						<div class="contents">
+							<div class="label"></div>
+							<span class="contentTxt">
+								<span></span>
+							</span>
+						</div>
+						<img src="http://ticketimage.interpark.com/TCMS4/Main/202210/TicketTodayNew_TicketTodayBanner_1717168d-8bd3-4135-a7a4-4d959326059b.jpg" alt="">
+					</div>
+				</div>
+				<div class="ticketTodayCube hasRoll event" >
+					<div class="items selected">
+						<div class="contents">
+							<div class="label"></div>
+							<span class="contentTxt">
+								<span>청소년 할일 20%</span>
+								<b>폴링워텅 : 감괴</b>
+							</span>
+						</div>
+						<img src="http://ticketimage.interpark.com/TCMS4/Main/202210/TicketTodayNew_TicketTodayEvent_42344f9d-517e-4d8c-af8a-02a045e3a651.jpg" alt="">
+					</div>
+				</div>
 			</div>
-		</div> -->
-		<!-- today banner -->
 		
 		
+			<div class="ticketTodayTitlemusical"></div>
+			<!-- musical -->
+			<div class="todayBanners">
+				<div class="ticketTodayCube hasRoll sale" >
+					<div class="items">
+						<div class="contents">
+							<div class="label"></div>
+							<span class="contentTxt">
+								<span>마티네 할인 30%</span>
+								<b>트레드밀</b>
+							</span>
+						</div>
+						<img src="http://ticketimage.interpark.com/TCMS4/Main/202209/TicketTodayNew_TicketTodayMusical_5605c2ed-800d-4e43-9d32-6b8ab57759a6.jpg" alt="트레드밀">
+					</div>
+				</div>
+				<div class="ticketTodayCube hasRoll sale" >
+					<div class="items">
+						<div class="contents">
+							<div class="label"></div>
+							<span class="contentTxt">
+								<span>조기예매 할인 30%</span>
+								<b>범옹</b>
+							</span>
+						</div>
+						<img src="http://ticketimage.interpark.com/TCMS4/Main/202209/TicketTodayNew_TicketTodayMusical_164564ce-0666-4cb4-bc81-bcab64d75d77.jpg" alt="범옹">
+					</div>
+				</div>
+				<div class="ticketTodayCube hasRoll sale" >
+					<div class="items">
+						<div class="contents">
+							<div class="label"></div>
+							<span class="contentTxt">
+								<span>브론테 할인 20%</span>
+								<b>브론테</b>
+							</span>
+						</div>
+						<img src="http://ticketimage.interpark.com/TCMS4/Main/202209/TicketTodayNew_TicketTodayMusical_42e408b2-5d95-4fd8-a4bd-beead079aaef.jpg" alt="브론테">
+					</div>
+				</div>
+				<div class="ticketTodayCube hasRoll sale" >
+					<div class="items">
+						<div class="contents">
+							<div class="label"></div>
+							<span class="contentTxt">
+								<span>청소년 할인 20%</span>
+								<b>알로하, 나의 엄마들</b>
+							</span>
+						</div>
+						<img src="http://ticketimage.interpark.com/TCMS4/Main/202210/TicketTodayNew_TicketTodayMusical_c5ee1f21-b771-4fe0-ab45-26c5bf622672.jpg" alt="알로하, 나의 엄마들">
+					</div>
+				</div>
+			</div><!-- musical end -->
 		
-		<div class="todayBanner">
-			<img alt="" src="/resources/img/todayBanner.png">
-		</div>
-		<!-- 뮤지컬 글 -->
-		<div class="bannerAnswer">
-			<h3>MUSICAL</h3>
-		</div>
-		<!-- 뮤지컬 이미지 -->
-		<div>
-			<img alt="" src="/resources/img/musicalImage.png">
-		</div>
-		<!-- 콘서트 글 -->
-		<div class="bannerAnswer">
-			<h3>CONCERT</h3>
-		</div>
-		<!-- 콘서트 이미지 -->
-		<div>
-			<img alt="" src="/resources/img/concertImage.png">		
-		</div>
-		<!-- play&classic글 -->
-		<div class="bannerAnswer">
-			<h3>PLAY&CLASSIC</h3>
-		</div>
-		<!-- play&classic이미지 -->
-		<div>
-			<img alt="" src="/resources/img/play&classicImage.png">		
-		</div>
-		<!-- 스포츠 영역 -->
-		<div class="bannerAnswer">
-			<h3>SPORTS%EXHIBITION&THEATER</h3>
-		</div>
-		<!-- 스포츠 이미지 -->
-		<div>
-			<img alt="" src="/resources/img/playImage.png">		
-		</div>
+		
+		</div> <!-- ticketToday end -->
+		
 		<!-- 하단 배너 -->
-		<div class="bottomBanner">
-			<img alt="" src="/resources/img/bottomBanner.png">
+		<div class="longBanner">
+			<img src="http://ticketimage.interpark.com/TCMS4/Main/202207/MainBarBanner_MainBarBanner2_8cdd2f09-3a23-48b2-be83-74787d599dec.jpg" alt="신바람 삼대">
 		</div>
 	</div><!-- contentWrap end -->
 	<!-- 푸터 s -->

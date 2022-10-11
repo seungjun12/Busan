@@ -147,7 +147,6 @@
 			,address2
 			,addressCode
 			,emailCode
-			,delNy
 			,email
 			,adminDiv
 		)
@@ -162,7 +161,6 @@
 			,#{address2}
 			,#{addressCode}
 			,#{emailCode}
-			,#{delNy}
 			,#{email}
 			,1
 		)
@@ -280,8 +278,9 @@
 		SET
 			name = #{name}
 			,email = #{email}
-		WHERE
-			seq = #{sessSeq}	
+			,personalAgree = #{personalAgree} 
+		WHERE 1=1
+			AND seq = #{sessSeq}	
 	</update>	
 	
 	<!-- 회원 정보 수정2 -->

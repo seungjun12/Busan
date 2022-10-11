@@ -80,7 +80,11 @@ public class MainController {
 			}
 			return result;
 		}
-
+		
+		@RequestMapping(value = "seatChoice")
+		public String seatChoice()throws Exception{
+			return "infra/main/xdmin/seatChoiceForm";
+		}	
 	
 
 

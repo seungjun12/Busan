@@ -113,7 +113,8 @@
 							</div>
 						</div>
 						<!-- 예매하기 버튼 -->
-						<button type="button" class="btn btn-danger" style="width: 128px; float: right" >예매하기</button>
+						<input type="hidden" id="gameseq" name="gameseq">
+						<button type="button" class="btn btn-danger" style="width: 128px; float: right" onclick="popupSeatChoice()">예매하기</button>
 						<!-- Modal -->
 						<!-- <div class="modal fade" id="staticBackdrops" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 						  <div class="modal-dialog">
@@ -149,14 +150,14 @@
 		<div class="sportsTabWrapper tabModule">
 			<div class="tabWrapper">
 			<ul class="tabWrap">
-				<li class="active" onclick="fnShowTabIframe(1,'');" id="SportsTab1"><span>예매/관람안내</span>
-				<li class onclick="fnShowTabIframe(2,'');" id="SportsTab2"><span>좌석도/가격</span>
-				<li class onclick="fnShowTabIframe(4,'');" id="SportsTab4"><span>예매TIP</span>
+				<li class="on"><span>예매/관람안내</span>
+				<li><span>좌석도/가격</span>
+				<li><span>예매TIP</span>
 			</ul>	
 			</div>
 			
 			<!-- 예매/관람안내 -->
-			<div class="tabContentsWrapper">
+			<div class="tabContentsWrapper conBox on" id="con1">
 				<div class="tabcontentsWrap current">
 					<h3><b>예매안내</b></h3>
 					<div class="dataContents">	
@@ -238,23 +239,23 @@
 					</div>
 				</div>
 				
-			 좌석도/가격 
-			<div class="tabContentsWrapper tab-content current" id="tab2">
-				<div class="tabcontentsWrap current">
-					<div class="dataContents">	
-						<img alt="경기좌석도 입니다." src="http://ticketimage.interpark.com/TicketImage/sportsteam/editer/2022/04/01/4d7aa74d.gif" style="width: 100%;">
-					</div>
-					<div class="dataContents">
-						<img alt="" src="http://ticketimage.interpark.com/TicketImage/sportsteam/editer/2022/04/04/6c73286a.PNG" style="width: 100%;">
-					</div>
-					<div class="dataContents">
-						<img alt="" src="http://ticketimage.interpark.com/TicketImage/sportsteam/editer/2022/05/26/f70c0664.jpg" style="width: 100%;">
+				 <!-- 좌석도/가격 --> 
+				<div class="tabContentsWrapper tab-content current conBox" id="con2">
+					<div class="tabcontentsWrap current">
+						<div class="dataContents">	
+							<img alt="경기좌석도 입니다." src="http://ticketimage.interpark.com/TicketImage/sportsteam/editer/2022/04/01/4d7aa74d.gif" style="width: 100%;">
+						</div>
+						<div class="dataContents">
+							<img alt="" src="http://ticketimage.interpark.com/TicketImage/sportsteam/editer/2022/04/04/6c73286a.PNG" style="width: 100%;">
+						</div>
+						<div class="dataContents">
+							<img alt="" src="http://ticketimage.interpark.com/TicketImage/sportsteam/editer/2022/05/26/f70c0664.jpg" style="width: 100%;">
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div><!-- wrap end -->
-</div>	
+		</div><!-- wrap end -->
+	</div>	
 		
 		
 	
@@ -305,6 +306,28 @@
 	$("#btnMemberView").on("click",function(){
 		$(location).attr("href",goUrlMemberView);
 	});
+	
+	function popupSeatChoice(){
+		var url = "/main/seatChoice";
+		var option = "width=820, height=500"
+		window.open(url,"",option);
+	}
+	
+	$(function(){
+        // tab 메뉴를 클릭하였을 때 동작함
+        $(".tab ul li").click(function(){ 
+             
+            // 현재 선택되어있던 메뉴들을 초기화함
+            $(".tab ul li").removeClass('on');
+            $(".tab .conBox").removeClass('on');
+ 
+            // 선택된 메뉴에 on 클래스를 주어 표기함
+            $(this).addClass('on');
+ 
+            // 선택된 탭의 data 값으로 content box를 선택함
+            $("#"+$(this).data('id')).addClass('on');
+        });
+    });
         
 </script>
 

@@ -19,6 +19,7 @@ public class Member {
 	private Integer delNy;
 	private String sessSeq;
 	private Integer adminDiv;
+	private String sessName;
 	
 	// registerConfirm
 	private String regseq;
@@ -208,6 +209,12 @@ public class Member {
 	}
 	public void setAdminDiv(Integer adminDiv) {
 		this.adminDiv = adminDiv;
+	}
+	public String getSessName() {
+		return sessName;
+	}
+	public void setSessName(String sessName) {
+		this.sessName = sessName;
 	}
 	
 	

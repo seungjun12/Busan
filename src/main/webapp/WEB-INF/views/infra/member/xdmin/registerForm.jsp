@@ -35,27 +35,26 @@
   	,maxDate : new Date ('today')
   	});
   	
- /*  //초기값을 오늘 날짜로 설정해줘야 합니다.
-  	$('#datepicker').datepicker('setDate', 'today'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
-  	}); */
-</script>
-<script>
-$(document).ready(function(){               
-    $.datepicker.setDefaults({
-    closeText: "닫기",
-    currentText: "오늘",
-    prevText: '이전 달',
-    nextText: '다음 달',
-    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-    dayNames: ['일', '월', '화', '수', '목', '금', '토'],
-    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
-    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-    weekHeader: "주",
-    yearSuffix: '년'
-    });    
- });
-</script>
+	 /*  //초기값을 오늘 날짜로 설정해줘야 합니다.
+	  	$('#datepicker').datepicker('setDate', 'today'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
+	  	}); */
+	
+	$(document).ready(function(){               
+	    $.datepicker.setDefaults({
+	    closeText: "닫기",
+	    currentText: "오늘",
+	    prevText: '이전 달',
+	    nextText: '다음 달',
+	    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+	    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+	    dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+	    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+	    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+	    weekHeader: "주",
+	    yearSuffix: '년'
+	    });    
+	 });
+	</script>
 	
 	
 </head>
@@ -147,10 +146,10 @@ $(document).ready(function(){
 			<div class="btn-group">
   				<select class="form-select" id="emailCode" name="emailCode">
   					<option>직접입력</option>
-  					<option value="1">@naver.com</option>
-  					<option value="2">@gmail.com</option>
-  					<option value="3">@daum.com</option>
-  					<option value="4">@nate.com</option>
+  					<option value="@naver.com">@naver.com</option>
+  					<option value="@gamil.com">@gmail.com</option>
+  					<option value="@daum.com">@daum.com</option>
+  					<option value="@nate.com">@nate.com</option>
   				</select>
   			<!-- 삭제여부? -->
   			<input type="hidden" value="1" id="delNy" name="delNy" value="<c:out value="${dto.delNy }"/>">	
@@ -180,7 +179,7 @@ $(document).ready(function(){
 			<hr>
 			<!-- 주소등록 -->
 			<div>
-			<input type="text" id="sample4_postcode" placeholder="우편번호"  name="addressCode" readonly value="<c:out value="${dto.addressCode}"/>">
+			<input type="text" id="sample4_postcode" placeholder="우편번호"  name="addressCode"  value="<c:out value="${dto.addressCode}"/>">
 			<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기">
 			<button type="button" id="btnAddressClear" class="btn-close" aria-label="Close"></button>
 			<input type="text" id="sample4_roadAddress" placeholder="도로명주소"  readonly name="address" value="<c:out value="${dto.address }"/>" style="width: 400px;">

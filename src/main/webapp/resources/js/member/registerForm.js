@@ -33,6 +33,8 @@
 						document.getElementById("ifmmIdFeedback").innerText = "사용 불가능 합니다";
 						
 						document.getElementById("ifmmIdAllowedNy").value = 0;
+						$("#id").val('');
+						
 					}
 				}
 				,error : function(jqXHR, textStatus, errorThrown){
@@ -237,24 +239,24 @@
 				return false;
 			}
 			
-			if(document.getElementById('addressCode').value == '' || document.getElementById('addressCode').value == null){
+			if(document.getElementById('sample4_postcode').value == '' || document.getElementById('sample4_postcode').value == null){
 				alert("우편번호 입력해주세요")
-				document.getElementById('addressCode').value="";
-				document.getElementById('addressCode').focus();
+				document.getElementById('sample4_postcode').value="";
+				document.getElementById('sample4_postcode').focus();
 				return false;
 			}
 			
-			if(document.getElementById('address').value == '' || document.getElementById('address').value == null){
+			if(document.getElementById('sample4_roadAddress').value == '' || document.getElementById('sample4_roadAddress').value == null){
 				alert("도로명주소 입력해주세요")
-				document.getElementById('address').value="";
-				document.getElementById('address').focus();
+				document.getElementById('sample4_roadAddress').value="";
+				document.getElementById('sample4_roadAddress').focus();
 				return false;
 			}
 			
-			if(document.getElementById('address2').value == '' || document.getElementById('address2').value == null){
+			if(document.getElementById('sample4_detailAddress').value == '' || document.getElementById('sample4_detailAddress').value == null){
 				alert("상세주소 입력해주세요")
-				document.getElementById('address2').value="";
-				document.getElementById('address2').focus();
+				document.getElementById('sample4_detailAddress').value="";
+				document.getElementById('sample4_detailAddress').focus();
 				return false;
 			}
 			
