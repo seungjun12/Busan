@@ -96,17 +96,20 @@ public class MemberServiceImpl implements MemberService{
     //유저 로그인
 	@Override
 	public Member selectOneLogin(Member dto) throws Exception {
+		dto.setPwd(UtilSecurity.encryptSha256(dto.getPwd()));
 		return dao.selectOneLogin(dto);
 	}
 	
 	//관리자 로그인
 	@Override
 	public Member selectOneLoginAdmin(Member dto) throws Exception {
+		dto.setPwd(UtilSecurity.encryptSha256(dto.getPwd()));
 		return dao.selectOneLoginAdmin(dto);
 	}
 	
 	@Override
 	public int pwdUpdate(Member dto) throws Exception {
+		dto.setPwd(UtilSecurity.encryptSha256(dto.getPwd()));
 		return dao.pwdUpdate(dto);
 	}
 

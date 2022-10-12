@@ -146,10 +146,10 @@
 			<div class="btn-group">
   				<select class="form-select" id="emailCode" name="emailCode">
   					<option>직접입력</option>
-  					<option value="@naver.com">@naver.com</option>
-  					<option value="@gamil.com">@gmail.com</option>
-  					<option value="@daum.com">@daum.com</option>
-  					<option value="@nate.com">@nate.com</option>
+  					<option value="1">@naver.com</option>
+  					<option value="2">@gmail.com</option>
+  					<option value="3">@daum.com</option>
+  					<option value="4">@nate.com</option>
   				</select>
   			<!-- 삭제여부? -->
   			<input type="hidden" value="1" id="delNy" name="delNy" value="<c:out value="${dto.delNy }"/>">	

@@ -114,9 +114,9 @@
 						</div>
 						<!-- 예매하기 버튼 -->
 						<input type="hidden" id="gameseq" name="gameseq">
-						<button type="button" class="btn btn-danger" style="width: 128px; float: right" data-bs-toggle="modal" data-bs-target="#staticBackdrops">예매하기</button>
+						<button type="button" class="btn btn-danger" style="width: 128px; float: right" data-bs-toggle="modal" data-bs-target="#staticBackdrops" >예매하기</button>
 						
-						<div class="modal fade" id="staticBackdrops" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+						<div class="modal fade" id="staticBackdrops" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
 							<div class="modal-dialog">
   								<div class="modal-content">
     								<div class="modal-header">
@@ -127,7 +127,7 @@
       									<label for="captcha" style="display:block">자동 로그인 방지</label>
 											<div style="overflow:hidden">
 												<div style="float:left">
-													<img title="캡차이미지" src="/captchaImg.do" alt="캡처이미지"/>
+													<img title="캡차이미지" src="/captchaImg.do" alt="캡처이미지"/ id="imgSelect">
 													<div id="ccaudio" style="display:none"></div>
 												</div>
 											</div>
@@ -136,9 +136,9 @@
 												<input id="soundOn" type="button" onclick="javaScript:audio()" value="음성듣기"/>
 											</div>
 											<div style="padding:3px">	
-												<input id="answer" type="text" value="">
-												<input id="check" type="button" value="확인"/>
-											</div>
+												<input id="answer" type="text" value="" >
+												<input id="check" type="button" value="확인" onclick="javaScript:popupSeatChoice()" data-bs-dismiss="modal">
+											</div>  
     								</div>
     								<!-- <div class="modal-footer">
       									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -151,7 +151,8 @@
 				</c:forEach>
 				</c:otherwise>
 			</c:choose>
-							
+					
+											</div> 		
 		</div><!-- sportsDetailContents end -->
 		<!-- 밑에 설명영역 탭 -->
 		<div class="sportsTabWrapper tabModule">
@@ -338,16 +339,22 @@
         
 </script>
 
-<script type="text/javascript">
+<script>
 
 window.onload = function(){
 	getImage();	// 이미지 가져오기
 	
 	document.querySelector('#check' ).addEventListener('click', function(){
 		var params = {answer : document.querySelector('#answer').getAttribute('value')};
-		AF.ajax('${ctx}/chkAnswer.do', params, function(returnData){
+			AF.ajax('${ctx}/chkAnswer.do', params, function(returnData){
 			if(returnData == 200){
 				alert('입력값이 일치합니다.');
+				
+				function popupSeatChoice(){
+					var url = "/main/seatChoice";
+					var option = "width=820, height=500"
+					window.open(url,"",option);
+				}
 				// 성공 코드
 			}else{
 				alert('입력값이 일치하지 않습니다.');
@@ -377,7 +384,7 @@ function audio(){
 function getImage(){
 	var rand = Math.random();
 	var url = '${ctx}/captchaImg.do?rand='+rand;
-	document.querySelector('img').setAttribute('src', url);
+	document.querySelector('#imgSelect').setAttribute('src', url);
 }
 function audioPlayer(objUrl){
 	document.querySelector('#ccaudio').innerHTML = '<bgsoun src="' +objUrl +'">';

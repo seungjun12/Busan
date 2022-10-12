@@ -119,9 +119,10 @@
 								<span></span>
 							</span>
 						</div>
-						<img src="http://ticketimage.interpark.com/TCMS4/Main/202210/TicketTodayNew_TicketTodayBanner_1717168d-8bd3-4135-a7a4-4d959326059b.jpg" alt="">
+						<img src="http://ticketimage.interpark.com/TCMS4/Main/202210/TicketTodayNew_TicketTodayBanner_a0aadf1e-53d2-42c5-8432-f05fd4921f1a.jpg" alt="">
 					</div>
 				</div>
+				
 				<div class="ticketTodayCube hasRoll event" >
 					<div class="items selected">
 						<div class="contents">

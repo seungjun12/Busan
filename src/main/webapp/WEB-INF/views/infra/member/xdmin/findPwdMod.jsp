@@ -29,7 +29,7 @@
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-6">				
-						<button type="button" class="btn btn-secondary">아이디 찾기</button>
+						<button type="button" class="btn btn-secondary" id="btnIdFind">아이디 찾기</button>
 					</div>	
 					<div class="col">	
 						<button type="button" class="btn btn-danger">비밀번호 찾기</button>
@@ -120,11 +120,16 @@
 		var goUrlPwdMod = "/member/findPwdModify";
 		var form = $("form[name=form]");
 		var seq = $("input:hidden[name=sessSeq]");
+		var goUrlIdFind = "/member/findId";
 		
 		//새비밀번호 변경
 		
 		$("#btnPwdMod").on("click",function(){
 			form.attr("action",goUrlPwdMod).submit();
+		});
+		
+		$("#btnIdFind").on("click",function(){
+			$(location).attr("href",goUrlIdFind);
 		});
 	
 	</script> 

@@ -148,11 +148,11 @@
 								</div>
 								<div class="col">
 									<div class="form-check form-check-inline">
-  										<input class="form-check-input" type="radio" name="personalAgreeOption" id="agree8" value="8"> <c:if test="${item.personalAgree eq 8 }">checked</c:if>
+  										<input class="form-check-input" type="radio" name="personalAgree" id="agree8" value="8" <c:if test="${item.personalAgree eq 8 }">checked</c:if>
   										<label class="form-check-label" for="inlineRadio1">1년</label>
 									</div>
 									<div class="form-check form-check-inline">
-  										<input class="form-check-input" type="radio" name="personalAgreeOption" id="agree9" value="9" <c:if test="${item.personalAgree eq 9 }">checked</c:if>>
+  										<input class="form-check-input" type="radio" name="personalAgree" id="agree9" value="9" <c:if test="${item.personalAgree eq 9 }">checked</c:if>
   										<label class="form-check-label" for="inlineRadio1">탈퇴시까지</label>
 									</div>																		
 								</div>	

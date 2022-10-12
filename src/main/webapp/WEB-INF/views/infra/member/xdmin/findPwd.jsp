@@ -44,7 +44,7 @@
 				<span>등록된 휴대폰번호로 찾기</span>
 				<input class="form-control" type="text" placeholder="아이디" aria-label="default input example" id="id" name="id" value="<c:out value="${dto.id }" />">
 				<input class="form-control" type="text" placeholder="이름" aria-label="default input example" id="name" name="name" value="<c:out value="${dto.name }" />">
-				<input class="form-control" type="text" placeholder="휴대폰번호" aria-label="default input example" id="number" name="number" value="<c:out value="${dto.number }" />">
+				<input class="form-control" type="text" placeholder="휴대폰번호" oninput="autoHyphen(this)" maxlength="13" aria-label="default input example" id="number" name="number" value="<c:out value="${dto.number }" />">
 			</div>
 			<button type="button" class="btn btn-danger" id="btnFindPwd">확인</button>
 		</div>
@@ -98,6 +98,13 @@
 	$("#btnPwdFind").on("click",function(){
 		$(location).attr("href",goUrlPwdFind);
 	});
+	
+	//전화번호 하이픈
+	const autoHyphen = (target) => {
+	target.value = target.value
+	.replace(/[^0-9]/g, '')
+	.replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
+    }
 	
 	
 </script>

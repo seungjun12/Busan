@@ -294,3 +294,8 @@ dd{
 	display: block;
 	margin-inline-start: 40px;
 }
+
+.tchu img{
+	position: absolute;
+	left: -14px;
+}
