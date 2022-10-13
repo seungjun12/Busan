@@ -57,6 +57,15 @@
 	width: 960px;
 }
 
+.banner_longBannerArea1{
+	position: relative;
+	height: 63px;
+	z-index: 2;
+	text-align: left;
+}
+
+
+
 .rankingWrap{
 	margin-bottom: 30px;
 }

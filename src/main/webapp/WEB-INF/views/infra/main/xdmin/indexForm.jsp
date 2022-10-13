@@ -48,11 +48,13 @@
 	</div>
 	<!-- 밑에 배너들 시작 -->
 	<div id="contentWrap">
-		<div id="contendTop">
-			<img alt="" src="/resources/img/contentTop.png">
-		</div>
-		<div>
-			<img alt="" src="/resources/img/contentMiddle.png">
+		<div class="banner_longBannerArea1">
+			<div>	
+				<img src="http://ticketimage.interpark.com/TCMS4/Main/202210/MainBarBanner_MainBarBanner1_ba9cbaab-967e-4c4e-8a0f-9a73582439b5.jpg" alt="플레이디비">
+			</div>
+			<div class="movingVanner">
+				<img src="http://ticketimage.interpark.com/TCMS4/Main/202208/CoverStory_CoverStoryBtn_cb37e5c8-59c7-4661-91da-8e450f4112ba.jpg" alt="파주 놀이구름">
+			</div>
 		</div>
 		<!-- 랭킹영역 --><!-- 안됭이ㅣㅣㅣㅇ 여기부터 ㄱㄱ -->
 		<!-- 	<div class="rankigListWrap">

@@ -18,7 +18,7 @@
 </head>
 <body>
 <div id="wrap">	
-<form id="form" name="form" method="post">
+<form  name="form" method="post">
 	<!-- 상단배너 s -->
 	<%@include file="../../../common/xdmin/includeV1/topvanner.jsp"%>
 	<!-- 상단배너 e -->
@@ -102,6 +102,9 @@
 <script>
 	var goUrlMonth = "/member/registerConfirm1";
 	var goUrlYear = "/member/registerConfirm2";
+	
+	var seq = $("input:hidden[name=sessSeq]")
+	var form = $("form[name=form]");
 	
 	
 	$("#btnMonth").on("click",function(){
