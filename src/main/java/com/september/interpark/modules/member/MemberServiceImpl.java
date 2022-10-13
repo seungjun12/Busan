@@ -163,6 +163,20 @@ public class MemberServiceImpl implements MemberService{
 		return dao.selectFindPwd(dto);
 	}
 
+	@Override
+	public List<Member> selectRegister1(MemberVo vo) throws Exception {
+		List<Member> reglist = dao.selectRegister(vo);
+		System.out.println("service reglist: " + reglist);
+		return reglist;
+	}
+	
+	@Override
+	public List<Member> selectRegister2(MemberVo vo) throws Exception {
+		List<Member> reglist = dao.selectRegister(vo);
+		System.out.println("service reglist: " + reglist);
+		return reglist;
+	}
+
 
 
 	
