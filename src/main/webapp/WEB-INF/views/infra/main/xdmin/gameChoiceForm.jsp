@@ -114,9 +114,10 @@
 						</div>
 						<!-- 예매하기 버튼 -->
 						<input type="hidden" id="gameseq" name="gameseq">
-						<button type="button" class="btn btn-danger" style="width: 128px; float: right" data-bs-toggle="modal" data-bs-target="#staticBackdrops" >예매하기</button>
+						<button type="button" class="btn btn-danger" style="width: 128px; float: right"  >예매하기</button>
+						<!-- <button type="button" class="btn btn-danger" style="width: 128px; float: right" data-bs-toggle="modal" data-bs-target="#staticBackdrops" >예매하기</button> -->
 						
-						<div class="modal fade" id="staticBackdrops" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+						<!-- <div class="modal fade" id="staticBackdrops" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
 							<div class="modal-dialog">
   								<div class="modal-content">
     								<div class="modal-header">
@@ -137,22 +138,22 @@
 											</div>
 											<div style="padding:3px">	
 												<input id="answer" type="text" value="" >
-												<input id="check" type="button" value="확인" onclick="javaScript:popupSeatChoice()" data-bs-dismiss="modal">
+												<input id="check" type="button" value="확인" onclick="popupSeatChoice()" data-bs-dismiss="modal">
 											</div>  
     								</div>
-    								<!-- <div class="modal-footer">
+    								<div class="modal-footer">
       									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       									<button type="button" class="btn btn-primary">Understood</button>
-    								</div> -->
+    								</div>
   								</div>
 							</div>
-						</div>
+						</div> -->
 					</div>
 				</c:forEach>
 				</c:otherwise>
 			</c:choose>
 					
-											</div> 		
+											<!-- </div> --> 		
 		</div><!-- sportsDetailContents end -->
 		<!-- 밑에 설명영역 탭 -->
 		<div class="sportsTabWrapper tabModule">
@@ -321,6 +322,8 @@
 		window.open(url,"",option);
 	}
 	
+	
+	
 	$(function(){
         // tab 메뉴를 클릭하였을 때 동작함
         $(".tab ul li").click(function(){ 
@@ -351,9 +354,9 @@ window.onload = function(){
 				alert('입력값이 일치합니다.');
 				
 				function popupSeatChoice(){
-					var url = "/main/seatChoice";
+					var goUrlSeatChoice = "/main/seatChoice";
 					var option = "width=820, height=500"
-					window.open(url,"",option);
+					window.open(goUrlSeatChoice,"",option);
 				}
 				// 성공 코드
 			}else{

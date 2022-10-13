@@ -16,6 +16,12 @@ public class MainServiceImpl implements MainService{
 		List<Main> list = dao.selectList(vo);
 		return list;
 	}
+
+	@Override
+	public List<Main> selectListSeatGrade(MainVo vo) throws Exception {
+		List<Main> list = dao.selectListSeatGrade(vo);
+		return list;
+	}
 	
 	
 	

@@ -192,7 +192,7 @@
                                     기록
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a type="button" class="dropdown-item" id="btnAdminLogout">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     로그아웃
                                 </a>
@@ -203,3 +203,40 @@
 
                 </nav>
                 <!-- End of Topbar -->
+                
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+				<script>
+				
+					var goUrlLogout = "/admin/login";
+				
+				/* 로그아웃 */ 
+					$("#btnAdminLogout").on("click", function(){
+						/* if(validation() == false) return false; */
+						
+						$.ajax({
+							async: true 
+							,cache: false
+							,type: "post"
+							/* ,dataType:"json" */
+							,url: "/admin/logoutProc"
+							/* ,data : $("#formLogin").serialize() */
+							,data : {}
+							,success: function(response) {
+								if(response.rt == "success") {
+									/* if(response.changePwd == "true") {
+										location.href = URL_CHANGE_PWD_FORM;
+									} else {
+										location.href = URL_INDEX_ADMIN;
+									} */
+									
+									location.href = goUrlLogout;
+								} else {
+									alert("회원없음");
+								}
+							}
+							,error : function(jqXHR, textStatus, errorThrown){
+								alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+							}
+						});
+					});
+				</script>	

@@ -18,5 +18,16 @@
 			,a.whoAway
 		FROM games a	
 	</select>
+	
+	<!-- 경기장 좌석 선택 -->
+	<select id="selectListSeatGrade" resultMap="resultMapObj">
+		SELECT 
+			a.seatSeq
+			,a.seatGrade
+			<!-- ,b.whoHome
+			,b.whoAway -->
+		FROM seat a	
+		<!-- LEFTJOIN games b on  -->
+	</select>
 
 </mapper>

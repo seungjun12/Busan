@@ -3,7 +3,7 @@ package com.september.interpark.modules.main;
 
 public class Main {
 
-	private Integer gameseq;
+	private String gameseq;
 	private String who;
 	private String dob;
 	private String where;
@@ -11,12 +11,19 @@ public class Main {
 	private String whoHome;
 	private String whoAway;
 	
+	//경기장 좌석 등급
+	private String seatSeq;
+	private String seatGrade;
+	private String seatPrice;
+	
 	
 	////////////
-	public Integer getGameseq() {
+	
+	
+	public String getGameseq() {
 		return gameseq;
 	}
-	public void setGameseq(Integer gameseq) {
+	public void setGameseq(String gameseq) {
 		this.gameseq = gameseq;
 	}
 	public String getWho() {
@@ -54,6 +61,24 @@ public class Main {
 	}
 	public void setWhoAway(String whoAway) {
 		this.whoAway = whoAway;
+	}
+	public String getSeatSeq() {
+		return seatSeq;
+	}
+	public void setSeatSeq(String seatSeq) {
+		this.seatSeq = seatSeq;
+	}
+	public String getSeatGrade() {
+		return seatGrade;
+	}
+	public void setSeatGrade(String seatGrade) {
+		this.seatGrade = seatGrade;
+	}
+	public String getSeatPrice() {
+		return seatPrice;
+	}
+	public void setSeatPrice(String seatPrice) {
+		this.seatPrice = seatPrice;
 	}
 	
 	

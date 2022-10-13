@@ -17,6 +17,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
+<form method="post" name="form">
 <div id="wrap">	
 	<!-- 상단배너 s -->
 	<%@include file="../../../common/xdmin/includeV1/topvanner.jsp"%>
@@ -25,8 +26,7 @@
 	<%@include file="../../../common/xdmin/includeV1/viewTopVanner.jsp"%>
 	<!-- 중간배너 e -->
 	<!-- 메인 시작 -->
-	<form method="post" name="form">
-	<input type="hidden" name="seq" value="<c:out value="${sessSeq }" />">
+	
 	<div class="mainWrap">	
 		<div id="openIdWrap">
 			<div class="logoTop">

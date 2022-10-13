@@ -31,6 +31,7 @@
 <body id="page-top">
 
     <!-- Page Wrapper -->
+    <form method="post">
     <div id="wrapper">
 
     <!-- 사이드배너 s -->
@@ -385,6 +386,7 @@
         <!-- End of Content Wrapper -->
 
     </div>
+    </form>
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
@@ -406,7 +408,7 @@
                 <div class="modal-body">정말 로그아웃 하시겠습니까?</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-                    <a class="btn btn-primary" href="login.html">로그아웃</a>
+                    <button type="button" class="btn btn-primary" id="btnLogout">로그아웃</button>
                 </div>
             </div>
         </div>

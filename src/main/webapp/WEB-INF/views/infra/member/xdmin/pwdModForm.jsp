@@ -17,7 +17,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
-<form id="mform" name="mform" method="post" >
+<form name="mform" method="post" >
+
 <div id="wrap">	
 	<!-- 상단배너 s -->
 	<%@include file="../../../common/xdmin/includeV1/topvanner.jsp"%>

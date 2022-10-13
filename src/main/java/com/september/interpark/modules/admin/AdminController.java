@@ -1,8 +1,14 @@
 package com.september.interpark.modules.admin;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class AdminController {
@@ -22,6 +28,16 @@ public class AdminController {
 		return "infra/admin/xdmin/home";
 	}
 	
+	//유저 로그아웃 하기
+	@ResponseBody
+	@RequestMapping(value = "/admin/logoutProc")
+	public Map<String, Object> logoutProc(HttpSession httpSession) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		/* UtilCookie.deleteCookie(); */
+		httpSession.invalidate();
+		returnMap.put("rt", "success");
+		return returnMap;
+	}
 	
 
 }

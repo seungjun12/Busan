@@ -9,6 +9,7 @@
 <input type="hidden"  name="sessPersonalAgree" value="${sessPersonalAgree }">
 <input type="hidden"  name="sessPwd" value="${sessPwd }">
 <input type="hidden"  name="sessAdminDiv" value="${sessAdminDiv }">
+<input type="hidden" name="seq" value="<c:out value="${sessSeq }"/>">
 		<!-- 최상단 배너 -->
 		<div id="topGnb">
 			<ul class="nav nav-tabs">
