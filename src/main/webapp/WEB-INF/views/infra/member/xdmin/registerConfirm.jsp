@@ -44,10 +44,12 @@
 		</div>
 		<div class="selectBox">
 			<span id="fontSize">조회기간 선택</span>
-			<button type="button" class="btn btn-danger">1주일</button>
-			<button type="button" class="btn btn-outline-danger">1달</button>
-			<button type="button" class="btn btn-outline-danger">3달</button>
-			<button type="button" class="btn btn-outline-danger">1년</button>
+			<!-- <input class="datepicker" id="startDate">
+			<input class="datepicker" id="endDate"> -->
+			<button type="button" name="filterDate" value="1" class="btn btn-danger">1주일</button>
+			<button type="button" name="filterDate" value="2" class="btn btn-outline-danger">1달</button>
+			<button type="button" name="filterDate" value="3" class="btn btn-outline-danger">3달</button>
+			<button type="button" name="filterDate" value="4" class="btn btn-outline-danger">1년</button>
 		</div>
 		<table class="table">
   			<thead class="table-secondary">
@@ -95,5 +97,10 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script type="text/javascript">
+	
+
+</script>
 </body>
 </html>
