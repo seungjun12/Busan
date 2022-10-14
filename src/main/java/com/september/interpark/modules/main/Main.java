@@ -1,7 +1,8 @@
 package com.september.interpark.modules.main;
 
+import com.september.interpark.common.base.BaseVo;
 
-public class Main {
+public class Main extends BaseVo{
 
 	private String gameseq;
 	private String who;

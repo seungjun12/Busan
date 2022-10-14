@@ -137,8 +137,8 @@
 												<input id="soundOn" type="button" onclick="javaScript:audio()" value="음성듣기"/>
 											</div>
 											<div style="padding:3px">	
-												<input id="answer" type="text" value="" >
-												<input id="check" type="button" value="확인" /><!-- data-bs-dismiss="modal" -->
+												<input id="answer" type="text" value="" name="answer">
+												<input id="btnCheck" type="button" value="확인" data-bs-dismiss="modal"><!-- data-bs-dismiss="modal" -->
 											</div> <!-- onclick="popupSeatChoice()" --> 
     								</div>
     								<!-- <div class="modal-footer">
@@ -160,14 +160,14 @@
 		<!-- 경기 설명영역 e -->
 		</div><!-- wrap end -->
 	</div>	
-		
+	</form>	
 		
 	
 	<!-- 푸터 s -->
 	<%@include file="../../../common/xdmin/includeV1/footer.jsp"%>
 	<!-- 푸터 e -->
 	
-	</form>
+	
 	
 
 
@@ -239,29 +239,42 @@
 
 <script>
 
-window.onload = function(){
-	getImage();	// 이미지 가져오기
+/* 문자열 체크 */ 
+$("#btnCheck").on("click", function(){
+	/* if(validation() == false) return false; */
 	
-	document.querySelector('#check' ).addEventListener('click', function(){
-		var params = {answer : document.querySelector('#answer').getAttribute('value')};
-			AF.ajax('${ctx}/chkAnswer.do', params, function(returnData){
-			if(returnData == 200){
-				alert('입력값이 일치합니다.');
-				
+	$.ajax({
+		async: true 
+		,cache: false
+		,type: "post"
+		/* ,dataType:"json" */
+		,url: "/chkAnswer.do"
+		/* ,data : $("#formLogin").serialize() */
+		,data : { "answer" : $("#answer").val()}
+		,success: function(response) {
+			if(response.rt == "success") {
+				/* if(response.changePwd == "true") {
+					location.href = URL_CHANGE_PWD_FORM;
+				} else {
+					location.href = URL_INDEX_ADMIN;
+				} */	
+				alert("맞습니다"); 
+				 
 				function popupSeatChoice(){
-					var goUrlSeatChoice = "/main/seatChoice";
-					var option = "width=820, height=500"
-					window.open(goUrlSeatChoice,"",option);
-				}
-				// 성공 코드
-			}else{
-				alert('입력값이 일치하지 않습니다.');
-				getImage();
-				document.querySelector('#answer').setAttribute('value', '');
+						var url = "/main/seatChoice";
+						var option = "width=820, height=500"
+						window.open(url,"",option);
+					}
+				
+			} else {
+				alert("틀렸습니다");
 			}
-		}, 'json');
+		}
+		,error : function(jqXHR, textStatus, errorThrown){
+			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+		}
 	});
-}
+});
 /*매번 랜덤값을 파라미터로 전달하는 이유 : IE의 경우 매번 다른 임의 값을 전달하지 않으면 '새로고침' 클릭해도 정상 호출되지 않아 이미지가 변경되지 않는 문제가 발생된다*/
 function audio(){
 	var rand = Math.random();

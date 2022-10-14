@@ -154,7 +154,7 @@
   						<i class="fa-regular fa-trash-can"></i>
 					</button>	
 				</a>
-					<button type="button" class="btn btn-primary rightBtn" id="btngameForm">
+					<button type="button" class="btn btn-primary rightBtn" id="btnGameForm">
 						<i class="fa-solid fa-plus"></i>
 					</button>	
 				<button type="button" class="btn btn-success rightBtn" style="margin-right: 5px;">
@@ -252,6 +252,8 @@
             </div>
         </div>
     </div> 
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     
     <!--  btn jquery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>     

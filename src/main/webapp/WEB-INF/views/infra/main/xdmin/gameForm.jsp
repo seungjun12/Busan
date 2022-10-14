@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>맴버 폼</title>
+    <title>게임 폼</title>
 
     <!-- Custom fonts for this template-->
     <link href="/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -51,13 +51,16 @@
 			<!-- 탑바 e -->
 			<!-- 코드 그룹 관리 제목 -->
 			<div class="wrap">
-			<form action="memberInst" id="memberFormReg" name="memberFormReg">
+			<form action="memberInst" id="memberFormReg" name="gameFormReg">
 				<!-- 제목 -->
-				<h3>회원관리</h3>
+				<h3>경기관리</h3>
 				<div class="container-fluid codeGroupName">
 					<div class="row">
 						<div class="col-6">
-							이름
+							홈팀
+						</div>
+						<div class="col-6">
+							원정팀
 						</div>					
 					</div>
 				</div>
@@ -66,15 +69,18 @@
 						<div class="col-6">
 							<input class="form-control" type="text" aria-label="default input example" id="name" name="name" value="<c:out value="${dto.name }"/>">
 						</div>
+						<div class="col-6">
+							<input class="form-control" type="text" aria-label="default input example" id="name" name="name" value="<c:out value="${dto.name }"/>">
+						</div>
 					</div>
 				</div>	
 				<div class="container-fluid codeGroupName">
 					<div class="row">
 						<div class="col-6">
-							아이디
+							경기날짜
 						</div>
 						<div class="col">
-							비밀번호
+							경기시작시간
 						</div>
 					</div>
 				</div>
@@ -96,11 +102,8 @@
 				<div class="container-fluid codeGroupName">
 					<div class="row">
 						<div class="col-6">
-							이메일
+							장소
 						</div>
-						<div class="col">
-							휴대폰
-						</div> 
 					</div>
 				</div>
 				<div class="container-fluid codeGroupInput">
@@ -108,187 +111,8 @@
 						<div class="col-6">
 							<input class="form-control" type="text" aria-label="default input example" id="email" name="email" value="<c:out value="${dto.email }"/>">
 						</div>
-						<div class="col">
-							<input class="form-control" type="text"  aria-label="default input example" id="number" name="number" value="<c:out value="${dto.number }"/>">
-						</div>
 					</div>
-				</div>
-				<div class="container-fluid codeGroupName">
-					<div class="row">
-						<div class="col-6">
-							성별
-						</div>
-						<div class="col">
-							삭제여부
-						</div>
-					</div>
-				</div>
-				<div class="container-fluid codeGroupInput">
-					<div class="row">
-						<div class="col-6">
-							<select class="form-select" aria-label="Default select example" id="gender" name="gender">
-						  		<option value="6">남자</option>
-							  	<option value="7">여자</option>
-							</select>
-						</div>
-						<div class="col">
-							<select class="form-select" aria-label="Default select example" id="delNy" name="delNy">
-						  		<option value="1">N</option>
-							  	<option value="0">Y</option>
-							</select>
-						</div>
-					</div>
-				</div>
-				<div class="container-fluid codeGroupName">
-					<div class="row">
-						<div class="col-6">
-							주소
-						</div>
-						<div class="col">
-							개인정보유효기간
-						</div>
-					</div>
-				</div>
-				<!-- 우편번호,개인정보 동의선택함 -->
-				<div class="container-fluid codeGroupName">
-					<div class="row">
-						<div class="col-6">
-							<input type="text" id="sample4_postcode" placeholder="우편번호"  name="addressCode" value="<c:out value="${dto.addressCode}"/>">
-							<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기">
-							<button type="button" id="btnAddressClear" class="btn-close" aria-label="Close"></button>		
-						</div>
-						<div class="col">
-							<select class="form-select" aria-label="Default select example" id="personalAgree" name="personalAgree">
-						  		<option value="8">탈퇴시까지</option>
-							  	<option value="9">1년</option>
-							</select>
-						</div>
-					</div>
-				</div>
-				<!-- 도로명주소 -->
-				<div class="container-fluid codeGroupName">
-					<div class="row">
-						<div class="col-6">
-							<input type="text" id="sample4_roadAddress" placeholder="도로명주소"  name="address" value="<c:out value="${dto.address }"/>" style="width: 400px;">
-						</div>
-					</div>
-				</div>
-				<!-- 지번주소 -->
-				<div class="container-fluid codeGroupName">
-					<div class="row">
-						<div class="col-6">
-							<input type="text" id="sample4_jibunAddress" placeholder="지번주소" style="width: 400px;">
-						</div>
-					</div>	
-				</div>
-				<!-- 상세주소 -->
-				<div class="container-fluid codeGroupName">
-					<div class="row">
-						<div class="col-6">
-							<span id="guide" style="color:#999;display:none"></span>
-							<input type="text" id="sample4_detailAddress" placeholder="상세주소"  name="address2"  value="<c:out value="${dto.address2 }"/>" style="width: 400px;">
-						</div>
-					</div>
-				</div>
-				<!-- 주소 참고항목 -->
-				<div class="container-fluid codeGroupName">
-					<div class="row">
-						<div class="col-6">
-							<input type="text" id="sample4_extraAddress" placeholder="참고항목" style="width: 400px;" >
-						</div>
-					</div>
-				</div>
-				<!-- 위도 경도 -->
-				<div class="container-fluid codeGroupName">
-					<div class="row">
-						<div class="col-3">
-							<input type="text" id="ifmaLatArray0" placeholder="위도">
-						</div>
-						<div class="col-3">
-							<input type="text" id="ifmaLngArray0"  placeholder="경도">
-						</div>
-					</div>
-				</div>
-				<div class="container-fluid codeGroupName ">
-					<div class="row">
-						<div class="col-6">
-							<label for="memberUploadedImage" class="form-label input-file-button">이미지첨부</label>
-						</div>
-						<div class="col">
-							<label for="memberUploadedFile" class="form-label input-file-button">파일첨부</label>
-						</div>
-					</div>
-				</div>
-				<div class="container-fluid codeGroupInput">
-					<div class="row">
-						<div class="col-6">
-							<input class="form-control form-control-sm" id="memberUploadedImage" name="memberUploadedImage" type="file" multiple="multiple" style="display: none;" onchange="upload('memberUploadedImage',2)">
-							<div class="addScroll">
-								<ul id="ulFile1" class="list-group">
-								</ul>
-							</div>
-						</div>
-						<div class="col-6">
-							<input class="form-control form-control-sm" id="memberUploadedFile" name="memberUploadedFile" type="file" multiple="multiple" style="display: none;" onChange="upload('memberUploadedFile', 2, 0, 2, 0, 0, 2);" >
-							<div class="addScroll">
-								<ul id="ulFile2" class="list-group">
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="container-fluid codeGroupName ">
-					<div class="row">
-						<div class="col-6">
-							<label for="memberUploadedImage" class="form-label input-file-button">이미지첨부</label>
-						</div>
-						<div class="col">
-							<label for="memberUploadedFile" class="form-label input-file-button">파일첨부</label>
-						</div>
-					</div>
-				</div>
-				<div class="container-fluid codeGroupInput">
-					<div class="row">
-						<div class="col-6">
-							<input class="form-control form-control-sm" id="memberUploadedImage" name="memberUploadedImage" type="file" multiple="multiple" style="display: none;" onChange="upload('memberUploadedImage', 1, 0, 1, 0, 0, 1);">
-				 			<div class="addScroll">
-								<div style="display: inline-block; height: 95px;">
-									<img src="/resources/common/image/default_111.jpg" class="rounded" width= "85px" height="85px">
-									<div style="position: relative; top:-85px; left:5px"><span style="color: red;">X</span></div>
-								</div>
-				 			</div>
-						</div>
-						<div class="col-6">
-							<input class="form-control form-control-sm" id="memberUploadedFile" name="memberUploadedFile" type="file" multiple="multiple" style="display: none;">
-							<div class="addScroll">
-								<ul id="ulFile2" class="list-group">
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="container-fluid codeGroupName ">
-					<div class="row">
-						<div class="col-6">
-							파일첨부
-						</div>
-						<div class="col">
-							
-						</div>
-					</div>
-				</div>
-				<div class="container-fluid codeGroupInput">
-					<div class="row">
-						<div class="col-6">
-							<input type="file" id="img1" name="img1" multiple="multiple" onchange="upload('img1',1,1)">
-						</div>
-						<div class="col-6">
-							
-						</div>
-					</div>
-				</div>
-				<span type="button" class="btn btn-secondary" >이미지첨부 확인버튼</span>
-				
+				</div>	
 				</form>								
 				<div class="container-fluid lastBtn">
 					<div class="row">
@@ -310,7 +134,7 @@
 									<i class="fa-regular fa-trash-can"></i>
 								</button>
 							</a>
-							<span type="button" class="btn btn-primary" onclick="memberRegister();">
+							<span type="button" class="btn btn-primary" onclick="gameRegister();">
 								<i class="fa-solid fa-plus"></i>
 							</span>
 						</div>
@@ -385,7 +209,7 @@
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7f841982946149edfa0ce998dfc98894&libraries=services,clusterer,drawing"></script>
 
 	<!-- js address -->
-	<script type="text/javascript" src="/resources/js/member/member.js"></script>
+	<script type="text/javascript" src="/resources/js/game/game.js"></script>
 	
 </body>
 
