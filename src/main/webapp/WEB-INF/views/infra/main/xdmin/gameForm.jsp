@@ -60,7 +60,7 @@
 							홈팀
 						</div>
 						<div class="col-6">
-							원정팀dddd
+							원정팀
 						</div>					
 					</div>
 				</div>
