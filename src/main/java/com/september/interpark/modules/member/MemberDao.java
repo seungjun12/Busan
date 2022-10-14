@@ -115,14 +115,20 @@ public class MemberDao {
 	}
 	
 	public List<Member>selectRegister1(MemberVo vo){
-		List<Member> reglist=sqlSession.selectList(namespace +".selectRegister", vo);
-		System.out.println("dao reglist: " + reglist);
+		List<Member> reglist=sqlSession.selectList(namespace +".selectRegister1", vo);
+		System.out.println("dao reglist1: " + reglist);
 		return reglist;
 	}
 	
 	public List<Member>selectRegister2(MemberVo vo){
-		List<Member> reglist=sqlSession.selectList(namespace +".selectRegister", vo);
-		System.out.println("dao reglist: " + reglist);
+		List<Member> reglist=sqlSession.selectList(namespace +".selectRegister2", vo);
+		System.out.println("dao reglist2: " + reglist);
+		return reglist;
+	}
+	
+	public List<Member>selectRegister3(MemberVo vo){
+		List<Member> reglist=sqlSession.selectList(namespace +".selectRegister3", vo);
+		System.out.println("dao reglist2: " + reglist);
 		return reglist;
 	}
 	

@@ -41,6 +41,7 @@
                         <a type="button" class="collapse-item" id="btnCodeGroup">코드그룹관리</a>
                         <a type="button" class="collapse-item" id="btnCode">코드관리</a>
                         <a type="button" class="collapse-item" id="btnMember">회원관리</a>
+                        <a type="button" class="collapse-item" id="btnGameList">경기관리</a>
                     </div>
                 </div>
             </li>
@@ -81,3 +82,12 @@
 
         </ul>
         <!-- End of Sidebar -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+		<script>
+			var goUrlGameList = "/main/gameList";
+			
+			$("#btnGameList").on("click",function(){
+				$(location).attr("href",goUrlGameList);
+			});
+		
+		</script>

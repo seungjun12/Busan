@@ -64,6 +64,12 @@
 	text-align: left;
 }
 
+.movingVanner{
+	position: absolute;
+	left: 488px;
+	top: 0;
+}
+
 
 
 .rankingWrap{

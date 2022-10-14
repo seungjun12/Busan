@@ -165,14 +165,21 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public List<Member> selectRegister1(MemberVo vo) throws Exception {
-		List<Member> reglist = dao.selectRegister(vo);
+		List<Member> reglist = dao.selectRegister1(vo);
 		System.out.println("service reglist: " + reglist);
 		return reglist;
 	}
 	
 	@Override
 	public List<Member> selectRegister2(MemberVo vo) throws Exception {
-		List<Member> reglist = dao.selectRegister(vo);
+		List<Member> reglist = dao.selectRegister2(vo);
+		System.out.println("service reglist: " + reglist);
+		return reglist;
+	}
+	
+	@Override
+	public List<Member> selectRegister3(MemberVo vo) throws Exception {
+		List<Member> reglist = dao.selectRegister3(vo);
 		System.out.println("service reglist: " + reglist);
 		return reglist;
 	}

@@ -305,6 +305,22 @@
 			AND regmember_seq = #{sessSeq}
 	</select>
 	
+	<select id="selectRegister3" resultMap="resultMapObj">
+		SELECT
+			a.registerDob
+			,a.registerNumber
+			,a.registerName
+			,a.dateUse
+			,a.count
+			,a.deleteDate
+			,a.state
+		FROM registerConfirm a
+		WHERE registerDob
+			BETWEEN DATE_ADD(NOW(),INTERVAL -1 week)
+			AND NOW()
+			AND regmember_seq = #{sessSeq}
+	</select>
+	
 	<!-- 회원 정보 수정1 -->
 	<update id="memberUpdate1">
 		UPDATE member

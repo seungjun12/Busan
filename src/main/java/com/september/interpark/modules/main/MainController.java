@@ -85,7 +85,21 @@ public class MainController {
 		List<Main> list = service.selectListSeatGrade(vo);
 		model.addAttribute("list", list);
 		return "infra/main/xdmin/seatChoiceForm";
-	}	
+	}
+	
+	//관리자 게임리스트
+	@RequestMapping(value = "/main/gameList")
+	public String gameList(@ModelAttribute("vo") MainVo vo , Model model)throws Exception{
+		List<Main>list = service.selectList(vo);
+		model.addAttribute("list", list);
+		return "infra/main/xdmin/gameList";
+	}
+	
+	//관리자 게임등록
+	@RequestMapping(value = "/main/gameForm")
+	public String gameFor()throws Exception{
+		return "infra/main/xdmin/gameForm";
+	}
 	
 
 

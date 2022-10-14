@@ -37,7 +37,7 @@
 			<i class="fa-solid fa-star"></i>
 			<span>예매내역확인,취소</span>
 		</div>
-		<input type="hidden" id="sessSeq" name="sessSeq" value="<c:out value="${sessSeq }"/>">
+		<%-- <input type="hidden" id="sessSeq" name="sessSeq" value="<c:out value="${sessSeq }"/>"> --%>
 		<!-- 조회기간 선택 -->
 		<div class="selectPeriod">
 			<span id="colorRed"><c:out value="${sessName }"/></span>
@@ -47,10 +47,10 @@
 			<span id="fontSize">조회기간 선택</span>
 			<!-- <input class="datepicker" id="startDate">
 			<input class="datepicker" id="endDate"> -->
-			<button type="button" class="btn btn-outline-danger">1주일</button>
-			<button type="button" class="btn btn-outline-danger" id="btnMonth">1달</button>
-			<button type="button" class="btn btn-outline-danger">3달</button>
-			<button type="button" class="btn btn-outline-danger" id="btnYear">1년</button>
+			<a href="javascript:goWeek(<c:out value="${sessSeq }"/>)" class="btn btn-outline-danger">1주일</a>
+			<a href="javascript:goMonth(<c:out value="${sessSeq }"/>)" class="btn btn-outline-danger">1달</a>
+			<a type="button" class="btn btn-outline-danger">3달</a>
+			<a href="javascript:goYear(<c:out value="${sessSeq }"/>)" class="btn btn-outline-danger" >1년</a>
 		</div>
 		<table class="table">
   			<thead class="table-secondary">
@@ -72,17 +72,17 @@
   				</c:when> 
   				<c:otherwise> 
   				<c:forEach items="${reglist }" var="reglist" varStatus="status">		
-  			<tbody>
-				<tr>
-					<td><c:out value="${reglist.registerDob }" /></td>
-					<td><c:out value="${reglist.registerNumber }" /></td>
-					<td><c:out value="${reglist.registerName }"/></td>
-					<td><c:out value="${reglist.dateUse }"/></td>
-					<td><c:out value="${reglist.count }"/>장</td>
-					<td><c:out value="${reglist.deleteDate }"/></td>
-					<td><c:out value="${reglist.state }"/></td>    
-  				</tr>
-  			</tbody>
+		  			<tbody>
+						<tr>
+							<td><c:out value="${reglist.registerDob }" /></td>
+							<td><c:out value="${reglist.registerNumber }" /></td>
+							<td><c:out value="${reglist.registerName }"/></td>
+							<td><c:out value="${reglist.dateUse }"/></td>
+							<td><c:out value="${reglist.count }"/>장</td>
+							<td><c:out value="${reglist.deleteDate }"/></td>
+							<td><c:out value="${reglist.state }"/></td>    
+		  				</tr>
+		  			</tbody>
   				</c:forEach>
   				</c:otherwise> 
 			</c:choose> 
@@ -102,18 +102,35 @@
 <script>
 	var goUrlMonth = "/member/registerConfirm1";
 	var goUrlYear = "/member/registerConfirm2";
+	var goUrlWeek = "/member/registerConfirm3";
 	
-	var seq = $("input:hidden[name=sessSeq]")
+	var seq = $("input:hidden[name=seq]")
 	var form = $("form[name=form]");
 	
 	
 	$("#btnMonth").on("click",function(){
-		$(location).attr("href",goUrlMonth);
+		seq.val(seqValue);
+		form.attr("action" ,goUrlMonth).submit();
 	});
 	
 	$("#btnYear").on("click",function(){
 		$(location).attr("href",goUrlYear);
 	});
+	
+ 	goMonth = function(seqValue){
+		seq.val(seqValue);
+		form.attr("action" ,goUrlMonth).submit();
+	} 
+	
+	goYear = function(seqValue){
+		seq.val(seqValue);
+		form.attr("action" ,goUrlYear).submit();
+	}
+	
+	goWeek = function(seqValue){
+		seq.val(seqValue);
+		form.attr("action" ,goUrlWeek).submit();
+	}
 
 </script>
 </body>
