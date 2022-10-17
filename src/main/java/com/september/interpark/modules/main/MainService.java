@@ -8,5 +8,7 @@ public interface MainService {
 	
 	public List<Main> selectListSeatGrade(MainVo vo)throws Exception;
 	
+	public List<Main>viewList() throws Exception;
+	
 	public int insert(Main dto) throws Exception;
 }

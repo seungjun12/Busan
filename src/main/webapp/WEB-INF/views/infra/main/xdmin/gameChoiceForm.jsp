@@ -260,11 +260,11 @@ $("#btnCheck").on("click", function(){
 				} */	
 				alert("맞습니다"); 
 				 
-				function popupSeatChoice(){
+				
 						var url = "/main/seatChoice";
 						var option = "width=820, height=500"
 						window.open(url,"",option);
-					}
+					
 				
 			} else {
 				alert("틀렸습니다");

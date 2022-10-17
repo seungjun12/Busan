@@ -22,6 +22,12 @@ public class MainServiceImpl implements MainService{
 		List<Main> list = dao.selectListSeatGrade(vo);
 		return list;
 	}
+	
+	@Override
+	public List<Main> viewList() throws Exception {
+		List<Main>list = dao.viewList();
+		return list;
+	}
 
 	@Override
 	public int insert(Main dto) throws Exception {

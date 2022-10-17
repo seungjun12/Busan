@@ -25,7 +25,7 @@
 			<span>티켓예매</span>		
 		</div>
 		<div>
-			<span>SSG vs 엘지 (일반 회원 상품)</span>&nbsp;&nbsp;
+			<span><c:out value="${teamList.whoHome}"/> vs <c:out value="${teamList.whoAway }"/> (일반 회원 상품)</span>&nbsp;&nbsp;
 			<span style="font-size: 11px; color: #cccccd">| 인천SSG랜더스필드</span>
 		</div>
 	</div>
@@ -39,7 +39,7 @@
 		<c:forEach items="${list }" var="list" varStatus="status">	
 			<div>
 				<a style="cursor: pointer"><c:out value="${list.seatGrade }" /></a>
-				&nbsp;<span>| 매진</span>
+				&nbsp;<span>| </span>
 			</div>
 		</c:forEach>	
 		</div>

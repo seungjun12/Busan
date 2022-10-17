@@ -12,7 +12,7 @@
 		SELECT
 			a.gameseq
 			,a.dob
-			,a.where
+			,a.ground
 			,a.time
 			,a.whoHome
 			,a.whoAway
@@ -36,19 +36,26 @@
 			whoHome
 			,whoAway
 			,dob
-			,where
 			,time
+			,ground
 		)
 		VALUES(
 			#{whoHome}
 			,#{whoAway}
 			,#{dob}
-			,#{where}
 			,#{time}
+			,#{ground}
 		)
 		<selectKey resultType="String" keyProperty="gameseq" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>
+	
+	<select id="viewList" resultMap="resultMapObj">
+		SELECT
+			a.*
+		FROM team a
+		WHERE 1=1	
+	</select>
 
 </mapper>

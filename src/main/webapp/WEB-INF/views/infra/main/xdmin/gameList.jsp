@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>코드 관리</title>
+    <title>경기 리스트</title>
 
     <!-- Custom fonts for this template-->
     <link href="/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -52,7 +52,7 @@
 				<h3>경기관리</h3>
 				<!-- 검색대 -->
 				<form method="post" name="form" id="form">
-					<input type="hidden" name="ccseq" value="<c:out  value="${dto.ccseq }"/>">
+					<input type="hidden" name="gameseq" value="<c:out  value="${dto.gameseq }"/>">
 					<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
 					<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow }"/>">
 					<input type="hidden" name="checkboxSeqArray">
@@ -122,13 +122,13 @@
 					  		</c:when>
 					  		<c:otherwise>
 					  		<c:forEach items="${list}" var="list" varStatus="status">
-							<tr>    	
+							<tr href="javascript:goView(<c:out value="${list.gameseq }"/>)">     	
 						    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td><!-- 1 -->
 						    	<td><c:out value="${list.gameseq }"/></td><!-- 2 -->
 						    	<td><c:out value="${list.whoHome }"/></td><!-- 3 -->
 						    	<td><c:out value="${list.whoAway }"/></td><!-- 4 -->
 						    	<td><c:out value="${list.dob }"/></td><!-- 5 -->
-						    	<td><c:out value="${list.where }"/></td><!-- 6 -->
+						    	<td><c:out value="${list.ground }"/></td><!-- 6 -->
 						    	<td><c:out value="${list.time }"/></td><!-- 7 -->
 					  		</tr>
 					  	</tbody>

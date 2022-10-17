@@ -1,6 +1,6 @@
 package com.september.interpark.modules.main;
 
-import java.sql.Date;
+
 
 import com.september.interpark.common.base.BaseVo;
 
@@ -9,8 +9,8 @@ public class Main extends BaseVo{
 	private String gameseq;
 	private String who;
 	private String dob;
-	private String where;
-	private Date time;
+	private String ground;
+	private String time;
 	private String whoHome;
 	private String whoAway;
 	
@@ -46,17 +46,20 @@ public class Main extends BaseVo{
 	public void setDob(String dob) {
 		this.dob = dob;
 	}
-	public String getWhere() {
-		return where;
-	}
-	public void setWhere(String where) {
-		this.where = where;
-	}
 	
-	public Date getTime() {
+	
+	
+	
+	public String getGround() {
+		return ground;
+	}
+	public void setGround(String ground) {
+		this.ground = ground;
+	}
+	public String getTime() {
 		return time;
 	}
-	public void setTime(Date time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
 	public String getWhoHome() {

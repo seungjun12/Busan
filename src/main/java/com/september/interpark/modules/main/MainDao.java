@@ -27,6 +27,10 @@ public class MainDao {
 		return list;
 	}
 	
+	public List<Main> viewList(){
+		return sqlSession.selectList(namespace + ".viewList", "");
+	}
+	
 	public int insert(Main dto) {return sqlSession.insert(namespace + ".insert", dto);}
 	
 	

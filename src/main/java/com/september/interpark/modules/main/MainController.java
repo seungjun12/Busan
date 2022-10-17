@@ -94,7 +94,9 @@ public class MainController {
 	@RequestMapping(value = "/main/seatChoice")
 	public String seatChoice(@ModelAttribute("vo") MainVo vo , Model model)throws Exception{
 		List<Main> list = service.selectListSeatGrade(vo);
+		List<Main> teamList = service.selectList(vo);
 		model.addAttribute("list", list);
+		model.addAttribute("teamList", teamList);
 		return "infra/main/xdmin/seatChoiceForm";
 	}
 	
@@ -108,7 +110,10 @@ public class MainController {
 	
 	//관리자 게임등록화면가기
 	@RequestMapping(value = "/main/gameForm")
-	public String gameFor()throws Exception{
+	public String gameFor(Model model)throws Exception{
+		
+		List<Main> view = service.viewList();
+		model.addAttribute("view", view);
 		return "infra/main/xdmin/gameForm";
 	}
 	
@@ -116,8 +121,14 @@ public class MainController {
 	@RequestMapping(value = "/main/gameInst")
 	public String gameInst(Main dto) throws Exception{
 		service.insert(dto);
-		return "redirect : /main/gameList";
+		return "redirect:/main/gameList";
 	}
+	
+	//관리자 게임정보뷰가기
+		@RequestMapping(value = "/main/gameView")
+		public String gameView() throws Exception{
+			return "infra/main/xdmin/gameView";
+		}
 	
 
 
