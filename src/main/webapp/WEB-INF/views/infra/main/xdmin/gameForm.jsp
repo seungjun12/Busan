@@ -67,7 +67,9 @@
 			 	<div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
-							<input class="form-control" type="text" aria-label="default input example" id="name" name="name" value="<c:out value="${dto.name }"/>">
+							<select class="form-select" aria-label="Default select example" id="teamSeq" name="teamSeq">
+								<option value="">홈팀선택</option>
+							</select>
 						</div>
 						<div class="col-6">
 							<input class="form-control" type="text" aria-label="default input example" id="name" name="name" value="<c:out value="${dto.name }"/>">
@@ -88,14 +90,14 @@
 					<div class="row">
 						<div class="col-6">
 							<input class="form-control" 
-							type="text" placeholder="ID" 
+							type="text" 
 							aria-label="default input example" 
 							 id="id" name="id" value="<c:out value="${dto.id }"/>"
 							 >
 							 <div class="invalide-feeback" id="ifmmIdFeedback"></div>
 						</div>
 						<div class="col">
-							<input class="form-control" type="password" placeholder="PWD" aria-label="default input example" id="pwd" name="pwd" value="<c:out value="${dto.pwd }"/>">
+							<input class="form-control" type="password" aria-label="default input example" id="pwd" name="pwd" value="<c:out value="${dto.pwd }"/>">
 						</div>
 					</div>
 				</div>

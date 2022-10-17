@@ -27,4 +27,7 @@ public class MainDao {
 		return list;
 	}
 	
+	public int insert(Main dto) {return sqlSession.insert(namespace + ".insert", dto);}
+	
+	
 }

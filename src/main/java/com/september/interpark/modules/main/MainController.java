@@ -7,7 +7,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -107,10 +106,17 @@ public class MainController {
 		return "infra/main/xdmin/gameList";
 	}
 	
-	//관리자 게임등록
+	//관리자 게임등록화면가기
 	@RequestMapping(value = "/main/gameForm")
 	public String gameFor()throws Exception{
 		return "infra/main/xdmin/gameForm";
+	}
+	
+	//관리자 게임정보등록하기
+	@RequestMapping(value = "/main/gameInst")
+	public String gameInst(Main dto) throws Exception{
+		service.insert(dto);
+		return "redirect : /main/gameList";
 	}
 	
 

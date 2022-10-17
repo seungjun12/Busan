@@ -29,5 +29,26 @@
 		FROM seat a	
 		<!-- LEFTJOIN games b on  -->
 	</select>
+	
+	<!-- 관리자_경기정보입력폼1 -->
+	<insert id="insert">
+		INSERT INTO games(
+			whoHome
+			,whoAway
+			,dob
+			,where
+			,time
+		)
+		VALUES(
+			#{whoHome}
+			,#{whoAway}
+			,#{dob}
+			,#{where}
+			,#{time}
+		)
+		<selectKey resultType="String" keyProperty="gameseq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
 
 </mapper>

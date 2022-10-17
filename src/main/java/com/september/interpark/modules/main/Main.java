@@ -1,5 +1,7 @@
 package com.september.interpark.modules.main;
 
+import java.sql.Date;
+
 import com.september.interpark.common.base.BaseVo;
 
 public class Main extends BaseVo{
@@ -8,7 +10,7 @@ public class Main extends BaseVo{
 	private String who;
 	private String dob;
 	private String where;
-	private String time;
+	private Date time;
 	private String whoHome;
 	private String whoAway;
 	
@@ -16,6 +18,11 @@ public class Main extends BaseVo{
 	private String seatSeq;
 	private String seatGrade;
 	private String seatPrice;
+	
+	//team
+	private String teamSeq;
+	private	String teamName;
+	private String teamGround;
 	
 	
 	////////////
@@ -45,10 +52,11 @@ public class Main extends BaseVo{
 	public void setWhere(String where) {
 		this.where = where;
 	}
-	public String getTime() {
+	
+	public Date getTime() {
 		return time;
 	}
-	public void setTime(String time) {
+	public void setTime(Date time) {
 		this.time = time;
 	}
 	public String getWhoHome() {
@@ -80,6 +88,24 @@ public class Main extends BaseVo{
 	}
 	public void setSeatPrice(String seatPrice) {
 		this.seatPrice = seatPrice;
+	}
+	public String getTeamSeq() {
+		return teamSeq;
+	}
+	public void setTeamSeq(String teamSeq) {
+		this.teamSeq = teamSeq;
+	}
+	public String getTeamName() {
+		return teamName;
+	}
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
+	}
+	public String getTeamGround() {
+		return teamGround;
+	}
+	public void setTeamGround(String teamGround) {
+		this.teamGround = teamGround;
 	}
 	
 	
