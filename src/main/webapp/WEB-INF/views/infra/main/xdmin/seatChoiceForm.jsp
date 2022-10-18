@@ -25,7 +25,7 @@
 			<span>티켓예매</span>		
 		</div>
 		<div>
-			<span><c:out value="${teamList.whoHome}"/> vs <c:out value="${teamList.whoAway }"/> (일반 회원 상품)</span>&nbsp;&nbsp;
+			<span><c:out value="${item.whoHome}"/> vs <c:out value="${item.whoAway }"/> (일반 회원 상품)</span>&nbsp;&nbsp;
 			<span style="font-size: 11px; color: #cccccd">| 인천SSG랜더스필드</span>
 		</div>
 	</div>

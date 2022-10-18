@@ -94,9 +94,10 @@ public class MainController {
 	@RequestMapping(value = "/main/seatChoice")
 	public String seatChoice(@ModelAttribute("vo") MainVo vo , Model model)throws Exception{
 		List<Main> list = service.selectListSeatGrade(vo);
-		List<Main> teamList = service.selectList(vo);
 		model.addAttribute("list", list);
-		model.addAttribute("teamList", teamList);
+		
+		Main item = service.selectOne(vo);
+		model.addAttribute("item", item);
 		return "infra/main/xdmin/seatChoiceForm";
 	}
 	

@@ -260,7 +260,7 @@ $("#btnCheck").on("click", function(){
 				} */	
 				alert("맞습니다"); 
 				 
-				
+						
 						var url = "/main/seatChoice";
 						var option = "width=820, height=500"
 						window.open(url,"",option);
