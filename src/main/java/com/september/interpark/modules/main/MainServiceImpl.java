@@ -38,6 +38,30 @@ public class MainServiceImpl implements MainService{
 	public Main selectOne(MainVo vo) throws Exception {
 		return dao.selectOne(vo);
 	}
+
+	@Override
+	public int update(Main dto) throws Exception {
+		return dao.update(dto);
+	}
+
+	@Override
+	public int uelete(Main dto) throws Exception {
+		return dao.uelete(dto);
+	}
+
+	@Override
+	public int delete(MainVo vo) throws Exception {
+		return dao.delete(vo);
+	}
+
+	@Override
+	public int selectOneCount(MainVo vo) throws Exception {
+		return dao.selectOneCount(vo);
+	}
+	
+	
+	
+	
 	
 	
 	

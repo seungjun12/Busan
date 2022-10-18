@@ -34,6 +34,11 @@ public class MainDao {
 		return sqlSession.selectList(namespace + ".viewList", "");
 	}
 	
-	public Main selectOne(MainVo vo) {return sqlSession.selectOne(namespace + "selectOne", vo);}
+	public Main selectOne(MainVo vo) {return sqlSession.selectOne(namespace + ".selectOne", vo);}
+	
+	public int update(Main dto) {return sqlSession.update(namespace + ".update", dto);}
+	public int uelete(Main dto) {return sqlSession.update(namespace + ".uelete", dto);}
+	public int delete(MainVo vo) {return sqlSession.delete(namespace + ".delete", vo);}
+	public int selectOneCount(MainVo vo) {return sqlSession.selectOne(namespace + ".selectOneCount", vo);}
 	
 }

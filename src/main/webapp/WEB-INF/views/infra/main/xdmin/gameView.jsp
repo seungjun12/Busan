@@ -59,7 +59,10 @@
 			<!-- 탑바 e -->
 			<!-- 코드 그룹 관리 제목 -->
 			<div class="wrap">
-			<form action="/main/gameInst" id="gameFormReg" name="gameFormReg">
+			<form method="post" id="form" name="form">
+			<!-- *Vo.jsp s -->
+			 <%@include file="mainVo.jsp"%>		
+			 <!-- *Vo.jsp e -->	
 				<!-- 제목 -->
 				<h3>경기관리</h3>
 				<div class="container-fluid codeGroupName">
@@ -78,16 +81,18 @@
 							<select class="form-select" aria-label="Default select example" id="whoHome" name="whoHome">
 								<option value="">홈팀선택</option>
 								<c:forEach items="${view}" varStatus="status" var="view">
-									<option value="<c:out value="${view.teamName }" />"><c:out value="${view.teamName }" /></option>
+									<option value="${view.whoHome }" <c:if test = "${item.whoHome eq view.teamName }">selected</c:if>>
+									<c:out value="${view.teamName }"/>
 								</c:forEach>
 							</select>
 						</div>
 						<div class="col-6">
 							<select class="form-select" aria-label="Default select example" id="whoAway" name="whoAway">
 								<option>원정팀선택</option>
-								<c:forEach items="${view }" var="view" varStatus="status">
-									<option value="<c:out value="${view.teamName }" />"><c:out value="${view.teamName }" /></option>
-								</c:forEach>
+								<c:forEach items="${view}" var="view" varStatus="status">
+									<option value="${view.whoAway }" <c:if test = "${item.whoAway eq view.teamName }">selected</c:if>>
+									<c:out value="${view.teamName }"/>
+								</c:forEach>		
 							</select>
 						</div>
 					</div>
@@ -137,17 +142,13 @@
 							</a>
 						</div>
 						<div class="col" style="text-align: right;">
-							<a>	
-								<button type="button" class="btn btn-danger">
-									<i class="fa-solid fa-x"></i>
-								</button>
-							</a>
-							<a>	
-								<button type="button" class="btn btn-danger">
-									<i class="fa-regular fa-trash-can"></i>
-								</button>
-							</a>
-							<span type="button" class="btn btn-primary" onclick="gameRegister();">
+							<button type="button" class="btn btn-danger" id="btnDelete">
+								<i class="fa-solid fa-x"></i>
+							</button>
+							<button type="button" class="btn btn-danger" id="btnUele">
+								<i class="fa-regular fa-trash-can"></i>
+							</button>
+							<span type="button" class="btn btn-primary" id="btnModify" >
 								<i class="fa-solid fa-plus"></i>
 							</span>
 						</div>

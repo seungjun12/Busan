@@ -8,6 +8,16 @@
 
     <resultMap id="resultMapObj" type="com.september.interpark.modules.main.Main"></resultMap>
 	
+	<sql id="selectCommon">
+		From games a
+		WHERE 1=1
+			<if test="shdelNy != null and !shdelNy.equals('')">AND gameDelNy = #{shdelNy}</if>
+			<choose>
+				<when test="shOption == 1">AND gameseq = #{shValue}</when>
+				<when test="shOption == 2">AND dob = #{shValue}</when>
+			</choose>
+	</sql>
+	
 	<select id="selectList" resultMap="resultMapObj">
 		SELECT
 			a.gameseq
@@ -16,7 +26,12 @@
 			,a.time
 			,a.whoHome
 			,a.whoAway
-		FROM games a	
+		<include refid="selectCommon"/>	
+	</select>
+	
+	<select id="selectOneCount" resultType="Integer">
+		SELECT COUNT(*)
+		<include refid="selectCommon"/>
 	</select>
 	
 	<!-- 경기장 좌석 선택 -->
@@ -65,5 +80,27 @@
 		WHERE 1=1
 			AND gameseq = #{gameseq}		
 	</select>
+	
+	<update id="update">
+		UPDATE games
+		SET
+			dob = #{dob}
+			,ground = #{ground}
+			,time = #{time}
+		WHERE
+			gameseq = #{gameseq}	
+	</update>
+
+	<update id="uelete">
+		UPDATE games
+		SET 
+			gameDelNy = 0
+		WHERE 
+			gameseq = #{gameseq}	
+	</update>
+	
+	<delete id="delete">
+		DELETE FORM games WHERE gameseq = #{gmaeseq}
+	</delete>
 
 </mapper>

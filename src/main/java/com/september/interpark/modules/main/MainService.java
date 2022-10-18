@@ -13,4 +13,13 @@ public interface MainService {
 	public List<Main>viewList() throws Exception;
 	
 	public Main selectOne(MainVo vo)throws Exception;
+	
+	public int update(Main dto)throws Exception;
+	
+	public int uelete(Main dto)throws Exception;
+	
+	public int delete(MainVo vo)throws Exception;
+	
+	public int selectOneCount(MainVo vo)throws Exception;
+	
 }

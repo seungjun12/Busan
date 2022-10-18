@@ -15,9 +15,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.september.interpark.modules.code.Code;
-import com.september.interpark.modules.code.CodeVo;
-
 import nl.captcha.Captcha;
 
 @Controller
@@ -106,6 +103,7 @@ public class MainController {
 	//관리자 게임리스트
 	@RequestMapping(value = "/main/gameList")
 	public String gameList(@ModelAttribute("vo") MainVo vo , Model model)throws Exception{
+		vo.setParamsPaging(service.selectOneCount(vo));
 		List<Main>list = service.selectList(vo);
 		model.addAttribute("list", list);
 		return "infra/main/xdmin/gameList";
@@ -139,7 +137,26 @@ public class MainController {
 		return "infra/main/xdmin/gameView";
 	}
 	
-
+	//관리자_게임정보 수정하기
+	@RequestMapping(value = "/main/gameUpdt")
+	public String gameUpdt(Main dto)throws Exception{
+		service.update(dto);
+		return "redirect:/main/gameList";
+	}
+	
+	//관리자_게임정보 삭제하기1
+	@RequestMapping(value = "/main/gameUele")
+	public String gameUele(Main dto)throws Exception{
+		service.uelete(dto);
+		return "redirect:/main/gameList";
+	}
+	
+	//관리자_게임정보 삭제하기2
+	@RequestMapping(value = "/main/gameDele")
+	public String gameDele(MainVo vo)throws Exception{
+		service.delete(vo);
+		return "redirect:/main/gmaeList";
+	}
 
 	
 	
