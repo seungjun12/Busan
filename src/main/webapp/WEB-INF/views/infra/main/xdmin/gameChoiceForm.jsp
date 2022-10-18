@@ -109,7 +109,7 @@
 						<div class="ground">
 							<div>
 								<div>홈</div>
-								<span><c:out value="${list.where }"/></span>
+								<span><c:out value="${list.ground }"/></span>
 							</div>
 						</div>
 						<!-- 예매하기 버튼 -->
