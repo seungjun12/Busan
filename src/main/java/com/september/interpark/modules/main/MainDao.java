@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+
 @Repository
 public class MainDao {
 
@@ -27,11 +28,12 @@ public class MainDao {
 		return list;
 	}
 	
+	public int insert(Main dto) {return sqlSession.insert(namespace + ".insert", dto);}
+	
 	public List<Main> viewList(){
 		return sqlSession.selectList(namespace + ".viewList", "");
 	}
 	
-	public int insert(Main dto) {return sqlSession.insert(namespace + ".insert", dto);}
-	
+	public Main selectOne(MainVo vo) {return sqlSession.selectOne(namespace + "selectOne", vo);}
 	
 }

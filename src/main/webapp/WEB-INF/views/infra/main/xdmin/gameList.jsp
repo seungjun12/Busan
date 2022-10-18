@@ -122,10 +122,10 @@
 					  		</c:when>
 					  		<c:otherwise>
 					  		<c:forEach items="${list}" var="list" varStatus="status">
-							<tr href="javascript:goView(<c:out value="${list.gameseq }"/>)">     	
+							<tr>     	
 						    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td><!-- 1 -->
 						    	<td><c:out value="${list.gameseq }"/></td><!-- 2 -->
-						    	<td><c:out value="${list.whoHome }"/></td><!-- 3 -->
+						    	<td><a href="javascript:goView(<c:out value="${list.gameseq }"/>)" class="text-decoration-none"><c:out value="${list.whoHome }"/></td><!-- 3 -->
 						    	<td><c:out value="${list.whoAway }"/></td><!-- 4 -->
 						    	<td><c:out value="${list.dob }"/></td><!-- 5 -->
 						    	<td><c:out value="${list.ground }"/></td><!-- 6 -->

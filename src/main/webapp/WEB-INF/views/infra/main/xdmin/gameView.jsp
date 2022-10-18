@@ -105,10 +105,10 @@
 				<div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
-							<input class="form-control" type="text"  aria-label="default input example" placeholder="경기날짜" id="datepicker" name="dob" value="<c:out value="${dto.dob }" />">
+							<input class="form-control" type="text"  aria-label="default input example"  id="datepicker" name="dob" value="<c:out value="${item.dob }" />">
 						</div>
 						<div class="col">
-							<input class="form-control" type="text" aria-label="default input example" id="time	" name="time" value="<c:out value="${dto.time }"/>">
+							<input class="form-control" type="text" aria-label="default input example" id="time	" name="time" value="<c:out value="${item.time }"/>">
 						</div>
 					</div>
 				</div>
@@ -122,7 +122,7 @@
 				<div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
-							<input class="form-control" type="text" aria-label="default input example" id="ground" name="ground" value="<c:out value="${dto.ground }"/>">
+							<input class="form-control" type="text" aria-label="default input example" id="ground" name="ground" value="<c:out value="${item.ground }"/>">
 						</div>
 					</div>
 				</div>	

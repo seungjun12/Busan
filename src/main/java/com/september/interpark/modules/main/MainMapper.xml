@@ -57,5 +57,13 @@
 		FROM team a
 		WHERE 1=1	
 	</select>
+	
+	<select id="selectOne" resultMap="resultMapObj">
+		SELECT
+			a.*
+		FROM games a
+		WHERE 1=1
+			AND gameseq = #{gameseq}		
+	</select>
 
 </mapper>

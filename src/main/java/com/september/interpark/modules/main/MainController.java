@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.september.interpark.modules.code.Code;
+import com.september.interpark.modules.code.CodeVo;
+
 import nl.captcha.Captcha;
 
 @Controller
@@ -125,10 +128,16 @@ public class MainController {
 	}
 	
 	//관리자 게임정보뷰가기
-		@RequestMapping(value = "/main/gameView")
-		public String gameView() throws Exception{
-			return "infra/main/xdmin/gameView";
-		}
+	@RequestMapping(value = "/main/gameView")
+	public String gameView(@ModelAttribute("vo") MainVo vo , Model model) throws Exception{
+		
+		List<Main> view = service.viewList();
+		model.addAttribute("view", view);
+		
+		Main item = service.selectOne(vo);
+		model.addAttribute("item", item);
+		return "infra/main/xdmin/gameView";
+	}
 	
 
 

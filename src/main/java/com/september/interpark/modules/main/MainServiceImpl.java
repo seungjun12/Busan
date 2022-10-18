@@ -24,15 +24,22 @@ public class MainServiceImpl implements MainService{
 	}
 	
 	@Override
+	public int insert(Main dto) throws Exception {
+		return dao.insert(dto);
+	}
+	
+	@Override
 	public List<Main> viewList() throws Exception {
 		List<Main>list = dao.viewList();
 		return list;
 	}
 
 	@Override
-	public int insert(Main dto) throws Exception {
-		return dao.insert(dto);
+	public Main selectOne(MainVo vo) throws Exception {
+		return dao.selectOne(vo);
 	}
+	
+	
 	
 	
 	
