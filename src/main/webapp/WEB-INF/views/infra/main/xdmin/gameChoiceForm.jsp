@@ -115,7 +115,7 @@
 						<!-- 예매하기 버튼 -->
 						<input type="hidden" id="gameseq" name="gameseq" value="<c:out value="${list.gameseq }"/>">
 						<!-- <button type="button" class="btn btn-danger" style="width: 128px; float: right"  >예매하기</button> -->
-						<button type="button" class="btn btn-danger" style="width: 128px; float: right" data-bs-toggle="modal" data-bs-target="#staticBackdrops" >예매하기</button> 
+						<button type="button" class="btn btn-danger" style="width: 128px; float: right" data-bs-toggle="modal" data-bs-target="#staticBackdrops"  value="<c:out value="${gameseq }"/>">예매하기</button> 
 						
 						<div class="modal fade" id="staticBackdrops" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
 							<div class="modal-dialog">
@@ -237,9 +237,7 @@
         });
     });
         
-</script>
 
-<script>
 
 /* 문자열 체크 */ 
 $("#btnCheck").on("click", function(){
@@ -262,14 +260,13 @@ $("#btnCheck").on("click", function(){
 				} */	
 				alert("맞습니다"); 
 				 
-						var Df =document.form;
 						var url = "/main/seatChoice";
 						var option = "width=820, height=500"
+						
 						window.open(url,"",option);
 						
-						Df.target = "url";
-						
-						Df.submit();
+						form.action = url;
+						form.submit();
 						
 				
 			} else {
