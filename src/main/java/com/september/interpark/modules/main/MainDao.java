@@ -23,6 +23,11 @@ public class MainDao {
 		return list;
 	}
 	
+	public List<Main>selectListGame(MainVo vo){
+		List<Main> list = sqlSession.selectList(namespace + ".selectListGame", vo);
+		return list;
+	}
+	
 	public List<Main>selectListSeatGrade(MainVo vo){
 		List<Main> list = sqlSession.selectList(namespace + ".selectListSeatGrade", vo);
 		return list;

@@ -30,6 +30,20 @@
 		<include refid="selectCommon"/>	
 	</select>
 	
+	<select id="selectListGame" resultMap="resultMapObj">
+		SELECT
+			a.gameseq
+			,a.dob
+			,a.ground
+			,a.time
+			,a.whoHome
+			,a.whoAway
+			,a.gameDelNy
+		FROM games a
+			WHERE 1=1
+			AND gameDelNy = 1	
+	</select>
+	
 	<select id="selectOneCount" resultType="Integer">
 		SELECT COUNT(*)
 		<include refid="selectCommon"/>

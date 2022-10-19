@@ -106,9 +106,9 @@
 		/* if(validation() == false) return false; */
 		
 		$.ajax({
-			async: true 
+			async: true //false일경우 동기 요청으로 변경
 			,cache: false
-			,type: "post"
+			,type: "post" 
 			/* ,dataType:"json" */
 			,url: "/member/loginProc"
 			/* ,data : $("#formLogin").serialize() */

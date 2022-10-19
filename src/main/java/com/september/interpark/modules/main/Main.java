@@ -12,6 +12,7 @@ public class Main{
 	private String time;
 	private String whoHome;
 	private String whoAway;
+	private Integer gameDelNy;
 	
 	//경기장 좌석 등급
 	private String seatSeq;
@@ -108,6 +109,12 @@ public class Main{
 	}
 	public void setTeamGround(String teamGround) {
 		this.teamGround = teamGround;
+	}
+	public Integer getGameDelNy() {
+		return gameDelNy;
+	}
+	public void setGameDelNy(Integer gameDelNy) {
+		this.gameDelNy = gameDelNy;
 	}
 	
 	

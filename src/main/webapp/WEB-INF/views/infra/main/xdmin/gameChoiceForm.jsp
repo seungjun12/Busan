@@ -113,7 +113,7 @@
 							</div>
 						</div>
 						<!-- 예매하기 버튼 -->
-						<input type="hidden" id="gameseq" name="gameseq">
+						<input type="hidden" id="gameseq" name="gameseq" value="<c:out value="${gameseq }"/>">
 						<!-- <button type="button" class="btn btn-danger" style="width: 128px; float: right"  >예매하기</button> -->
 						<button type="button" class="btn btn-danger" style="width: 128px; float: right" data-bs-toggle="modal" data-bs-target="#staticBackdrops" >예매하기</button> 
 						
@@ -190,6 +190,8 @@
 	var goUrlGame = "/main/gameChoice";
 	var goUrlIndex = "/main/index";
 	var goUrlMemberView = "/member/memberViewForm";
+	
+	var form = $("form[name=form]");
         
 	$(".btnLogin").on("click",function(){
 		$(location).attr("href",goUrlLogin);
@@ -264,7 +266,8 @@ $("#btnCheck").on("click", function(){
 						var url = "/main/seatChoice";
 						var option = "width=820, height=500"
 						window.open(url,"",option);
-					
+						
+							
 				
 			} else {
 				alert("틀렸습니다");

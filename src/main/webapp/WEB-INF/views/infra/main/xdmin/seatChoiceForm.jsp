@@ -17,6 +17,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
 </head>   
 <body>
+<form method="post" name="form" id="form">
 <div class="wrap">
 	<!-- 헤더영역 -->
 	<div class="headerWrap">
@@ -49,38 +50,10 @@
 		</div>
 	</div>
 </div><!-- wrap end -->	
-
+</form>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
-<script type="text/javascript">
-var div2 = document.getElementsByClassName("div2");
 
-function handleClick(event) {
-  console.log(event.target);
-  // console.log(this);
-  // 콘솔창을 보면 둘다 동일한 값이 나온다
-
-  console.log(event.target.classList);
-
-  if (event.target.classList[1] === "clicked") {
-    event.target.classList.remove("clicked");
-  } else {
-    for (var i = 0; i < div2.length; i++) {
-      div2[i].classList.remove("clicked");
-    }
-
-    event.target.classList.add("clicked");
-  }
-}
-
-function init() {
-  for (var i = 0; i < div2.length; i++) {
-    div2[i].addEventListener("click", handleClick);
-  }
-}
-
-init();
-</script>
 </body>
 </html>
