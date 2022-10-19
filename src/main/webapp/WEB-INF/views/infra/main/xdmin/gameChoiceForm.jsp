@@ -113,7 +113,7 @@
 							</div>
 						</div>
 						<!-- 예매하기 버튼 -->
-						<input type="hidden" id="gameseq" name="gameseq" value="<c:out value="${gameseq }"/>">
+						<input type="hidden" id="gameseq" name="gameseq" value="<c:out value="${list.gameseq }"/>">
 						<!-- <button type="button" class="btn btn-danger" style="width: 128px; float: right"  >예매하기</button> -->
 						<button type="button" class="btn btn-danger" style="width: 128px; float: right" data-bs-toggle="modal" data-bs-target="#staticBackdrops" >예매하기</button> 
 						
@@ -262,10 +262,15 @@ $("#btnCheck").on("click", function(){
 				} */	
 				alert("맞습니다"); 
 				 
-						
+						var Df =document.form;
 						var url = "/main/seatChoice";
 						var option = "width=820, height=500"
 						window.open(url,"",option);
+						
+						Df.target = "url";
+						
+						Df.submit();
+						
 				
 			} else {
 				alert("틀렸습니다");
