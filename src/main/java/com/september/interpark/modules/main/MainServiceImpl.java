@@ -29,6 +29,11 @@ public class MainServiceImpl implements MainService{
 		return result;
 	}
 
+	@Override
+	public int update(Main dto) throws Exception {return dao.update(dto);}
+	
+	
+
 
 	
 	

@@ -12,5 +12,7 @@ public interface MainService {
 	
 	public Main selectOne(MainVo vo)throws Exception;
 	
+	public int update(Main dto)throws Exception;
+	
 	
 }

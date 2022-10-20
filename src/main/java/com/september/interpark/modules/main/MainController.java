@@ -66,6 +66,13 @@ public class MainController {
 		return "infra/main/xdmin/gameView";
 	}
 	
+	//관리자_게임정보 수정
+	@RequestMapping(value = "/main/gameUpdt")
+	public String gameUpdt(Main dto)throws Exception{
+		service.update(dto);
+		return "redirect:/main/gameList";
+	}
+	
 	@RequestMapping(value = "/main/teamChoice")
 	public String teamChoice()throws Exception{
 		return "infra/main/xdmin/teamChoiceForm";

@@ -64,7 +64,8 @@
 			<!-- 탑바 e -->
 			<!-- 코드 그룹 관리 제목 -->
 			<div class="wrap">
-			<form action="/main/gameInst" id="gameFormReg" name="gameFormReg">
+			<form name="form" id="form" method="post">
+			<input type="hidden" id="gameSeq" name="gameSeq" value="<c:out value="${itme.gameSeq }"/>">
 				<!-- 제목 -->
 				<h3>경기관리</h3>
 				<div class="container-fluid codeGroupName">
@@ -146,19 +147,15 @@
 							</a>
 						</div>
 						<div class="col" style="text-align: right;">
-							<a>	
-								<button type="button" class="btn btn-danger">
-									<i class="fa-solid fa-x"></i>
-								</button>
-							</a>
-							<a>	
-								<button type="button" class="btn btn-danger">
-									<i class="fa-regular fa-trash-can"></i>
-								</button>
-							</a>
-							<span type="button" class="btn btn-primary" >
+							<button type="button" class="btn btn-danger">
+								<i class="fa-solid fa-x"></i>
+							</button>
+							<button type="button" class="btn btn-danger">
+								<i class="fa-regular fa-trash-can"></i>
+							</button>
+							<button type="button" class="btn btn-primary" id="btnModify" name="btnModify">
 								<i class="fa-solid fa-plus"></i>
-							</span>
+							</button>
 						</div>
 					</div>
 				</div>

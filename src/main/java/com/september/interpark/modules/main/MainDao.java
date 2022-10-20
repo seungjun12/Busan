@@ -34,4 +34,6 @@ public class MainDao {
 		return result;
 	}
 	
+	//관리자_뷰_정보업데이트
+	public int update(Main dto) {return sqlSession.update(namespace + ".update", dto);}
 }
