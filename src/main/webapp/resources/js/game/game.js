@@ -9,21 +9,17 @@ var goUrlForm = "/codeGroup/codeGroupForm";
 var goUrlCode = "/code/codeList";
 var goUrlMember = "/member/memberList";
 var goUrlHome = "/admin/home";
-var goUrlGame = "/main/gameList"
+var goUrlGame = "/main/gameList";
 
-var seq =$("input:hidden[name=gameseq]");
+var seq =$("input:hidden[name=gameSeq]");
 var form = $("form[name=form]")
 
-$("#btnGameForm").on("click",function(){
-	$(location).attr("href",goUrlGameForm);
-});	
-
-goView = function(seqValue){
-	seq.val(seqValue);
-	form.attr("action" , goUrlView).submit();
-}
-
-$("#btnReset").on("click",function(){
+	$("#btnGameForm").on("click",function(){
+		$(location).attr("href",goUrlGameForm);
+	});	
+	
+	
+	$("#btnReset").on("click",function(){
 		$(location).attr("href",goUrlGame);
 	});
 	

@@ -1,66 +1,28 @@
 package com.september.interpark.modules.main;
 
 
-
-
 public class Main{
 
-	private String gameseq;
-	private String who;
-	private String dob;
-	private String ground;
-	private String time;
+
+	// game
+	private String gameSeq;
 	private String whoHome;
 	private String whoAway;
+	private String date;
+	private String time;
+	private String ground;
 	private Integer gameDelNy;
 	
-	//경기장 좌석 등급
-	private String seatSeq;
-	private String seatGrade;
-	private String seatPrice;
-	
-	//team
-	private String teamSeq;
-	private	String teamName;
+	//teamName
+	private String teamName;
 	private String teamGround;
 	
-	
-	////////////
-	
-	
-	public String getGameseq() {
-		return gameseq;
+	// game get set
+	public String getGameSeq() {
+		return gameSeq;
 	}
-	public void setGameseq(String gameseq) {
-		this.gameseq = gameseq;
-	}
-	public String getWho() {
-		return who;
-	}
-	public void setWho(String who) {
-		this.who = who;
-	}
-	public String getDob() {
-		return dob;
-	}
-	public void setDob(String dob) {
-		this.dob = dob;
-	}
-	
-	
-	
-	
-	public String getGround() {
-		return ground;
-	}
-	public void setGround(String ground) {
-		this.ground = ground;
-	}
-	public String getTime() {
-		return time;
-	}
-	public void setTime(String time) {
-		this.time = time;
+	public void setGameSeq(String gameSeq) {
+		this.gameSeq = gameSeq;
 	}
 	public String getWhoHome() {
 		return whoHome;
@@ -74,30 +36,34 @@ public class Main{
 	public void setWhoAway(String whoAway) {
 		this.whoAway = whoAway;
 	}
-	public String getSeatSeq() {
-		return seatSeq;
+	
+	
+	public String getDate() {
+		return date;
 	}
-	public void setSeatSeq(String seatSeq) {
-		this.seatSeq = seatSeq;
+	public void setDate(String date) {
+		this.date = date;
 	}
-	public String getSeatGrade() {
-		return seatGrade;
+	public String getTime() {
+		return time;
 	}
-	public void setSeatGrade(String seatGrade) {
-		this.seatGrade = seatGrade;
+	public void setTime(String time) {
+		this.time = time;
 	}
-	public String getSeatPrice() {
-		return seatPrice;
+	public String getGround() {
+		return ground;
 	}
-	public void setSeatPrice(String seatPrice) {
-		this.seatPrice = seatPrice;
+	public void setGround(String ground) {
+		this.ground = ground;
 	}
-	public String getTeamSeq() {
-		return teamSeq;
+	public Integer getGameDelNy() {
+		return gameDelNy;
 	}
-	public void setTeamSeq(String teamSeq) {
-		this.teamSeq = teamSeq;
+	public void setGameDelNy(Integer gameDelNy) {
+		this.gameDelNy = gameDelNy;
 	}
+	
+	//teamName
 	public String getTeamName() {
 		return teamName;
 	}
@@ -110,12 +76,12 @@ public class Main{
 	public void setTeamGround(String teamGround) {
 		this.teamGround = teamGround;
 	}
-	public Integer getGameDelNy() {
-		return gameDelNy;
-	}
-	public void setGameDelNy(Integer gameDelNy) {
-		this.gameDelNy = gameDelNy;
-	}
+	
+	
+	
+	
+	
+	
 	
 	
 	

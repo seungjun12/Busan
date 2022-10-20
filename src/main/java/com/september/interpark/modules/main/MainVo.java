@@ -4,15 +4,17 @@ import com.september.interpark.common.base.BaseVo;
 
 public class MainVo extends BaseVo {
 	
-	private String gameseq;
+	private String gameSeq;
 
-	public String getGameseq() {
-		return gameseq;
+	public String getGameSeq() {
+		return gameSeq;
 	}
 
-	public void setGameseq(String gameseq) {
-		this.gameseq = gameseq;
+	public void setGameSeq(String gameSeq) {
+		this.gameSeq = gameSeq;
 	}
+
+	
 	
 	
 

@@ -23,7 +23,7 @@
 		<include refid="Base.selectListUpperForMysql" /> 
 			select
 				a.*
-	    		,(select count(aa.ccg_seq)  From cc aa where 1=1 and aa.ccdelNy = 0 and aa.ccg_seq = a.ccgseq)as ccg_seq
+	    		,(select count(aa.ccg_seq)  From cc aa where 1=1 and aa.ccdelNy = 1 and aa.ccg_seq = a.ccgseq)as ccg_seq
 		<include refid="selectCommon"/>
 		ORDER BY a.ccgSeq DESC
 		<include refid="Base.selectListLowerForMysql" />

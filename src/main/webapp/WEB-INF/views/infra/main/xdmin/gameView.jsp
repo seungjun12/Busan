@@ -31,10 +31,15 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 	
 	<!-- datepicker -->
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+ 	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
   	<link rel="stylesheet" href="/resources/demos/style.css">
-	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  	<script>
+ 	 $( function() {
+   	 $( "#datepickers" ).datepicker();
+ 	 } );
+ 	 </script>
  
 
 </head>
@@ -59,10 +64,7 @@
 			<!-- 탑바 e -->
 			<!-- 코드 그룹 관리 제목 -->
 			<div class="wrap">
-			<form method="post" id="form" name="form">
-			<!-- *Vo.jsp s -->
-			 <%@include file="mainVo.jsp"%>		
-			 <!-- *Vo.jsp e -->	
+			<form action="/main/gameInst" id="gameFormReg" name="gameFormReg">
 				<!-- 제목 -->
 				<h3>경기관리</h3>
 				<div class="container-fluid codeGroupName">
@@ -81,18 +83,20 @@
 							<select class="form-select" aria-label="Default select example" id="whoHome" name="whoHome">
 								<option value="">홈팀선택</option>
 								<c:forEach items="${view}" varStatus="status" var="view">
-									<option value="${view.whoHome }" <c:if test = "${item.whoHome eq view.teamName }">selected</c:if>>
-									<c:out value="${view.teamName }"/>
+									<option value="${view.teamName }" <c:if test="${item.whoHome eq view.teamName}">selected</c:if>> 									
+										<c:out value="${view.teamName }"/>
+									</option>
 								</c:forEach>
 							</select>
 						</div>
 						<div class="col-6">
 							<select class="form-select" aria-label="Default select example" id="whoAway" name="whoAway">
 								<option>원정팀선택</option>
-								<c:forEach items="${view}" var="view" varStatus="status">
-									<option value="${view.whoAway }" <c:if test = "${item.whoAway eq view.teamName }">selected</c:if>>
-									<c:out value="${view.teamName }"/>
-								</c:forEach>		
+								<c:forEach items="${view }" var="view" varStatus="status">
+									<option value="${view.teamName }" <c:if test="${item.whoAway eq view.teamName}">selected</c:if>>
+										<c:out value="${view.teamName }"/>
+									</option>
+								</c:forEach>
 							</select>
 						</div>
 					</div>
@@ -110,7 +114,7 @@
 				<div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
-							<input class="form-control" type="text"  aria-label="default input example"  id="datepicker" name="dob" value="<c:out value="${item.dob }" />">
+							<input class="form-control" type="text"  aria-label="default input example" placeholder="경기날짜" id="datepickers" name="date" value="<c:out value="${item.date }" />">
 						</div>
 						<div class="col">
 							<input class="form-control" type="text" aria-label="default input example" id="time	" name="time" value="<c:out value="${item.time }"/>">
@@ -142,13 +146,17 @@
 							</a>
 						</div>
 						<div class="col" style="text-align: right;">
-							<button type="button" class="btn btn-danger" id="btnDelete">
-								<i class="fa-solid fa-x"></i>
-							</button>
-							<button type="button" class="btn btn-danger" id="btnUele">
-								<i class="fa-regular fa-trash-can"></i>
-							</button>
-							<span type="button" class="btn btn-primary" id="btnModify" >
+							<a>	
+								<button type="button" class="btn btn-danger">
+									<i class="fa-solid fa-x"></i>
+								</button>
+							</a>
+							<a>	
+								<button type="button" class="btn btn-danger">
+									<i class="fa-regular fa-trash-can"></i>
+								</button>
+							</a>
+							<span type="button" class="btn btn-primary" >
 								<i class="fa-solid fa-plus"></i>
 							</span>
 						</div>
@@ -203,7 +211,7 @@
     </div>
     
     <!-- jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js" />
 
     <!-- Bootstrap core JavaScript-->
     <script src="/resources/vendor/jquery/jquery.min.js"></script>

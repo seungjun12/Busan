@@ -52,7 +52,7 @@
 				<h3>경기관리</h3>
 				<!-- 검색대 -->
 				<form method="post" name="form" id="form">
-					<input type="hidden" name="gameseq" value="<c:out  value="${dto.gameseq }"/>">
+					<input type="hidden" name="gameSeq" value="<c:out  value="${dto.gameSeq }"/>">
 					<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
 					<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow }"/>">
 					<input type="hidden" name="checkboxSeqArray">
@@ -124,10 +124,10 @@
 					  		<c:forEach items="${list}" var="list" varStatus="status">
 							<tr>     	
 						    	<td><input class="test" type="checkbox" value="memberchecked" name="membercheck"></td><!-- 1 -->
-						    	<td><c:out value="${list.gameseq }"/></td><!-- 2 -->
-						    	<td><a href="javascript:goView(<c:out value="${list.gameseq }"/>)" class="text-decoration-none"><c:out value="${list.whoHome }"/></td><!-- 3 -->
+						    	<td><c:out value="${list.gameSeq }"/></td><!-- 2 -->
+						    	<td><a href="javascript:goView(<c:out value="${list.gameSeq }"/>)" class="text-decoration-none"><c:out value="${list.whoHome }"/></td><!-- 3 -->
 						    	<td><c:out value="${list.whoAway }"/></td><!-- 4 -->
-						    	<td><c:out value="${list.dob }"/></td><!-- 5 -->
+						    	<td><c:out value="${list.date }"/></td><!-- 5 -->
 						    	<td><c:out value="${list.ground }"/></td><!-- 6 -->
 						    	<td><c:out value="${list.time }"/></td><!-- 7 -->
 					  		</tr>

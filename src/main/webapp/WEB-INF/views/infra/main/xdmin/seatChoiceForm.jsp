@@ -18,6 +18,7 @@
 </head>   
 <body>
 <form method="post" name="form" id="form">
+<input type="hidden" name="seq" value="<c:out value="${sessSeq }"/>">
 <div class="wrap">
 	<!-- 헤더영역 -->
 	<div class="headerWrap">

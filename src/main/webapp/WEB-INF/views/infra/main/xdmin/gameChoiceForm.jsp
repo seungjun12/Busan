@@ -115,8 +115,10 @@
 						<!-- 예매하기 버튼 -->
 						<input type="hidden" id="gameseq" name="gameseq" value="<c:out value="${list.gameseq }"/>">
 						<!-- <button type="button" class="btn btn-danger" style="width: 128px; float: right"  >예매하기</button> -->
-						<button type="button" class="btn btn-danger" style="width: 128px; float: right" data-bs-toggle="modal" data-bs-target="#staticBackdrops"  value="<c:out value="${gameseq }"/>">예매하기</button> 
+						<button type="button"  class="btn btn-danger" style="width: 128px; float: right" data-bs-toggle="modal" data-bs-target="#staticBackdrops"  >예매하기</button> 
+						<%-- href="javascript:goView(<c:out value="${list.gameseq }"/>)" --%>
 						
+						<!-- modal -->
 						<div class="modal fade" id="staticBackdrops" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
 							<div class="modal-dialog">
   								<div class="modal-content">
@@ -191,8 +193,8 @@
 	var goUrlIndex = "/main/index";
 	var goUrlMemberView = "/member/memberViewForm";
 	
-	var form = $("form[name=form]");
-        
+	var form = $("for[name=form]");	var seq = $("input:hidden[name=gameseq]");
+
 	$(".btnLogin").on("click",function(){
 		$(location).attr("href",goUrlLogin);
 	});
@@ -213,11 +215,7 @@
 		$(location).attr("href",goUrlMemberView);
 	});
 	
-	function popupSeatChoice(){
-		var url = "/main/seatChoice";
-		var option = "width=820, height=500"
-		window.open(url,"",option);
-	}
+
 	
 	
 	
@@ -263,10 +261,12 @@ $("#btnCheck").on("click", function(){
 						var url = "/main/seatChoice";
 						var option = "width=820, height=500"
 						
+						
 						window.open(url,"",option);
 						
-						form.action = url;
-						form.submit();
+						seq.val();
+						form.attr("action" , url).subit();
+						
 						
 				
 			} else {

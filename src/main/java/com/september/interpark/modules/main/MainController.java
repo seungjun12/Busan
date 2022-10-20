@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import nl.captcha.Captcha;
 
@@ -24,16 +25,45 @@ public class MainController {
 	@Autowired
 	MainServiceImpl service;
 	
+	//유저_홈화면
 	@RequestMapping(value = "/main/index")
 	public String indexForm()throws Exception {
 		return "infra/main/xdmin/indexForm";
 	}
 	
-	@RequestMapping(value = "/main/gameChoice")
-	public String gameChoiceForm(@ModelAttribute("vo") MainVo vo , Model model)throws Exception {
-		List<Main> list = service.selectListGame(vo);
+	//관리자_게임리스트
+	@RequestMapping(value = "/main/gameList")
+	public String gameList(@ModelAttribute("vo") MainVo vo , Model model)throws Exception{
+		
+		List<Main>list= service.selectList(vo);
 		model.addAttribute("list", list);
-		return "infra/main/xdmin/gameChoiceForm";
+		return "infra/main/xdmin/gameList";
+	}
+	
+	//관리자_폼가기
+	@RequestMapping(value = "/main/gameForm")
+	public String gameForm(MainVo vo , Model model)throws Exception {
+		List<Main> view = service.viewList();
+		model.addAttribute("view", view);
+		return "infra/main/xdmin/gameForm";
+	}
+	
+	//관리자_게임등록하기
+	@RequestMapping(value = "/main/gameInst")
+	public String gameInst(Main dto)throws Exception{
+		service.gameInst(dto);
+		return "redirect:/main/gameList";
+	}
+	
+	//관리자_게임뷰가기
+	@RequestMapping(value = "/main/gameView")
+	public String gameView(@ModelAttribute("vo") MainVo vo , Model model)throws Exception{
+		List<Main> view = service.viewList();
+		model.addAttribute("view", view);
+		
+		Main item = service.selectOne(vo);
+		model.addAttribute("item", item);
+		return "infra/main/xdmin/gameView";
 	}
 	
 	@RequestMapping(value = "/main/teamChoice")
@@ -92,73 +122,6 @@ public class MainController {
 		return returnMap;
 	}
 	
-	@RequestMapping(value = "/main/seatChoice")
-	public String seatChoice(@ModelAttribute("vo") MainVo vo , Model model)throws Exception{
-		List<Main> list = service.selectListSeatGrade(vo);
-		model.addAttribute("list", list);
-		
-		Main item = service.selectOne(vo);
-		model.addAttribute("item", item);
-		return "infra/main/xdmin/seatChoiceForm";
-	}
-	
-	//관리자 게임리스트
-	@RequestMapping(value = "/main/gameList")
-	public String gameList(@ModelAttribute("vo") MainVo vo , Model model)throws Exception{
-		vo.setParamsPaging(service.selectOneCount(vo));
-		List<Main>list = service.selectList(vo);
-		model.addAttribute("list", list);
-		return "infra/main/xdmin/gameList";
-	}
-	
-	//관리자 게임등록화면가기
-	@RequestMapping(value = "/main/gameForm")
-	public String gameFor(Model model)throws Exception{
-		
-		List<Main> view = service.viewList();
-		model.addAttribute("view", view);
-		return "infra/main/xdmin/gameForm";
-	}
-	
-	//관리자 게임정보등록하기
-	@RequestMapping(value = "/main/gameInst")
-	public String gameInst(Main dto) throws Exception{
-		service.insert(dto);
-		return "redirect:/main/gameList";
-	}
-	
-	//관리자 게임정보뷰가기
-	@RequestMapping(value = "/main/gameView")
-	public String gameView(@ModelAttribute("vo") MainVo vo , Model model) throws Exception{
-		
-		List<Main> view = service.viewList();
-		model.addAttribute("view", view);
-		
-		Main item = service.selectOne(vo);
-		model.addAttribute("item", item);
-		return "infra/main/xdmin/gameView";
-	}
-	
-	//관리자_게임정보 수정하기
-	@RequestMapping(value = "/main/gameUpdt")
-	public String gameUpdt(Main dto)throws Exception{
-		service.update(dto);
-		return "redirect:/main/gameList";
-	}
-	
-	//관리자_게임정보 삭제하기1
-	@RequestMapping(value = "/main/gameUele")
-	public String gameUele(Main dto)throws Exception{
-		service.uelete(dto);
-		return "redirect:/main/gameList";
-	}
-	
-	//관리자_게임정보 삭제하기2
-	@RequestMapping(value = "/main/gameDele")
-	public String gameDele(MainVo vo)throws Exception{
-		service.delete(vo);
-		return "redirect:/main/gmaeList";
-	}
 
 	
 	

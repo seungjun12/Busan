@@ -8,114 +8,66 @@
 
     <resultMap id="resultMapObj" type="com.september.interpark.modules.main.Main"></resultMap>
 	
+	
+	<!-- 공통 -->
 	<sql id="selectCommon">
-		From games a
+		FROM game a
 		WHERE 1=1
-			<if test="shdelNy != null and !shdelNy.equals('')">AND gameDelNy = #{shdelNy}</if>
-			<choose>
-				<when test="shOption == 1">AND gameseq = #{shValue}</when>
-				<when test="shOption == 2">AND dob = #{shValue}</when>
-			</choose>
+		<if test="shdelNy != null and !shdelNy.equals('')">AND delNy = #{shdelNy}</if>
+	 	<choose>
+			<when test="shOption == 1">AND gameseq = #{shValue}</when>
+			<when test="shOption == 2">AND date LIKE CONCAT('%',#{shValue},'%')</when>
+			<when test="shOption == 3">AND where LIKE CONCAT('%',#{shValue},'%')</when>
+			<otherwise></otherwise>
+		</choose>
 	</sql>
 	
-	<!-- 관리자_리스트 보여주기 -->
+	<!-- 관리자_게임리스트 -->
 	<select id="selectList" resultMap="resultMapObj">
 		SELECT
-			a.gameseq
-			,a.dob
-			,a.ground
-			,a.time
-			,a.whoHome
-			,a.whoAway
-		<include refid="selectCommon"/>	
-	</select>
-	
-	<select id="selectListGame" resultMap="resultMapObj">
-		SELECT
-			a.gameseq
-			,a.dob
-			,a.ground
-			,a.time
-			,a.whoHome
-			,a.whoAway
-			,a.gameDelNy
-		FROM games a
-			WHERE 1=1
-			AND gameDelNy = 1	
-	</select>
-	
-	<select id="selectOneCount" resultType="Integer">
-		SELECT COUNT(*)
+			a.*
 		<include refid="selectCommon"/>
 	</select>
 	
-	<!-- 경기장 좌석 선택 -->
-	<select id="selectListSeatGrade" resultMap="resultMapObj">
-		SELECT 
-			a.seatSeq
-			,a.seatGrade
-			<!-- ,b.whoHome
-			,b.whoAway -->
-		FROM seat a	
-		<!-- LEFTJOIN games b on  -->
+	<!-- 관리자_폼_경기장선택 -->
+	<select id="viewList" resultMap="resultMapObj">
+		SELECT
+			a.*
+		FROM teamName a	
 	</select>
 	
-	<!-- 관리자_경기정보입력폼1 -->
-	<insert id="insert">
-		INSERT INTO games(
+	<!-- 관리자_게임등록 -->
+	<insert id="gameInst">
+		INSERT INTO game(
 			whoHome
 			,whoAway
-			,dob
+			,date
 			,time
 			,ground
+			,gameDelNy
 		)
 		VALUES(
 			#{whoHome}
 			,#{whoAway}
-			,#{dob}
+			,#{date}
 			,#{time}
 			,#{ground}
+			,1
 		)
-		<selectKey resultType="String" keyProperty="gameseq" order="AFTER">
+		<selectKey resultType="String" keyProperty="gameSeq" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>
 	
-	<select id="viewList" resultMap="resultMapObj">
-		SELECT
-			a.*
-		FROM team a
-		WHERE 1=1	
-	</select>
-	
 	<select id="selectOne" resultMap="resultMapObj">
 		SELECT
 			a.*
-		FROM games a
+		FROM game a
 		WHERE 1=1
-			AND gameseq = #{gameseq}		
+			AND gameSeq = #{gameSeq}	
 	</select>
 	
-	<update id="update">
-		UPDATE games
-		SET
-			dob = #{dob}
-			,ground = #{ground}
-			,time = #{time}
-		WHERE
-			gameseq = #{gameseq}	
-	</update>
-
-	<update id="uelete">
-		UPDATE games
-		SET 
-			gameDelNy = 0
-		WHERE 
-			gameseq = #{gameseq}	
-	</update>
 	
-	<delete id="delete">
-		DELETE FORM games WHERE gameseq = #{gmaeseq}
-	</delete>
-
+	
+	
 </mapper>

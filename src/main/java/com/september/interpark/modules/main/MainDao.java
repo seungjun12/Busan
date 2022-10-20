@@ -18,32 +18,20 @@ public class MainDao {
 	
 	private static String namespace = "com.september.interpark.modules.main.MainMapper";
 	
-	public List<Main>selectList(MainVo vo){
-		List<Main> list = sqlSession.selectList(namespace + ".selectList", vo);
-		return list;
+	//관리자_게임리스트
+	public List<Main>selectList(MainVo vo){return sqlSession.selectList(namespace +".selectList", vo);}
+	
+	//관리자_폼_팀들 보여주기
+	public List<Main>viewList(){return sqlSession.selectList(namespace + ".viewList", "");}
+	
+	
+	//관리자_폼_게임등록하기
+	public int gameInst(Main dto) {return sqlSession.insert(namespace + ".gameInst", dto);}
+
+	//관리자_뷰_정보보기
+	public Main selectOne(MainVo vo) {
+		Main result = sqlSession.selectOne(namespace + ".selectOne", vo);
+		return result;
 	}
-	
-	public List<Main>selectListGame(MainVo vo){
-		List<Main> list = sqlSession.selectList(namespace + ".selectListGame", vo);
-		return list;
-	}
-	
-	public List<Main>selectListSeatGrade(MainVo vo){
-		List<Main> list = sqlSession.selectList(namespace + ".selectListSeatGrade", vo);
-		return list;
-	}
-	
-	public int insert(Main dto) {return sqlSession.insert(namespace + ".insert", dto);}
-	
-	public List<Main> viewList(){
-		return sqlSession.selectList(namespace + ".viewList", "");
-	}
-	
-	public Main selectOne(MainVo vo) {return sqlSession.selectOne(namespace + ".selectOne", vo);}
-	
-	public int update(Main dto) {return sqlSession.update(namespace + ".update", dto);}
-	public int uelete(Main dto) {return sqlSession.update(namespace + ".uelete", dto);}
-	public int delete(MainVo vo) {return sqlSession.delete(namespace + ".delete", vo);}
-	public int selectOneCount(MainVo vo) {return sqlSession.selectOne(namespace + ".selectOneCount", vo);}
 	
 }
