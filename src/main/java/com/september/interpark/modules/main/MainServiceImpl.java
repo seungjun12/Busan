@@ -37,6 +37,9 @@ public class MainServiceImpl implements MainService{
 
 	@Override
 	public int delete(MainVo vo) throws Exception {return dao.delete(vo);}
+
+	@Override
+	public int selectOneCount(MainVo vo) throws Exception {return dao.selectOneCount(vo);}
 	
 	
 	

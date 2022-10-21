@@ -35,6 +35,7 @@ public class MainController {
 	@RequestMapping(value = "/main/gameList")
 	public String gameList(@ModelAttribute("vo") MainVo vo , Model model)throws Exception{
 		
+		vo.setParamsPaging(service.selectOneCount(vo));
 		List<Main>list= service.selectList(vo);
 		model.addAttribute("list", list);
 		return "infra/main/xdmin/gameList";

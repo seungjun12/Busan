@@ -18,5 +18,7 @@ public interface MainService {
 	
 	public int delete(MainVo vo)throws Exception;
 	
+	public int selectOneCount(MainVo vo)throws Exception;
+	
 	
 }

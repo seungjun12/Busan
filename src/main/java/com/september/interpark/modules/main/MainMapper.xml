@@ -13,11 +13,11 @@
 	<sql id="selectCommon">
 		FROM game a
 		WHERE 1=1
-		<if test="shdelNy != null and !shdelNy.equals('')">AND delNy = #{shdelNy}</if>
+		<if test="shdelNy != null and !shdelNy.equals('')">AND gameDelNy = #{shdelNy}</if>
 	 	<choose>
-			<when test="shOption == 1">AND gameseq = #{shValue}</when>
+			<when test="shOption == 1">AND gameSeq = #{shValue}</when>
 			<when test="shOption == 2">AND date LIKE CONCAT('%',#{shValue},'%')</when>
-			<when test="shOption == 3">AND where LIKE CONCAT('%',#{shValue},'%')</when>
+			<when test="shOption == 3">AND ground LIKE CONCAT('%',#{shValue},'%')</when>
 			<otherwise></otherwise>
 		</choose>
 	</sql>
@@ -26,6 +26,11 @@
 	<select id="selectList" resultMap="resultMapObj">
 		SELECT
 			a.*
+		<include refid="selectCommon"/>
+	</select>
+	
+	<select id="selectOneCount" resultType="Integer">
+		SELECT COUNT(*)
 		<include refid="selectCommon"/>
 	</select>
 	
@@ -85,9 +90,9 @@
 	<update id="uelete">
 		UPDATE game
 		SET
-			gameDelNy = 0
+			gameDelNy= 0
 		WHERE
-			gameSeq = #{gamesSeq}	
+			gameSeq = #{gameSeq}
 	</update>
 	
 	<!-- 관리자_게임뷰_게임정보delete -->

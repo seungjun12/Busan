@@ -147,10 +147,10 @@
 							</a>
 						</div>
 						<div class="col" style="text-align: right;">
-							<button type="button" class="btn btn-danger">
+							<button type="button" class="btn btn-danger" id="btnDelete">
 								<i class="fa-solid fa-x"></i>
 							</button>
-							<button type="button" class="btn btn-danger" id="btnDelete">
+							<button type="button" class="btn btn-danger" id="btnUele">
 								<i class="fa-regular fa-trash-can" id="btnUele"></i>
 							</button>
 							<button type="button" class="btn btn-primary" id="btnModify" name="btnModify">

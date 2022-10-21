@@ -42,4 +42,9 @@ public class MainDao {
 	
 	//관리자_뷰_delete
 	public int delete(MainVo vo) {return sqlSession.delete(namespace + ".delete", vo);}
+
+	public int selectOneCount(MainVo vo) {return sqlSession.selectOne(namespace +".selectOneCount", vo);}
+
+
+
 }
