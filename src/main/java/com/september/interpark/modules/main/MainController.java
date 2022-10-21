@@ -73,6 +73,20 @@ public class MainController {
 		return "redirect:/main/gameList";
 	}
 	
+	//관리자_게임정보 uelete
+	@RequestMapping(value = "/main/gameUele")
+	public String gameUele(Main dto)throws Exception{
+		service.uelete(dto);
+		return "redirect:/main/gameList";
+	}
+	
+	//관리자_게임정보 delete
+	@RequestMapping(value = "/main/gameDele")
+	public String gameDele(MainVo vo)throws Exception{
+		service.delete(vo);
+		return "redirect:/main/gameList";
+	}
+	
 	@RequestMapping(value = "/main/teamChoice")
 	public String teamChoice()throws Exception{
 		return "infra/main/xdmin/teamChoiceForm";

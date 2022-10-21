@@ -150,8 +150,8 @@
 							<button type="button" class="btn btn-danger">
 								<i class="fa-solid fa-x"></i>
 							</button>
-							<button type="button" class="btn btn-danger">
-								<i class="fa-regular fa-trash-can"></i>
+							<button type="button" class="btn btn-danger" id="btnDelete">
+								<i class="fa-regular fa-trash-can" id="btnUele"></i>
 							</button>
 							<button type="button" class="btn btn-primary" id="btnModify" name="btnModify">
 								<i class="fa-solid fa-plus"></i>
