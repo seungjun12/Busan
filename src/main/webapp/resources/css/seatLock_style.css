@@ -1,0 +1,17 @@
+.contentWrap{
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+
+.head{
+	text-align: center;
+}
+
+h3{
+	color: #79BFF8;
+}
+
+p{
+	font-size: 11px;
+}

@@ -102,6 +102,21 @@ public class MainController {
 		return "infra/main/xdmin/gameChoiceForm";
 	}
 	
+	//유저_좌석선택전 보안
+	@RequestMapping(value = "/main/seatLock")
+	public String seatLock(@ModelAttribute("vo") MainVo vo , Model model)throws Exception{
+		
+		Main item = service.selectOne(vo);
+		model.addAttribute("item", item);
+		return "infra/main/xdmin/seatLock";
+	}
+	
+	//유저_좌석선택
+	@RequestMapping(value = "/main/seatChoice")
+	public String seatChoice()throws Exception{
+		return "infra/main/xdmin/seatChoiceForm";
+	}
+	
 	// 페이지 매핑
 	@RequestMapping("/captcha.do")
 	public String Captcha() {

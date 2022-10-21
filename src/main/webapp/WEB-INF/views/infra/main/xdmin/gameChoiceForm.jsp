@@ -113,41 +113,13 @@
 							</div>
 						</div>
 						<!-- 예매하기 버튼 -->
-						<button type="button"  class="btn btn-danger" style="width: 128px; float: right" data-bs-toggle="modal" data-bs-target="#staticBackdrops"  >예매하기</button> 
+						<%-- <a href="javascript:goList(<c:out value="${list.gameSeq }"/>)">	 --%>
+							<input type="hidden" name="gameSeq" value="${list.gameSeq }">
+							<%-- <a href="javascript:goList(<c:out value="${list.gameSeq }"/>)"> --%>
+								<!-- <button  class="btn btn-danger" style="width: 128px; float: right"> --><a  href="javascript:goSeat(<c:out value="${list.gameSeq }"/>)">zz</a><!-- 예매하기</button> --> 
+							<!-- </a> -->
+						<!-- </a> -->
 						<%-- href="javascript:goView(<c:out value="${list.gameseq }"/>)" --%>
-						
-						<!-- modal -->
-						<div class="modal fade" id="staticBackdrops" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
-							<div class="modal-dialog">
-  								<div class="modal-content">
-    								<div class="modal-header">
-      									<h1 class="modal-title fs-5" id="staticBackdropLabel">부정예매방지</h1>
-      									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    								</div>
-    								<div class="modal-body">
-      									<label for="captcha" style="display:block">자동 로그인 방지</label>
-											<div style="overflow:hidden">
-												<div style="float:left">
-													<img title="캡차이미지" src="/captchaImg.do" alt="캡처이미지"/ id="imgSelect">
-													<div id="ccaudio" style="display:none"></div>
-												</div>
-											</div>
-											<div style="padding:3px">
-												<input id="reload" type="button" onclick="javaScript:getImage()" value="새로고침"/>
-												<input id="soundOn" type="button" onclick="javaScript:audio()" value="음성듣기"/>
-											</div>
-											<div style="padding:3px">	
-												<input id="answer" type="text" value="" name="answer">
-												<input id="btnCheck" type="button" value="확인" data-bs-dismiss="modal"><!-- data-bs-dismiss="modal" -->
-											</div> <!-- onclick="popupSeatChoice()" --> 
-    								</div>
-    								<!-- <div class="modal-footer">
-      									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      									<button type="button" class="btn btn-primary">Understood</button>
-    								</div> -->
-  								</div>
-							</div>
-						</div>
 					</div>
 				</c:forEach>
 				</c:otherwise>
@@ -190,8 +162,9 @@
 	var goUrlGame = "/main/gameChoice";
 	var goUrlIndex = "/main/index";
 	var goUrlMemberView = "/member/memberViewForm";
+	var goUrlSeat = "/main/seatLock";
 	
-	var form = $("for[name=form]");	var seq = $("input:hidden[name=gameseq]");
+	var form = $("for[name=form]");	var seq = $("input:hidden[name=gameSeq]");
 
 	$(".btnLogin").on("click",function(){
 		$(location).attr("href",goUrlLogin);
@@ -212,11 +185,15 @@
 	$("#btnMemberView").on("click",function(){
 		$(location).attr("href",goUrlMemberView);
 	});
-	
-
-	
-	
-	
+</script>	
+<script>	
+	goSeat = function(seqValue) {
+    	/* if(keyValue != 0) seq.val(btoa(keyValue)); */
+    	seq.val(seqValue);
+		form.attr("action", goUrlSeat).submit();
+	}
+</script>
+<script>	
 	$(function(){
         // tab 메뉴를 클릭하였을 때 동작함
         $(".tab ul li").click(function(){ 
@@ -233,75 +210,11 @@
         });
     });
         
-
-
-/* 문자열 체크 */ 
-$("#btnCheck").on("click", function(){
-	/* if(validation() == false) return false; */
 	
-	$.ajax({
-		async: true 
-		,cache: false
-		,type: "post"
-		/* ,dataType:"json" */
-		,url: "/chkAnswer.do"
-		/* ,data : $("#formLogin").serialize() */
-		,data : { "answer" : $("#answer").val()}
-		,success: function(response) {
-			if(response.rt == "success") {
-				/* if(response.changePwd == "true") {
-					location.href = URL_CHANGE_PWD_FORM;
-				} else {
-					location.href = URL_INDEX_ADMIN;
-				} */	
-				alert("맞습니다"); 
-				 
-						var url = "/main/seatChoice";
-						var option = "width=820, height=500"
-						
-						
-						window.open(url,"",option);
-						
-						seq.val();
-						form.attr("action" , url).subit();
-						
-						
-				
-			} else {
-				alert("틀렸습니다");
-			}
-		}
-		,error : function(jqXHR, textStatus, errorThrown){
-			alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-		}
-	});
-});
-/*매번 랜덤값을 파라미터로 전달하는 이유 : IE의 경우 매번 다른 임의 값을 전달하지 않으면 '새로고침' 클릭해도 정상 호출되지 않아 이미지가 변경되지 않는 문제가 발생된다*/
-function audio(){
-	var rand = Math.random();
-	var uAgent = navigator.userAgent;
-	var soundUrl = '${ctx}/captchaAudio.do?rand='+rand;
-	if(uAgent.indexOf('Trident')>-1 || uAgent.indexOf('MISE')>-1){	/*IE 경우 */
-		audioPlayer(soundUrl);
-	}else if(!!document.createElement('audio').canPlayType){ /*Chrome 경우 */
-		try {
-			new Audio(soundUrl).play();
-		} catch (e) {
-			audioPlayer(soundUrl);
-		}
-	}else{
-		window.open(soundUrl,'','width=1,height=1');
-	}
-}
-function getImage(){
-	var rand = Math.random();
-	var url = '${ctx}/captchaImg.do?rand='+rand;
-	document.querySelector('#imgSelect').setAttribute('src', url);
-}
-function audioPlayer(objUrl){
-	document.querySelector('#ccaudio').innerHTML = '<bgsoun src="' +objUrl +'">';
-}
 
+	
+	
+	
 </script>
 
 </body>
