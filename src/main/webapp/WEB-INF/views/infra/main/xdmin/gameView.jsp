@@ -64,8 +64,8 @@
 			<!-- 탑바 e -->
 			<!-- 코드 그룹 관리 제목 -->
 			<div class="wrap">
-			<form name="form" id="form" method="post">
-			<input type="hidden" id="gameSeq" name="gameSeq" value="<c:out value="${itme.gameSeq }"/>">
+			<form name="form" method="post">
+			<input type="hidden" id="gameSeq" name="gameSeq" value="<c:out value="${item.gameSeq }"/>">
 				<!-- 제목 -->
 				<h3>경기관리</h3>
 				<div class="container-fluid codeGroupName">

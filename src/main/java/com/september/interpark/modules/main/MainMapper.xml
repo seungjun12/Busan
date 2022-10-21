@@ -81,6 +81,19 @@
 			gameSeq = #{gameSeq}	
 	</update>
 	
+	<!-- 관리자_게임뷰_게임정보uelete -->
+	<update id="uelete">
+		UPDATE game
+		SET
+			gameDelNy = 0
+		WHERE
+			gameSeq = #{gamesSeq}	
+	</update>
+	
+	<!-- 관리자_게임뷰_게임정보delete -->
+	<delete id="delete">
+	DELETE FROM game WHERE gameSeq = #{gameSeq}
+	</delete>
 	
 	
 	

@@ -36,4 +36,10 @@ public class MainDao {
 	
 	//관리자_뷰_정보업데이트
 	public int update(Main dto) {return sqlSession.update(namespace + ".update", dto);}
+
+	//관리자_뷰_uelete
+	public int uelete(Main dto) {return sqlSession.update(namespace + ".uelete", dto);}
+	
+	//관리자_뷰_delete
+	public int delete(MainVo vo) {return sqlSession.delete(namespace + ".delete", vo);}
 }
