@@ -88,9 +88,18 @@ public class MainController {
 		return "redirect:/main/gameList";
 	}
 	
+	//유저_팀선택
 	@RequestMapping(value = "/main/teamChoice")
 	public String teamChoice()throws Exception{
 		return "infra/main/xdmin/teamChoiceForm";
+	}
+	
+	//유저_게임선택
+	@RequestMapping(value = "/main/gameChoice")
+	public String gameChoice(@ModelAttribute("vo") MainVo vo , Model model)throws Exception{
+		List <Main>list=service.selectListGame(vo);
+		model.addAttribute("list", list);
+		return "infra/main/xdmin/gameChoiceForm";
 	}
 	
 	// 페이지 매핑

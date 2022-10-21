@@ -20,5 +20,7 @@ public interface MainService {
 	
 	public int selectOneCount(MainVo vo)throws Exception;
 	
+	public List<Main>selectListGame(MainVo vo)throws Exception;
+	
 	
 }

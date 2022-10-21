@@ -83,7 +83,7 @@
 					<div class="gameTable">
 						<!-- 게임 날짜 -->
 						<div class="gameDate">
-							<span class="fontDate"> <c:out value="${list.dob }"/></span>
+							<span class="fontDate"> <c:out value="${list.date }"/></span>
 							<!-- <span class="fontWeak">(수)</span> -->
 						</div>
 						<!-- 게임 시간 -->
@@ -113,8 +113,6 @@
 							</div>
 						</div>
 						<!-- 예매하기 버튼 -->
-						<input type="hidden" id="gameseq" name="gameseq" value="<c:out value="${list.gameseq }"/>">
-						<!-- <button type="button" class="btn btn-danger" style="width: 128px; float: right"  >예매하기</button> -->
 						<button type="button"  class="btn btn-danger" style="width: 128px; float: right" data-bs-toggle="modal" data-bs-target="#staticBackdrops"  >예매하기</button> 
 						<%-- href="javascript:goView(<c:out value="${list.gameseq }"/>)" --%>
 						

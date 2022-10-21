@@ -45,6 +45,7 @@ public class MainDao {
 
 	public int selectOneCount(MainVo vo) {return sqlSession.selectOne(namespace +".selectOneCount", vo);}
 
-
+	//유저_게임선택리스트
+	public List<Main>selectListGame(MainVo vo){return sqlSession.selectList(namespace + ".selectListGame", vo);}
 
 }

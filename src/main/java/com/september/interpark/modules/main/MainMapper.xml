@@ -100,6 +100,16 @@
 	DELETE FROM game WHERE gameSeq = #{gameSeq}
 	</delete>
 	
+	<!-- 유저_게임선택 -->
+	<select id="selectListGame" resultMap="resultMapObj">
+		SELECT
+			a.*
+		FROM game a
+		WHERE 1=1
+			AND
+			gameDelNy= 1	
+	</select>
+	
 	
 	
 </mapper>
