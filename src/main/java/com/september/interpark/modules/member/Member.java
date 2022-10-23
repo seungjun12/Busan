@@ -40,6 +40,7 @@ public class Member {
 	
 	
 	
+	
 	//////////////////////////////////////////////
 	public String getSeq() {
 		return seq;

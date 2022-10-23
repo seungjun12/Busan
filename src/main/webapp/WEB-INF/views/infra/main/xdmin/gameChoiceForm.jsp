@@ -114,9 +114,9 @@
 						</div>
 						<!-- 예매하기 버튼 -->
 						<%-- <a href="javascript:goList(<c:out value="${list.gameSeq }"/>)">	 --%>
-							<input type="text" name="gameSeq" value="${list.gameSeq }">
+							<input type="hidden" name="gameSeq" value="${list.gameSeq }">
 							<%-- <a href="javascript:goList(<c:out value="${list.gameSeq }"/>)"> --%>
-								<!-- <button  class="btn btn-danger" style="width: 128px; float: right"> --><a  href="javascript:goSeat(<c:out value="${list.gameSeq }"/>)">zz</a><!-- 예매하기</button> --> 
+							<button  class="btn btn-danger" style="width: 128px; float: right">예매하기</button> <%-- <a  href="javascript:goSeat(<c:out value="${list.gameSeq }"/>)">zz</a> --%><!-- 예매하기</button> --> 
 							<!-- </a> -->
 						<!-- </a> -->
 						<%-- href="javascript:goView(<c:out value="${list.gameseq }"/>)" --%>
