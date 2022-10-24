@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.september.interpark.modules.member.Member;
+
 import nl.captcha.Captcha;
 
 @Controller
@@ -103,11 +105,15 @@ public class MainController {
 	
 	//유저_좌석선택전 보안
 	@RequestMapping(value = "/main/seatLock")
-	public String seatLock(@ModelAttribute("vo") MainVo vo, Model model)throws Exception{
+	public String seatLock(@ModelAttribute("vo") MainVo vo, Model model , Member dto, HttpSession httpSession)throws Exception{
 		
 		
 		Main seatItem = service.selectOne(vo);
 		model.addAttribute("seatItem", seatItem);
+		
+		/* Main re = service.selectOneGame(dto); */
+		
+		
 		return "infra/main/xdmin/seatLock";
 	}
 	
