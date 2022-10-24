@@ -18,7 +18,7 @@
 </head>   
 <body>
 <form method="post" name="form" id="form">
-<input type="text" name="seq" value="<c:out value="${sessSeq }"/>">
+<%-- <input type="hidden" name="seq" value="<c:out value="${sessSeq }"/>"> --%>
 <div class="wrap">
 	<div class="contentWrap">
 		<div style="width: 300px; margin: auto;">
@@ -81,12 +81,17 @@ $("#btnCheck").on("click", function(){
 						var option = "width=820, height=500"
 						
 						
-						window.open(url,"",option);
+						
+						location.href = url;
+						
+						
+						
+						/* window.open(url,"",option);
 						
 						seq.val();
 						form.attr("action" , url).subit();
 						
-						window.close();
+						window.close(); */
 						
 				
 			} else {

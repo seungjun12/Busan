@@ -113,7 +113,7 @@
 							</div>
 						</div>
 						<!-- 예매하기 버튼 -->
-						<form id="forms" name="forms">
+						<form name="forms">
 						<%-- <a href="javascript:goList(<c:out value="${list.gameSeq }"/>)">	 --%>
 							<input type="hidden" name="gameSeq" id="gameSeq" value="${list.gameSeq }">
 							<%-- <a href="javascript:goList(<c:out value="${list.gameSeq }"/>)"> --%>
