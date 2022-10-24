@@ -80,12 +80,7 @@
 			 	<div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
-							<select class="form-select" aria-label="Default select example" id="whoHome" name="whoHome">
-								<option value="">홈팀선택</option>
-								<c:forEach items="${view}" varStatus="status" var="view">
-									<option value="<c:out value="${view.teamName }" />"><c:out value="${view.teamName }" /></option>
-								</c:forEach>
-							</select>
+							<input class="form-control" type="text"  aria-label="default input example"  id="whoHome" name="whoHome" value="SSG랜더스" readonly>
 						</div>
 						<div class="col-6">
 							<select class="form-select" aria-label="Default select example" id="whoAway" name="whoAway">

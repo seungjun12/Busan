@@ -22,7 +22,7 @@
 </head>
 <body>
 <div>	
-	<form id="form" name="form" method="post">
+	<form name="form" method="post">
 	<!-- 상단배너 s -->
 	<%@include file="../../../common/xdmin/includeV1/topvanner.jsp"%>
 	<!-- 상단배너 e -->
@@ -114,9 +114,9 @@
 						</div>
 						<!-- 예매하기 버튼 -->
 						<%-- <a href="javascript:goList(<c:out value="${list.gameSeq }"/>)">	 --%>
-							<input type="hidden" name="gameSeq" value="${list.gameSeq }">
+							<input type="hidden" name="gameSeq" id="gameSeq" value="${list.gameSeq }">
 							<%-- <a href="javascript:goList(<c:out value="${list.gameSeq }"/>)"> --%>
-							<button  class="btn btn-danger" style="width: 128px; float: right">예매하기</button> <%-- <a  href="javascript:goSeat(<c:out value="${list.gameSeq }"/>)">zz</a> --%><!-- 예매하기</button> --> 
+							<button type="button" class="btn btn-danger" style="width: 128px; float: right" onclick="goSeatLock(this.form);">예매하기</button> <%-- <a  href="javascript:goSeat(<c:out value="${list.gameSeq }"/>)">zz</a> --%><!-- 예매하기</button> --> 
 							<!-- </a> -->
 						<!-- </a> -->
 						<%-- href="javascript:goView(<c:out value="${list.gameseq }"/>)" --%>
@@ -185,15 +185,12 @@
 	$("#btnMemberView").on("click",function(){
 		$(location).attr("href",goUrlMemberView);
 	});
-</script>	
-<script>	
-	goSeat = function(seqValue) {
-    	/* if(keyValue != 0) seq.val(btoa(keyValue)); */
-    	seq.val(seqValue);
-		form.attr("action", goUrlSeat).submit();
+	
+	goView = function(seqValue){
+		seq.val(seqValue);
+		form.attr("action" , goUrlView).submit();
 	}
-</script>
-<script>	
+	
 	$(function(){
         // tab 메뉴를 클릭하였을 때 동작함
         $(".tab ul li").click(function(){ 
@@ -209,9 +206,36 @@
             $("#"+$(this).data('id')).addClass('on');
         });
     });
-        
 	
+	
+        
+	function goSeatLock(frm){
+		
+		var url = "/main/seatLock";
+		var title = "test";
+		var option = "width=820, height=500"
+			window.open("",title,option);
+		
+		frm.target = title;
+		frm.action=url;
+		frm.method = "post";
+		frm.submit();
+		
+		/* var target='form';
+		window.open('',target);
+		
+		var form = document.form;
+		form.action="/main/seatLock";
+		form.target=target;
+		form.submit(); */
+		
+		/* var value = document.value;
+		
+		var url = "/main/seatLock";
+		var option = "width=820, height=500"
+		window.open(url,"",option); */
 
+	}
 	
 	
 	

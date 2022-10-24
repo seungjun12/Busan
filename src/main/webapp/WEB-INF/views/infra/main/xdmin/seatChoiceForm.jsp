@@ -41,7 +41,7 @@
 		<c:forEach items="${list }" var="list" varStatus="status">	
 			<div>
 				<a style="cursor: pointer"><c:out value="${list.seatGrade }" /></a>
-				&nbsp;<span>| </span>
+				&nbsp;<span>| <c:out value="${list.seatGrade_seatGradeSeq }" />석</span>
 			</div>
 		</c:forEach>	
 		</div>

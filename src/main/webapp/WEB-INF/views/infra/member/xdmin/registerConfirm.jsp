@@ -47,10 +47,9 @@
 			<span id="fontSize">조회기간 선택</span>
 			<!-- <input class="datepicker" id="startDate">
 			<input class="datepicker" id="endDate"> -->
-			<a href="javascript:goWeek(<c:out value="${sessSeq }"/>)" class="btn btn-outline-danger">1주일</a>
-			<a href="javascript:goMonth(<c:out value="${sessSeq }"/>)" class="btn btn-outline-danger">1달</a>
-			<a type="button" class="btn btn-outline-danger">3달</a>
-			<a href="javascript:goYear(<c:out value="${sessSeq }"/>)" class="btn btn-outline-danger" >1년</a>
+			<a href="javascript:goWeek(<c:out value="${sessSeq }"/>)" class="btn btn-outline-danger button">1주일</a>
+			<a href="javascript:goMonth(<c:out value="${sessSeq }"/>)" class="btn btn-outline-danger button">1달</a>
+			<a href="javascript:goYear(<c:out value="${sessSeq }"/>)" class="btn btn-outline-danger button" >1년</a>
 		</div>
 		<table class="table">
   			<thead class="table-secondary">

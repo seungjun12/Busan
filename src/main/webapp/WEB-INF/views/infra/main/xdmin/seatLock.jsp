@@ -18,7 +18,7 @@
 </head>   
 <body>
 <form method="post" name="form" id="form">
-<input type="hidden" name="seq" value="<c:out value="${sessSeq }"/>">
+<input type="text" name="seq" value="<c:out value="${sessSeq }"/>">
 <div class="wrap">
 	<div class="contentWrap">
 		<div style="width: 300px; margin: auto;">
@@ -44,7 +44,7 @@
 				<div style="padding:3px">	
 					<input id="answer" type="text" value="" name="answer">
 					<input id="btnCheck" type="button" value="확인" ><!-- data-bs-dismiss="modal" -->
-					<input type="text" value="${item.gameSeq }">
+					<input type="text" value="${seatItem.gameSeq }">
 				</div> <!-- onclick="popupSeatChoice()" --> 
 			</div>
 		</div>
@@ -86,6 +86,7 @@ $("#btnCheck").on("click", function(){
 						seq.val();
 						form.attr("action" , url).subit();
 						
+						window.close();
 						
 				
 			} else {

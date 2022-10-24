@@ -110,6 +110,34 @@
 			gameDelNy= 1	
 	</select>
 	
+	<!-- 유저_게임선택한개하기 -->
+	<!-- <select id="selecOneGame" resultMap="resultMapObj">
+		SELECT
+			a.*
+		FROM game a	
+	</select> -->
+	
+	<!-- 유저_좌석선택 좌석 리스트 띠우기 -->
+	<select id="selectListSeat" resultMap="resultMapObj">
+		select aa.*from(
+			SELECT
+				a.*
+				,(SELECT COUNT(aa.seatNumber) FROM seat aa where 1=1 AND aa.purchaseDiv = 0 AND aa.seatGrade_seatGradeSeq = a.seatGradeSeq) as seatGrade_seatGradeSeq
+			FROM seatGrade a
+				WHERE 1=1
+			)	aa	
+	</select>
+	
+	<!-- 유저_좌석선택 남은 좌석 리스트 띠우기 -->
+	<select id="seatCount" resultType="Integer">
+		SELECT COUNT(seatNumber)
+		FROM seat
+		WHERE 1=1
+		AND purchaseDiv = 0
+		AND seatGrade_seatGradeSeq = 1
+	</select> 
+	
+	<!-- 게임 시퀀스 가져가기 시험 -->
 	
 	
 </mapper>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 
 <!-- footer영역 시작 -->
+<footer>	
 	<div id="footerWrap">
 		<div id="footerTop">
 			<div id="footerTopList">	
@@ -48,3 +49,4 @@
 		
 	
 	</div><!-- footerWrap end -->
+</footer>	

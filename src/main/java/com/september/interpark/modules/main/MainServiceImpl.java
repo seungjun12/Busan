@@ -43,6 +43,14 @@ public class MainServiceImpl implements MainService{
 
 	@Override
 	public List<Main> selectListGame(MainVo vo) throws Exception {return dao.selectListGame(vo);}
+
+	@Override
+	public List<Main> selectListSeat(MainVo vo) throws Exception {return dao.selectListSeat(vo);}
+
+	@Override
+	public int seatCount(MainVo vo) throws Exception {return dao.seatCount(vo);}
+	
+	
 	
 	
 	

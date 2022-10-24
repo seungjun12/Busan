@@ -17,6 +17,19 @@ public class Main{
 	private String teamName;
 	private String teamGround;
 	
+	
+	//seatGrade
+	private String seatGradeSeq;
+	private String seatGrade;
+	private String seatPrice;
+	
+	//seat
+	private String seatSeq;
+	private Integer seatNumber;
+	private Integer purchaseDiv;
+	private String seatGrade_seatGradeSeq;
+	private String game_gameSeq;
+	
 	// game get set
 	public String getGameSeq() {
 		return gameSeq;
@@ -76,6 +89,61 @@ public class Main{
 	public void setTeamGround(String teamGround) {
 		this.teamGround = teamGround;
 	}
+	
+	//seatGrade
+	public String getSeatGradeSeq() {
+		return seatGradeSeq;
+	}
+	public void setSeatGradeSeq(String seatGradeSeq) {
+		this.seatGradeSeq = seatGradeSeq;
+	}
+	public String getSeatGrade() {
+		return seatGrade;
+	}
+	public void setSeatGrade(String seatGrade) {
+		this.seatGrade = seatGrade;
+	}
+	public String getSeatPrice() {
+		return seatPrice;
+	}
+	public void setSeatPrice(String seatPrice) {
+		this.seatPrice = seatPrice;
+	}
+	public String getSeatSeq() {
+		return seatSeq;
+	}
+	
+	//seat
+	public void setSeatSeq(String seatSeq) {
+		this.seatSeq = seatSeq;
+	}
+	
+	
+	public Integer getSeatNumber() {
+		return seatNumber;
+	}
+	public void setSeatNumber(Integer seatNumber) {
+		this.seatNumber = seatNumber;
+	}
+	public Integer getPurchaseDiv() {
+		return purchaseDiv;
+	}
+	public void setPurchaseDiv(Integer purchaseDiv) {
+		this.purchaseDiv = purchaseDiv;
+	}
+	public String getSeatGrade_seatGradeSeq() {
+		return seatGrade_seatGradeSeq;
+	}
+	public void setSeatGrade_seatGradeSeq(String seatGrade_seatGradeSeq) {
+		this.seatGrade_seatGradeSeq = seatGrade_seatGradeSeq;
+	}
+	public String getGame_gameSeq() {
+		return game_gameSeq;
+	}
+	public void setGame_gameSeq(String game_gameSeq) {
+		this.game_gameSeq = game_gameSeq;
+	}
+	
 	
 	
 	

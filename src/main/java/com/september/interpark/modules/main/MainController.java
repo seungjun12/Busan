@@ -105,14 +105,19 @@ public class MainController {
 	@RequestMapping(value = "/main/seatLock")
 	public String seatLock(@ModelAttribute("vo") MainVo vo , Model model)throws Exception{
 		
-		Main item = service.selectOne(vo);
-		model.addAttribute("item", item);
+		Main seatItem = service.selectOne(vo);
+		model.addAttribute("seatItem", seatItem);
 		return "infra/main/xdmin/seatLock";
 	}
 	
 	//유저_좌석선택
 	@RequestMapping(value = "/main/seatChoice")
-	public String seatChoice()throws Exception{
+	public String seatChoice(@ModelAttribute("vo") MainVo vo , Model model)throws Exception{
+		
+		List <Main>list=service.selectListSeat(vo);
+		model.addAttribute("list", list);
+		
+		vo.seatGrade_seatGradeSeq(service.seatCount(vo));
 		return "infra/main/xdmin/seatChoiceForm";
 	}
 	
