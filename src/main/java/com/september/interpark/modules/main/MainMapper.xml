@@ -138,6 +138,18 @@
 	</select> 
 	
 	<!-- 게임 시퀀스 가져가기 시험 -->
-	
+	<select id="selectOneGame">
+		SELECT 	
+			a.gameSeq
+			,a.whoHome
+			,a.whoAway
+			,a.date
+			,a.time
+			,a.ground
+		FROM 
+			game a
+		WHERE 1=1
+			AND a.gameSeq = #{gameSeq}		
+	</select>
 	
 </mapper>

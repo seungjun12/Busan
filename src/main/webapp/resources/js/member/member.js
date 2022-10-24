@@ -69,6 +69,8 @@
 		form.attr("action" , goUrlView).submit();
 	}
 	
+	
+	
 	//memberlist checkBox
 	
 	function checkSelectAll()  {

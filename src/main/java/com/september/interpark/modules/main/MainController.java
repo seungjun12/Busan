@@ -103,7 +103,8 @@ public class MainController {
 	
 	//유저_좌석선택전 보안
 	@RequestMapping(value = "/main/seatLock")
-	public String seatLock(@ModelAttribute("vo") MainVo vo , Model model)throws Exception{
+	public String seatLock(@ModelAttribute("vo") MainVo vo, Model model)throws Exception{
+		
 		
 		Main seatItem = service.selectOne(vo);
 		model.addAttribute("seatItem", seatItem);

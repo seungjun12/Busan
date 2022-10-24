@@ -40,6 +40,7 @@
 		<div class="listScroll">
 		<c:forEach items="${list }" var="list" varStatus="status">	
 			<div>
+				<input type="checkbox">
 				<a style="cursor: pointer"><c:out value="${list.seatGrade }" /></a>
 				&nbsp;<span>| <c:out value="${list.seatGrade_seatGradeSeq }" />석</span>
 			</div>

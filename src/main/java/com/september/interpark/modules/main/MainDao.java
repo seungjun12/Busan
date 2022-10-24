@@ -53,4 +53,6 @@ public class MainDao {
 	
 	public int seatCount(MainVo vo) {return sqlSession.selectOne(namespace + ".seatCount", vo);}
 
+	public Main selectOneGame(Main dto) {return sqlSession.selectOne(namespace + ".selectOneGame", dto);}
+	
 }
