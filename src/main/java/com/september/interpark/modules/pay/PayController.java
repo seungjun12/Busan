@@ -1,14 +1,23 @@
 package com.september.interpark.modules.pay;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping(value = "/pay/")
 public class PayController {
+	
+	@Autowired
+	PayServiceImpl service;
 
 	@RequestMapping(value = "priceSelect")
-	public String priceSelectForm()throws Exception {
+	public String priceSelectForm(@ModelAttribute("vo") PayVo vo , Model model)throws Exception {
+		
+		Pay item =service.selectOne(vo);
+		model.addAttribute("item", item);
 		return "infra/pay/xdmin/priceSelectForm";
 	}
 	

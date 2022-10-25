@@ -127,7 +127,6 @@ public class MainController {
 		List <Main>list=service.selectListSeat(vo);
 		model.addAttribute("list", list);
 		
-		vo.seatGrade_seatGradeSeq(service.seatCount(vo));
 		return "infra/main/xdmin/seatChoiceForm";
 	}
 	

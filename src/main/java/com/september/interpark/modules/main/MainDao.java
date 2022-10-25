@@ -51,7 +51,6 @@ public class MainDao {
 	//유저_게임좌석리스트
 	public List<Main>selectListSeat(MainVo vo){return sqlSession.selectList(namespace +".selectListSeat", vo);}
 	
-	public int seatCount(MainVo vo) {return sqlSession.selectOne(namespace + ".seatCount", vo);}
 
 	public Main selectOneGame(Main dto) {return sqlSession.selectOne(namespace + ".selectOneGame", dto);}
 	

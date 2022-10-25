@@ -101,6 +101,8 @@ $("#btnCheck").on("click", function(){
 				
 			} else {
 				alert("틀렸습니다");
+				
+				window.close();
 			}
 		}
 		,error : function(jqXHR, textStatus, errorThrown){

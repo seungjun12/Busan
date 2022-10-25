@@ -24,10 +24,7 @@ public class MainServiceImpl implements MainService{
 	public int gameInst(Main dto) throws Exception {return dao.gameInst(dto);}
 
 	@Override
-	public Main selectOne(MainVo vo) throws Exception {
-		Main result = dao.selectOne(vo);
-		return result;
-	}
+	public Main selectOne(MainVo vo) throws Exception {return dao.selectOne(vo);}
 
 	@Override
 	public int update(Main dto) throws Exception {return dao.update(dto);}
@@ -47,8 +44,6 @@ public class MainServiceImpl implements MainService{
 	@Override
 	public List<Main> selectListSeat(MainVo vo) throws Exception {return dao.selectListSeat(vo);}
 
-	@Override
-	public int seatCount(MainVo vo) throws Exception {return dao.seatCount(vo);}
 
 	@Override
 	public Main selectOneGame(Main dto) throws Exception {return dao.selectOneGame(dto);}

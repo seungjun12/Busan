@@ -24,7 +24,6 @@ public interface MainService {
 	
 	public List<Main>selectListSeat(MainVo vo)throws Exception;
 	
-	public int seatCount(MainVo vo)throws Exception;
 	
 	public Main selectOneGame(Main dto)throws Exception;
 	

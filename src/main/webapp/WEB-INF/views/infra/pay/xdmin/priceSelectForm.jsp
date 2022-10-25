@@ -18,7 +18,7 @@
 </head>
 <body>
 <div class="wrap">
-<form action="">
+<form name="form" method="post">
 	<!-- 헤더영역 -->
 	<div class="headerWrap">
 		<div>
@@ -35,6 +35,7 @@
 	</div><!-- hearderWrap end -->
 	<!-- 왼쪽 가격 선택 영역 -->
 	<div class="priceWrap">
+	<input type="hidden" name="gameSeq" value="${item.gameSeq }">
 		<div>
 			<b>가격</b>
 		</div>
@@ -49,7 +50,7 @@
 			<tr>
 				<td id="td1">기본가</td>
 				<td id="td2">일반</td>
-				<td id="td3">12,000원</td>
+				<td id="td3"><c:out value="${item.seatPrice }"/></td>
 				<td id="td4">
 					<select>
 						<option>0매</option>
@@ -72,8 +73,8 @@
 		<div class="rightInWrap">
 			<!-- 경기 정보영역 -->
 			<div class="gameInformation">
-				<div>2022.08.10~2022.08.10</div>
-				<div>인천SSG랜더스필드</div>
+				<div>2022.<c:out value="${item.date }" /></div>
+				<div><c:out value="${item.ground }" /></div>
 				<div>전체관람가</div>
 				<div>관람시간 : -</div>
 			</div>
@@ -83,15 +84,15 @@
 			<table class="informationTable">
 				<tr>
 					<td>일시</td>
-					<td>2022년 8월 10일 18:30</td>
+					<td><c:out value="${item.date }" />일<c:out value="${item.time }" />시</td>
 				</tr>
 				<tr>
-					<td>선택좌석(1석)</td>
-					<td>1루 일반석</td>
+					<td>선택좌석</td>
+					<td><c:out value="${item.seatGrade }" /></td>
 				</tr>
 				<tr>
 					<td>티켓금액</td>
-					<td>12,000원</td>
+					<td><c:out value="${item.seatPrice }" /></td>
 				</tr>
 				<tr>
 					<td>수수료</td>
@@ -122,7 +123,7 @@
 			<div class="pageButton continer-fluid">
 				<div class="row">
 					<div class="col-6">
-						<button type="button" class="btn btn-dark" onclick="location.href='../main/seatChoiceForm.html'">이전단계</button>
+						<a href="javascript:goSeatChoice(<c:out value="${item.gameSeq }"/>)" class="btn btn-dark" >이전단계</a>
 					</div>
 					<div class="col">
 						<button type="button" class="btn btn-danger" onclick="location.href='deliveryForm.html'">다음단계</button>
@@ -137,5 +138,24 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+	var goUrlSeatChoice = "/main/seatChoice"
+	var seq = $("input:hidden[name=gameSeq]");
+	var form = $("form[name=form]");
+	
+	
+		/* $("#btnSeatChoice").on("click",function(seqValue){
+			seq.val(seqValue);
+			form.attr("action",goUrlSeatChoice).submit();
+		}); */
+		
+	goSeatChoice = function(seqValue){
+			seq.val(seqValue);
+			form.attr("action" , goUrlSeatChoice).submit();
+		};	
+	
+</script>
+
 </body>
 </html>

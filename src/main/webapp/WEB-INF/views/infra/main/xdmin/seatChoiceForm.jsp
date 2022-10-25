@@ -18,7 +18,8 @@
 </head>   
 <body>
 <form method="post" name="form" id="form">
-<input type="hidden" name="seq" value="<c:out value="${sessSeq }"/>">
+<input type="hidden" name="seatGradeSeq" value="<c:out value="${seatGradeSeq }"/>"> 
+<input type="text" value="<c:out value="${seatItem.gameSeq}"/>">
 <div class="wrap">
 	<!-- 헤더영역 -->
 	<div class="headerWrap">
@@ -27,8 +28,8 @@
 			<span>티켓예매</span>		
 		</div>
 		<div>
-			<span><c:out value="${item.whoHome}"/> vs <c:out value="${item.whoAway }"/> (일반 회원 상품)</span>&nbsp;&nbsp;
-			<span style="font-size: 11px; color: #cccccd">| 인천SSG랜더스필드</span>
+			<span><c:out value="${seatItem.whoHome}"/> vs <c:out value="${seatItem.whoAway }"/> (일반 회원 상품)</span>&nbsp;&nbsp;
+			<span style="font-size: 11px; color: #cccccd">| <c:out value="${seatItem.ground }"/></span>
 		</div>
 	</div>
 	<!-- 좌석도 -->
@@ -40,8 +41,8 @@
 		<div class="listScroll">
 		<c:forEach items="${list }" var="list" varStatus="status">	
 			<div>
-				<input type="checkbox">
-				<a style="cursor: pointer"><c:out value="${list.seatGrade }" /></a>
+				<%-- <input type="hidden" name="seatGradeSeq" value="${list.seatGradeSeq }"> --%>
+				<a href="javascript:goPay(<c:out value="${list.seatGradeSeq }"/>)" class="text-decoration-none"><c:out value="${list.seatGrade }" /></a>
 				&nbsp;<span>| <c:out value="${list.seatGrade_seatGradeSeq }" />석</span>
 			</div>
 		</c:forEach>	
@@ -49,7 +50,7 @@
 		<!-- 자동배정 버튼 -->
 		<input type="hidden" name="gaemSeq" value="${seatItem.gameSeq }">
 		<div class="btnAuto">
-			<button type="button" class="btn btn-danger" onclick="location.href='../pay/priceSelectForm.html'">자동배정</button>
+			<button type="button" class="btn btn-danger" id="btnPay">자동배정</button>
 		</div>
 	</div>
 </div><!-- wrap end -->	
@@ -57,6 +58,23 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+	var goUrlPay = "/pay/priceSelect"
+	var seq = $("input:hidden[name=seatGradeSeq]");				/* #-> */
+	
+	var form = $("form[name=form]");
+	
+	$("#btnPay").on("click",function(){
+		$(location).attr("href",goUrlPay);
+	});
+	
+	goPay = function(seqValue){
+		seq.val(seqValue);
+		form.attr("action" , goUrlPay).submit();
+	}
+
+</script>
 
 </body>
 </html>

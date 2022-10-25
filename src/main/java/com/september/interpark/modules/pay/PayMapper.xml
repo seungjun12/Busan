@@ -8,6 +8,15 @@
 
     <resultMap id="resultMapObj" type="com.september.interpark.modules.pay.Pay"></resultMap>
 	
+	<select id="selectOne" resultMap="resultMapObj">
+		SELECT
+			a.*
+			,b.*
+		FROM seatGrade a
+		LEFT JOIN game b on b.gameSeq = a.game_gameSeq
+		WHERE 1=1
+			AND seatGradeSeq = #{seatGradeSeq}
+	</select>
 
 
 </mapper>

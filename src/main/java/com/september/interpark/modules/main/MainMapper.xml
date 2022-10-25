@@ -123,23 +123,16 @@
 			SELECT
 			a.*
 			,(SELECT COUNT(aa.seatGrade_seatGradeSeq) FROM seat aa where 1=1 AND aa.purchaseDiv = 0 AND aa.game_gameSeq= #{gameSeq}  AND aa.seatGrade_seatGradeSeq = a.seatGradeSeq) as seatGrade_seatGradeSeq
-            <!-- ,(SELECT bb.gameSeq FROM game bb where 1=1 AND bb.gameSeq = 2)as gameSeq -->
-		FROM seatGrade a
-			WHERE 1=1
-			)	aa	
+			<!-- ,b.* -->
+				FROM seatGrade a
+				<!-- LEFT JOIN game b on b.gameSeq = a.game_gameSeq -->
+				WHERE 1=1
+				)	aa	
 	</select>
-	
-	<!-- 유저_좌석선택 남은 좌석 리스트 띠우기 -->
-	<select id="seatCount" resultType="Integer">
-		SELECT COUNT(seatNumber)
-		FROM seat
-		WHERE 1=1
-		AND purchaseDiv = 0
-		AND seatGrade_seatGradeSeq = 1
-	</select>  
+	  
 	
 	<!-- 게임 시퀀스 가져가기 시험 -->
-	<select id="selectOneGame">
+	<select id="selectOneGame" resultMap="resultMapObj">
 		SELECT 	
 			a.gameSeq
 			,a.whoHome
