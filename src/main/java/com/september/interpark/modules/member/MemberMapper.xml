@@ -149,6 +149,7 @@
 			,emailCode
 			,email
 			,adminDiv
+			,delNy
 		)
 		VALUES(
 			#{id}
@@ -162,6 +163,7 @@
 			,#{addressCode}
 			,#{emailCode}
 			,#{email}
+			,1
 			,1
 		)
 		<selectKey resultType="String" keyProperty="seq" order="AFTER">

@@ -125,8 +125,9 @@
 			,(SELECT COUNT(aa.seatGrade_seatGradeSeq) FROM seat aa where 1=1 AND aa.purchaseDiv = 0 AND aa.game_gameSeq= #{gameSeq}  AND aa.seatGrade_seatGradeSeq = a.seatGradeSeq) as seatGrade_seatGradeSeq
 			<!-- ,b.* -->
 				FROM seatGrade a
-				<!-- LEFT JOIN game b on b.gameSeq = a.game_gameSeq -->
+				<!-- LEFT JOIN game b on b.gameSeq = a.game_gameSeq --> 
 				WHERE 1=1
+				AND game_gameSeq = #{gameSeq}
 				)	aa	
 	</select>
 	  

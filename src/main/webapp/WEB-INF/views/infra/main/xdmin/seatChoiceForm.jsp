@@ -19,7 +19,7 @@
 <body>
 <form method="post" name="form" id="form">
 <input type="hidden" name="seatGradeSeq" value="<c:out value="${seatGradeSeq }"/>"> 
-<input type="text" value="<c:out value="${seatItem.gameSeq}"/>">
+<input type="hidden" value="<c:out value="${seatItem.gameSeq}"/>">
 <div class="wrap">
 	<!-- 헤더영역 -->
 	<div class="headerWrap">
@@ -49,9 +49,6 @@
 		</div>
 		<!-- 자동배정 버튼 -->
 		<input type="hidden" name="gaemSeq" value="${seatItem.gameSeq }">
-		<div class="btnAuto">
-			<button type="button" class="btn btn-danger" id="btnPay">자동배정</button>
-		</div>
 	</div>
 </div><!-- wrap end -->	
 </form>

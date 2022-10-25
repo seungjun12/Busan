@@ -41,10 +41,10 @@
 		</div>
 		<div class="price">
 			&nbsp;&nbsp;&nbsp;
-			<span><b>1루 일반석&nbsp;&nbsp;|</b></span>
+			<span><b><c:out value="${item.seatGrade }"/>&nbsp;&nbsp;|</b></span>
 			&nbsp;
-			<span id="fontColor">좌석 1매</span>
-			<span>를 선택하셨습니다.</span>
+			<span id="fontColor">좌석 </span>
+			<span>을 선택하셨습니다.</span>
 		</div>
 		<table class="priceTable">
 			<tr>

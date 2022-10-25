@@ -13,7 +13,7 @@
 			a.*
 			,b.*
 		FROM seatGrade a
-		LEFT JOIN game b on b.gameSeq = a.game_gameSeq
+		LEFT JOIN game b on b.gameSeq = a.game_gameSeq 
 		WHERE 1=1
 			AND seatGradeSeq = #{seatGradeSeq}
 	</select>
