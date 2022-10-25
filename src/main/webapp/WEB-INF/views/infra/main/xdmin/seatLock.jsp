@@ -44,7 +44,7 @@
 				<div style="padding:3px">	
 					<input id="answer" type="text" value="" name="answer">
 					<input id="btnCheck" type="button" value="확인" ><!-- data-bs-dismiss="modal" -->
-					<input type="text" value="${seatItem.gameSeq }">
+					<input type="hidden" name="gameSeq" value="${seatItem.gameSeq }">
 				</div> <!-- onclick="popupSeatChoice()" --> 
 			</div>
 		</div>
@@ -80,9 +80,14 @@ $("#btnCheck").on("click", function(){
 						var url = "/main/seatChoice";
 						var option = "width=820, height=500"
 						
+						var seq = $("input:hidden[name=gameSeq]");
+						var form = $("form[name=form]");
+						
+						seq.val();
+						form.attr("action",url).submit();
 						
 						
-						location.href = url;
+						/* location.href = url; */
 						
 						
 						

@@ -121,6 +121,9 @@ public class MainController {
 	@RequestMapping(value = "/main/seatChoice")
 	public String seatChoice(@ModelAttribute("vo") MainVo vo , Model model)throws Exception{
 		
+		Main seatItem = service.selectOne(vo);
+		model.addAttribute("seatItem", seatItem);
+		
 		List <Main>list=service.selectListSeat(vo);
 		model.addAttribute("list", list);
 		

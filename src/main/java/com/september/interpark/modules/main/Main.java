@@ -30,6 +30,10 @@ public class Main{
 	private String seatGrade_seatGradeSeq;
 	private String game_gameSeq;
 	
+	
+	
+	
+	
 	// game get set
 	public String getGameSeq() {
 		return gameSeq;

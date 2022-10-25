@@ -47,6 +47,7 @@
 		</c:forEach>	
 		</div>
 		<!-- 자동배정 버튼 -->
+		<input type="hidden" name="gaemSeq" value="${seatItem.gameSeq }">
 		<div class="btnAuto">
 			<button type="button" class="btn btn-danger" onclick="location.href='../pay/priceSelectForm.html'">자동배정</button>
 		</div>

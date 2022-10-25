@@ -121,10 +121,11 @@
 	<select id="selectListSeat" resultMap="resultMapObj">
 		select aa.*from(
 			SELECT
-				a.*
-				,(SELECT COUNT(aa.seatNumber) FROM seat aa where 1=1 AND aa.purchaseDiv = 0 AND aa.seatGrade_seatGradeSeq = a.seatGradeSeq) as seatGrade_seatGradeSeq
-			FROM seatGrade a
-				WHERE 1=1
+			a.*
+			,(SELECT COUNT(aa.seatGrade_seatGradeSeq) FROM seat aa where 1=1 AND aa.purchaseDiv = 0 AND aa.game_gameSeq= #{gameSeq}  AND aa.seatGrade_seatGradeSeq = a.seatGradeSeq) as seatGrade_seatGradeSeq
+            <!-- ,(SELECT bb.gameSeq FROM game bb where 1=1 AND bb.gameSeq = 2)as gameSeq -->
+		FROM seatGrade a
+			WHERE 1=1
 			)	aa	
 	</select>
 	
@@ -135,7 +136,7 @@
 		WHERE 1=1
 		AND purchaseDiv = 0
 		AND seatGrade_seatGradeSeq = 1
-	</select> 
+	</select>  
 	
 	<!-- 게임 시퀀스 가져가기 시험 -->
 	<select id="selectOneGame">
