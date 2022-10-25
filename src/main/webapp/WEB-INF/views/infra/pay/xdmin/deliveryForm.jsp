@@ -66,7 +66,7 @@
 		<table class="reserveTable">
 			<tr>
 				<td class="tdColor">이름</td>
-				<td>박승준</td>
+				<td><c:out value="${sessName }" /></td>
 			</tr>
 			<tr>
 				<td class="tdColor">생년월일</td>

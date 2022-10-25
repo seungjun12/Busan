@@ -126,7 +126,7 @@
 						<a href="javascript:goSeatChoice(<c:out value="${item.gameSeq }"/>)" class="btn btn-dark" >이전단계</a>
 					</div>
 					<div class="col">
-						<button type="button" class="btn btn-danger" onclick="location.href='deliveryForm.html'">다음단계</button>
+						<button type="button" class="btn btn-danger" id="btnDelivery">다음단계</button>
 					</div>
 				</div>
 			</div>
@@ -141,14 +141,22 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>
 	var goUrlSeatChoice = "/main/seatChoice"
+	var goUrlDelivery = "/pay/delivery"
+	
 	var seq = $("input:hidden[name=gameSeq]");
 	var form = $("form[name=form]");
 	
+	
+	$("#btnDelivery").on("click",function(){
+		$(location).attr("href",goUrlDelivery);
+	});
 	
 		/* $("#btnSeatChoice").on("click",function(seqValue){
 			seq.val(seqValue);
 			form.attr("action",goUrlSeatChoice).submit();
 		}); */
+		
+		
 		
 	goSeatChoice = function(seqValue){
 			seq.val(seqValue);
