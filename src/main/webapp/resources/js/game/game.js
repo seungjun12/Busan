@@ -1,3 +1,5 @@
+
+var $j361 = jQuery.noConflict();
 var goUrlGameForm = "/main/gameForm"
 var goUrlView = "/main/gameView"
 var goUrlCodeGroup = "/codeGroup/codeGroupList"; 			/* #-> */
@@ -11,62 +13,62 @@ var goUrlMember = "/member/memberList";
 var goUrlHome = "/admin/home";
 var goUrlGame = "/main/gameList";
 
-var seq =$("input:hidden[name=gameSeq]");
-var form = $("form[name=form]")
+var seq =$j361("input:hidden[name=gameSeq]");
+var form = $j361("form[name=form]")
 
-	$("#btnGameForm").on("click",function(){
+	$j361("#btnGameForm").on("click",function(){
 		$(location).attr("href",goUrlGameForm);
 	});	
 	
 	
-	$("#btnReset").on("click",function(){
+	$j361("#btnReset").on("click",function(){
 		$(location).attr("href",goUrlGame);
 	});
 	
-	$("#btnSearch").on("click",function(){
+	$j361("#btnSearch").on("click",function(){
 		form.attr("action", goUrlGame).submit();
 	});
 	
 	
-	$("#btnForm").on("click",function(){
+	$j361("#btnForm").on("click",function(){
 		$(location).attr("href",goUrlForm);
 	});
 	
-	$("#btnCode").on("click" , function(){
+	$j361("#btnCode").on("click" , function(){
 		$(location).attr("href",goUrlCode);
 	});
 	
-	$("#btnMember").on("click" , function(){
+	$j361("#btnMember").on("click" , function(){
 		$(location).attr("href",goUrlMember);
 	});
 
-	$("#btnCodeGroup").on("click" , function(){
+	$j361("#btnCodeGroup").on("click" , function(){
 		$(location).attr("href",goUrlCodeGroup);
 	});	
 	
- 	$("#btnModify").on("click",function(){
+ 	$j361("#btnModify").on("click",function(){
 	form.attr("action", goUrlUpdt).submit();
 	});
 	
-	$("#btnUele").on("click",function(){
+	$j361("#btnUele").on("click",function(){
 		form.attr("action", goUrlUele).submit();
 	});
 	
-	$("#btnDelete").on("click", function(){
+	$j361("#btnDelete").on("click", function(){
 		form.attr("action", goUrlDele).submit();
 	});
 	
-	$("#btnList").on("click", function(){
+	$j361("#btnList").on("click", function(){
 		formVo.attr("action", goUrlCodeGroup).submit();
 	});                         //gorUrlList
 	
-	$("#btnHome").on("click", function(){
+	$j361("#btnHome").on("click", function(){
 		$(location).attr("href",goUrlHome);
 	});                        
 	
 	
 	goList = function(thisPage){
-		$("input:hidden[name=thisPage]").val(thisPage);
+		$j361("input:hidden[name=thisPage]").val(thisPage);
 		form.attr("action" , goUrlList).submit();
 	}
 	
@@ -76,11 +78,7 @@ var form = $("form[name=form]")
 		form.attr("action", goUrlView).submit();
 	}	
 	
-	//충돌방지
-  	var $jQ = jQuery.noConflict();
-	$jQ(document).ready(function(){
-		$jQ('datepickers').text('충돌방지 해결');
-	});
+	
 
 
 
