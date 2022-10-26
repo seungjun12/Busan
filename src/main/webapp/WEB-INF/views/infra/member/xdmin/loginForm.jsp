@@ -56,10 +56,10 @@
 		</div>
 		<!-- 네이버 카카오 로그인 영역 -->
 		<div id="snsLogin">
-			<button type="button" class="btn btn-outline-success" style="width: 420px;">네이버 로그인</button>
-			<button type="button" class="btn btn-outline-warning" style="width: 420px; margin-top: 10px;">카카오 로그인</button>
-			<button type="button" class="btn btn-outline-primary" style="width: 420px; margin-top: 10px;">페이스북 로그인</button>
-			<button type="button" class="btn btn-outline-dark" style="width: 420px; margin-top: 10px;">구글 로그인</button>
+			<button type="button" class="btn btn-outline-success" style="width: 420px;" onclick="btnNo();">네이버 로그인</button>
+			<button type="button" class="btn btn-outline-warning" style="width: 420px; margin-top: 10px;" onclick="btnNo();">카카오 로그인</button>
+			<button type="button" class="btn btn-outline-primary" style="width: 420px; margin-top: 10px;" onclick="btnNo();">페이스북 로그인</button>
+			<button type="button" class="btn btn-outline-dark" style="width: 420px; margin-top: 10px;" onclick="btnNo();">구글 로그인</button>
 		</div>
 		</form>
 		<!-- 로그인 밑에 설명영역 -->
@@ -132,6 +132,9 @@
 		});
 	});
 	
+	function btnNo(){
+		alert("준비중입니다.")
+	};
 	
 	
 </script>	

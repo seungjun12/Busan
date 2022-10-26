@@ -38,10 +38,10 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a type="button" class="collapse-item" id="btnCodeGroup">코드그룹관리</a>
-                        <a type="button" class="collapse-item" id="btnCode">코드관리</a>
                         <a type="button" class="collapse-item" id="btnMember">회원관리</a>
                         <a type="button" class="collapse-item" id="btnGameList">경기관리</a>
+                        <a type="button" class="collapse-item" id="btnCodeGroup">코드그룹관리</a>
+                        <a type="button" class="collapse-item" id="btnCode">코드관리</a>
                     </div>
                 </div>
             </li>
@@ -49,31 +49,31 @@
             
 
             <!-- Divider -->
-            <hr class="sidebar-divider">
+           <!--  <hr class="sidebar-divider"> -->
 
             <!-- Heading -->
-            <div class="sidebar-heading">
+            <!-- <div class="sidebar-heading">
                 통계
-            </div>
+            </div> -->
 
            
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
+            <!-- <!-- Nav Item - Charts -->
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>매출통계</span></a>
             </li>
 
-            <!-- Nav Item - Tables -->
+            Nav Item - Tables
             <li class="nav-item">
                 <a class="nav-link" href="tables.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>회원통계</span></a>
-            </li>
+            </li> --> 
 
             <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+            <!-- <hr class="sidebar-divider d-none d-md-block"> -->
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">

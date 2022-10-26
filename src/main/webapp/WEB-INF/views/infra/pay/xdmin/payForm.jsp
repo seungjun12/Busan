@@ -18,7 +18,10 @@
 </head>
 <body>
 <div class="wrap">
-<form action="">
+<form name="form" method="post">
+<input type="hidden" name="seatGradeSeq" value="${item.seatGradeSeq }">
+<%-- <input type="text" value="${item.gameSeq }">
+<input type="text" value="${item.seatNumber }"> --%>
 	<!-- 헤더영역 -->
 	<div class="headerWrap">
 		<div>
@@ -121,14 +124,13 @@
 			<div class="pageButton continer-fluid">
 				<div class="row">
 					<div class="col-6">
-						<button type="button" class="btn btn-dark" onclick="location.href='deliveryForm.html'">이전단계</button>
+						<a href="javascript:goDelivery(<c:out value="${item.seatGradeSeq }"/>)"  class="btn btn-dark">이전단계</a>
 					</div>
 					<div class="col">
-						<button type="button" class="btn btn-danger" onclick="location.href='payCompleteForm.html'">다음단계</button>
+						<button type="button" class="btn btn-danger" id="btnPayComplete">다음단계</button>
 					</div>
 				</div>
 			</div>
-			
 		</div><!-- rightInWrap end -->
 	</div><!-- rightWrap end -->
 </form>
@@ -136,5 +138,30 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+var goUrlPrice = "/pay/priceSelect";
+var goUrlSeatChoice = "/main/seatChoice";
+var goUrlDelivery = "/pay/delivery";
+var goUrlPay ="/pay/pay";
+var goUrlPayComplete = "/pay/payComplete"
+
+var seq = $("input:hidden[name=seatGradeSeq]");
+var form = $("form[name=form]");
+
+goDelivery = function(seqValue){
+	seq.val(seqValue);
+	form.attr("action" , goUrlDelivery).submit();
+};
+
+$("#btnPayComplete").on("click",function(seqValue){
+seq.val(seqValue);
+form.attr("action",goUrlPayComplete).submit();
+}); 
+
+</script>
+
+
+
 </body>
 </html>

@@ -87,9 +87,9 @@
 						<div class="col-6">
 							아이디
 						</div>
-						<div class="col">
+						<!-- <div class="col">
 							비밀번호
-						</div>
+						</div> -->
 					</div>
 				</div>
 				<div class="container-fluid codeGroupInput">
@@ -98,7 +98,7 @@
 							<input class="form-control" type="text" placeholder="ID" aria-label="defalut input example" id="id" name="id" value="<c:out value="${item.id }"/>">
 						</div>
 						<div class="col">
-							<input class="form-control" type="password" placeholder="PWD" aria-label="default input example" id="pwd" name="pwd" value="<c:out value="${item.pwd }"/>">
+							<%-- <input class="form-control" type="password" placeholder="PWD" aria-label="default input example" id="pwd" name="pwd" value="<c:out value="${item.pwd }"/>"> --%>
 						</div>
 					</div>
 				</div>

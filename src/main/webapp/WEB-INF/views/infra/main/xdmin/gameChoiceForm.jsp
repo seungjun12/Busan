@@ -122,7 +122,7 @@
 							<!-- </a> -->
 						<!-- </a> -->
 						<%-- href="javascript:goView(<c:out value="${list.gameseq }"/>)" --%>
-						</form>
+						</form> 
 					</div>
 				</c:forEach>
 				</c:otherwise>

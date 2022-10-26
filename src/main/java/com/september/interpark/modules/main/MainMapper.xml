@@ -27,6 +27,7 @@
 		SELECT
 			a.*
 		<include refid="selectCommon"/>
+		ORDER BY a.gameSeq DESC
 	</select>
 	
 	<select id="selectOneCount" resultType="Integer">

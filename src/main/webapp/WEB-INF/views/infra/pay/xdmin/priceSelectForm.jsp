@@ -53,13 +53,22 @@
 				<td id="td2">일반</td>
 				<td id="td3"><c:out value="${item.seatPrice }"/></td>
 				<td id="td4">
-					<select>
-						<option>0매</option>
-						<option>1매</opption>
-					</select>
 				</td>
 			</tr>
 		</table>
+		<div>
+			<div>
+				<b>좌석선택</b>
+			</div>
+			<div>
+				1 <input type="checkbox">
+				2 <input type="checkbox">
+				3 <input type="checkbox">
+		  		4 <input type="checkbox">
+				5 <input type="checkbox">
+				6 <input type="checkbox">
+			</div>
+		</div>
 		<!-- 쿠폰할인 -->
 		<div class="coupon">
 			<span><b>쿠폰할인</b></span>

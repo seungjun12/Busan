@@ -122,7 +122,7 @@
 				<div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
-							<input class="form-control" type="text" aria-label="default input example" id="ground" name="ground" value="<c:out value="${dto.ground }"/>">
+							<input class="form-control" type="text" aria-label="default input example" id="ground" name="ground" value="인천SSG랜더스필드" readonly>
 						</div>
 					</div>
 				</div>	

@@ -21,10 +21,15 @@
 	<i class="fa-solid fa-check"></i><span style="font-family: 'Nanum Pen Script', cursive;">결제완료</span>
 </div>
 <div class="mainBtn">
-	<button type="button" class="btn btn-danger" onclick="location.href='../main/indexForm.html'">매인으로</button>
+	<button type="button" class="btn btn-danger" onclick="closePop();">매인으로</button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
+<script>
+	function closePop(){
+		close();
+	}
+</script>
 </body>
 </html>
