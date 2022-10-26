@@ -19,6 +19,7 @@
 <body>
 <div class="wrap">
 <form name="form" method="post">
+<input type="hidden" name="seatGradeSeq" value="<c:out value="${seatGradeSeq }"/>">
 	<!-- 헤더영역 -->
 	<div class="headerWrap">
 		<div>
@@ -68,71 +69,23 @@
 			<span>해당 상품에 사용 가능한 쿠폰이 없습니다.</span>
 		</div>	
 	</div><!-- priceWrap end -->
-	<!-- 오른쪽 영역 -->
-	<div class="rightWrap">
-		<div class="rightInWrap">
-			<!-- 경기 정보영역 -->
-			<div class="gameInformation">
-				<div>2022.<c:out value="${item.date }" /></div>
-				<div><c:out value="${item.ground }" /></div>
-				<div>전체관람가</div>
-				<div>관람시간 : -</div>
-			</div>
-			<div class="myInformation">
-				<b>My예매정보</b>
-			</div>
-			<table class="informationTable">
-				<tr>
-					<td>일시</td>
-					<td><c:out value="${item.date }" />일<c:out value="${item.time }" />시</td>
-				</tr>
-				<tr>
-					<td>선택좌석</td>
-					<td><c:out value="${item.seatGrade }" /></td>
-				</tr>
-				<tr>
-					<td>티켓금액</td>
-					<td><c:out value="${item.seatPrice }" /></td>
-				</tr>
-				<tr>
-					<td>수수료</td>
-					<td>1,000원</td>
-				</tr>
-				<tr>
-					<td>배송료</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>할인</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>할인쿠폰</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>취소기한</td>
-					<td style="color: red">2022년 8월 10일 11:00</td>
-				</tr>
-				<tr>
-					<td>취소수수료</td>
-					<td style="color: red">티켓금액의 0~10%</td>
-				</tr>
-			</table>
-			<!-- pageButton -->
+	<!-- 오른쪽배너 s -->
+	<%@include file="../../../common/xdmin/includeV1/payRightSideBar.jsp"%>
+	<!-- 오른쪽배너 e -->
+	<!-- pageButton -->
 			<div class="pageButton continer-fluid">
 				<div class="row">
 					<div class="col-6">
 						<a href="javascript:goSeatChoice(<c:out value="${item.gameSeq }"/>)" class="btn btn-dark" >이전단계</a>
 					</div>
 					<div class="col">
-						<button type="button" class="btn btn-danger" id="btnDelivery">다음단계</button>
+						<a href="javascript:goDelivery(<c:out value="${item.seatGradeSeq }"/>)"  class="btn btn-danger" >다음단계</a>
 					</div>
 				</div>
 			</div>
 			
 		</div><!-- rightInWrap end -->
-	</div><!-- rightWrap end -->
+	</div><!-- rightWrap end -->  
 </form>
 </div><!-- wrap end -->	
 
@@ -143,13 +96,13 @@
 	var goUrlSeatChoice = "/main/seatChoice"
 	var goUrlDelivery = "/pay/delivery"
 	
-	var seq = $("input:hidden[name=gameSeq]");
+	var seq = $("input:hidden[name=seatGradeSeq]");
 	var form = $("form[name=form]");
 	
 	
-	$("#btnDelivery").on("click",function(){
+	/* $("#btnDelivery").on("click",function(){
 		$(location).attr("href",goUrlDelivery);
-	});
+	}); */
 	
 		/* $("#btnSeatChoice").on("click",function(seqValue){
 			seq.val(seqValue);
@@ -158,10 +111,15 @@
 		
 		
 		
-	goSeatChoice = function(seqValue){
+		goSeatChoice = function(seqValue){
 			seq.val(seqValue);
 			form.attr("action" , goUrlSeatChoice).submit();
-		};	
+		};
+	
+		goDelivery = function(seqValue){
+			seq.val(seqValue);
+			form.attr("action" , goUrlDelivery).submit();
+		};		
 	
 </script>
 

@@ -57,18 +57,16 @@
 <script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>
-	var goUrlPay = "/pay/priceSelect"
+	var goUrlPrice = "/pay/priceSelect"
 	var seq = $("input:hidden[name=seatGradeSeq]");				/* #-> */
 	
 	var form = $("form[name=form]");
 	
-	$("#btnPay").on("click",function(){
-		$(location).attr("href",goUrlPay);
-	});
+	
 	
 	goPay = function(seqValue){
 		seq.val(seqValue);
-		form.attr("action" , goUrlPay).submit();
+		form.attr("action" , goUrlPrice).submit();
 	}
 
 </script>

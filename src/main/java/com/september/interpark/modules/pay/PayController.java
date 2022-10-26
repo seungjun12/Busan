@@ -22,12 +22,18 @@ public class PayController {
 	}
 	
 	@RequestMapping(value = "delivery")
-	public String deliveryForm()throws Exception {
+	public String deliveryForm(@ModelAttribute("vo")PayVo vo , Model model)throws Exception {
+		
+		Pay item = service.selectOne(vo);
+		model.addAttribute("item", item);
 		return "infra/pay/xdmin/deliveryForm";
 	}
 	
 	@RequestMapping(value = "pay")
-	public String payForm()throws Exception {
+	public String payForm(@ModelAttribute("vo")PayVo vo , Model model)throws Exception {
+		
+		Pay item = service.selectOne(vo);
+		model.addAttribute("item", item);
 		return "infra/pay/xdmin/payForm";
 	}
 	
