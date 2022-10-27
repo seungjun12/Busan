@@ -300,12 +300,11 @@ public class MemberController {
 			return "infra/member/xdmin/registerConfirm";
 		}
 		
-	//유저 예매확인,취소가기
+	//유저 예매확인,취소가기 1년
 	@RequestMapping(value = "registerConfirm2")
 	public String registerConfirm2(@ModelAttribute MemberVo vo , Model model)throws Exception{
 		List<Member> reglist = service.selectRegister2(vo);
 		model.addAttribute("reglist", reglist);
-		System.out.println("controller reglist: " + reglist);
 		return "infra/member/xdmin/registerConfirm";
 	}
 	

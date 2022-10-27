@@ -49,7 +49,8 @@
 			<input class="datepicker" id="endDate"> -->
 			<a href="javascript:goWeek(<c:out value="${sessSeq }"/>)" class="btn btn-outline-danger button">1주일</a>
 			<a href="javascript:goMonth(<c:out value="${sessSeq }"/>)" class="btn btn-outline-danger button">1달</a>
-			<a href="javascript:goYear(<c:out value="${sessSeq }"/>)" class="btn btn-outline-danger button" >1년</a>
+			<a href="javascript:goYear(<c:out value="${sessSeq }"/>)" class="btn btn-outline-danger button" >1년</a> 
+			<!-- <button type="button" class="btn btn-outline-danger button" id="btnYear" ></button> -->
 		</div>
 		<table class="table">
   			<thead class="table-secondary">
@@ -132,35 +133,7 @@
 	}
 	
 	/* 기간별 예매내역 보기 */ 
-	$("#btnLoginp").on("click", function(){
-		/* if(validation() == false) return false; */
-		
-		$.ajax({
-			async: true //false일경우 동기 요청으로 변경
-			,cache: false
-			,type: "post" 
-			/* ,dataType:"json" */
-			,url: "/member/loginProc"
-			/* ,data : $("#formLogin").serialize() */
-			,data : { "id" : $("#id").val(), "pwd" : $("#pwd").val(), /* "autoLogin" : $("#autoLogin").is(":checked") */}
-			,success: function(response) {
-				if(response.rt == "success") {
-					/* if(response.changePwd == "true") {
-						location.href = URL_CHANGE_PWD_FORM;
-					} else {
-						location.href = URL_INDEX_ADMIN;
-					} */
-					
-					location.href = goUrlIndex;
-				} else {
-					alert("회원없음");
-				}
-			}
-			,error : function(jqXHR, textStatus, errorThrown){
-				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-			}
-		});
-	});
+	
 
 </script>
 </body>

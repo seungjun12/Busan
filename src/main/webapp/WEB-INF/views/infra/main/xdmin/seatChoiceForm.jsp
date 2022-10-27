@@ -61,12 +61,18 @@
 	var seq = $("input:hidden[name=seatGradeSeq]");				/* #-> */
 	
 	var form = $("form[name=form]");
+	/* var value =	document.getElementById('list.seatGrade_seatGradeSeq').value; */
 	
 	
 	
 	goPay = function(seqValue){
 		seq.val(seqValue);
+		if(value == 0){
+			alert("매진입니다")
+			return false
+		}
 		form.attr("action" , goUrlPrice).submit();
+		
 	}
 
 </script>
