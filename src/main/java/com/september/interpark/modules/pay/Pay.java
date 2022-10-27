@@ -17,7 +17,7 @@ public class Pay {
 	private String ground;
 	private	Integer gameDelNy;
 	
-	
+	private String seatGrade_seatGradeSeq;
 	
 	
 	//seatGrade get set
@@ -89,6 +89,12 @@ public class Pay {
 	}
 	public void setGameDelNy(Integer gameDelNy) {
 		this.gameDelNy = gameDelNy;
+	}
+	public String getSeatGrade_seatGradeSeq() {
+		return seatGrade_seatGradeSeq;
+	}
+	public void setSeatGrade_seatGradeSeq(String seatGrade_seatGradeSeq) {
+		this.seatGrade_seatGradeSeq = seatGrade_seatGradeSeq;
 	}
 	
 	

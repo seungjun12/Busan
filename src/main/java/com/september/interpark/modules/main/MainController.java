@@ -181,6 +181,15 @@ public class MainController {
 		return returnMap;
 	}
 	
+	//좌석 빈거 알려주는거 테스트
+	/*
+	 * @ResponseBody
+	 * 
+	 * @RequestMapping(value = "/main/test") public Map<String, Object>
+	 * loginProc(Member dto, HttpSession httpSession) throws Exception { Map<String,
+	 * Object> returnMap = new HashMap<String, Object>();
+	 */
+
 
 	
 	

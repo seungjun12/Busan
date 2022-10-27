@@ -42,8 +42,9 @@
 		<c:forEach items="${list }" var="list" varStatus="status">	
 			<div>
 				<%-- <input type="hidden" name="seatGradeSeq" value="${list.seatGradeSeq }"> --%>
-				<a href="javascript:goPay(<c:out value="${list.seatGradeSeq }"/>)" class="text-decoration-none"><c:out value="${list.seatGrade }" /></a>
+				<a href="javascript:goPay(<c:out value="${list.seatGradeSeq }"/>)" class="text-decoration-none" ><c:out value="${list.seatGrade }" /></a>
 				&nbsp;<span>| <c:out value="${list.seatGrade_seatGradeSeq }" />석</span>
+				<input type="hidden" name="seatGrade_seatGradeSeq" value="${list.seatGrade_seatGradeSeq }">
 			</div>
 		</c:forEach>	
 		</div>
@@ -59,22 +60,25 @@
 <script>
 	var goUrlPrice = "/pay/priceSelect"
 	var seq = $("input:hidden[name=seatGradeSeq]");				/* #-> */
-	
+	var values =$("input:hidden[name=seatGrade_seatGradeSeq]");
 	var form = $("form[name=form]");
+	var zero = 0;
 	/* var value =	document.getElementById('list.seatGrade_seatGradeSeq').value; */
 	
 	
 	
-	goPay = function(seqValue){
-		seq.val(seqValue);
-		if(value == 0){
-			alert("매진입니다")
-			return false
+	goPay =function(seqValue){
+		if( 1 != 1){
+			alert("매진된 좌석입니다")
+		}else{
+			seq.val(seqValue);
+			form.attr("action" , goUrlPrice).submit();	
 		}
-		form.attr("action" , goUrlPrice).submit();
 		
-	}
+		
 
+	}
+	
 </script>
 
 </body>

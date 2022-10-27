@@ -12,10 +12,15 @@
 		SELECT
 			a.*
 			,b.*
+			,c.*
 		FROM seatGrade a
-		LEFT JOIN game b on b.gameSeq = a.game_gameSeq 
+		JOIN game b on b.gameSeq = a.game_gameSeq 
+		JOIN seat c on c.seatGrade_seatGradeSeq = a.seatGradeSeq
 		WHERE 1=1
 			AND seatGradeSeq = #{seatGradeSeq}
+			AND c.purchaseDiv = 0
+			AND c.game_gameSeq = 1
+			<!-- AND seatGrade_seatGradeSeq !=0  -->
 	</select>
 
 
