@@ -89,7 +89,9 @@
 							 <div class="invalide-feeback" id="ifmmIdFeedback"></div>
 						</div>
 						<div class="col">
+							<input type="hidden" id="ifmmIdAllowedNy" name="ifmmIdAllowedNy" value="0">
 							<input class="form-control" type="password" placeholder="PWD" aria-label="default input example" id="pwd" name="pwd" value="<c:out value="${dto.pwd }"/>">
+							<div class="invalid-feedback"  id="pwdFeedback"></div>
 						</div>
 					</div>
 				</div>
@@ -106,10 +108,15 @@
 				<div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
+							<input type="hidden" id="ifmmIdAllowedNy" name="ifmmIdAllowedNy" value="0">
 							<input class="form-control" type="text" aria-label="default input example" id="email" name="email" value="<c:out value="${dto.email }"/>">
+							<div class="invalid-feedback"  id="emailFeedback"></div>
 						</div>
 						<div class="col">
-							<input class="form-control" type="text"  aria-label="default input example" id="number" name="number" value="<c:out value="${dto.number }"/>">
+							<input class="form-control" type="text" 
+							 aria-label="default input example" id="number" 
+							 name="number" value="<c:out value="${dto.number }"/>"
+							 oninput="autoHyphen(this)" maxlength="13">
 						</div>
 					</div>
 				</div>

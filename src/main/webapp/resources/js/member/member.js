@@ -42,9 +42,43 @@
 		$(location).attr("href",goUrlMember);
 	});
 	
+	//맴버 뷰 수정
 	$("#btnModify").on("click" , function(){
-		form.attr("action" , goUrlUpdt).submit();
-	})
+		if(document.getElementById('name').value == '' || document.getElementById('name').value == null){
+			alert("이름을 입력해주세요")
+			document.getElementById('name').value="";
+			document.getElementById('name').focus();
+			return false;
+		}
+		if(document.getElementById('id').value == '' || document.getElementById('id').value == null){
+			alert("아이디를 입력해주세요")
+			document.getElementById('id').value="";
+			document.getElementById('id').focus();
+			return false;
+		}
+		if(document.getElementById('pwd').value == '' || document.getElementById('pwd').value == null){
+			alert("비밀번호 입력해주세요")
+			document.getElementById('pwd').value="";
+			document.getElementById('pwd').focus();
+			return false;
+		}
+		if(document.getElementById('email').value == '' || document.getElementById('email').value == null){
+			alert("이메일주소 입력해주세요")
+			document.getElementById('email').value="";
+			document.getElementById('email').focus();
+			return false;
+		}
+		var max = 13;
+		if(document.getElementById('number').value == '' || document.getElementById('number').value == null  || document.getElementById('number').length < max ){
+			alert("휴대폰 번호 입력해주세요")
+			document.getElementById('number').value="";
+			document.getElementById('number').focus();
+			return false;
+		}
+		
+		//form.attr("action" , goUrlUpdt).submit();
+	})	
+	
 	
 	$("#btnUele").on("click" , function(){
 		form.attr("action" , goUrlUele).submit();
@@ -99,12 +133,12 @@
 		
 		
 		//아이디 중복확인
-		$("#id").on("keyup", function(key){
+		$("#id").on("focusout", function(key){
 		
 /* 		if(!checkId('id', 2, 0, "영대소문자,숫자,특수문자(-_.),4~20자리만 입력 가능합니다")) {
 			return false;
 		} else { */
-		if(key.keyCode == 13){	
+		//if(key.keyCode == 13){	
 			$.ajax({
 				async: true 
 				,cache: false
@@ -117,6 +151,7 @@
 					if(response.rt == "success") {
 						document.getElementById("id").classList.remove('is-invalid');						
 						document.getElementById("id").classList.add('is-valid');
+						document.getElementById('id').value="";
 	
 						document.getElementById("ifmmIdFeedback").classList.remove('invalid-feedback');
 						document.getElementById("ifmmIdFeedback").classList.add('valid-feedback');
@@ -139,8 +174,59 @@
 					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
 				}
 			});
-		}/* } */
+		//}/* } */
 	});	
+	
+	//비밀번호 조건 확인
+	$("#pwd").on("focusout",function(key){
+		var regExp = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+		var p1 = $("#pwd").val();
+		
+		if(p1.match(regExp) == null){
+			document.getElementById("pwd").classList.add('is-invalid');
+			document.getElementById("pwd").classList.remove('is-valid');
+			document.getElementById('pwd').value="";
+			document.getElementById("pwdFeedback").innerText = "비밀번호 조건에 맞지 않습니다.";
+			document.getElementById("pwdFeedback").classList.remove('valid-feedback');
+			document.getElementById("pwdFeedback").classList.add('invalid-feedback');
+			
+			
+			
+		}else{
+			document.getElementById("pwd").classList.remove('is-invalid');
+			document.getElementById("pwd").classList.add('is-valid');
+		}
+		
+	})
+	
+	//이메일 조건 확인
+	$("#email").on("focusout",function(key){
+		var regExp =/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+		var e = $("#email").val();
+		
+		if(e.match(regExp) == null){
+			document.getElementById("email").classList.add('is-invalid');
+			document.getElementById("email").classList.remove('is-valid');
+			document.getElementById('email').value="";
+			document.getElementById("emailFeedback").innerText = "이메일 조건에 맞지 않습니다.";
+			document.getElementById("emailFeedback").classList.remove('valid-feedback');
+			document.getElementById("emailFeedback").classList.add('invalid-feedback');
+			
+			
+			
+		}else{
+			document.getElementById("email").classList.remove('is-invalid');
+			document.getElementById("email").classList.add('is-valid');
+		}
+		
+	})
+	
+	//전화번호 하이픈
+		const autoHyphen = (target) => {
+		target.value = target.value
+		.replace(/[^0-9]/g, '')
+		.replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
+	    }
 	
 	//주소 새로고침
 	$("#btnAddressClear").on("click" , function(){
@@ -153,8 +239,47 @@
     	$("#ifmaLngArray0").val('');
     })
     
+    
     //맴버 등록
     function memberRegister() {
+		if(document.getElementById('name').value == '' || document.getElementById('name').value == null){
+			alert("이름을 입력해주세요")
+			document.getElementById('name').value="";
+			document.getElementById('name').focus();
+			return false;
+		}
+		if(document.getElementById('id').value == '' || document.getElementById('id').value == null){
+			alert("아이디를 입력해주세요")
+			document.getElementById('id').value="";
+			document.getElementById('id').focus();
+			return false;
+		}
+		if(document.getElementById('pwd').value == '' || document.getElementById('pwd').value == null){
+			alert("비밀번호 입력해주세요")
+			document.getElementById('pwd').value="";
+			document.getElementById('pwd').focus();
+			return false;
+		}
+		if(document.getElementById('email').value == '' || document.getElementById('email').value == null){
+			alert("이메일주소 입력해주세요")
+			document.getElementById('email').value="";
+			document.getElementById('email').focus();
+			return false;
+		}
+		var max = 13;
+		if(document.getElementById('number').value == '' || document.getElementById('number').value == null  || document.getElementById('number').length < max ){
+			alert("휴대폰 번호 입력해주세요")
+			document.getElementById('number').value="";
+			document.getElementById('number').focus();
+			return false;
+		}
+		
+	
+	
+	
+	
+	
+	
 		document.getElementById('memberFormReg').submit();
 		
 		return false;
