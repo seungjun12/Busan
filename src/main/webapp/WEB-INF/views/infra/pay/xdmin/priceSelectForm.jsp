@@ -61,12 +61,25 @@
 				<b>좌석선택</b>
 			</div>
 			<div>
-				1 <input type="checkbox">
-				2 <input type="checkbox">
-				3 <input type="checkbox">
-		  		4 <input type="checkbox">
-				5 <input type="checkbox">
-				6 <input type="checkbox">
+			<c:choose>
+				<c:when test="${fn:length(list) eq 0 }">
+					<div>
+						매진입니다
+					</div>
+				</c:when>
+				<c:otherwise>
+					<c:forEach items="${list }" var="list" varStatus="status">
+						<div>
+							<c:out value="${list.seatNumber }"/>
+							<input type="checkbox" name="purchaseDiv" 
+							value="${list.purchaseDiv }"  
+							<c:if test="${list.purchaseDiv  eq 1}">disabled</c:if>
+							>
+							<%-- <c:out value="${list.purchaseDiv }"/> --%>
+						</div>						
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>	
 			</div>
 		</div>
 		<!-- 쿠폰할인 -->
@@ -122,7 +135,7 @@
 		
 		goSeatChoice = function(seqValue){
 			seq.val(seqValue);
-			form.attr("action" , goUrlSeatChoice).submit();
+			form.attr("action" , goUrlSeatChoice ).submit();
 		};
 	
 		goDelivery = function(seqValue){

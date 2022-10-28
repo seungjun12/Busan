@@ -426,7 +426,7 @@
 		
 		//
 		
-		upload = function(objName , seq, allowedMaxTotalFileNumber ,allowedExtdiv , allowedEachFileSize ){
+		upload = function(objName , seq, allowedMaxTotalFileNumber ,allowedExtdiv , allowedEachFileSize , allowedTotalFileSize , uiType){
 			//var obj =document.getElementById('img1').files;
 			//var obj = $("input[name=img1]")[0].files;
 			//var obj2 = $("input[name=memberUploadedImage]")[0].files;			var obj = $("#" + objName +"")[0].files;
@@ -439,12 +439,57 @@
 			//	alert(obj[i].name + ":" + obj[i].size);
 			//}
 			
-			var totalFileSize=0;
-			var obj = $("#" + objName +"")[0].files;
-			var fileCount =obj.length;
+			var files =$("#" + objName +"")[0].files;
+			var filePreview = $("#" +objName + "Preview");
+			var numbering = [];
+			var maxNumber = 0;
 			
-			allowedMaxTotalFileNumber = allowedMaxTotalFileNumber == 0 ? MAX_TOTAL_FILE_NUMBER :allowedMaxTotalFileNumber;
-			allowedEachFileSize = allowedEachFileSize == 0? MAX_EACH_FILE_SIZE :allowedEachFileSize;
+			if(uiType == 1){
+				var uploadedFilesCount = document.querySelectorAll("#" + objName + "Preview > div >img").length;
+				var tagIds = document.querySelectorAll("#" + objName + "Preview > div");
+				
+				for(var i=0; i<tagIds.length; i++){
+				var tagId = tagIds[i].getAttribute("id").split("_");
+				numbering.push(tagId[2]);
+				}
+				
+				if(uploadedFilesCount > 0){
+					numbering.sort();
+					maxNumber = parseInt(numbering[numbering.length-1]) + parseInt(1);
+				}
+			}else{
+				//by pass
+			}
+			
+			
+			var totalFileSize=0;
+			var filesCount = files.length;
+			var filesArray = [];
+			
+			allowedMaxTotalFileNumber = allowedMaxTotalFileNumber == 0 ? MAX_TOTAL_FILE_NUMBER : allowedMaxTotalFileNumber;
+			allowedEachFileSize = allowedEachFileSize == 0 ? MAX_EACH_FILE_SIZE : allowedEachFileSize;
+			allowedTotalFileSize = allowedTotalFileSize == 0 ? MAX_TOTAL_FILE_SIZE : allowedTotalFileSize;
+			
+			delImgDiv = function(objName, type, sort, deleteSeq, pathFile) {
+		
+		$("#imgDiv_"+type+"_"+sort).remove();
+		
+		var objDeleteSeq = $('input[name='+ objName +'DeleteSeq]');
+		var objDeletePathFile = $('input[name='+ objName +'DeletePathFile]');
+
+		if(objDeleteSeq.val() == "") {
+			objDeleteSeq.val(deleteSeq);
+		} else {
+			objDeleteSeq.val(objDeleteSeq.val() + "," + deleteSeq);
+		}
+		
+		if(objDeletePathFile.val() == "") {
+			objDeletePathFile.val(pathFile);
+		} else {
+			objDeletePathFile.val(objDeletePathFile.val() + "," + pathFile);
+		}
+	}
+			
 			
 			if(fileCount >allowedMaxTotalFileNumber){
 				alert("파일 갯수 초과");	

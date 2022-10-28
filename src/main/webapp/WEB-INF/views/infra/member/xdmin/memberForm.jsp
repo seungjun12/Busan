@@ -51,7 +51,7 @@
 			<!-- 탑바 e -->
 			<!-- 코드 그룹 관리 제목 -->
 			<div class="wrap">
-			<form action="memberInst" id="memberFormReg" name="memberFormReg">
+			<form action="memberInst" id="memberFormReg" name="memberFormReg" enctype="multipart/form-data">
 				<!-- 제목 -->
 				<h3>회원관리</h3>
 				<div class="container-fluid codeGroupName">
@@ -216,7 +216,26 @@
 						</div>
 					</div>
 				</div>
-				<div class="container-fluid codeGroupName ">
+				<div class="col-sm-6 mt-3 mt-sm-0">
+		        	<c:set var="type" value="2"/>		<!-- #-> -->
+		        	<c:set var="name" value="uploadImg"/>		<!-- #-> -->
+		        	<input type="hidden" id="<c:out value="${name }"/>MaxNumber" name="<c:out value="${name }"/>MaxNumber" value="0"/>
+		        	<input type="hidden" id="<c:out value="${name }"/>DeleteSeq" name="<c:out value="${name }"/>DeleteSeq"/>
+		        	<input type="hidden" id="<c:out value="${name }"/>DeletePathFile" name="<c:out value="${name }"/>DeletePathFile"/>
+		            <label for="uploadImg" class="form-label input-file-button">이미지첨부</label>
+		 			<input class="form-control form-control-sm" id="<c:out value="${name }"/>" name="<c:out value="${name }"/>" type="file" multiple="multiple" style="display: none;" onChange="upload('<c:out value="${name }"/>', <c:out value="${type }"/>, 0, 1, 0, 0, 1);">
+					<div id="<c:out value="${name }"/>Preview" class="addScroll">
+						<c:forEach items="${listUploaded}" var="listUploaded" varStatus="statusUploaded">
+							<c:if test="${listUploaded.type eq type }">
+								<div id="imgDiv_<c:out value="${type }"/>_<c:out value="${listUploaded.sort }"/>" style="display: inline-block; height: 95px;">
+									<img src="<c:out value="${listUploaded.path }"/><c:out value="${listUploaded.uuidName }"/>" class="rounded" width= "85px" height="85px" style="cursor:pointer;" onClick="openViewer(<c:out value="${listUploaded.type }"/>, <c:out value="${listUploaded. sort }"/>);">
+									<div style="position: relative; top:-85px; left:5px"><span style="color: red; cursor:pointer;" onClick="delImgDiv('<c:out value="${name }"/>', <c:out value="${type }"/>,<c:out value="${listUploaded.sort }"/>, <c:out value="${listUploaded.seq }"/>, '<c:out value="${listUploaded.path }"/><c:out value="${listUploaded.uuidName }"/>')">X</span></div>
+								</div>
+							</c:if>
+						</c:forEach>
+					</div>
+		        </div>
+				<!-- <div class="container-fluid codeGroupName ">
 					<div class="row">
 						<div class="col-6">
 							<label for="memberUploadedImage" class="form-label input-file-button">이미지첨부</label>
@@ -225,8 +244,8 @@
 							<label for="memberUploadedFile" class="form-label input-file-button">파일첨부</label>
 						</div>
 					</div>
-				</div>
-				<div class="container-fluid codeGroupInput">
+				</div> -->
+				<!-- <div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
 							<input class="form-control form-control-sm" id="memberUploadedImage" name="memberUploadedImage" type="file" multiple="multiple" style="display: none;" onchange="upload('memberUploadedImage',2)">
@@ -273,8 +292,8 @@
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="container-fluid codeGroupName ">
+				</div> -->
+				<!-- <div class="container-fluid codeGroupName ">
 					<div class="row">
 						<div class="col-6">
 							파일첨부
@@ -283,8 +302,8 @@
 							
 						</div>
 					</div>
-				</div>
-				<div class="container-fluid codeGroupInput">
+				</div> -->
+				<!-- <div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
 							<input type="file" id="img1" name="img1" multiple="multiple" onchange="upload('img1',1,1)">
@@ -293,8 +312,8 @@
 							
 						</div>
 					</div>
-				</div>
-				<span type="button" class="btn btn-secondary" >이미지첨부 확인버튼</span>
+				</div> -->
+				<!-- <span type="button" class="btn btn-secondary" >이미지첨부 확인버튼</span> -->
 				
 				</form>								
 				<div class="container-fluid lastBtn">
@@ -323,8 +342,7 @@
 						</div>
 					</div>
 				</div>
-				<button id="buttonTest">test</button>
-				
+								
 				
 			</div><!-- wrap end -->
 			

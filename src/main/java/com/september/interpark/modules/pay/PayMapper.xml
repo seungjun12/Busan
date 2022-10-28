@@ -12,15 +12,31 @@
 		SELECT
 			a.*
 			,b.*
-			,c.*
+			<!-- ,c.* -->
 		FROM seatGrade a
-		JOIN game b on b.gameSeq = a.game_gameSeq 
-		JOIN seat c on c.seatGrade_seatGradeSeq = a.seatGradeSeq
+		JOIN game b on b.gameSeq = a.seatGrade_gameSeq 
+		<!-- JOIN seat c on c.seatGrade_seatGradeSeq = a.seatGradeSeq -->
 		WHERE 1=1
 			AND seatGradeSeq = #{seatGradeSeq}
-			AND c.purchaseDiv = 0
-			AND c.game_gameSeq = 1
+			<!-- AND a.game_gameSeq = c.game_gameSeq -->
 			<!-- AND seatGrade_seatGradeSeq !=0  -->
+	</select>
+	
+	<select id="selectSeatList" resultMap="resultMapObj" >
+		SELECT
+			a.*
+			,b.*
+		FROM seatGrade a
+		JOIN seat b on a.seatGradeSeq = b.seatGrade_seatGradeSeq
+		WHERE 1=1
+			AND a.seatGradeSeq = #{seatGradeSeq}
+			AND a.seatGrade_gameSeq = b.seat_gameSeq 	
+	</select>
+	
+	<!-- 유저 좌석선택한거 가져가기 -->
+	<select id="selectSeat" resultMap="resultMapObj">
+		SELECT
+			
 	</select>
 
 

@@ -123,12 +123,12 @@
 		select aa.*from(
 			SELECT
 			a.*
-			,(SELECT COUNT(aa.seatGrade_seatGradeSeq) FROM seat aa where 1=1 AND aa.purchaseDiv = 0 AND aa.game_gameSeq= #{gameSeq}  AND aa.seatGrade_seatGradeSeq = a.seatGradeSeq) as seatGrade_seatGradeSeq
+			,(SELECT COUNT(aa.seatGrade_seatGradeSeq) FROM seat aa where 1=1 AND aa.purchaseDiv = 0 AND aa.seat_gameSeq= #{gameSeq}  AND aa.seatGrade_seatGradeSeq = a.seatGradeSeq) as seatGrade_seatGradeSeq
 			<!-- ,b.* -->
 				FROM seatGrade a
 				<!-- LEFT JOIN game b on b.gameSeq = a.game_gameSeq --> 
 				WHERE 1=1
-				AND game_gameSeq = #{gameSeq}
+				AND seatGrade_gameSeq = #{gameSeq}
 				)	aa	
 	</select>
 	  

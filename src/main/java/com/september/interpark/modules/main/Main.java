@@ -22,13 +22,14 @@ public class Main{
 	private String seatGradeSeq;
 	private String seatGrade;
 	private String seatPrice;
+	private String seatGrade_gameSeq;
 	
 	//seat
 	private String seatSeq;
 	private Integer seatNumber;
 	private Integer purchaseDiv;
 	private String seatGrade_seatGradeSeq;
-	private String game_gameSeq;
+	private String seat_gameSeq;
 	
 	
 	
@@ -141,12 +142,19 @@ public class Main{
 	public void setSeatGrade_seatGradeSeq(String seatGrade_seatGradeSeq) {
 		this.seatGrade_seatGradeSeq = seatGrade_seatGradeSeq;
 	}
-	public String getGame_gameSeq() {
-		return game_gameSeq;
+	public String getSeat_gameSeq() {
+		return seat_gameSeq;
 	}
-	public void setGame_gameSeq(String game_gameSeq) {
-		this.game_gameSeq = game_gameSeq;
+	public void setSeat_gameSeq(String seat_gameSeq) {
+		this.seat_gameSeq = seat_gameSeq;
 	}
+	public String getSeatGrade_gameSeq() {
+		return seatGrade_gameSeq;
+	}
+	public void setSeatGrade_gameSeq(String seatGrade_gameSeq) {
+		this.seatGrade_gameSeq = seatGrade_gameSeq;
+	}
+	
 	
 	
 	

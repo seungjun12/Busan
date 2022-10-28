@@ -1,5 +1,7 @@
 package com.september.interpark.modules.pay;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +20,10 @@ public class PayController {
 		
 		Pay item =service.selectOne(vo);
 		model.addAttribute("item", item);
+		
+		List<Pay>list = service.selectSeatList(vo);
+		model.addAttribute("list", list);
+		 
 		return "infra/pay/xdmin/priceSelectForm";
 	}
 	

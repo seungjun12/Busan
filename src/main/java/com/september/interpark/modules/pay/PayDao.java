@@ -1,5 +1,7 @@
 package com.september.interpark.modules.pay;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.inject.Inject;
 
@@ -16,5 +18,6 @@ public class PayDao {
 	private static String namespace = "com.september.interpark.modules.pay.PayMapper";
 	
 	public Pay selectOne(PayVo vo) {return sqlSession.selectOne(namespace + ".selectOne", vo);}
-
+	
+	public List<Pay>selectSeatList(PayVo vo){return sqlSession.selectList(namespace + ".selectSeatList", vo);}
 }
