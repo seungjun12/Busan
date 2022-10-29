@@ -34,10 +34,12 @@
 	</select>
 	
 	<!-- 유저 좌석선택한거 가져가기 -->
-	<select id="selectSeat" resultMap="resultMapObj">
+	<!-- <select id="selectSeat" resultMap="resultMapObj">
 		SELECT
+			a.*
 			
-	</select>
+			
+	</select> -->
 
 
 </mapper>
