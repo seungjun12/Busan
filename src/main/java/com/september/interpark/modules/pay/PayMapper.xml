@@ -40,6 +40,8 @@
 		FROM seatGrade a
 		JOIN game b on b.gameSeq = a.seatGrade_gameSeq
 		WHERE 1=1
+			BETWEEN DATE_ADD(NOW(),INTERVAL -1 week)
+			AND NOW()
 			AND seatGradeSeq = #{seatGradeSeq}
 	</select>
 

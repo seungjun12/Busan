@@ -44,7 +44,7 @@
 				</tr>
 				<tr>
 					<td>취소기한</td>
-					<td style="color: red">2022년 8월 10일 11:00</td>
+					<td style="color: red"><c:out value="${item2.date }" /></td>
 				</tr>
 				<tr>
 					<td>취소수수료</td>
