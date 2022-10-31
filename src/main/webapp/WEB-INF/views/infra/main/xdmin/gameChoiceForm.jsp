@@ -83,12 +83,12 @@
 					<div class="gameTable">
 						<!-- 게임 날짜 -->
 						<div class="gameDate">
-							<span class="fontDate"> <c:out value="${list.date }"/></span>
+							<span class="fontDate"><fmt:formatDate value="${list.date }" pattern="MM.dd"/></span>
 							<!-- <span class="fontWeak">(수)</span> -->
 						</div>
 						<!-- 게임 시간 -->
 						<div class="gameTime">
-							<span class="fontTime"><c:out value="${list.time }"/></span>
+							<span class="fontTime"><fmt:formatDate value="${list.time }" pattern="HH:mm"/></span>
 						</div>
 						<!-- 게임 하는 팀들  -->
 						<div class="teamMatch">

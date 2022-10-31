@@ -5,7 +5,7 @@
 		<div class="rightInWrap">
 			<!-- 경기 정보영역 -->
 			<div class="gameInformation">
-				<div>2022.<c:out value="${item.date }" /></div>
+				<div><fmt:formatDate value="${item.date }" pattern="yyyy.MM.dd"/></div>
 				<div><c:out value="${item.ground }" /></div>
 				<div>전체관람가</div>
 				<div>관람시간 : -</div>
@@ -16,7 +16,7 @@
 			<table class="informationTable">
 				<tr>
 					<td>일시</td>
-					<td><c:out value="${item.date }" />일<c:out value="${item.time }" />시</td>
+					<td><fmt:formatDate value="${item.date }" pattern="MM.dd"/> 일<fmt:formatDate value="${item.time }" pattern="HH:mm"/>시</td>
 				</tr>
 				<tr>
 					<td>선택좌석</td>
@@ -53,12 +53,4 @@
 			</table>
 			
 			
-			<script>
-			$(function(){
-				var num = $("#ticketPrice").text()
-			    	//아이디 tag인 태그의 text를 읽어온다 
-				num2 = $.numberWithCommas(parseInt(num));
-			  	// 받아온 text값을 정수로 변환하여 numberwithCommas 함수의 인자값으로 넣는다
-			})
-			</script>
 			     

@@ -1,5 +1,8 @@
 package com.september.interpark.modules.pay;
 
+import java.sql.Date;
+import java.sql.Time;
+
 public class Pay {
 	
 	//seatGrade
@@ -12,8 +15,8 @@ public class Pay {
 	private String gameSeq;
 	private String whoHome;
 	private String whoAway;
-	private String date;
-	private String time;
+	private Date date;
+	private Time time;
 	private String ground;
 	private	Integer gameDelNy;
 	
@@ -74,16 +77,17 @@ public class Pay {
 	public void setWhoAway(String whoAway) {
 		this.whoAway = whoAway;
 	}
-	public String getDate() {
+	
+	public Date getDate() {
 		return date;
 	}
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
-	public String getTime() {
+	public Time getTime() {
 		return time;
 	}
-	public void setTime(String time) {
+	public void setTime(Time time) {
 		this.time = time;
 	}
 	public String getGround() {
