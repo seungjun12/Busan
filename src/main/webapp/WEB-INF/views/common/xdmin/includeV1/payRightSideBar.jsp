@@ -24,7 +24,7 @@
 				</tr>
 				<tr>
 					<td>티켓금액</td>
-					<td><c:out value="${item.seatPrice }" /></td>
+					<td><fmt:formatNumber type="number" maxFractionDigits="3" value="${item.seatPrice}" />원</td>
 				</tr>
 				<tr>
 					<td>수수료</td>
@@ -51,4 +51,14 @@
 					<td style="color: red">티켓금액의 0~10%</td>
 				</tr>
 			</table>
+			
+			
+			<script>
+			$(function(){
+				var num = $("#ticketPrice").text()
+			    	//아이디 tag인 태그의 text를 읽어온다 
+				num2 = $.numberWithCommas(parseInt(num));
+			  	// 받아온 text값을 정수로 변환하여 numberwithCommas 함수의 인자값으로 넣는다
+			})
+			</script>
 			     

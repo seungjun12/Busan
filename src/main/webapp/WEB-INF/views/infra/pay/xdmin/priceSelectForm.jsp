@@ -5,6 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
+
 <html lang="ko">
 <head>
 	<meta charset="utf-8">
@@ -51,7 +52,7 @@
 			<tr>
 				<td id="td1">기본가</td>
 				<td id="td2">일반</td>
-				<td id="td3"><c:out value="${item.seatPrice }"/></td>
+				<td id="td3"><fmt:formatNumber type="number" maxFractionDigits="3" value="${item.seatPrice}" />원</td>
 				<td id="td4">
 				</td>
 			</tr>
