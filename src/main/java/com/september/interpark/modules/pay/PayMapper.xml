@@ -33,13 +33,15 @@
 			AND a.seatGrade_gameSeq = b.seat_gameSeq 	
 	</select>
 	
-	<!--  유저 좌석선택한거 가져가기 --> 
-	<!-- <select id="selectSeat" resultMap="resultMapObj">
+	<select id="selectTwo" resultMap="resultMapObj">
 		SELECT
-			a.*
-			
-			
-	</select> -->
+		a.seatGradeSeq
+		,b.date
+		FROM seatGrade a
+		JOIN game b on b.gameSeq = a.seatGrade_gameSeq
+		WHERE 1=1
+			AND seatGradeSeq = #{seatGradeSeq}
+	</select>
 
 
 </mapper>

@@ -8,4 +8,6 @@ public interface PayService {
 
 	public List<Pay>selectSeatList(PayVo vo)throws Exception;
 	
+	public Pay selectTwo(PayVo vo)throws Exception;
+	
 }

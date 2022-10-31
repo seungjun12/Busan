@@ -20,4 +20,6 @@ public class PayDao {
 	public Pay selectOne(PayVo vo) {return sqlSession.selectOne(namespace + ".selectOne", vo);}
 	
 	public List<Pay>selectSeatList(PayVo vo){return sqlSession.selectList(namespace + ".selectSeatList", vo);}
+	
+	public Pay selectTwo(PayVo vo) {return sqlSession.selectOne(namespace + ".selectTow", vo);}
 }

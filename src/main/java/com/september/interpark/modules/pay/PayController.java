@@ -21,6 +21,9 @@ public class PayController {
 		Pay item =service.selectOne(vo);
 		model.addAttribute("item", item);
 		
+		Pay item2 = service.selectTwo(vo);
+		model.addAttribute("item2", item2);
+		
 		List<Pay>list = service.selectSeatList(vo);
 		model.addAttribute("list", list);
 		 
