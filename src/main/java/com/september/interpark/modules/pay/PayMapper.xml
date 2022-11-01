@@ -41,12 +41,13 @@
 			AND seatSeq = #{seatSeq}
 	</select>
 	
-	<insert id="paySeat">
-	
-		<selectKey resultType="String" keyProperty="seq" order="AFTER">
-				SELECT last_insert_id()
-		</selectKey>
-	</insert>
+	<update id="update">
+		UPDATE seat
+		SET
+			purchaseDiv = '1'
+		WHERE 1=1
+			seatSeq = #{seatSeq}	
+	</update>
 	
 
 

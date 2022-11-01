@@ -9,5 +9,7 @@ public interface PayService {
 	public List<Pay>selectSeatList(PayVo vo)throws Exception;
 	
 	public List<Pay>selectSeat(PayVo vo)throws Exception;
+	
+	public int update(Pay dto)throws Exception;
 
 }

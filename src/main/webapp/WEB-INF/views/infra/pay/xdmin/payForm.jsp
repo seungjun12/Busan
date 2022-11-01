@@ -21,7 +21,7 @@
 <form name="form" method="post">
 <input type="hidden" name="seatGradeSeq" value="${item.seatGradeSeq }">
 <c:forEach items="${list }" var="list" varStatus="status">
-	<input type="text" name="seatSeq" value="${list.seatSeq }">
+	<input type="hidden" name="seatSeq" id="seatSeq" value="${list.seatSeq }">
 </c:forEach>
 <%-- <input type="text" value="${item.gameSeq }">
 <input type="text" value="${item.seatNumber }"> --%>
@@ -130,7 +130,7 @@
 						<a href="javascript:goDelivery(<c:out value="${item.seatGradeSeq }"/>)"  class="btn btn-dark">이전단계</a>
 					</div>
 					<div class="col">
-						<button type="button" class="btn btn-danger" id="btnPayComplete">다음단계</button>
+						<button class="btn btn-danger" id="btnComplete">다음단계</button>
 					</div>
 				</div>
 			</div>
@@ -147,7 +147,7 @@ var goUrlPrice = "/pay/priceSelect";
 var goUrlSeatChoice = "/main/seatChoice";
 var goUrlDelivery = "/pay/delivery";
 var goUrlPay ="/pay/pay";
-var goUrlPayComplete = "/pay/payComplete"
+var goUrlPayComplete = "/pay/payUpdt"
 
 var seq = $("input:hidden[name=seatGradeSeq]");
 var form = $("form[name=form]");
@@ -157,11 +157,15 @@ goDelivery = function(seqValue){
 	form.attr("action" , goUrlDelivery).submit();
 };
 
-$("#btnPayComplete").on("click",function(seqValue){
-seq.val(seqValue);
-form.attr("action",goUrlPayComplete).submit();
-}); 
+/* goPayComplete = function(seqValue){
+	seq.val(seqValue);
+	form.attr("action" , goUrlPayComplete).submit();
+} */
 
+
+$("#btnComplete").on("click" , function(){
+	form.attr("action" , goUrlPayComplete).submit();
+})
 </script>
 
 

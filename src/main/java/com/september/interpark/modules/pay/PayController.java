@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 
 @Controller
 @RequestMapping(value = "/pay/")
@@ -48,6 +50,12 @@ public class PayController {
 		Pay item = service.selectOne(vo);
 		model.addAttribute("item", item);
 		return "infra/pay/xdmin/payForm";
+	}
+	
+	@RequestMapping(value = "payUpdt")
+	public String memberUpdt(PayVo vo,Pay dto, RedirectAttributes redirectAttributes) throws Exception {
+		service.update(dto);
+		return "infra/pay/xdmin/payCompleteForm";
 	}
 	
 	@RequestMapping(value = "payComplete")
