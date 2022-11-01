@@ -20,6 +20,9 @@
 <div class="wrap">
 <form name="form" method="post">
 <input type="hidden" name="seatGradeSeq" value="${item.seatGradeSeq }">
+<c:forEach items="${list }" var="list" varStatus="status">
+	<input type="text" name="seatSeq" value="${list.seatSeq }">
+</c:forEach>
 <%-- <input type="text" value="${item.gameSeq }">
 <input type="text" value="${item.seatNumber }"> --%>
 	<!-- 헤더영역 -->

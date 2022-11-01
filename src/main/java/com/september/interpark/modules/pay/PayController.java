@@ -21,8 +21,6 @@ public class PayController {
 		Pay item =service.selectOne(vo);
 		model.addAttribute("item", item);
 		
-		Pay item2 = service.selectTwo(vo);
-		model.addAttribute("item2", item2);
 		
 		List<Pay>list = service.selectSeatList(vo);
 		model.addAttribute("list", list);
@@ -33,6 +31,9 @@ public class PayController {
 	@RequestMapping(value = "delivery")
 	public String deliveryForm(@ModelAttribute("vo")PayVo vo , Model model)throws Exception {
 		
+		List<Pay>list =service.selectSeat(vo);
+		model.addAttribute("list", list);
+		
 		Pay item = service.selectOne(vo);
 		model.addAttribute("item", item);
 		return "infra/pay/xdmin/deliveryForm";
@@ -40,6 +41,9 @@ public class PayController {
 	
 	@RequestMapping(value = "pay")
 	public String payForm(@ModelAttribute("vo")PayVo vo , Model model)throws Exception {
+		
+		List<Pay>list =service.selectSeat(vo);
+		model.addAttribute("list", list);
 		
 		Pay item = service.selectOne(vo);
 		model.addAttribute("item", item);
