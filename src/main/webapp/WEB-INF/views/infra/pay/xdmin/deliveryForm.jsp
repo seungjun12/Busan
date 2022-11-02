@@ -22,7 +22,7 @@
 <input type="hidden" name="seatGradeSeq" value="${item.seatGradeSeq }">
 	<!-- 헤더영역 -->
 	<c:forEach items="${list }" var="list" varStatus="status">
-		<input type="hidden" name="seatSeq" value="${list.seatSeq }">
+		<input type="text" name="seatSeq" value="${list.seatSeq }">
 	</c:forEach>
 	<div class="headerWrap">
 		<div>

@@ -21,7 +21,7 @@
 <form name="form" method="post">
 <input type="hidden" name="seatGradeSeq" value="${item.seatGradeSeq }">
 <c:forEach items="${list }" var="list" varStatus="status">
-	<input type="hidden" name="seatSeq" id="seatSeq" value="${list.seatSeq }">
+	<input type="text" name="seatSeq" id="seatSeq" value="${list.seatSeq }">
 </c:forEach>
 <%-- <input type="text" value="${item.gameSeq }">
 <input type="text" value="${item.seatNumber }"> --%>
