@@ -22,7 +22,7 @@
 <input type="hidden" name="seatGradeSeq" value="${item.seatGradeSeq }">
 	<!-- 헤더영역 -->
 	<c:forEach items="${list }" var="list" varStatus="status">
-		<input type="text" name="seatSeq" value="${list.seatSeq }">
+		<input type="hidden" name="seatSeq" value="${list.seatSeq }">
 	</c:forEach>
 	<div class="headerWrap">
 		<div>
@@ -133,6 +133,7 @@ var goUrlDelivery = "/pay/delivery";
 var goUrlPay ="/pay/pay";
 
 var seq = $("input:hidden[name=seatGradeSeq]");
+var seqq = $("input:hidden[name=seatSeq]");
 var form = $("form[name=form]");
 
 goPrice = function(seqValue){
@@ -142,6 +143,7 @@ goPrice = function(seqValue){
 
 goPay = function(seqValue){
 	seq.val(seqValue);
+	seqq.val();
 	form.attr("action" , goUrlPay).submit();
 };
 

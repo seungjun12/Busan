@@ -28,6 +28,7 @@
 <script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
 <script>
 	function closePop(){
+		opener.parent.location.reload();
 		close();
 	}
 </script>

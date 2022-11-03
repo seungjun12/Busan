@@ -21,7 +21,6 @@ public class PayServiceImpl implements PayService{
 	public List<Pay> selectSeat(PayVo vo) throws Exception {return dao.selectSeat(vo);}
 
 	
-	
 	@Override
 	public Pay selectSeatOne(PayVo vo) throws Exception {return dao.selectSeatOne(vo);}
 

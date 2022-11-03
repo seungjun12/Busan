@@ -54,7 +54,7 @@
 		SET
 			purchaseDiv = '1'
 		WHERE 1=1
-			seatSeq = #{seatSeq}	
+			AND seatSeq = #{seatSeq}	
 	</update>
 	
 
