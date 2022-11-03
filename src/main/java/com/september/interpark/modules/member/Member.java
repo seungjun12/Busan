@@ -13,7 +13,7 @@ public class Member {
 	private Integer gender;
 	private String email;
 	private Integer emailCode;
-	private String personalAgree;
+	private Integer personalAgree;
 	private String dob;
 	private String address;
 	private String address2;
@@ -86,10 +86,10 @@ public class Member {
 		this.email = email;
 	}
 	
-	public String getPersonalAgree() {
+	public Integer getPersonalAgree() {
 		return personalAgree;
 	}
-	public void setPersonalAgree(String personalAgree) {
+	public void setPersonalAgree(Integer personalAgree) {
 		this.personalAgree = personalAgree;
 	}
 	public String getDob() {

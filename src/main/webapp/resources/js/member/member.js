@@ -8,6 +8,7 @@
 	var goUrlCodeGroup = "/codeGroup/codeGroupList";
 	var goUrlMember = "/member/memberList";
 	var goUrlHome = "/admin/home";
+	var excelUri = "/member/excelDownload";
 	
 	var seq = $("input:hidden[name=seq]");				/* #-> */
 	
@@ -40,6 +41,11 @@
 	
 	$("#btnMember").on("click",function(){
 		$(location).attr("href",goUrlMember);
+	});
+	
+	// 엑셀 다운
+	$("#btnExcel").click(function() {
+		form.attr("action", excelUri).submit();
 	});
 	
 	//맴버 뷰 수정
@@ -500,8 +506,6 @@
 			
 			
 			
-						
-			
-			
-			
 		}
+		
+		

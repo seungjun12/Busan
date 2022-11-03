@@ -94,7 +94,7 @@ public class CodeServiceImpl implements CodeService{
 	public static String selectOneCachedCode(int code) throws Exception {
 		String rt = "";
 		for(Code codeRow : Code.cachedCodeArrayList) {
-			if (codeRow.getCcorder().equals(Integer.toString(code))) {
+			if (codeRow.getCcseq().equals(Integer.toString(code))) {
 				rt = codeRow.getCcnameko();
 			} else {
 				// by pass

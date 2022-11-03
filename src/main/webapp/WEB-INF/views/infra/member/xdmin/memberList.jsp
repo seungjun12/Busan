@@ -186,7 +186,7 @@
 						<i class="fa-solid fa-plus"></i>
 					</button>
 				</a>	
-				<button type="button" class="btn btn-success rightBtn" style="margin-right: 5px;">
+				<button type="button" class="btn btn-success rightBtn" id="btnExcel" style="margin-right: 5px;">
 					<i class="fa-solid fa-file"></i>
 				</button>
 				
