@@ -44,8 +44,7 @@ public class PayController {
 	@RequestMapping(value = "pay")
 	public String payForm(@ModelAttribute("vo")PayVo vo , Model model)throws Exception {
 		
-		List<Pay>list =service.selectSeat(vo);
-		model.addAttribute("list", list);
+		
 		
 		Pay item = service.selectOne(vo);
 		model.addAttribute("item", item);

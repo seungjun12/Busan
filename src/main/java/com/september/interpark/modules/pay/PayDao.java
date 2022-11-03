@@ -23,6 +23,8 @@ public class PayDao {
 	
 	public List<Pay> selectSeat(PayVo vo) {return sqlSession.selectList(namespace + ".selectSeat", vo);}
 	
+	public Pay selectSeatOne(PayVo vo) {return sqlSession.selectOne(namespace +".selectSeatOne", vo);}
+	
 	public int update(Pay dto) {return sqlSession.update(namespace +".update", dto);}
 	
 }

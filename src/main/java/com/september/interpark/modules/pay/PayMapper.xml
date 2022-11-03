@@ -41,6 +41,14 @@
 			AND seatSeq = #{seatSeq}
 	</select>
 	
+	<select id="selectSeatOne" resultMap="resultMapObj">
+		SELECT
+			a.seatSeq
+		FROM seat a
+		WHERE 1=1
+			AND seatSeq = #{seatSeq}	
+	</select>
+	
 	<update id="update">
 		UPDATE seat
 		SET
