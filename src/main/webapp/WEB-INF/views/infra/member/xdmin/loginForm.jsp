@@ -57,10 +57,20 @@
 		<!-- 네이버 카카오 로그인 영역 -->
 		<div id="snsLogin">
 			<button type="button" class="btn btn-outline-success" style="width: 420px;" onclick="btnNo();">네이버 로그인</button>
-			<button type="button" class="btn btn-outline-warning" style="width: 420px; margin-top: 10px;" onclick="btnNo();">카카오 로그인</button>
+			<button type="button" class="btn btn-outline-warning" style="width: 420px; margin-top: 10px;" id="kakaoBtn">카카오 로그인</button>
 			<button type="button" class="btn btn-outline-primary" style="width: 420px; margin-top: 10px;" onclick="btnNo();">페이스북 로그인</button>
 			<button type="button" class="btn btn-outline-dark" style="width: 420px; margin-top: 10px;" onclick="btnNo();">구글 로그인</button>
 		</div>
+		</form>
+		<form name="form">
+			<input type="hidden" name="name"/>
+			<input type="hidden" name="id"/>
+			<!-- <input type="hidden" name="phone"/> -->
+			<input type="hidden" name="email"/>
+			<input type="hidden" name="gender"/>
+			<input type="hidden" name="dob"/>
+			<!-- <input type="hidden" name="snsImg"/> -->
+			<input type="hidden" name="token"/>
 		</form>
 		<!-- 로그인 밑에 설명영역 -->
 		<div id="loginAnswer">
@@ -171,7 +181,7 @@
 	
 	
 </script>	
-	
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>	
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
 <script langauge="javascript">
@@ -188,6 +198,86 @@
 		window.open(url,"",option);
 		
 	}
+	
+	Kakao.init('7f841982946149edfa0ce998dfc98894'); 
+	console.log(Kakao.isInitialized());
+	
+	$("#kakaoBtn").on("click", function() {
+		/* Kakao.Auth.authorize({
+		      redirectUri: 'http://localhost:8080/member/kakaoCallback',
+		    }); */
+		    /* alert("diq"); */
+		Kakao.Auth.login({
+ 		      success: function (response) {
+ 		        Kakao.API.request({
+ 		          url: '/v2/user/me',
+ 		          success: function (response) {
+ 		        	  
+ 		        	  var accessToken = Kakao.Auth.getAccessToken();
+ 		        	  Kakao.Auth.setAccessToken(accessToken);
+
+ 		        	  var account = response.kakao_account;
+ 		        	  
+ 		        	  console.log(response)
+ 		        	  console.log("email : " + account.email);
+ 		        	  console.log("name : " + account.name);
+// 		        	  console.log("nickname : " + account.profile.nickname);
+// 		        	  console.log("picture : " + account.profile.thumbnail_image_url);
+ 		        	  console.log("picture : " + account.gender);
+ 		        	  console.log("picture : " + account.birthday);
+ 		        	  console.log("picture : " + account.birthday.substring(0,2) + "-" + account.birthday.substring(2,account.birthday.length));
+	        	  
+	  	        	  $("input[name=id]").val("카카오로그인");
+//	  	        	  $("input[name=name]").val(account.profile.nickname);
+//	  	        	  $("input[name=phone]").val(account.profile.phone_number);
+	  	        	  $("input[name=email]").val(account.email);
+	  	        	  $("input[name=dob]").val(account.birthday.substring(0,2) + "-" + account.birthday.substring(2,account.birthday.length));
+//	  	        	  $("input[name=snsImg]").val(account.profile.thumbnail_image_url);
+	  	        	  $("input[name=token]").val(accessToken);
+	  	        	  
+	  	        	  if (account.gender === "male") {
+	  	        		  $("input[name=gender]").val(6);
+	          		  } else {
+	          			  $("input[name=gender]").val(7);
+       			  } 
+	  	        	  
+	  	        	 /*  $("form[name=form]").attr("action", "/member/kakaoLoginProc").submit(); */
+					 /* "phone": $("input[name=phone]").val(), */ 
+	  	        	 /* "snsImg": $("input[name=snsImg]").val(), */ 
+					 $.ajax({
+						async: true
+						,cache: false
+						,type:"POST"
+						,url: "/member/kakaoLoginProc"
+						,data: {"name": $("input[name=name]").val()
+							, "id": $("input[name=id]").val()
+							,"email": $("input[name=email]").val()
+							, "gender": $("input[name=gender]").val()
+							, "dob": $("input[name=dob]").val()
+							, "token": $("input[name=token]").val()}
+						,success : function(response) {
+							if (response.rt == "fail") {
+								alert("아이디와 비밀번호를 다시 확인 후 시도해 주세요.");
+								return false;
+							} else {
+								window.location.href = "/main/index";
+							}
+						},
+						error : function(jqXHR, status, error) {
+							alert("알 수 없는 에러 [ " + error + " ]");
+						}
+					});
+ 		          },
+ 		          fail: function (error) {
+ 		            console.log(error)
+ 		          },
+ 		        })
+ 		      },
+ 		      fail: function (error) {
+ 		        console.log(error)
+ 		      },
+ 		    })
+		});
 </script>
 </body>
 </html>

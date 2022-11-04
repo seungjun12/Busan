@@ -71,6 +71,9 @@ public interface MemberService {
 	//유저 비밀번호 찾기2
 	public Member selectFindPwd(Member dto)throws Exception;
 	
+	//카카오 로그인
+	public Member snsLoginCheck(Member dto)throws Exception;
 	
+	public int kakaoInst(Member dto)throws Exception;
 
 }

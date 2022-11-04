@@ -184,6 +184,16 @@ public class MemberServiceImpl implements MemberService{
 		return reglist;
 	}
 
+	@Override
+	public Member snsLoginCheck(Member dto) throws Exception {
+		return dao.snsLoginCheck(dto); 
+	}
+
+	@Override
+	public int kakaoInst(Member dto) throws Exception {
+		return dao.kakaoInst(dto);
+	}
+
 
 
 	

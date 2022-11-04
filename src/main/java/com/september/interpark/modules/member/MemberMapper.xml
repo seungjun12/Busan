@@ -394,6 +394,39 @@
 			<if test="number != null and !number.equals('')">AND b.number = #{number}</if>	
 	</select>
 	
+	<!-- 카카오 회원가입여부 판별 -->
+	<select id="snsLoginCheck" resultMap="resultMapObj">
+		SELECT
+			a.*
+		FROM member a	
+		WHERE 1=1
+			AND a.email = #{email}  
+	</select>
+	
+	<!-- 카카오 회원가입 정보 입력 -->
+	<insert id="kakaoInst">
+		INSERT INTO member(
+			name
+			,id
+			<!-- ,phone -->
+			,email
+			,gender
+			,dob
+			,token		
+		)
+		VALUES(
+			#{name}
+			,#{id}
+			<!-- ,#{phone} -->
+			,#{email}
+			,#{gender}
+			,#{dob}
+			,#{token}
+		)
+		<selectKey resultType="String" keyProperty="seq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
 
 
 </mapper>	

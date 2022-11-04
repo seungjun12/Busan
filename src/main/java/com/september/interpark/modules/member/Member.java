@@ -46,7 +46,8 @@ public class Member {
 	private String[] uploadImgDeleteSeq;
 	private String[] uploadImgDeletePathFile;
 	
-	
+	//kakao
+	private String token;
 	
 	//////////////////////////////////////////////
 	public String getSeq() {
@@ -248,6 +249,14 @@ public class Member {
 	}
 	public void setUploadImgDeletePathFile(String[] uploadImgDeletePathFile) {
 		this.uploadImgDeletePathFile = uploadImgDeletePathFile;
+	}
+	
+	//kkko
+	public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
 	}
 	
 	
