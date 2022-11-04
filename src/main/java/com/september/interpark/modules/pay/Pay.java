@@ -29,6 +29,18 @@ public class Pay {
 	private String seatGrade_seatGradeSeq;
 	private String Seat_gameSeq;
 	
+	//registerConfirm
+	private String regseq;
+	private String regmember_seq;
+	private Date registerDob;
+	private String registerNumber;
+	private String registerName;
+	private Date dateUse;
+	private Integer count;
+	private Date deleteDate;
+	private String state;
+	private String puchase_purchseSeq;
+	
 	
 	//seatGrade get set
 	public String getSeatGradeSeq() {
@@ -131,6 +143,66 @@ public class Pay {
 	}
 	public void setSeat_gameSeq(String seat_gameSeq) {
 		Seat_gameSeq = seat_gameSeq;
+	}
+	public String getRegseq() {
+		return regseq;
+	}
+	public void setRegseq(String regseq) {
+		this.regseq = regseq;
+	}
+	public String getRegmember_seq() {
+		return regmember_seq;
+	}
+	public void setRegmember_seq(String regmember_seq) {
+		this.regmember_seq = regmember_seq;
+	}
+	public Date getRegisterDob() {
+		return registerDob;
+	}
+	public void setRegisterDob(Date registerDob) {
+		this.registerDob = registerDob;
+	}
+	public String getRegisterNumber() {
+		return registerNumber;
+	}
+	public void setRegisterNumber(String registerNumber) {
+		this.registerNumber = registerNumber;
+	}
+	public String getRegisterName() {
+		return registerName;
+	}
+	public void setRegisterName(String registerName) {
+		this.registerName = registerName;
+	}
+	public Date getDateUse() {
+		return dateUse;
+	}
+	public void setDateUse(Date dateUse) {
+		this.dateUse = dateUse;
+	}
+	public Integer getCount() {
+		return count;
+	}
+	public void setCount(Integer count) {
+		this.count = count;
+	}
+	public Date getDeleteDate() {
+		return deleteDate;
+	}
+	public void setDeleteDate(Date deleteDate) {
+		this.deleteDate = deleteDate;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	public String getPuchase_purchseSeq() {
+		return puchase_purchseSeq;
+	}
+	public void setPuchase_purchseSeq(String puchase_purchseSeq) {
+		this.puchase_purchseSeq = puchase_purchseSeq;
 	}
 	
 	

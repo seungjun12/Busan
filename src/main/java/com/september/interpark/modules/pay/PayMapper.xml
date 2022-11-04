@@ -57,6 +57,21 @@
 			AND seatSeq = #{seatSeq}	
 	</update>
 	
+	
+	<insert id="registerConfirm">
+		INSERT INTO registerConfirm(
+			registerDob
+			,registerNumber
+			,
+			)
+			VALUES(
+			
+			)
+		<selectKey resultType="String" keyProperty="regseq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>		
+	</insert> 
+	
 
 
 
