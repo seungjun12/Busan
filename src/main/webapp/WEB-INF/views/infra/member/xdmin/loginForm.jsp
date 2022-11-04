@@ -199,7 +199,7 @@
 		
 	}
 	
-	Kakao.init('7f841982946149edfa0ce998dfc98894'); 
+	Kakao.init('7f841982946149edfa0ce998dfc98894'); //kakao developers -> 내 애플리케이션 ->JavaScript 키 복붙
 	console.log(Kakao.isInitialized());
 	
 	$("#kakaoBtn").on("click", function() {
@@ -228,7 +228,7 @@
  		        	  console.log("picture : " + account.birthday.substring(0,2) + "-" + account.birthday.substring(2,account.birthday.length));
 	        	  
 	  	        	  $("input[name=id]").val("카카오로그인");
-//	  	        	  $("input[name=name]").val(account.profile.nickname);
+	  	        	  $("input[name=name]").val(account.profile.nickname);
 //	  	        	  $("input[name=phone]").val(account.profile.phone_number);
 	  	        	  $("input[name=email]").val(account.email);
 	  	        	  $("input[name=dob]").val(account.birthday.substring(0,2) + "-" + account.birthday.substring(2,account.birthday.length));

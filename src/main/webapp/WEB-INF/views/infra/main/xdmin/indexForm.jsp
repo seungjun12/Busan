@@ -82,7 +82,7 @@
 			
 			
 		
-		
+		<%-- <input type="text" name="sessId" value="${sessId }"> --%>
 		
 		<!-- 중간 이미지 -->
 		<div class="flexBanner">
