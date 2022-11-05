@@ -35,8 +35,9 @@
 	
 	<select id="selectSeat" resultMap="resultMapObj">
 		SELECT
+			<!-- a.seatPrice -->
 			a.seatSeq
-		FROM seat a
+		FROM seat a 
 		WHERE 1=1
 			AND seatSeq = #{seatSeq}
 	</select>
