@@ -27,7 +27,10 @@
 		<div class="row">
 			<div class="col-4"></div>
 			<div class="col-2">
-				<button type="button" id="btnUser" class="btn btn-danger">사용자</button>
+				<a>
+					<img alt="유저 페이지 이동입니다" src="/resources/img/user.png">
+				</a>	
+				<!-- <button type="button" id="btnUser" class="btn btn-danger">사용자</button> -->
 			</div>
 			<div class="col-2">
 				<button type="button" id="btnAdmin" class="btn btn-info">관리자</button>
