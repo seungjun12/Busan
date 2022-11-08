@@ -26,6 +26,9 @@ public class PayServiceImpl implements PayService{
 
 	@Override
 	public int update(Pay dto) throws Exception {return dao.update(dto);}
+
+	@Override
+	public int registerConfirm(Pay dto) throws Exception {return dao.registerConfirm(dto);}
 	
 	
 

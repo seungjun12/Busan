@@ -16,7 +16,7 @@
 	<style type="text/css">
 	.wrap{
 		margin: auto;
-		margin-top: 450px;
+		margin-top: 200px;
 	}
 	
 	</style>
@@ -25,20 +25,28 @@
 <div class="wrap">
 	<div class="container text-center">
 		<div class="row">
-			<div class="col-8"></div>
-			<div class="col-4">
+			<div class="col-6">
 				<a type="button" id="btnUser">
 					<img alt="유저 페이지 이동입니다" src="../resources/img/user.png">
 				</a>	
 				<!-- <button type="button" id="btnUser" class="btn btn-danger">사용자</button> -->
 			</div>
-			<div class="col-4">
+			<div class="col-6">
 				<a type="button" id="btnAdmin">
 					<img alt="관리자 페이지 이동입니다" src="../resources/img/admin.png">				
 				</a>
 				<!-- <button type="button" id="btnAdmin" class="btn btn-info">관리자</button> -->
 			</div>
-			<div class="col"></div>	
+		</div>
+	</div>
+	<div class="container text-center">
+		<div class="row">
+			<div class="col-6">
+				user
+			</div>
+			<div class="col-6">
+				admin
+			</div>
 		</div>
 	</div>
 </div>

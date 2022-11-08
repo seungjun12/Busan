@@ -27,4 +27,6 @@ public class PayDao {
 	
 	public int update(Pay dto) {return sqlSession.update(namespace +".update", dto);}
 	
+	public int registerConfirm(Pay dto) {return sqlSession.insert(namespace + ".registerConfirm", dto);}
+	
 }

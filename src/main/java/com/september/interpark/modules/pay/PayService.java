@@ -13,5 +13,7 @@ public interface PayService {
 	public Pay selectSeatOne(PayVo vo)throws Exception;
 	
 	public int update(Pay dto)throws Exception;
+	
+	public int registerConfirm(Pay dto)throws Exception;
 
 }

@@ -56,6 +56,7 @@ public class PayController {
 	@RequestMapping(value = "payUpdt")
 	public String memberUpdt(PayVo vo,Pay dto, RedirectAttributes redirectAttributes) throws Exception {
 		service.update(dto);
+		service.registerConfirm(dto);
 		return "infra/pay/xdmin/payCompleteForm";
 	}
 	

@@ -63,15 +63,27 @@
 		INSERT INTO registerConfirm(
 			registerDob
 			,registerNumber
-			,
+			,registerName
+			,dateUse
+			,count
+			,deleteDate
+			,state
 			)
 			VALUES(
-			
+			now()
+			,<!-- 무작위 문자열 -->""
+			,#{whoHome}
+			,#{date}
+			,1
+			,2022-10-18
+			,"예매"
 			)
 		<selectKey resultType="String" keyProperty="regseq" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>		
-	</insert> 
+	</insert>
+	
+	 
 	
 
 

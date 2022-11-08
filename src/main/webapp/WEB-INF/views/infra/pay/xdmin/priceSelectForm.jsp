@@ -73,7 +73,7 @@
 						<div>
 							<c:out value="${list.seatNumber }"/>
 							<input type="checkbox" name="seatSeq" 
-							value="${list.seatPrice }"  
+							value="${list.seatSeq }"  
 							<c:if test="${list.purchaseDiv  eq 1}">disabled</c:if>
 							>
 							<%-- <c:out value="${list.purchaseDiv }"/> --%>
