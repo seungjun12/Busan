@@ -135,30 +135,19 @@
 		
 		
 		
-		goSeatChoice = function(seqValue){
-			seq.val(seqValue);
-			form.attr("action" , goUrlSeatChoice ).submit();
-		};
+	goSeatChoice = function(seqValue){
+		seq.val(seqValue);
+		form.attr("action" , goUrlSeatChoice ).submit();
+	};
+
+	goDelivery = function(seqValue){
+		seq.val(seqValue);
+		var values = document.getElementsByName("seatSeq");
+		alert(values.length);
+		form.attr("action" , goUrlDelivery).submit();
+	};	
 	
-		goDelivery = function(seqValue){
-			/* if(seatSeq == '' || seatSeq== null){
-				alert("좌석을 선택해주세요")
-				return false; */
-			/* }else{ */
-				seq.val(seqValue);
-				form.attr("action" , goUrlDelivery).submit();
-			/* } */
-		};	
-		
-		/* $("input[name=seatSeq]:checked").eat(function(){
-			var chk = $(this).val();
-		})
-		
-		var chk_arr = [];
-		$("input[name=seatSeq]:checked").eat(function(){
-			var chk = $(this).val();
-			chk_arr.push(chk);
-		}) */
+	
 	
 </script>
 

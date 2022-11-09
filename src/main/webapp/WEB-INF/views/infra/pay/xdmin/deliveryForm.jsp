@@ -22,7 +22,7 @@
 <input type="hidden" name="seatGradeSeq" value="${item.seatGradeSeq }">
 	<!-- 헤더영역 -->
 	<c:forEach items="${list }" var="list" varStatus="status">
-		<input type="text" name="seatSeq" value="${list.seatSeq }">
+		<input type="hidden" name="seatSeq" value="${list.seatSeq }">
 	</c:forEach>
 	<div class="headerWrap">
 		<div>
@@ -127,34 +127,34 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>
-var goUrlPrice = "/pay/priceSelect";
-var goUrlSeatChoice = "/main/seatChoice";
-var goUrlDelivery = "/pay/delivery";
-var goUrlPay ="/pay/pay";
-
-var seq = $("input:hidden[name=seatGradeSeq]");
-var seqq = $("input:hidden[name=seatSeq]");
-var form = $("form[name=form]");
-
-goPrice = function(seqValue){
-	seq.val(seqValue);
-	form.attr("action" , goUrlPrice).submit();
-};
-
-goPay = function(seqValue){
-	seq.val(seqValue);
-	seqq.val();
-	form.attr("action" , goUrlPay).submit();
-};
-
-
-//전화번호 하이픈
-const autoHyphen = (target) => {
-target.value = target.value
-.replace(/[^0-9]/g, '')
-.replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
-}
-put[name=]")
+	var goUrlPrice = "/pay/priceSelect";
+	var goUrlSeatChoice = "/main/seatChoice";
+	var goUrlDelivery = "/pay/delivery";
+	var goUrlPay ="/pay/pay";
+	
+	var seq = $("input:hidden[name=seatGradeSeq]");
+	var seqq = $("input:hidden[name=seatSeq]");
+	var form = $("form[name=form]");
+	
+	goPrice = function(seqValue){
+		seq.val(seqValue);
+		form.attr("action" , goUrlPrice).submit();
+	};
+	
+	goPay = function(seqValue){
+		seq.val(seqValue);
+		seqq.val();
+		form.attr("action" , goUrlPay).submit();
+	};
+	
+	
+	//전화번호 하이픈
+	const autoHyphen = (target) => {
+	target.value = target.value
+	.replace(/[^0-9]/g, '')
+	.replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
+	}
+	put[name=]")
 
 
 
