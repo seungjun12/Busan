@@ -41,6 +41,8 @@ public class Pay {
 	private String state;
 	private String puchase_purchseSeq;
 	
+	private String sessSeq;
+	
 	
 	//seatGrade get set
 	public String getSeatGradeSeq() {
@@ -203,6 +205,12 @@ public class Pay {
 	}
 	public void setPuchase_purchseSeq(String puchase_purchseSeq) {
 		this.puchase_purchseSeq = puchase_purchseSeq;
+	}
+	public String getSessSeq() {
+		return sessSeq;
+	}
+	public void setSessSeq(String sessSeq) {
+		this.sessSeq = sessSeq;
 	}
 	
 	

@@ -62,6 +62,7 @@
 	<insert id="registerConfirm">
 		INSERT INTO registerConfirm(
 			registerDob
+			,regmember_seq
 			,registerNumber
 			,registerName
 			,dateUse
@@ -71,11 +72,12 @@
 			)
 			VALUES(
 			now()
-			,<!-- 무작위 문자열 -->""
-			,#{whoHome}
+			,#{sessSeq}
+			,"T30DVC12"
+			,"SSG vs 엘지"
 			,#{date}
 			,1
-			,2022-10-18
+			,DATE_SUB(#{date},INTERVAL 3 DAY)
 			,"예매"
 			)
 		<selectKey resultType="String" keyProperty="regseq" order="AFTER">

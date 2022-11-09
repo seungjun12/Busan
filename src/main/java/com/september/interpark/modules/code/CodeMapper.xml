@@ -41,6 +41,7 @@
 			,ccdelNy
 			,ccorder
 			,ccg_seq
+			,ccRegTime
 			<!-- ,ccgNameKo -->
 		)
 		VALUES(
@@ -50,6 +51,7 @@
 			,#{ccdelNy}
 			,#{ccorder}
 			,#{ccg_seq}
+			,now()
 			<!-- ,#{ccgNameKo} -->
 		)
 		<selectKey resultType="String" keyProperty="ccseq" order="AFTER">
@@ -96,7 +98,7 @@
 		DELETE FROM cc WHERE ccseq=#{ccseq}
 	</delete>
 	
-    <select id="selectListCachedCodeArrayList" resultMap="resultMapObj">
+   <select id="selectListCachedCodeArrayList" resultMap="resultMapObj">
 		SELECT 
 			ccseq
 			, ccnameko
@@ -106,7 +108,7 @@
 		WHERE 1=1
 			AND ccdelNy = 1
 		    AND ccuseNy = 0
-    </select>
+    </select> 
 	
 	
 </mapper>

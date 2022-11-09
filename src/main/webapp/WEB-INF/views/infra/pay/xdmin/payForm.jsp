@@ -20,7 +20,9 @@
 <div class="wrap">
 <form name="form" method="post">
 <input type="hidden" name="seatGradeSeq" value="${item.seatGradeSeq }">
-<input type="text" name="seatSeq" value="<c:out value="${item2.seatSeq }"/>">
+<input type="hidden" name="date" id="date" value="<c:out value="${item.date }"/>">
+<input type="hidden" name="sessSeq" id="sessSeq" value="<c:out value="${sessSeq }"/>">
+<input type="hidden" name="seatSeq" value="<c:out value="${item2.seatSeq }"/>">
 <%-- <input type="text" value="${item.gameSeq }">
 <input type="text" value="${item.seatNumber }"> --%>
 	<!-- 헤더영역 -->

@@ -119,6 +119,7 @@
 	var goUrlSeatChoice = "/main/seatChoice"
 	var goUrlDelivery = "/pay/delivery"
 	
+	/* var seatSeq = ${"input:checkbox[name=seatSeq]"}; */
 	var seq = $("input:hidden[name=seatGradeSeq]");
 	var form = $("form[name=form]");
 	
@@ -140,9 +141,24 @@
 		};
 	
 		goDelivery = function(seqValue){
-			seq.val(seqValue);
-			form.attr("action" , goUrlDelivery).submit();
-		};		
+			/* if(seatSeq == '' || seatSeq== null){
+				alert("좌석을 선택해주세요")
+				return false; */
+			/* }else{ */
+				seq.val(seqValue);
+				form.attr("action" , goUrlDelivery).submit();
+			/* } */
+		};	
+		
+		/* $("input[name=seatSeq]:checked").eat(function(){
+			var chk = $(this).val();
+		})
+		
+		var chk_arr = [];
+		$("input[name=seatSeq]:checked").eat(function(){
+			var chk = $(this).val();
+			chk_arr.push(chk);
+		}) */
 	
 </script>
 

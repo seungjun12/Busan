@@ -134,8 +134,8 @@
 						    	<td></td><!-- 6 -->
 						    	<td><a href="javascript:goView(<c:out value="${list.ccseq }"/>)" class="text-decoration-none"><c:out value="${list.ccnameko }"/></td><!-- 7 -->
 						    	<td><c:out value="${list.ccnameeg }"/></td><!-- 8 -->
-						    	<td></td><!-- 11 -->
-						    	<td></td><!-- 12 -->
+						    	<td><c:out value="${list.ccRegTime }"/></td><!-- 11 -->
+						    	<td><c:out value="${list.ccModTime }"/></td><!-- 12 -->
 					  		</tr>
 					  	</tbody>
 							</c:forEach>

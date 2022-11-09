@@ -1,5 +1,6 @@
 package com.september.interpark.modules.code;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +16,8 @@ public class Code {
 	private	String ccorder;
 	private String ccgseq;
 	private	String ccgNameKo;
+	private Date ccRegTime;
+	private Date ccModTime;
 	//////////////////////////////////////////
 	public String getCcseq() {
 		return ccseq;
@@ -78,7 +81,28 @@ public class Code {
 		this.ccgseq = ccgseq;
 	}
 	
-//	for cache
+	
+public Date getCcRegTime() {
+		return ccRegTime;
+	}
+	public void setCcRegTime(Date ccRegTime) {
+		this.ccRegTime = ccRegTime;
+	}
+	public Date getCcModTime() {
+		return ccModTime;
+	}
+	public void setCcModTime(Date ccModTime) {
+		this.ccModTime = ccModTime;
+	}
+	public static List<Code> getCachedCodeArrayList() {
+		return cachedCodeArrayList;
+	}
+	public static void setCachedCodeArrayList(List<Code> cachedCodeArrayList) {
+		Code.cachedCodeArrayList = cachedCodeArrayList;
+	}
+
+
+	//	for cache
 	public static List<Code> cachedCodeArrayList = new ArrayList<Code>();
 
 	

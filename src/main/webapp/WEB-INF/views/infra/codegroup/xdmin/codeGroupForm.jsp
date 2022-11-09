@@ -154,30 +154,6 @@
 						</div>
 					</div>
 				</div>
-				<div class="container-fluid codeGroupName">
-					<div class="row">
-						<div class="col-6">
-							테스트 1
-						</div>
-						<div class="col">
-							테스트 2
-						</div>
-					</div>
-				</div>
-				<div class="container-fluid codeGroupInput">
-					<div class="row">
-						<div class="col">
-							<input type="radio" id="test1" name="test" value="1">test1
-							<input type="radio" id="test2" name="test" value="2">test2
-							<input type="radio" id="test3" name="test" value="3">test3
-						</div>
-						<div class="col-6">
-							<button type="button" class="btn btn-danger">이미지 첨부</button>
-							<input type="text">
-						</div>
-					</div>
-				</div>
-				
 				<div class="container-fluid lastBtn">
 					<div class="row">
 						<div class="col-6">
