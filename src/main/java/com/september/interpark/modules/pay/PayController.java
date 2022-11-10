@@ -33,7 +33,7 @@ public class PayController {
 	@RequestMapping(value = "delivery")
 	public String deliveryForm(@ModelAttribute("vo")PayVo vo , Model model)throws Exception {
 		
-		List<Pay>list =service.selectSeat(vo);
+		List<Pay>list= service.selectSeat(vo);
 		model.addAttribute("list", list);
 		
 		Pay item = service.selectOne(vo);

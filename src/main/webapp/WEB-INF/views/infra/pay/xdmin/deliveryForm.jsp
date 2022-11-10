@@ -22,7 +22,7 @@
 <input type="hidden" name="seatGradeSeq" value="${item.seatGradeSeq }">
 	<!-- 헤더영역 -->
 	<c:forEach items="${list }" var="list" varStatus="status">
-		<input type="hidden" name="seatSeq" value="${list.seatSeq }">
+		<input type="text" name="seatSeq" value="${list.seatSeq }">
 	</c:forEach>
 	<div class="headerWrap">
 		<div>
@@ -113,7 +113,8 @@
 						<a href="javascript:goPrice(<c:out value="${item.seatGradeSeq }"/>)" class="btn btn-dark">이전단계</a>
 					</div>
 					<div class="col">
-						<a href="javascript:goPay(<c:out value="${item.seatGradeSeq }"/>)" class="btn btn-danger">다음단계</a>
+						<%-- <a href="javascript:goPay(<c:out value="${item.seatGradeSeq }"/>)" class="btn btn-danger">다음단계</a> --%>
+						<button id="btnPay" class="btn btn-danger">다음단계</button>
 					</div>
 				</div>
 			</div>
@@ -133,7 +134,6 @@
 	var goUrlPay ="/pay/pay";
 	
 	var seq = $("input:hidden[name=seatGradeSeq]");
-	var seqq = $("input:hidden[name=seatSeq]");
 	var form = $("form[name=form]");
 	
 	goPrice = function(seqValue){
@@ -143,18 +143,19 @@
 	
 	goPay = function(seqValue){
 		seq.val(seqValue);
-		seqq.val();
 		form.attr("action" , goUrlPay).submit();
 	};
 	
+	$("#btnPay").on("click",function(){
+		form.attr("action", goUrlPay).submit();
+	})
 	
 	//전화번호 하이픈
 	const autoHyphen = (target) => {
 	target.value = target.value
 	.replace(/[^0-9]/g, '')
 	.replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
-	}
-	put[name=]")
+    }
 
 
 

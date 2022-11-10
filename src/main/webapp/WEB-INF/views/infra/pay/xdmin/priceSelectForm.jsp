@@ -20,7 +20,7 @@
 <body>
 <div class="wrap">
 <form name="form" method="post">
-<input type="hidden" name="seatGradeSeq" value="<c:out value="${seatGradeSeq }"/>">
+<input type="hidden" name="seatGradeSeq" value="<c:out value="${item.seatGradeSeq }"/>">
 	<!-- 헤더영역 -->
 	<div class="headerWrap">
 		<div>
@@ -102,7 +102,8 @@
 						<a href="javascript:goSeatChoice(<c:out value="${item.gameSeq }"/>)" class="btn btn-dark" >이전단계</a>
 					</div>
 					<div class="col">
-						<a href="javascript:goDelivery(<c:out value="${item.seatGradeSeq }"/>)"  class="btn btn-danger" >다음단계</a>
+						<%-- <a href="javascript:goDelivery(<c:out value="${item.seatGradeSeq }"/>)"  class="btn btn-danger" >다음단계</a> --%>
+						<button id="goDeliveryBtn" class="btn btn-danger" >다음단계</button>
 					</div>
 				</div>
 			</div>
@@ -118,36 +119,39 @@
 <script>
 	var goUrlSeatChoice = "/main/seatChoice"
 	var goUrlDelivery = "/pay/delivery"
-	
-	/* var seatSeq = ${"input:checkbox[name=seatSeq]"}; */
 	var seq = $("input:hidden[name=seatGradeSeq]");
 	var form = $("form[name=form]");
+	/* $("input[name=seatSeq]:checked").each(function(){
+		var chk = $(this).val();
+	})	 */
+	var seqq = $("input:hidden[name=seatSeq]");
 	
+	var chk_arr =[]; 
+	$("input[name=seatSeq]:checked").each(function(){
+		var chk = $(this).val();
+		chk_arr.push(chk);
+	})
 	
-	/* $("#btnDelivery").on("click",function(){
-		$(location).attr("href",goUrlDelivery);
-	}); */
-	
-		/* $("#btnSeatChoice").on("click",function(seqValue){
-			seq.val(seqValue);
-			form.attr("action",goUrlSeatChoice).submit();
-		}); */
-		
-		
 		
 	goSeatChoice = function(seqValue){
 		seq.val(seqValue);
-		form.attr("action" , goUrlSeatChoice ).submit();
+		/* form.attr("action" , goUrlSeatChoice ).submit(); */
 	};
 
 	goDelivery = function(seqValue){
 		seq.val(seqValue);
-		var values = document.getElementsByName("seatSeq");
-		alert(values.length);
+	    /* chk_arr.val(seqValue); */ 
 		form.attr("action" , goUrlDelivery).submit();
 	};	
 	
-	
+	$("#goDeliveryBtn").on("click",function(){
+		/* if(document.getElementByName(seatSeq).value == '' || documetn.getElementByName(seatSeq).value == null){
+			alert("좌석 선택해주세요")
+			return false;
+		}else{ */
+		form.attr("action", goUrlDelivery).submit();
+		/* } */
+	})
 	
 </script>
 

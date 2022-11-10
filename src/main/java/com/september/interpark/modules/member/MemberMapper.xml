@@ -263,16 +263,11 @@
 	<!-- 유저 예매 확인 -->
 	<select id="selectRegister" resultMap="resultMapObj">
 		SELECT
-			a.registerDob
-			,a.registerNumber
-			,a.registerName
-			,a.dateUse
-			,a.count
-			,a.deleteDate
-			,a.state
+			a.*
 		FROM registerConfirm a
 		WHERE 1=1
 			AND regmember_seq = #{sessSeq}	
+			ORDER BY a.regseq DESC 
 	</select>
 	
 	<select id="selectRegister1" resultMap="resultMapObj">
