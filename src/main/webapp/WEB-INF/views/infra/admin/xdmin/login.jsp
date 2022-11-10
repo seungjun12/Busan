@@ -52,11 +52,11 @@
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
                                                 id="id" name="id" aria-describedby="emailHelp"
-                                                placeholder="ID" value="<c:out value="${dto.id }"/>">
+                                                placeholder="ID" value="admin">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="pwd" name="pwd" placeholder="Password" value="<c:out value="${dto.pwd }"/>">
+                                                id="pwd" name="pwd" placeholder="Password" value="qkrtmdwns1!">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">

@@ -42,14 +42,15 @@
 		<c:forEach items="${list }" var="list" varStatus="status">	
 			<div>
 				<%-- <input type="hidden" name="seatGradeSeq" value="${list.seatGradeSeq }"> --%>
-				<a href="javascript:goPay(<c:out value="${list.seatGradeSeq }"/>)" class="text-decoration-none" ><c:out value="${list.seatGrade }" /></a>
-				&nbsp;<span>| <c:out value="${list.seatGrade_seatGradeSeq }" />석</span>
+				<%-- <a href="javascript:goPay(<c:out value="${list.seatGradeSeq }"/>)" class="text-decoration-none" ><c:out value="${list.seatGrade }" /></a> --%>
+				<input type="radio" name="route" id="${list.seatGradeSeq }" value="${list.seatGradeSeq }"/><span style="font-size: 13px;"><c:out value="${list.seatGrade }"/></span>
+				&nbsp;<span id="rest">| <c:out value="${list.seatGrade_seatGradeSeq }" />석</span>
 				<input type="hidden" name="seatGrade_seatGradeSeq" value="${list.seatGrade_seatGradeSeq }">
 			</div>
 		</c:forEach>	
 		</div>
-		<!-- 자동배정 버튼 -->
-		<input type="hidden" name="gaemSeq" value="${seatItem.gameSeq }">
+		<!-- 좌석배정 버튼 -->
+		<button id="goPayBtn" class="btn btn-danger" style="margin-top: 10px;">좌석선택</button>
 	</div>
 </div><!-- wrap end -->	
 </form>
@@ -65,15 +66,21 @@
 	var zero = 0;
 	/* var value =	document.getElementById('list.seatGrade_seatGradeSeq').value; */
 	
-	
-	
-	goPay =function(seqValue){
-		if( 1 != 1){
-			alert("매진된 좌석입니다")
+	$("#goDeliveryBtn").on("click",function(){
+		if($('input:checkbox[name="seatSeq"]').is(":checked") == true){
+			form.attr("action", goUrlDelivery).submit();	
 		}else{
-			seq.val(seqValue);
-			form.attr("action" , goUrlPrice).submit();	
+			alert("좌석을 선택해주세요")
 		}
+	})
+	
+	$("#goPayBtn").on("click",function(){
+		/* if($('input:hidden[name=seatGrade_seatGradeSeq]').val() == null || $('input:hidden[name=seatGrade_seatGradeSeq]').val() ==''){
+			alert("매진된 좌석입니다")
+		}else{ */
+			/* seq.val(seqValue); */
+			form.attr("action" , goUrlPrice).submit();	
+		/* } */
 		
 		
 

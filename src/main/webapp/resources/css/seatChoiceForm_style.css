@@ -34,7 +34,7 @@
 	margin-left: 5px;
 }
 
-.listScroll > div > span{
+.listScroll > div > #rest{
 	font-size: 10px;
 	color: #a42f2f;
 }

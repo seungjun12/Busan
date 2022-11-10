@@ -149,7 +149,7 @@
 	};
 	
 	$("#btnPay").on("click",function(){
-		if($('input:text[name=bod]').val() == null || $('input:text[name=bod]').val() =='' ||$('input:text[name=bod]').val() != bodChk){
+		if($('input:text[name=bod]').val() == null || $('input:text[name=bod]').val() =='' ||$('input:text[name=bod]').val() == bodChk){
 			alert("생년월일을 확인해주세요")
 		}else{
 		form.attr("action", goUrlPay).submit();

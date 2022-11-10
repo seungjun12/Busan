@@ -133,7 +133,7 @@
 		
 	goSeatChoice = function(seqValue){
 		seq.val(seqValue);
-		/* form.attr("action" , goUrlSeatChoice ).submit(); */
+		form.attr("action" , goUrlSeatChoice ).submit(); 
 	};
 
 	goDelivery = function(seqValue){

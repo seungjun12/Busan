@@ -38,8 +38,8 @@
 		<form method="post" id="loginForm" name="loginForm">
 		<!-- 아이디 비번 입력영역 -->
 		<div id="loginInput">
-			<input class="form-control" type="text" aria-label="default input example" placeholder="아이디" id="id" name="id" value="<c:out value="${dto.id}"/>">
-			<input class="form-control" type="password" aria-label="default input example" placeholder="비밀번호" style="margin-top: 10px;" id="pwd" name="pwd" value="<c:out value="${dto.pwd}"/>">
+			<input class="form-control" type="text" aria-label="default input example" placeholder="아이디" id="id" name="id" value="cjftn">
+			<input class="form-control" type="password" aria-label="default input example" placeholder="비밀번호" style="margin-top: 10px;" id="pwd" name="pwd" value="qkrtmdwns1!">
 		<!-- 로그인 버튼 -->	
 			<button type="button" class="btn btn-danger" style="width: 420px; margin-top: 15px;" id="btnLoginp">로그인</button>
 			<!-- 자동로그인 아이디저장 체크버튼 -->
