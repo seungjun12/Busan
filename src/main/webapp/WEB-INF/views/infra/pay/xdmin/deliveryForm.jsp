@@ -22,7 +22,7 @@
 <input type="hidden" name="seatGradeSeq" value="${item.seatGradeSeq }">
 	<!-- 헤더영역 -->
 	<c:forEach items="${list }" var="list" varStatus="status">
-		<input type="text" name="seatSeq" value="${list.seatSeq }">
+		<input type="hidden" name="seatSeq" value="${list.seatSeq }">
 	</c:forEach>
 	<div class="headerWrap">
 		<div>
@@ -75,7 +75,7 @@
 			<tr>
 				<td class="tdColor">생년월일</td>
 				<td>
-					<input type="text" style="width: 70px;">
+					<input type="text" style="width: 70px;" name="bod">
 					예)870201 (YYMMDD)
 				</td>
 			</tr>
@@ -136,6 +136,8 @@
 	var seq = $("input:hidden[name=seatGradeSeq]");
 	var form = $("form[name=form]");
 	
+	var bodChk =/([0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[1,2][0-9]|3[0,1]))/;
+	
 	goPrice = function(seqValue){
 		seq.val(seqValue);
 		form.attr("action" , goUrlPrice).submit();
@@ -147,7 +149,11 @@
 	};
 	
 	$("#btnPay").on("click",function(){
+		if($('input:text[name=bod]').val() == null || $('input:text[name=bod]').val() =='' ||$('input:text[name=bod]').val() != bodChk){
+			alert("생년월일을 확인해주세요")
+		}else{
 		form.attr("action", goUrlPay).submit();
+		}
 	})
 	
 	//전화번호 하이픈

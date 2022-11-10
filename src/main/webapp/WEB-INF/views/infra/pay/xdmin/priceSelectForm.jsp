@@ -70,14 +70,12 @@
 				</c:when>
 				<c:otherwise>
 					<c:forEach items="${list }" var="list" varStatus="status">
-						<div>
-							<c:out value="${list.seatNumber }"/>
-							<input type="checkbox" name="seatSeq" 
-							value="${list.seatSeq }"  
-							<c:if test="${list.purchaseDiv  eq 1}">disabled</c:if>
-							>
-							<%-- <c:out value="${list.purchaseDiv }"/> --%>
-						</div>						
+						<c:out value="${list.seatNumber }"/>
+						<input type="checkbox" name="seatSeq" 
+						value="${list.seatSeq }"  
+						<c:if test="${list.purchaseDiv  eq 1}">disabled</c:if>
+						>
+						<%-- <c:out value="${list.purchaseDiv }"/> --%>
 					</c:forEach>
 				</c:otherwise>
 			</c:choose>	
@@ -103,7 +101,7 @@
 					</div>
 					<div class="col">
 						<%-- <a href="javascript:goDelivery(<c:out value="${item.seatGradeSeq }"/>)"  class="btn btn-danger" >다음단계</a> --%>
-						<button id="goDeliveryBtn" class="btn btn-danger" >다음단계</button>
+						<button id="goDeliveryBtn" class="btn btn-danger">다음단계</button>
 					</div>
 				</div>
 			</div>
@@ -124,13 +122,13 @@
 	/* $("input[name=seatSeq]:checked").each(function(){
 		var chk = $(this).val();
 	})	 */
-	var seqq = $("input:hidden[name=seatSeq]");
+/* 	var seqq = $("input:hidden[name=seatSeq]");
 	
 	var chk_arr =[]; 
 	$("input[name=seatSeq]:checked").each(function(){
 		var chk = $(this).val();
 		chk_arr.push(chk);
-	})
+	}) */
 	
 		
 	goSeatChoice = function(seqValue){
@@ -145,13 +143,22 @@
 	};	
 	
 	$("#goDeliveryBtn").on("click",function(){
-		/* if(document.getElementByName(seatSeq).value == '' || documetn.getElementByName(seatSeq).value == null){
-			alert("좌석 선택해주세요")
-			return false;
-		}else{ */
-		form.attr("action", goUrlDelivery).submit();
-		/* } */
+		if($('input:checkbox[name="seatSeq"]').is(":checked") == true){
+			form.attr("action", goUrlDelivery).submit();	
+		}else{
+			alert("좌석을 선택해주세요")
+		}
 	})
+	
+	/* function test(){
+		var obj = $("[name=seatSeq]");
+		var chkArray = new Array(); //배열선언
+		
+		$('input:checkbox[name=seatSeq]:checked').each(function(){
+			chkArray.push(this.value);
+		});
+		form.attr("action" , goUrlDelivery).submit();
+	} */
 	
 </script>
 

@@ -3,16 +3,16 @@
         <!-- 밑에 설명영역 탭 -->
 		<div class="sportsTabWrapper tabModule">
 			<div class="tabWrapper">
-			<ul class="tabWrap">
-				<li class="on"><span>예매/관람안내</span>
-				<li><span>좌석도/가격</span>
-				<li><span>예매TIP</span>
+			<ul class="tabWrap nav nav-tabs">
+				<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="1">예매/관람안내</a>
+				<li class="nav-item"><a class="nav-link" data-toggle="tab" href="2">좌석도/가격</a>
+				<li class="nav-item"><a class="nav-link" data-toggle="tab" href="3">예매TIP</a>
 			</ul>	
 			</div>
 			
 			<!-- 예매/관람안내 -->
-			<div class="tabContentsWrapper conBox on" id="con1">
-				<div class="tabcontentsWrap current">
+			<div class="tabContentsWrapper conBox on tab-content" id="con1">
+				<div class="tabcontentsWrap current " id="1">
 					<h3><b>예매안내</b></h3>
 					<div class="dataContents">	
 						<p>티켓 구매 안내</p>
@@ -29,7 +29,7 @@
 						<p>&nbsp;2)예매 수수료: 장당 1,000원</p>
 					</div>
 					<h3><b>티켓 수령 및 입장</b></h3>
-					<div class="dataContents">
+					<div class="dataContents" id="2">
 						<p>1. 티켓 수령 방법이 '모바일 티켓'인 경우 종이 티켓 발권이 불가합니다.(무인 발권기도 이용 불가)</p>
 						<p>&nbsp;*모바일 티켓은 모바일 티켓 앱에서 예약 번호 혹은 바코드가 실시간으로 움직이는 티켓으로만 입장 가능,캡쳐 혹은 이미지는 불가</p>
 						<p>&nbsp;*티켓 선물하기 기능으로 모바일 티켓 선물한 경우 취소 불가 (선물한 티켓 반납 후 취소 가능)</p>
