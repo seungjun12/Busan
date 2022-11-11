@@ -41,7 +41,7 @@
 		<!-- 조회기간 선택 -->
 		<div class="selectPeriod">
 			<span id="colorRed"><c:out value="${sessName }"/></span>
-			<span>님의 지난 일주일간의 티켓 예매내역 입니다.</span>
+			<span>님의 지난 티켓 예매내역 입니다.</span>
 		</div>
 		<div class="selectBox">
 			<span id="fontSize">조회기간 선택</span>

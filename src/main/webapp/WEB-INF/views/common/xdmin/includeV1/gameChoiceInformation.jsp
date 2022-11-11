@@ -4,15 +4,15 @@
 		<div class="sportsTabWrapper tabModule">
 			<div class="tabWrapper">
 			<ul class="tabWrap nav nav-tabs">
-				<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="1">예매/관람안내</a>
-				<li class="nav-item"><a class="nav-link" data-toggle="tab" href="2">좌석도/가격</a>
-				<li class="nav-item"><a class="nav-link" data-toggle="tab" href="3">예매TIP</a>
+				<li class="nav-item nav-link active"><a data-toggle="tab" href="#1" style="text-decoration: none; color: black" >예매/관람안내</a>
+				<li class="nav-item nav-link"><a data-toggle="tab" href="#2" style="text-decoration: none; color: white">좌석도/가격</a>
+				<li class="nav-item nav-link"><a data-toggle="tab" href="#3" style="text-decoration: none; color: white">예매TIP</a>
 			</ul>	
 			</div>
 			
 			<!-- 예매/관람안내 -->
 			<div class="tabContentsWrapper conBox on tab-content" id="con1">
-				<div class="tabcontentsWrap current " id="1">
+				<div class="tabcontentsWrap current tab-pane fade show active" id="1">
 					<h3><b>예매안내</b></h3>
 					<div class="dataContents">	
 						<p>티켓 구매 안내</p>
@@ -21,7 +21,7 @@
 						<p>1. 온라인 예매와 현장 구매가 가능합니다(휠체어 장애인석 등 할인 권종 포함)</p>
 						<p>&nbsp;*현장 매표소는 주중 경기 시작 2시간 30분 전,주말 경기 시작 3시간 전부터 운영하며,6회 말까지 운영합니다.</p>
 						<p>&nbsp;*7회 초 이후 무료 입장은 운영하지 않습니다.</p>
-						<p></p>
+						<p></p>()
 						<p>2. 온라인 예매: 경기 4일 전 오전 11시 ~ 경기 1시간 후 까지 가능</p>
 						<p>3. 온라인 예매 취소: 경기 7시간 전 까지 가능</p>
 						<p>4. 온라인 예매 정책</p>
@@ -95,7 +95,7 @@
 				
 				 <!-- 좌석도/가격 --> 
 				<div class="tabContentsWrapper tab-content current conBox" id="con2">
-					<div class="tabcontentsWrap current">
+					<div class="tabcontentsWrap current tab-pane fade show active" id="2">
 						<div class="dataContents">	
 							<img alt="경기좌석도 입니다." src="http://ticketimage.interpark.com/TicketImage/sportsteam/editer/2022/04/01/4d7aa74d.gif" style="width: 100%;">
 						</div>
@@ -104,6 +104,13 @@
 						</div>
 						<div class="dataContents">
 							<img alt="" src="http://ticketimage.interpark.com/TicketImage/sportsteam/editer/2022/05/26/f70c0664.jpg" style="width: 100%;">
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade show">
+					<div class="tabcontentsWrap current tab-pane fade show active" id="3">
+						<div class="dataContents">
+							test
 						</div>
 					</div>
 				</div>

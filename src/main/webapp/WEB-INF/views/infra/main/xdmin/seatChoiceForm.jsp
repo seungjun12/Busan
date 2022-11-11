@@ -41,16 +41,17 @@
 		<div class="listScroll">
 		<c:forEach items="${list }" var="list" varStatus="status">	
 			<div>
-				<%-- <input type="hidden" name="seatGradeSeq" value="${list.seatGradeSeq }"> --%>
-				<%-- <a href="javascript:goPay(<c:out value="${list.seatGradeSeq }"/>)" class="text-decoration-none" ><c:out value="${list.seatGrade }" /></a> --%>
-				<input type="radio" name="route" id="${list.seatGradeSeq }" value="${list.seatGradeSeq }"/><span style="font-size: 13px;"><c:out value="${list.seatGrade }"/></span>
+				<input type="hidden" name="seatGradeSeq" value="${list.seatGradeSeq }">
+				<a href="javascript:goPay(<c:out value="${list.seatGradeSeq }"/>)" class="text-decoration-none" ><c:out value="${list.seatGrade }" /></a> 
+				<%-- <input type="radio" name="route" id="${list.seatGradeSeq }" value="${list.seatGradeSeq }"/><span style="font-size: 13px;"><c:out value="${list.seatGrade }"/></span> --%>
 				&nbsp;<span id="rest">| <c:out value="${list.seatGrade_seatGradeSeq }" />석</span>
 				<input type="hidden" name="seatGrade_seatGradeSeq" value="${list.seatGrade_seatGradeSeq }">
 			</div>
 		</c:forEach>	
 		</div>
 		<!-- 좌석배정 버튼 -->
-		<button id="goPayBtn" class="btn btn-danger" style="margin-top: 10px;">좌석선택</button>
+		<!-- <button id="goPayBtn" class="btn btn-danger" style="margin-top: 10px;">좌석선택</button> -->
+		<%-- <a href="javascript:goPay(<c:out value="${seatGradeSeq }"/>)" class="btn btn-danger" >좌석선택</a> --%>
 	</div>
 </div><!-- wrap end -->	
 </form>
@@ -74,17 +75,15 @@
 		}
 	})
 	
-	$("#goPayBtn").on("click",function(){
-		/* if($('input:hidden[name=seatGrade_seatGradeSeq]').val() == null || $('input:hidden[name=seatGrade_seatGradeSeq]').val() ==''){
-			alert("매진된 좌석입니다")
-		}else{ */
-			/* seq.val(seqValue); */
+/* 	$("#goPayBtn").on("click",function(){
 			form.attr("action" , goUrlPrice).submit();	
-		/* } */
-		
-		
-
-	}
+	};
+ */	
+	goPay = function(seqValue){
+		seq.val(seqValue);
+	    /* chk_arr.val(seqValue); */ 
+		form.attr("action" , goUrlPrice).submit();
+	};	
 	
 </script>
 

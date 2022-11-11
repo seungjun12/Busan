@@ -23,6 +23,9 @@
 <input type="hidden" name="date" id="date" value="<c:out value="${item.date }"/>">
 <input type="hidden" name="sessSeq" id="sessSeq" value="<c:out value="${sessSeq }"/>">
 <input type="hidden" name="seatSeq" value="<c:out value="${item2.seatSeq }"/>">
+<input type="hidden" name="registerNumber" id="registerNumber" value="">
+<input type="hidden" name="whoHome" id="whoHome" value="${item.whoHome }">
+<input type="hidden" name="whoAway" id="whoAway" value="${item.whoAway }">
 <%-- <input type="text" value="${item.gameSeq }">
 <input type="text" value="${item.seatNumber }"> --%>
 	<!-- 헤더영역 -->
@@ -152,13 +155,26 @@ var goUrlPayComplete = "/pay/payUpdt"
 var seq = $("input:hidden[name=seatGradeSeq]");
 var seqq = $("input:hidden[name=seatSeq]");
 var form = $("form[name=form]");
-
+var random = 
 goDelivery = function(seqValue){
 	seq.val(seqValue);
 	form.attr("action" , goUrlDelivery).submit();
 };
 
 goPayComplete = function(seqValue){
+	var generateRandomString = (num)=>{
+		var characters ='ABCDEFGHIJKLMNOPQRSTUWXYZ1234567890';
+		var result='';
+		var charactersLength = characters.length;
+		for(var i = 0 ; i <num; i++){
+			result+= characters.charAt(Math.floor(Math.random()*charactersLength));
+		}
+		return result
+	}
+	
+	var randomStr = generateRandomString(8);
+	$('input[name=registerNumber]').attr('value',randomStr);
+	
 	seq.val(seqValue);
 	seqq.val();
 	form.attr("action" , goUrlPayComplete).submit();

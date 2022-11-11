@@ -11,13 +11,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Controller
-@RequestMapping(value = "/pay/")
 public class PayController {
 	
 	@Autowired
 	PayServiceImpl service;
 
-	@RequestMapping(value = "priceSelect")
+	@RequestMapping(value = "/pay/priceSelect")
 	public String priceSelectForm(@ModelAttribute("vo") PayVo vo , Model model)throws Exception {
 		
 		Pay item =service.selectOne(vo);
@@ -30,7 +29,7 @@ public class PayController {
 		return "infra/pay/xdmin/priceSelectForm";
 	}
 	
-	@RequestMapping(value = "delivery")
+	@RequestMapping(value = "/pay/delivery")
 	public String deliveryForm(@ModelAttribute("vo")PayVo vo , Model model)throws Exception {		
 		
 		List<Pay>list= service.selectSeat(vo);
@@ -41,7 +40,7 @@ public class PayController {
 		return "infra/pay/xdmin/deliveryForm";
 	}
 	
-	@RequestMapping(value = "pay")
+	@RequestMapping(value = "/pay/pay")
 	public String payForm(@ModelAttribute("vo")PayVo vo , Model model)throws Exception {
 		
 		Pay item2 = service.selectSeatOne(vo);
@@ -53,14 +52,14 @@ public class PayController {
 		return "infra/pay/xdmin/payForm";
 	}
 	
-	@RequestMapping(value = "payUpdt")
+	@RequestMapping(value = "/pay/payUpdt")
 	public String memberUpdt(PayVo vo,Pay dto, RedirectAttributes redirectAttributes) throws Exception {
 		service.update(dto);
 		service.registerConfirm(dto);
 		return "infra/pay/xdmin/payCompleteForm";
 	}
 	
-	@RequestMapping(value = "payComplete")
+	@RequestMapping(value = "/pay/payComplete")
 	public String payCompleteForm()throws Exception {
 		return "infra/pay/xdmin/payCompleteForm";
 	}

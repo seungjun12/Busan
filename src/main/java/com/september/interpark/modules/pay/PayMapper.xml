@@ -73,8 +73,8 @@
 			VALUES(
 			now()
 			,#{sessSeq}
-			,"T30DVC12"
-			,"SSG vs 엘지"
+			,#{registerNumber}
+			,#{whoHome} "vs" #{whoAway}
 			,#{date}
 			,1
 			,DATE_SUB(#{date},INTERVAL 3 DAY)

@@ -31,7 +31,8 @@
 		var str = 'pay/'
 		var replace_str =str.replace('pay/', '')
 		
-		opener.parent.location='main/index';
+		/* opener.parent.location='main/index'; */
+		opener.parent.location.reload();
 		close();
 	}
 </script>
