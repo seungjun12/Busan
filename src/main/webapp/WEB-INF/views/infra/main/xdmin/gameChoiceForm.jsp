@@ -117,7 +117,7 @@
 						<%-- <a href="javascript:goList(<c:out value="${list.gameSeq }"/>)">	 --%>
 							<input type="hidden" name="gameSeq" id="gameSeq" value="${list.gameSeq }">
 							<%-- <a href="javascript:goList(<c:out value="${list.gameSeq }"/>)"> --%>
-							<button type="button" class="btn btn-danger" style="width: 128px; float: right" onclick="goSeatLock(this.form);">예매하기</button> <%-- <a  href="javascript:goSeat(<c:out value="${list.gameSeq }"/>)">zz</a> --%><!-- 예매하기</button> --> 
+							<button type="button" class="btn btn-danger" style="width: 128px; float: right; height: 118px;" onclick="goSeatLock(this.form);">예매하기</button>  <%-- <a  href="javascript:goSeat(<c:out value="${list.gameSeq }"/>)">zz</a> --%><!-- 예매하기</button> --> 
 							<%-- <a href="javascript:goSeatLock(<c:out value="${list.gameSeq }"/>)" class="btn btn-danger" style="width: 128px; float: right">예매하기</a> --%>
 							<!-- </a> -->
 						<!-- </a> -->
@@ -170,8 +170,8 @@
 	
 	var form = $("for[name=form]");	var seq = $("input:hidden[name=gameSeq]");
 	
-	/* goSeatLock = function(seqValue){ */
-		function goSeatLock(frm){
+	/* goSeatLock = function(seqValue){ */ 
+		function goSeatLock(frm){ 
 		/* seq.val(seqValue); */
 		var url = "/main/seatLock";
 		var title = "test";
@@ -224,7 +224,7 @@
 		form.attr("action" , goUrlView).submit();
 	} */
 	
-	$(function(){
+	/* $(function(){
         // tab 메뉴를 클릭하였을 때 동작함
         $(".tab ul li").click(function(){ 
              
@@ -238,7 +238,7 @@
             // 선택된 탭의 data 값으로 content box를 선택함
             $("#"+$(this).data('id')).addClass('on');
         });
-    });
+    }); */
 	
 	
         
