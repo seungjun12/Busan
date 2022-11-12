@@ -144,7 +144,7 @@
 	});
 	
 	//로그인 엔터키
-	$("key.keycode == 13").on("click", function(){
+	$(e.keyCode == '13').on("click", function(){
 		/* if(validation() == false) return false; */
 		/* if(key.keyCode == 13){ */
 		$.ajax({
@@ -175,6 +175,7 @@
 		/* } */
 	});
 	
+		
 	function btnNo(){
 		alert("준비중입니다.")
 	};
