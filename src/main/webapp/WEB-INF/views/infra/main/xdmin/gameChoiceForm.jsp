@@ -168,7 +168,7 @@
 	var goUrlMemberView = "/member/memberViewForm";
 	var goUrlSeat = "/main/seatLock";
 	
-	var form = $("for[name=form]");	var seq = $("input:hidden[name=gameSeq]");
+	var form = $("form[name=form]");	var seq = $("input:hidden[name=gameSeq]");
 	
 	/* goSeatLock = function(seqValue){ */ 
 		function goSeatLock(frm){ 
