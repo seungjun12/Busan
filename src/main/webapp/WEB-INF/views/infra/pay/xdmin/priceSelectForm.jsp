@@ -21,6 +21,7 @@
 <div class="wrap">
 <form name="form" method="post">
 <input type="hidden" name="seatGradeSeq" value="<c:out value="${item.seatGradeSeq }"/>">
+<input type="hidden">
 	<!-- 헤더영역 -->
 	<div class="headerWrap">
 		<div>
@@ -122,13 +123,13 @@
 	/* $("input[name=seatSeq]:checked").each(function(){
 		var chk = $(this).val();
 	})	 */
-/* 	var seqq = $("input:hidden[name=seatSeq]");
+ 	/* var seqq = $("input:hidden[name=seatSeq]"); */
 	
 	var chk_arr =[]; 
 	$("input[name=seatSeq]:checked").each(function(){
 		var chk = $(this).val();
 		chk_arr.push(chk);
-	}) */
+	}) 
 	
 		
 	goSeatChoice = function(seqValue){
@@ -146,6 +147,7 @@
 	$("#goDeliveryBtn").on("click",function(){
 		if($('input:checkbox[name="seatSeq"]').is(":checked") == true){
 			form.attr("action", goUrlDelivery).submit();	
+			alert(chk_arr)
 		}else{
 			alert("좌석을 선택해주세요")
 		}

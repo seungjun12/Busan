@@ -94,7 +94,7 @@
 				</div>
 				
 				 <!-- 좌석도/가격 --> 
-				<div class="tabContentsWrapper tab-content current conBox">
+				<div class="tab-pane fade show">
 					<div class="tabcontentsWrap current tab-pane fade show " id="2">
 						<div class="dataContents">	
 							<img alt="경기좌석도 입니다." src="http://ticketimage.interpark.com/TicketImage/sportsteam/editer/2022/04/01/4d7aa74d.gif" style="width: 100%;">
