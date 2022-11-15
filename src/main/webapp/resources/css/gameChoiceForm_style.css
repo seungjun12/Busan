@@ -456,6 +456,58 @@ dd{
 	margin-inline-start: 40px;
 }
 
+.ticketUsageGuideWrapper{
+	padding: 40px;
+}
 
+
+.visualModule{
+	position: relative;
+	padding-top: 60px;
+	text-align: center;
+	background-color: #26cec1;	
+}
+
+.visualTitle{
+	font-size: 43px;
+	line-height: 1.2;
+	color: #000;
+}
+
+.spot{
+	display: block;
+	color: #fff;
+}
+
+.infoTextSub{
+	margin-top: 10px;
+	font-size: 19px;
+	line-height: 1.4;
+	text-align: center;
+	color: rgba(0,0,0,0.6);
+}
+
+.visualImgArea{
+	font-size: 0;
+	line-height: 0;
+	margin: 0 158px;
+}
+
+.appDownload{
+	width: 400px;
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	padding: 24px 0;
+	font-size: 0;
+	line-height: 0;
+	background-color: #fff;
+	border-radius: 10px;
+	border: 1px solid #000;
+	box-sizing: border-box;
+	box-shadow: 2px 8px 10px rgb(0 0 0 /30%);
+}
 
 

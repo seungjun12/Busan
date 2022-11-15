@@ -11,7 +11,7 @@
 			</div>
 			
 			<!-- 예매/관람안내 -->
-			<div class="tabContentsWrapper conBox on tab-content" id="con1">
+			<div class="tabContentsWrapper conBox on tab-content">
 				<div class="tabcontentsWrap current tab-pane fade show active" id="1">
 					<h3><b>예매안내</b></h3>
 					<div class="dataContents">	
@@ -29,7 +29,7 @@
 						<p>&nbsp;2)예매 수수료: 장당 1,000원</p>
 					</div>
 					<h3><b>티켓 수령 및 입장</b></h3>
-					<div class="dataContents" id="2">
+					<div class="dataContents">
 						<p>1. 티켓 수령 방법이 '모바일 티켓'인 경우 종이 티켓 발권이 불가합니다.(무인 발권기도 이용 불가)</p>
 						<p>&nbsp;*모바일 티켓은 모바일 티켓 앱에서 예약 번호 혹은 바코드가 실시간으로 움직이는 티켓으로만 입장 가능,캡쳐 혹은 이미지는 불가</p>
 						<p>&nbsp;*티켓 선물하기 기능으로 모바일 티켓 선물한 경우 취소 불가 (선물한 티켓 반납 후 취소 가능)</p>
@@ -94,8 +94,8 @@
 				</div>
 				
 				 <!-- 좌석도/가격 --> 
-				<div class="tabContentsWrapper tab-content current conBox" id="con2">
-					<div class="tabcontentsWrap current tab-pane fade show active" id="2">
+				<div class="tabContentsWrapper tab-content current conBox">
+					<div class="tabcontentsWrap current tab-pane fade show " id="2">
 						<div class="dataContents">	
 							<img alt="경기좌석도 입니다." src="http://ticketimage.interpark.com/TicketImage/sportsteam/editer/2022/04/01/4d7aa74d.gif" style="width: 100%;">
 						</div>
@@ -107,10 +107,30 @@
 						</div>
 					</div>
 				</div>
+				<!-- 예매 TIP -->
 				<div class="tab-pane fade show">
-					<div class="tabcontentsWrap current tab-pane fade show active" id="3">
+					<div class="tabcontentsWrap current tab-pane fade show" id="3">
 						<div class="dataContents">
-							test
+							<div class="ticketUsageGuideWrapper">
+								<div class="visualModule">	
+									<h2 class="visualTitle">
+										MOBILE TICKET
+										<span class="spot">NEW GENERATION</span>
+									</h2>
+									<p class="infoTextSub">
+										인터파크 회원에게 제공하는 모바일티켓 서비스는
+										<br>
+										인터파크 앱과 티켓 앱에서만 이용이 가능합니다.
+									</p>
+									<div class="visualImgArea">
+										<img src="//ticketimage.interpark.com/TicketImage/uidev/desktop/images/pages/category/sportsLeisure/sports/clubDetail/main_visual.png" alt="">
+									</div>
+									<div class="appDownload">
+										<img src="//ticketimage.interpark.com/TicketImage/uidev/desktop/images/pages/category/sportsLeisure/sports/clubDetail/btn_googlePlay.jpg" alt="googlePlay" style="margin-right: 23px;">
+										<img src="//ticketimage.interpark.com/TicketImage/uidev/desktop/images/pages/category/sportsLeisure/sports/clubDetail/btn_appStore.jpg" alt="appStore">
+									</div>									
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
