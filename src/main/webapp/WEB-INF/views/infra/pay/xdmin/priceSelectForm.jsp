@@ -21,7 +21,7 @@
 <div class="wrap">
 <form name="form" method="post">
 <input type="hidden" name="seatGradeSeq" value="<c:out value="${item.seatGradeSeq }"/>">
-<input type="hidden">
+<input type="hidden" name="seatBox[]" value="">
 	<!-- 헤더영역 -->
 	<div class="headerWrap">
 		<div>
@@ -130,6 +130,8 @@
 		var chk = $(this).val();
 		chk_arr.push(chk);
 	}) 
+	
+	$('input[name=seatBox]').attr('value',chk_arr);
 	
 		
 	goSeatChoice = function(seqValue){

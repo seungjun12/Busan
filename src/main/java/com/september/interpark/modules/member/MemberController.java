@@ -553,18 +553,16 @@ public class MemberController {
 			}
 	    }
 		
-		//카카오 로그인
+		//네이버 로그인
 		@ResponseBody
-		@RequestMapping(value = "kakaoLoginProc")
-		public Map<String, Object> kakaoLoginProc(Member dto, HttpSession httpSession) throws Exception {
+		@RequestMapping(value = "naverLoginProc")
+		public Map<String, Object> naverLoginProc(Member dto, HttpSession httpSession) throws Exception {
 		    Map<String, Object> returnMap = new HashMap<String, Object>();
-		    
-			Member kakaoLogin = service.snsLoginCheck(dto);
+			Member naverLogin = service.snsLoginCheck(dto);
 			
-			 System.out.println("test : " + dto.getToken());
 			
-			if (kakaoLogin == null) {
-				service.kakaoInst(dto);
+			if (naverLogin == null) {
+				service.naverInst(dto);
 				
 				httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE);
 				// session(dto.getSeq(), dto.getId(), dto.getName(), dto.getEmail(), dto.getUser_div(), dto.getSnsImg(), dto.getSns_type(), httpSession);
@@ -574,20 +572,47 @@ public class MemberController {
 				httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE);
 				
 				// session(kakaoLogin.getSeq(), kakaoLogin.getId(), kakaoLogin.getName(), kakaoLogin.getEmail(), kakaoLogin.getUser_div(), kakaoLogin.getSnsImg(), kakaoLogin.getSns_type(), httpSession);
-				session(kakaoLogin, httpSession);
+				session(naverLogin, httpSession);
 				returnMap.put("rt", "success");
 			}
 			return returnMap;
 		}
 
-		 public void session(Member dto, HttpSession httpSession) {
-		     httpSession.setAttribute("sessSeq", dto.getSeq());    
-		     httpSession.setAttribute("sessId", dto.getId());
-		     httpSession.setAttribute("sessName", dto.getName());
-		     httpSession.setAttribute("sessEmail", dto.getEmail());
-//		     httpSession.setAttribute("sessUser", dto.getUser_div());
-//		     httpSession.setAttribute("sessSns", dto.getSns_type());
-		 }
+		
+			@ResponseBody
+			@RequestMapping(value = "kakaoLoginProc")
+			public Map<String, Object> kakaoLoginProc(Member dto, HttpSession httpSession) throws Exception {
+			    Map<String, Object> returnMap = new HashMap<String, Object>();
+			    
+				Member kakaoLogin = service.snsLoginCheck(dto);
+				
+				 System.out.println("test : " + dto.getToken());
+				
+				if (kakaoLogin == null) {
+					service.kakaoInst(dto);
+					
+					httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE);
+					// session(dto.getSeq(), dto.getId(), dto.getName(), dto.getEmail(), dto.getUser_div(), dto.getSnsImg(), dto.getSns_type(), httpSession);
+		            session(dto, httpSession); 
+					returnMap.put("rt", "success");
+				} else {
+					httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE);
+					
+					// session(kakaoLogin.getSeq(), kakaoLogin.getId(), kakaoLogin.getName(), kakaoLogin.getEmail(), kakaoLogin.getUser_div(), kakaoLogin.getSnsImg(), kakaoLogin.getSns_type(), httpSession);
+					session(kakaoLogin, httpSession);
+					returnMap.put("rt", "success");
+				}
+				return returnMap;
+			}
+
+			 public void session(Member dto, HttpSession httpSession) {
+			     httpSession.setAttribute("sessSeq", dto.getSeq());    
+			     httpSession.setAttribute("sessId", dto.getId());
+			     httpSession.setAttribute("sessName", dto.getName());
+			     httpSession.setAttribute("sessEmail", dto.getEmail());
+//			     httpSession.setAttribute("sessUser", dto.getUser_div());
+//			     httpSession.setAttribute("sessSns", dto.getSns_type());
+			 }		 
 		
 		
 	

@@ -56,10 +56,11 @@
 		</div>
 		<!-- 네이버 카카오 로그인 영역 -->
 		<div id="snsLogin">
-			<button type="button" class="btn btn-outline-success" style="width: 420px;" onclick="btnNo();">네이버 로그인</button>
+			<button type="button" class="btn btn-outline-success" style="width: 420px;" id="naverLogin">네이버 로그인</button>
 			<button type="button" class="btn btn-outline-warning" style="width: 420px; margin-top: 10px;" id="kakaoBtn">카카오 로그인</button>
 			<button type="button" class="btn btn-outline-primary" style="width: 420px; margin-top: 10px;" onclick="btnNo();">페이스북 로그인</button>
 			<button type="button" class="btn btn-outline-dark" style="width: 420px; margin-top: 10px;" onclick="btnNo();">구글 로그인</button>
+			<div id="naverIdLogin"></div>
 		</div>
 		</form>
 		<form name="form">
@@ -143,46 +144,18 @@
 		/* } */
 	});
 	
-	//로그인 엔터키
-	$(e.keyCode == '13').on("click", function(){
-		/* if(validation() == false) return false; */
-		/* if(key.keyCode == 13){ */
-		$.ajax({
-			async: true //false일경우 동기 요청으로 변경
-			,cache: false
-			,type: "post" 
-			/* ,dataType:"json" */
-			,url: "/member/loginProc"
-			/* ,data : $("#formLogin").serialize() */
-			,data : { "id" : $("#id").val(), "pwd" : $("#pwd").val(), /* "autoLogin" : $("#autoLogin").is(":checked") */}
-			,success: function(response) {
-				if(response.rt == "success") {
-					/* if(response.changePwd == "true") {
-						location.href = URL_CHANGE_PWD_FORM;
-					} else {
-						location.href = URL_INDEX_ADMIN;
-					} */
-					
-					location.href = goUrlIndex;
-				} else {
-					alert("회원없음");
-				}
-			}
-			,error : function(jqXHR, textStatus, errorThrown){
-				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-			}
-		});
-		/* } */
-	});
-	
 		
 	function btnNo(){
 		alert("준비중입니다.")
 	};
 	
 	
-</script>	
-<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>	
+</script>
+<!-- 카카오  -->	
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<!-- 네이버 -->
+<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
+<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>	
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
 <script langauge="javascript">
@@ -279,6 +252,79 @@
  		      },
  		    })
 		});
+	
+	
+		/* 네이버 로그인 */
+	 
+		var naverLogin = new naver.LoginWithNaverId(
+			{
+				clientId: "eqto6ibuhYa8QviG0m5L",
+				callbackUrl: "http://localhost:8080/member/login",
+				isPopup: false,
+				callbackHandle: true
+				//loginButton: {color: "green", type: 3, height: 70} 
+			}
+		);
+
+    //	naverLogin.init();
+    	
+   		/* window.addEventListener('load', function () {
+   			naverLogin.getLoginStatus(function (status) {
+   				if (status) {
+   		//			(6) 로그인 상태가 "true" 인 경우 로그인 버튼을 없애고 사용자 정보를 출력합니다. 
+   					setLoginStatus();
+   				}
+   			});
+   		}); */
+ 
+   		$("#naverLogin").on("click", function() {
+			naverLogin.init(); //초기화
+			
+			naverLogin.getLoginStatus(function (status) {
+				
+				if(!status)
+					naverLogin.authorize();
+                else
+                    setLoginStatus();  //하늘님 메소드 실행 -> Ajax
+			});
+   		});
+   			
+   		function setLoginStatus() {	
+   			
+			if (naverLogin.user.gender == 'M'){
+				$("input[name=gender]").val(6);
+			} else {
+				$("input[name=gender]").val(7);
+			} 
+			
+			//alert(naverLogin.user.name);
+			
+			$.ajax({
+				async: true
+				,cache: false
+				,type:"POST"
+				,url: "/member/naverLoginProc"
+				,data: {"name": naverLogin.user.name
+					, "id": naverLogin.user.id
+					/* , "phone": naverLogin.user.mobile */
+					, "email": naverLogin.user.email
+					, "gender": $("input[name=gender]").val()
+					, "dob": naverLogin.user.birthyear+"-"+naverLogin.user.birthday
+					/* , "snsImg": naverLogin.user.profile_image */
+					/* , "sns_id": */ }
+				,success : function(response) {
+					if (response.rt == "fail") {
+						alert("아이디와 비밀번호를 다시 확인 후 시도해 주세요.");
+						return false;
+					} else {
+						window.location.href = "/main/index";
+					}
+				},
+				error : function(jqXHR, status, error) {
+					alert("알 수 없는 에러 [ " + error + " ]");
+				}
+			});
+		}
 </script>
 </body>
 </html>

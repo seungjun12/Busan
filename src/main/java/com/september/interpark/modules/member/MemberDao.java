@@ -176,5 +176,9 @@ public class MemberDao {
 		return sqlSession.insert(namespace + ".kakaoInst", dto);
 	}
 	
+	public int naverInst(Member dto) {
+		return sqlSession.insert(namespace + ".naverInst", dto);
+	}
+	
 }//class end	
 

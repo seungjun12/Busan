@@ -22,6 +22,7 @@ public class Member {
 	private String sessSeq;
 	private Integer adminDiv;
 	private String sessName;
+	private String sns_id;
 	
 	// registerConfirm
 	private String regseq;
@@ -257,6 +258,12 @@ public class Member {
 	}
 	public void setToken(String token) {
 		this.token = token;
+	}
+	public String getSns_id() {
+		return sns_id;
+	}
+	public void setSns_id(String sns_id) {
+		this.sns_id = sns_id;
 	}
 	
 	

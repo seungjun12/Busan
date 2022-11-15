@@ -75,5 +75,7 @@ public interface MemberService {
 	public Member snsLoginCheck(Member dto)throws Exception;
 	
 	public int kakaoInst(Member dto)throws Exception;
+	
+	public int naverInst(Member dto)throws Exception;
 
 }

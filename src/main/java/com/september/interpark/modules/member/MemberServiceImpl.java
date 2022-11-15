@@ -194,6 +194,11 @@ public class MemberServiceImpl implements MemberService{
 		return dao.kakaoInst(dto);
 	}
 
+	@Override
+	public int naverInst(Member dto) throws Exception {
+		return dao.naverInst(dto);
+	}
+
 
 
 	

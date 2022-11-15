@@ -425,6 +425,28 @@
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>
-
-
+	
+	<!-- 네이버 회원가입 정보 입력 -->
+	<insert id="naverInst">
+		INSERT INTO member(
+			name
+			,id
+			,email
+			,gender
+			,dob
+			,sns_id
+		)VALUES(
+			#{name}
+			,#{id}
+			,#{email}
+			,#{gender}
+			,#{dob}
+			,#{sns_id}
+		)
+		<selectKey resultType="String" keyProperty="seq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>	
+		
+		
 </mapper>	
