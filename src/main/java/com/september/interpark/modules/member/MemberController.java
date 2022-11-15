@@ -273,13 +273,13 @@ public class MemberController {
 	}
 	
 	//유저 예매확인,취소가기
-		@RequestMapping(value = "registerConfirm1")
-		public String registerConfirm1(@ModelAttribute MemberVo vo , Model model)throws Exception{
-			List<Member> reglist = service.selectRegister1(vo);
-			model.addAttribute("reglist", reglist);
-			System.out.println("controller reglist: " + reglist);
-			return "infra/member/xdmin/registerConfirm";
-		}
+	@RequestMapping(value = "registerConfirm1")
+	public String registerConfirm1(@ModelAttribute MemberVo vo , Model model)throws Exception{
+		List<Member> reglist = service.selectRegister1(vo);
+		model.addAttribute("reglist", reglist);
+		System.out.println("controller reglist: " + reglist);
+		return "infra/member/xdmin/registerConfirm";
+	}
 		
 	//유저 예매확인,취소가기 1년
 	@RequestMapping(value = "registerConfirm2")
@@ -290,13 +290,15 @@ public class MemberController {
 	}
 	
 	//유저 예매확인,취소가기
-			@RequestMapping(value = "registerConfirm3")
-			public String registerConfirm3(@ModelAttribute MemberVo vo , Model model)throws Exception{
-				List<Member> reglist = service.selectRegister3(vo);
-				model.addAttribute("reglist", reglist);
-				System.out.println("controller reglist: " + reglist);
-				return "infra/member/xdmin/registerConfirm";
-			}
+	@ResponseBody
+	@RequestMapping(value = "registerConfirm3")
+	public Map<String,Object> registerConfirm3(@ModelAttribute MemberVo vo , Model model)throws Exception{
+		Map<String,Object>returnMap = new HashMap<String,Object>();
+		List<Member> reglist = service.selectRegister3(vo);
+		model.addAttribute("reglist", reglist);
+		System.out.println("controller reglist: " + reglist);
+		return returnMap;
+	}
 	
 	//유저 아이디 찾기
 	@RequestMapping(value = "findId")
