@@ -111,7 +111,7 @@
 		$(location).attr("href",goUrlRegister);
 	});
 	
-	/* 로그인 */ /*  */
+	/* 로그인 */ 
 	$("#btnLoginp").on("click", function(){
 		/* if(validation() == false) return false; */
 		/* if(key.keyCode == 13){ */

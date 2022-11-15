@@ -151,13 +151,6 @@ public class MemberController {
 
 			if (rtMember2 != null) {
 				
-				/*
-				 * if(dto.getAutoLogin() == true) {
-				 * UtilCookie.createCookie(Constants.COOKIE_NAME_SEQ, rtMember2.getIfmmSeq(),
-				 * Constants.COOKIE_DOMAIN, Constants.COOKIE_PATH, Constants.COOKIE_MAXAGE); }
-				 * else { // by pass }
-				 */
-				
 				httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE); // 60second * 30 = 30minute
 				httpSession.setAttribute("sessSeq", rtMember2.getSeq());
 				httpSession.setAttribute("sessId", rtMember2.getId());
@@ -167,33 +160,12 @@ public class MemberController {
 				httpSession.setAttribute("sessGender", rtMember2.getGender());
 				httpSession.setAttribute("sessPersonal", rtMember2.getPersonalAgree());
 				httpSession.setAttribute("sessPwd", rtMember2.getPwd());
-				
-
-				/*
-				 * rtMember2.setIflgResultNy(1); service.insertLogLogin(rtMember2);
-				 * 
-				 * Date date = rtMember2.getIfmmPwdModDate(); LocalDateTime
-				 * ifmmPwdModDateLocalDateTime = LocalDateTime.ofInstant(date.toInstant(),
-				 * ZoneId.systemDefault());
-				 * 
-				 * 
-				 * if (ChronoUnit.DAYS.between(ifmmPwdModDateLocalDateTime,
-				 * UtilDateTime.nowLocalDateTime()) > Constants.PASSWOPRD_CHANGE_INTERVAL) {
-				 * returnMap.put("changePwd", "true"); }
-				 */
 				 
 				returnMap.put("rt", "success");
 			} else {
-//				dto.setSeq(rtMember.getSeq());
-//				dto.setIflgResultNy(0);
-//				service.insertLogLogin(dto);
-
 				returnMap.put("rt", "fail");
 			}
 		} else {
-//			dto.setIflgResultNy(0);
-//			service.insertLogLogin(dto);
-			
 			returnMap.put("rt", "fail");
 		}
 		return returnMap;
