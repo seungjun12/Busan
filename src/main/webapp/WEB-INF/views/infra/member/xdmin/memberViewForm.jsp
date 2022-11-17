@@ -74,7 +74,7 @@
 						</div>
 						<!-- 배송지관리 -->
 						<div class="menuBox shipping">
-							<a>
+							<a data-bs-toggle="modal" data-bs-target="#exampleModal" style="cursor: pointer;">
 								<p class="title">배송지관리</p>
 								<span class="noti">
 									기본주소 및 배송지를
@@ -85,7 +85,7 @@
 						</div>
 						<!-- SNS연결설정 -->
 						<div class="menuBox sns">
-							<a>
+							<a data-bs-toggle="modal" data-bs-target="#exampleModal" style="cursor: pointer;">
 								<p class="title">SNS연결설정</p>
 								<span class="noti">
 									네이버,카카오 등 SNS로
@@ -96,14 +96,14 @@
 						</div>
 						<!-- 로그인관리 -->
 						<div class="menuBox loginManage">
-							<a>
+							<a data-bs-toggle="modal" data-bs-target="#exampleModal" style="cursor: pointer;">
 								<p>로그인관리</p>
 								<span class="noti"></span>
 							</a>
 						</div>
 						<!-- 회원탈퇴 -->
 						<div class="menuBox withdrawal">
-							<a>
+							<a data-bs-toggle="modal" data-bs-target="#exampleModal" style="cursor: pointer;">
 								<p>회원탈퇴</p>
 								<span class="noti"></span>
 							</a>
@@ -111,7 +111,7 @@
 					</div>
 					<!-- 메인메뉴 밑에 개인정보 이용내역 보기 -->
 					<div class="usePrivacyWrap">
-						<a class="buttonPrivacy">
+						<a class="buttonPrivacy" data-bs-toggle="modal" data-bs-target="#exampleModal">
 							개인정보 이용내역 보기 >
 						</a>
 					</div>
@@ -127,15 +127,32 @@
 	<%@include file="../../../common/xdmin/includeV1/footer.jsp"%>
 	<!-- 푸터 e -->
 	
-	
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		    <div class="modal-content">
+		      	<div class="modal-header">
+		        	<h1 class="modal-title fs-5" id="exampleModalLabel">준비중</h1>
+		        	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		      	</div>
+		      	<div class="modal-body">
+		       	 준비중입니다
+		      	</div>
+		      		<div class="modal-footer">
+		        		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+		      		</div>
+		    	</div>
+		  	</div>
+	</div>
 	
 </div> <!-- wrap end -->
 <!-- jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>
 	var goUrlInformationMod = "/member/informationMod";
-	var goUrlPwdMod = "/member/pwdMod"
+	var goUrlPwdMod = "/member/pwdMod";
 	var goUrlIndex = "/main/index";
+	var goWithdraw = "/member/memberWithdraw";
 	
 	var seq = $("input:hidden[name=seq]")
 	var form = $("form[name=form]");
@@ -152,11 +169,19 @@
 		$(location).attr("href",goUrlIndex);
 	});
 	
+	$("#btnWithdraw").on("click",function(){
+		$(location).attr("href",goWithdraw);
+	});
 	
 	goInformation = function(seqValue){
 		seq.val(seqValue);
 		form.attr("action" ,goUrlInformationMod).submit();
-	}
+	};
+	
+/* 	goWithdraw = function(seqValue){
+		seq.val(seqValue);
+		form.attr("action" ,goWithdraw).submit();
+	}; */
 	
 	/* goPwdMod = function(seqValue){
 		seq.val(seqValue);

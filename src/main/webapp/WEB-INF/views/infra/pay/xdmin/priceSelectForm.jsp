@@ -21,7 +21,6 @@
 <div class="wrap">
 <form name="form" method="post">
 <input type="hidden" name="seatGradeSeq" value="<c:out value="${item.seatGradeSeq }"/>">
-<input type="hidden" name="seatBox[]" value="">
 	<!-- 헤더영역 -->
 	<div class="headerWrap">
 		<div>
@@ -101,7 +100,7 @@
 						<a href="javascript:goSeatChoice(<c:out value="${item.gameSeq }"/>)" class="btn btn-dark" >이전단계</a>
 					</div>
 					<div class="col">
-						<%-- <a href="javascript:goDelivery(<c:out value="${item.seatGradeSeq }"/>)"  class="btn btn-danger" >다음단계</a> --%>
+						<%-- <a href="javascript:goDelivery(<c:out value="${item.seatGradeSeq }"/>)"  class="btn btn-danger" >다음단계</a> --%> 
 						<button id="goDeliveryBtn" class="btn btn-danger">다음단계</button>
 					</div>
 				</div>
@@ -120,18 +119,16 @@
 	var goUrlDelivery = "/pay/delivery"
 	var seq = $("input:hidden[name=seatGradeSeq]");
 	var form = $("form[name=form]");
-	/* $("input[name=seatSeq]:checked").each(function(){
-		var chk = $(this).val();
-	})	 */
+
  	/* var seqq = $("input:hidden[name=seatSeq]"); */
 	
-	var chk_arr =[]; 
+/* 	var chk_arr =[]; 
 	$("input[name=seatSeq]:checked").each(function(){
 		var chk = $(this).val();
 		chk_arr.push(chk);
 	}) 
 	
-	$('input[name=seatBox]').attr('value',chk_arr);
+	$('input[name=seatBox]').attr('value',chk_arr); */
 	
 		
 	goSeatChoice = function(seqValue){
@@ -143,13 +140,21 @@
 	goDelivery = function(seqValue){
 		seq.val(seqValue);
 	    /* chk_arr.val(seqValue); */ 
+	    $('input[name=seatSeqq]').attr('value' , chkk);
 		form.attr("action" , goUrlDelivery).submit();
 	};	
 	
+	var chk_arr = [];
+	$("input[name=seatSeq]:checked").each(function(){
+		var chk = $(this).val();
+		chk_arr.push(chk);
+	})	
+	
 	$("#goDeliveryBtn").on("click",function(){
 		if($('input:checkbox[name="seatSeq"]').is(":checked") == true){
-			form.attr("action", goUrlDelivery).submit();	
+			 
 			alert(chk_arr)
+			form.attr("action", goUrlDelivery).submit();
 		}else{
 			alert("좌석을 선택해주세요")
 		}

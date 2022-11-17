@@ -66,7 +66,7 @@ public class CodeController {
 	  @RequestMapping(value = "codeUpdt")
 	  public String codeUpdt(CodeVo vo , Code dto, RedirectAttributes redirectAttributes)throws Exception{
 		  service.update(dto);
-		  return "redirect:/code/codeList";
+		  return "redirect:/code/codeView";
 	  }
 	  
 	  @RequestMapping(value = "codeUele")

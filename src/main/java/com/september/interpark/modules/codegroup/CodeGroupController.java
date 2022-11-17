@@ -71,7 +71,7 @@ public class CodeGroupController {
 	
 	
 	@RequestMapping(value="codeGroup/codeGroupUpdt")
-	public String codeGroupUpdt(CodeGroupVo vo, CodeGroup dto, RedirectAttributes redirectAttributes)throws Exception{
+	public String codeGroupUpdt(CodeGroupVo vo, CodeGroup dto, RedirectAttributes redirectAttributes, Model model)throws Exception{
 			service.update(dto);
 			return "redirect:/codeGroup/codeGroupList";	
 	}

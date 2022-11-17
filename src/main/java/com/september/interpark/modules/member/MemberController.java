@@ -160,7 +160,8 @@ public class MemberController {
 				httpSession.setAttribute("sessGender", rtMember2.getGender());
 				httpSession.setAttribute("sessPersonal", rtMember2.getPersonalAgree());
 				httpSession.setAttribute("sessPwd", rtMember2.getPwd());
-				 
+				System.out.println("seq는 !!:" +rtMember2.getSeq()); 
+				
 				returnMap.put("rt", "success");
 			} else {
 				returnMap.put("rt", "fail");
@@ -237,6 +238,12 @@ public class MemberController {
 		model.addAttribute("item", item);
 		 return "infra/member/xdmin/informationMod";
 	}
+
+	//유저 회원탈퇴가기
+	@RequestMapping(value = "memberWithdraw")
+	public String memberWithdraw ()throws Exception{
+		 return "infra/member/xdmin/memberWithdraw";
+	}	
 	
 	//유저 비밀번호 변경 화면가기
 	@RequestMapping(value = "pwdMod")
@@ -579,40 +586,66 @@ public class MemberController {
 		}
 
 		
-			@ResponseBody
-			@RequestMapping(value = "kakaoLoginProc")
-			public Map<String, Object> kakaoLoginProc(Member dto, HttpSession httpSession) throws Exception {
-			    Map<String, Object> returnMap = new HashMap<String, Object>();
-			    
-				Member kakaoLogin = service.snsLoginCheck(dto);
+		@ResponseBody
+		@RequestMapping(value = "kakaoLoginProc")
+		public Map<String, Object> kakaoLoginProc(Member dto, HttpSession httpSession) throws Exception {
+		    Map<String, Object> returnMap = new HashMap<String, Object>();
+		    
+			Member kakaoLogin = service.snsLoginCheck(dto);
+			
+			 System.out.println("test : " + dto.getToken());
+			
+			if (kakaoLogin == null) {
+				service.kakaoInst(dto);
 				
-				 System.out.println("test : " + dto.getToken());
+				httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE);
+				// session(dto.getSeq(), dto.getId(), dto.getName(), dto.getEmail(), dto.getUser_div(), dto.getSnsImg(), dto.getSns_type(), httpSession);
+	            session(dto, httpSession); 
+				returnMap.put("rt", "success");
+			} else {
+				httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE);
 				
-				if (kakaoLogin == null) {
-					service.kakaoInst(dto);
-					
-					httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE);
-					// session(dto.getSeq(), dto.getId(), dto.getName(), dto.getEmail(), dto.getUser_div(), dto.getSnsImg(), dto.getSns_type(), httpSession);
-		            session(dto, httpSession); 
-					returnMap.put("rt", "success");
-				} else {
-					httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE);
-					
-					// session(kakaoLogin.getSeq(), kakaoLogin.getId(), kakaoLogin.getName(), kakaoLogin.getEmail(), kakaoLogin.getUser_div(), kakaoLogin.getSnsImg(), kakaoLogin.getSns_type(), httpSession);
-					session(kakaoLogin, httpSession);
-					returnMap.put("rt", "success");
-				}
-				return returnMap;
+				// session(kakaoLogin.getSeq(), kakaoLogin.getId(), kakaoLogin.getName(), kakaoLogin.getEmail(), kakaoLogin.getUser_div(), kakaoLogin.getSnsImg(), kakaoLogin.getSns_type(), httpSession);
+				session(kakaoLogin, httpSession);
+				returnMap.put("rt", "success");
 			}
+			return returnMap;
+		}
 
-			 public void session(Member dto, HttpSession httpSession) {
-			     httpSession.setAttribute("sessSeq", dto.getSeq());    
-			     httpSession.setAttribute("sessId", dto.getId());
-			     httpSession.setAttribute("sessName", dto.getName());
-			     httpSession.setAttribute("sessEmail", dto.getEmail());
+		 public void session(Member dto, HttpSession httpSession) {
+		     httpSession.setAttribute("sessSeq", dto.getSeq());    
+		     httpSession.setAttribute("sessId", dto.getId());
+		     httpSession.setAttribute("sessName", dto.getName());
+		     httpSession.setAttribute("sessEmail", dto.getEmail());
 //			     httpSession.setAttribute("sessUser", dto.getUser_div());
 //			     httpSession.setAttribute("sessSns", dto.getSns_type());
-			 }		 
+		 }		
+			 
+		//관리자 아작스 리스트 화면 가기
+		@RequestMapping(value="memberAjaxList")
+		public String memberAjaxList(@ModelAttribute("vo") MemberVo vo , Model model)throws Exception{
+			
+			vo.setShdelNy(vo.getShdelNy() == null ? 1 : vo.getShdelNy());
+			vo.setParamsPaging(service.selectOneCount(vo));
+			List<Member> list = service.selectList(vo); 
+			model.addAttribute("list", list);
+			
+			return "infra/member/xdmin/memberAjaxList";
+		} 
+		
+		//관리자 아작스 리타
+		@RequestMapping(value = "memberAjaxLita")
+		public String nationalityAjaxLita(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
+			
+			vo.setParamsPaging(service.selectOneCount(vo));
+
+			if (vo.getTotalRows() > 0) {
+				List<Member> list = service.selectList(vo);
+				model.addAttribute("list", list);
+			}
+
+			return "infra/member/xdmin/memberAjaxLita";
+		}
 		
 		
 	

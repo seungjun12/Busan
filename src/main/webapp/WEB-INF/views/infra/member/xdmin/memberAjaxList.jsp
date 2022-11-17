@@ -231,6 +231,48 @@
 
 	<!-- js address -->
 	<script type="text/javascript" src="/resources/js/member/member.js"></script>
+	<script type="text/javascript">
+	var goUrlLita = "/member/"	
+	
+	$(document).ready(function(){
+			divSearchControl();
+			$("#shDateStart, #shDateEnd").datepicker();
+			
+			setLita();
+		}); 
+		
+		$("#btnSearch").on("click", function(){
+			if (validationList() == false) return false;
+			setLita();
+		});
+	
+		var page = 0;
+		
+		function setLita() {
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				/* ,dataType:"json" */
+				,url: goUrlLita
+				,data : $("#formList").serialize()
+				/* ,data : {  } */
+				,success: function(response) {
+					$("#lita").empty();
+					$("#lita").append(response);
+					window.location.hash = '#page' + page;
+					page++;
+
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});
+		}			
+		
+	
+	
+	</script>
 </body>
 
 </html>

@@ -1,6 +1,7 @@
 package com.september.interpark.modules.pay;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +32,7 @@ public class PayController {
 	}
 	
 	@RequestMapping(value = "/pay/delivery")
-	public String deliveryForm(@ModelAttribute("vo")PayVo vo , Model model)throws Exception {		
+	public String deliveryForm(@ModelAttribute("vo")PayVo vo , Model model,@RequestParam Map<String , Object> allParameters)throws Exception {		
 		
 		List<Pay>list= service.selectSeat(vo);
 		model.addAttribute("list", list);
