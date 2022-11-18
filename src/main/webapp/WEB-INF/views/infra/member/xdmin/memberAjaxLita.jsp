@@ -72,3 +72,40 @@
 				<!-- pagination s -->
 				<%@include file="../../../common/xdmin/includeV1/pagination.jsp"%>
 				<!-- pagination e -->	
+				
+				<script type="text/javascript">
+
+				goView = function(keyValue) {
+					/* if(key != 0) seq.val(btoa(key)); */
+					seq.val(keyValue);
+					form.attr("action", goUrlView).submit();
+				}
+				
+				
+				goList = function(thisPage) {
+					$("input:hidden[name=thisPage]").val(thisPage);
+					setLita();
+				}
+				
+				
+				$("#changeRowNum").on("change", function(){
+					$("input:hidden[name=rowNumToShow]").val($("#changeRowNum option:selected").val());
+					setLita();
+				}); 
+					
+				
+				$("#checkboxAll").click(function() {
+					if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
+					else $("input[name=checkboxSeq]").prop("checked", false);
+				});
+				
+				
+				$("input[name=checkboxSeq]").click(function() {
+					var total = $("input[name=checkboxSeq]").length;
+					var checked = $("input[name=checkboxSeq]:checked").length;
+					
+					if(total != checked) $("#checkboxAll").prop("checked", false);
+					else $("#checkboxAll").prop("checked", true); 
+				});
+				
+				</script>

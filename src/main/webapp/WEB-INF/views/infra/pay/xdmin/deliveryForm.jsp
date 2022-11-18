@@ -20,10 +20,11 @@
 <div class="wrap">
 <form name="form" method="post">
 <input type="hidden" name="seatGradeSeq" value="${item.seatGradeSeq }">
+<input type="text" name="seatSeq" id="seatSeq" value="${seatSeq }">
 	<!-- 헤더영역 -->
-	<c:forEach items="${list }" var="list" varStatus="status">
+	<%-- <c:forEach items="${list }" var="list" varStatus="status">
 		<input type="hidden" name="seatSeq" value="${list.seatSeq }">
-	</c:forEach>
+	</c:forEach> --%>
 	<div class="headerWrap">
 		<div>
 			<span style="font-family: 'Single Day', cursive;">인터파크</span>

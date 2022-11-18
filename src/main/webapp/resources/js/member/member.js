@@ -62,27 +62,14 @@
 			document.getElementById('id').focus();
 			return false;
 		}
-		if(document.getElementById('pwd').value == '' || document.getElementById('pwd').value == null){
-			alert("비밀번호 입력해주세요")
-			document.getElementById('pwd').value="";
-			document.getElementById('pwd').focus();
-			return false;
-		}
 		if(document.getElementById('email').value == '' || document.getElementById('email').value == null){
 			alert("이메일주소 입력해주세요")
 			document.getElementById('email').value="";
 			document.getElementById('email').focus();
 			return false;
 		}
-		var max = 13;
-		if(document.getElementById('number').value == '' || document.getElementById('number').value == null  || document.getElementById('number').length < max ){
-			alert("휴대폰 번호 입력해주세요")
-			document.getElementById('number').value="";
-			document.getElementById('number').focus();
-			return false;
-		}
 		
-		//form.attr("action" , goUrlUpdt).submit();
+		form.attr("action" , goUrlUpdt).submit();
 	})	
 	
 	

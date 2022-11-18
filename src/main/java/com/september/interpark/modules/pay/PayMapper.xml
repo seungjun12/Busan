@@ -39,7 +39,7 @@
 			seatSeq
 		FROM seat  
 		WHERE 1=1
-			AND seatSeq = #{seatSeq}
+			AND seatSeq = #{seatCheck}
 	</select>
 	
 	<select id="selectSeatOne" resultMap="resultMapObj">

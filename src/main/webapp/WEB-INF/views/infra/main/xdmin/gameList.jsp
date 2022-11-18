@@ -129,7 +129,7 @@
 						    	<td><c:out value="${list.whoAway }"/></td><!-- 4 -->
 						    	<td><c:out value="${list.date }"/></td><!-- 5 -->
 						    	<td><c:out value="${list.ground }"/></td><!-- 6 -->
-						    	<td><c:out value="${list.time }"/></td><!-- 7 -->
+						    	<td><fmt:formatDate value="${list.time }" pattern="HH:mm"/></td><!-- 7 -->
 					  		</tr>
 					  	</tbody>
 							</c:forEach>

@@ -8,6 +8,8 @@ public class PayVo extends BaseVo{
 	private String seatGradeSeq;
 	private String gameSeq;
 	private String seatSeq;
+	private String chk_arr;
+	private String seatCheck;
 
 	public String getSeatGradeSeq() {
 		return seatGradeSeq;
@@ -31,6 +33,22 @@ public class PayVo extends BaseVo{
 
 	public void setSeatSeq(String seatSeq) {
 		this.seatSeq = seatSeq;
+	}
+
+	public String getChk_arr() {
+		return chk_arr;
+	}
+
+	public void setChk_arr(String chk_arr) {
+		this.chk_arr = chk_arr;
+	}
+
+	public String getSeatCheck() {
+		return seatCheck;
+	}
+
+	public void setSeatCheck(String seatCheck) {
+		this.seatCheck = seatCheck;
 	}
 	
 	

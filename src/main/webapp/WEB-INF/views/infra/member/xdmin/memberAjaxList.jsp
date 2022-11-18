@@ -59,6 +59,14 @@
  					<input type="hidden" name="seq" value="<c:out value="${dto.seq }"/>">
 					<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
 					<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow }"/>">
+				<div class="container-fluid px-0 d-block d-sm-none">
+				    <div class="row">
+				        <div id="divSearchControl" class="col text-center">
+				            <i id="iSearchControlUp" class="fas fa-chevron-up"></i>
+				            <i id="iSearchControlDown" class="fas fa-chevron-down"></i>
+				        </div>
+				    </div>
+				</div>	
 				<div class="searchWrap">
 					<div class="searchFirst">
 						<select class="form-select form-select-sm selectSize" id="shdelNy" name="shdelNy" aria-label=".form-select-sm example">
@@ -230,22 +238,46 @@
 	<script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
 
 	<!-- js address -->
-	<script type="text/javascript" src="/resources/js/member/member.js"></script>
+	<!-- <script type="text/javascript" src="/resources/js/member/member.js"></script> --> 
 	<script type="text/javascript">
-	var goUrlLita = "/member/"	
+	var goUrlAjaxLita = "/member/memberAjaxLita"
+	var goUrlAjaxList = "/member/memberAjaxList";
+	var goUrlList = "/member/memberList"; 			/* #-> */
+	var goUrlInst = "/member/memberInst"; 			/* #-> */
+	var goUrlUpdt = "/member/memberUpdt";				/* #-> */
+	var goUrlUele = "/member/memberUele";				/* #-> */
+	var goUrlDele = "/member/memberDele";				/* #-> */
+	var goUrlView = "/member/memberView";
+	var goUrlCode = "/code/codeList";
+	var goUrlCodeGroup = "/codeGroup/codeGroupList";
+	var goUrlMember = "/member/memberList";
+	var goUrlHome = "/admin/home";
+	var excelUri = "/member/excelDownload";
+	
+	var seq = $("input:hidden[name=seq]");				/* #-> */
+	
+	var form = $("form[name=form]");
+	var formVo = $("form[name=formVo]");
 	
 	$(document).ready(function(){
-			divSearchControl();
-			$("#shDateStart, #shDateEnd").datepicker();
-			
+		divSearchControl = function() {
+		    var screenWidth = $(window).width();
+		    if (screenWidth < BOOTSTRAP5_SM_DIMENSIONS) {
+		        $('#divSearch').hide();
+		        $('#iSearchControlUp').hide();
+		        $('#iSearchControlDown').show();
+		    } else {
+		        // by pass
+		    }
+		}
 			setLita();
 		}); 
 		
 		$("#btnSearch").on("click", function(){
-			if (validationList() == false) return false;
 			setLita();
 		});
-	
+		
+		
 		var page = 0;
 		
 		function setLita() {
@@ -254,7 +286,7 @@
 				,cache: false
 				,type: "post"
 				/* ,dataType:"json" */
-				,url: goUrlLita
+				,url: goUrlAjaxLita
 				,data : $("#formList").serialize()
 				/* ,data : {  } */
 				,success: function(response) {
@@ -270,7 +302,17 @@
 			});
 		}			
 		
-	
+		$('#divSearchControl').on('click', function() {
+		    if ($('#divSearch').is(':visible')) {
+		         $('#divSearch').hide();
+		         $('#iSearchControlUp').hide();
+		         $('#iSearchControlDown').show();
+		    } else {
+		         $('#divSearch').show();
+		         $('#iSearchControlUp').show();
+		         $('#iSearchControlDown').hide();
+		    }
+		 });
 	
 	</script>
 </body>

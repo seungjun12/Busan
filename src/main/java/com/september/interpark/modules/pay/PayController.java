@@ -1,5 +1,6 @@
 package com.september.interpark.modules.pay;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -32,7 +33,7 @@ public class PayController {
 	}
 	
 	@RequestMapping(value = "/pay/delivery")
-	public String deliveryForm(@ModelAttribute("vo")PayVo vo , Model model,@RequestParam Map<String , Object> allParameters)throws Exception {		
+	public String deliveryForm(@ModelAttribute("vo")PayVo vo , Model model)throws Exception {		
 		
 		List<Pay>list= service.selectSeat(vo);
 		model.addAttribute("list", list);

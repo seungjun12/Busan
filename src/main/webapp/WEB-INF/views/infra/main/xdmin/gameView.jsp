@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>게임 폼</title>
+    <title>게임 뷰</title>
 
     <!-- Custom fonts for this template-->
     <link href="/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -36,9 +36,37 @@
   	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   	<script>
- 	 $( function() {
-   	 $( "#datepickers" ).datepicker();
- 	 } );
+	 var $j360 = jQuery.noConflict();
+ 	 $j360( function() {
+   	 $j360( "#datepicker" ).datepicker({
+   		dateFormat: 'mm.dd' //달력 날짜 형태
+	  	,showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
+	  	,showMonthAfterYear:true // 월- 년 순서가아닌 년도 - 월 순서
+	  	,changeYear: true //option값 년 선택 가능
+	  	,changeMonth: true //option값 월 선택 가능
+	  	,yearRange:'c-99: c+99'
+	  	,minDate : new Date('2022-01-01')
+	  	,maxDate : new Date ('2022-12-31')   		 
+ 	 });
+ 	//초기값을 오늘 날짜로 설정해줘야 합니다.  할필요 없어~~ 아니야 해야해 ㅋㅋㅋ
+   	$('#datepicker').datepicker(); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
+   	}); 
+   	
+   	$(document).ready(function(){               
+	    $.datepicker.setDefaults({
+	    closeText: "닫기",
+	    currentText: "오늘",
+	    prevText: '이전 달',
+	    nextText: '다음 달',
+	    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+	    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+	    dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+	    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+	    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+	    weekHeader: "주",
+	    yearSuffix: '년'
+	    });    
+	 });
  	 </script>
  
 
@@ -115,7 +143,7 @@
 				<div class="container-fluid codeGroupInput">
 					<div class="row">
 						<div class="col-6">
-							<input class="form-control" type="text"  aria-label="default input example" placeholder="경기날짜" id="datepickers" name="date" value="<c:out value="${item.date }" />">
+							<input class="form-control" type="text"  aria-label="default input example" placeholder="경기날짜" id="datepicker" name="date" value="<c:out value="${item.date }" />">
 						</div>
 						<div class="col">
 							<input class="form-control" type="text" aria-label="default input example" id="time	" name="time" value="<c:out value="${item.time }"/>">
@@ -147,11 +175,11 @@
 							</a>
 						</div>
 						<div class="col" style="text-align: right;">
-							<button type="button" class="btn btn-danger" id="btnDelete">
+							<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleModal">
 								<i class="fa-solid fa-x"></i>
 							</button>
-							<button type="button" class="btn btn-danger" id="btnUele">
-								<i class="fa-regular fa-trash-can" id="btnUele"></i>
+							<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ueleModal">
+								<i class="fa-regular fa-trash-can"></i>
 							</button>
 							<button type="button" class="btn btn-primary" id="btnModify" name="btnModify">
 								<i class="fa-solid fa-plus"></i>
@@ -207,6 +235,44 @@
         </div>
     </div>
     
+	<!-- uele Modal -->
+	<div class="modal fade" id="ueleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">삭제</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body">
+	        사용여부 삭제 하시겠습니까?
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+	        <button type="button" class="btn btn-danger" id="btnUele" name="btnUele">삭제</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<!--delete Modal -->
+	<div class="modal fade" id="deleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="staticBackdropLabel">삭제</h5>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body">
+	        완전삭제 하시겠습니까?
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+	        <button type="button" class="btn btn-danger" id="btnDelete" name="btnDelete">삭제</button>
+	      </div>
+	    </div>
+	  </div>
+	</div> 	
+	    
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js" />
 

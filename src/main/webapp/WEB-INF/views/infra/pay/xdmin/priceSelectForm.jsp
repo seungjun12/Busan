@@ -21,6 +21,7 @@
 <div class="wrap">
 <form name="form" method="post">
 <input type="hidden" name="seatGradeSeq" value="<c:out value="${item.seatGradeSeq }"/>">
+<input type="hidden" name="seatCheck" id="seatCheck" value="">
 	<!-- 헤더영역 -->
 	<div class="headerWrap">
 		<div>
@@ -72,7 +73,7 @@
 					<c:forEach items="${list }" var="list" varStatus="status">
 						<c:out value="${list.seatNumber }"/>
 						<input type="checkbox" name="seatSeq" 
-						value="${list.seatSeq }"  
+						value="${list.seatSeq }" id="seatSeq${list.seatSeq }" 
 						<c:if test="${list.purchaseDiv  eq 1}">disabled</c:if>
 						>
 						<%-- <c:out value="${list.purchaseDiv }"/> --%>
@@ -122,13 +123,13 @@
 
  	/* var seqq = $("input:hidden[name=seatSeq]"); */
 	
-/* 	var chk_arr =[]; 
+ 	var chk_arr =[]; 
 	$("input[name=seatSeq]:checked").each(function(){
 		var chk = $(this).val();
 		chk_arr.push(chk);
 	}) 
 	
-	$('input[name=seatBox]').attr('value',chk_arr); */
+	/* $('input[name=seatBox]').attr('value',chk_arr); */ 
 	
 		
 	goSeatChoice = function(seqValue){
@@ -144,21 +145,35 @@
 		form.attr("action" , goUrlDelivery).submit();
 	};	
 	
-	var chk_arr = [];
-	$("input[name=seatSeq]:checked").each(function(){
+	
+	/* $("input[name=seatSeq]:checked").each(function(){
 		var chk = $(this).val();
 		chk_arr.push(chk);
-	})	
+	})	 */
 	
 	$("#goDeliveryBtn").on("click",function(){
 		if($('input:checkbox[name="seatSeq"]').is(":checked") == true){
-			 
-			alert(chk_arr)
+			/* var chkArr = [];
+			var chkBox = ${"input[name=seatSeq] :checked"};
+			
+			for(var i =0; i<chkBox.length; i++){
+				chkArr.push(chkBox.eq(i).val());
+			}
+			
+			$("chkArr").val(chkArr); */
+			
+		 	var chk_arr =[]; 
+			$("input[name=seatSeq]:checked").each(function(){
+				var chk = $(this).val();
+				chk_arr.push(chk);
+			}) 
+			$('input[name=seatCheck]').attr('value',chk_arr);
 			form.attr("action", goUrlDelivery).submit();
 		}else{
 			alert("좌석을 선택해주세요")
 		}
 	})
+
 	
 	/* function test(){
 		var obj = $("[name=seatSeq]");

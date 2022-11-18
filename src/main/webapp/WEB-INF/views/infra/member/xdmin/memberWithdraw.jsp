@@ -42,7 +42,9 @@
 						<div class="memberHead">
 							<h4>회원탈퇴</h4>
 						</div>
-						
+						<div style="justify-content: center;">
+							<label>비밀번호 확인</label>
+						</div>
 						<div class="container-flid finalBtn">
 							<div class="row">
 								<div class="col-6">
