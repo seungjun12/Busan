@@ -33,6 +33,11 @@ public class MemberController {
 	@Autowired
 	MemberServiceImpl service;
 	
+	public void setSearch(MemberVo vo)throws Exception{
+		vo.setShdelNy(vo.getShdelNy() == null ? 1 : vo.getShdelNy());
+		vo.setParamsPaging(service.selectOneCount(vo));
+	}
+	
 	//관리자 리스트 화면 가기
 	@RequestMapping(value="memberList")
 	public String memberList(@ModelAttribute("vo") MemberVo vo , Model model)throws Exception{
@@ -40,8 +45,8 @@ public class MemberController {
 		System.out.println("vo.getShValue(): "+vo.getShValue());
 		System.out.println("vo.getShOption(): "+vo.getShOption());
 		System.out.println("vo.getShdelNy(): " + vo.getShdelNy());
-		vo.setShdelNy(vo.getShdelNy() == null ? 1 : vo.getShdelNy());
-		vo.setParamsPaging(service.selectOneCount(vo));
+
+		setSearch(vo);
 		List<Member> list = service.selectList(vo); 
 		model.addAttribute("list", list);
 		
@@ -625,10 +630,10 @@ public class MemberController {
 		@RequestMapping(value="memberAjaxList")
 		public String memberAjaxList(@ModelAttribute("vo") MemberVo vo , Model model)throws Exception{
 			
-			vo.setShdelNy(vo.getShdelNy() == null ? 1 : vo.getShdelNy());
-			vo.setParamsPaging(service.selectOneCount(vo));
-//			List<Member> list = service.selectList(vo); 
-//			model.addAttribute("list", list);
+			setSearch(vo);
+				
+			List<Member> list = service.selectList(vo); 
+			model.addAttribute("list", list);
 			
 			return "infra/member/xdmin/memberAjaxList";
 		} 

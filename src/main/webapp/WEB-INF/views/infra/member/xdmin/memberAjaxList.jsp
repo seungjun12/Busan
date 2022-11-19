@@ -55,7 +55,7 @@
 				<!-- 제목 -->
 				<h3>회원관리</h3>
 				<!-- 검색대 -->
-				<form method="post" name="form">
+				<form method="post" name="form" id="form">
  					<input type="hidden" name="seq" value="<c:out value="${dto.seq }"/>">
 					<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
 					<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow }"/>">
@@ -238,7 +238,8 @@
 	<script src="https://kit.fontawesome.com/45142342b0.js" crossorigin="anonymous"></script>
 
 	<!-- js address -->
-	<!-- <script type="text/javascript" src="/resources/js/member/member.js"></script> --> 
+	<script type="text/javascript" src="/resources/js/member/member.js"></script>
+	<script src="/resources/js/member/commonXdmin.js"></script>
 	<script type="text/javascript">
 	var goUrlAjaxLita = "/member/memberAjaxLita"
 	var goUrlAjaxList = "/member/memberAjaxList";
@@ -260,59 +261,51 @@
 	var formVo = $("form[name=formVo]");
 	
 	$(document).ready(function(){
-		divSearchControl = function() {
-		    var screenWidth = $(window).width();
-		    if (screenWidth < BOOTSTRAP5_SM_DIMENSIONS) {
-		        $('#divSearch').hide();
-		        $('#iSearchControlUp').hide();
-		        $('#iSearchControlDown').show();
-		    } else {
-		        // by pass
-		    }
-		}
-			setLita();
-		}); 
+		divSearchControl();
 		
-		$("#btnSearch").on("click", function(){
-			setLita();
-		});
+		setLita();
+	}); 
+		
+	$("#btnSearch").on("click", function(){
+		setLita();
+	});
 		
 		
-		var page = 0;
-		
-		function setLita() {
-			$.ajax({
-				async: true 
-				,cache: false
-				,type: "post"
-				/* ,dataType:"json" */
-				,url: goUrlAjaxLita
-				,data : $("#formList").serialize()
-				/* ,data : {  } */
-				,success: function(response) {
-					$("#lita").empty();
-					$("#lita").append(response);
-					window.location.hash = '#page' + page;
-					page++;
+	var page = 0;
+	
+	function setLita() {
+		$.ajax({
+			async: true 
+			,cache: false
+			,type: "post"
+			/* ,dataType:"json" */
+			,url: goUrlAjaxLita
+			,data : $("#form").serialize()
+			/* ,data : {  } */
+			,success: function(response) {
+				$("#lita").empty();
+				$("#lita").append(response);
+				window.location.hash = '#page' + page;
+				page++;
 
-				}
-				,error : function(jqXHR, textStatus, errorThrown){
-					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-				}
-			});
-		}			
-		
-		$('#divSearchControl').on('click', function() {
-		    if ($('#divSearch').is(':visible')) {
-		         $('#divSearch').hide();
-		         $('#iSearchControlUp').hide();
-		         $('#iSearchControlDown').show();
-		    } else {
-		         $('#divSearch').show();
-		         $('#iSearchControlUp').show();
-		         $('#iSearchControlDown').hide();
-		    }
-		 });
+			}
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+			}
+		});
+	}			
+	
+	$('#divSearchControl').on('click', function() {
+	    if ($('#divSearch').is(':visible')) {
+	         $('#divSearch').hide();
+	         $('#iSearchControlUp').hide();
+	         $('#iSearchControlDown').show();
+	    } else {
+	         $('#divSearch').show();
+	         $('#iSearchControlUp').show();
+	         $('#iSearchControlDown').hide();
+	    }
+	 });
 	
 	</script>
 </body>
