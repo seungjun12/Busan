@@ -177,8 +177,8 @@
 						</div>
 						<div class="col-6">
 							<select class="form-select" aria-label="Default select example" id="ccdelNy" name="ccdelNy">
-						  		<option value="1" <c:if test="${item.ccuseNy eq 1 }">selected</c:if>>N</option>
-							  	<option value="0" <c:if test="${item.ccuseNy eq 0 }">selected</c:if>>Y</option>
+						  		<option value="1" <c:if test="${item.ccdelNy eq 1 }">selected</c:if>>N</option>
+							  	<option value="0" <c:if test="${item.ccdelNy eq 0 }">selected</c:if>>Y</option>
 							</select>
 						</div>
 					</div>
