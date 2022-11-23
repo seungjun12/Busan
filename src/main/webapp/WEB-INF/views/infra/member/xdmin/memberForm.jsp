@@ -436,7 +436,8 @@
 
 	<!-- js address -->
 	<script type="text/javascript" src="/resources/js/member/member.js"></script>
-	
+	<script type="text/javascript" src="/resources/js/member/constantsXdmin.js"></script>
+	<script type="text/javascript" src="/resources/js/member/commonXdmin.js"></script>
 </body>
 
 </html>
