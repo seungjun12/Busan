@@ -109,7 +109,6 @@
 		SET
 			name = #{name}
 			,id = #{id}
-			,pwd = #{pwd}
 			,email = #{email}
 			,address = #{address}
 			,address2 = #{address2}
