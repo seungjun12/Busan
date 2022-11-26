@@ -92,7 +92,7 @@
 	<%@include file="../../../common/xdmin/includeV1/footer.jsp"%>
 	<!-- 푸터 e -->
 	
-	
+	<!-- next day gogo -->
 	
 </div> <!-- wrap end -->
 
