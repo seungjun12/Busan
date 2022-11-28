@@ -50,11 +50,11 @@
   	,maxDate : new Date ('2022-12-31')
  	 });
   	//초기값을 오늘 날짜로 설정해줘야 합니다.  할필요 없어~~ 아니야 해야해 ㅋㅋㅋ
-  	$('#datepicker').datepicker(); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
+  	$j360('#datepicker').datepicker(); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
   	}); 
   	
-	$(document).ready(function(){               
-	    $.datepicker.setDefaults({
+	$j360(document).ready(function(){               
+		$j360.datepicker.setDefaults({
 	    closeText: "닫기",
 	    currentText: "오늘",
 	    prevText: '이전 달',
@@ -94,7 +94,7 @@
 			<!-- 탑바 e -->
 			<!-- 코드 그룹 관리 제목 -->
 			<div class="wrap">
-			<form action="/main/gameInst" id="gameFormReg" name="gameFormReg">
+			<form action="/main/gameInst" id="gameFormReg" name="gameFormReg" autocomplete="off" enctype="multipart/form-data">
 				<!-- 제목 -->
 				<h3>경기관리</h3>
 				<div class="container-fluid codeGroupName">
@@ -111,6 +111,24 @@
 					<div class="row">
 						<div class="col-6">
 							<input class="form-control" type="text"  aria-label="default input example"  id="whoHome" name="whoHome" value="SSG랜더스" readonly>
+							<c:set var="type" value="2"/>		<!-- #-> -->
+				        	<c:set var="name" value="uploadImg"/>		<!-- #-> -->
+							<div id="<c:out value="${name }"/>Preview" class="addScroll">
+								<c:forEach items="${listUploaded}" var="listUploaded" varStatus="statusUploaded">
+									<c:if test="${listUploaded.type eq type }">
+										<div id="imgDiv_<c:out value="${type }"/>_<c:out value="${listUploaded.sort }"/>" style="display: inline-block; height: 95px;">
+											<img src="<c:out value="${listUploaded.path }"/><c:out value="${listUploaded.uuidName }"/>" class="rounded" width= "85px" height="85px" style="cursor:pointer;" onClick="openViewer(<c:out value="${listUploaded.type }"/>, <c:out value="${listUploaded. sort }"/>);">
+											<div style="position: relative; top:-85px; left:5px"><span style="color: red; cursor:pointer;" onClick="delImgDiv('<c:out value="${name }"/>', <c:out value="${type }"/>,<c:out value="${listUploaded.sort }"/>, <c:out value="${listUploaded.seq }"/>, '<c:out value="${listUploaded.path }"/><c:out value="${listUploaded.uuidName }"/>')">X</span></div>
+										</div>
+									</c:if>
+								</c:forEach>
+							</div>
+							<input type="hidden" id="<c:out value="${name }"/>Type" name="<c:out value="${name }"/>Type" value="<c:out value="${type }"/>"/>
+				        	<input type="hidden" id="<c:out value="${name }"/>MaxNumber" name="<c:out value="${name }"/>MaxNumber" value="0"/>
+				        	<input type="hidden" id="<c:out value="${name }"/>DeleteSeq" name="<c:out value="${name }"/>DeleteSeq"/>
+				        	<input type="hidden" id="<c:out value="${name }"/>DeletePathFile" name="<c:out value="${name }"/>DeletePathFile"/>
+				 			<input class="form-control form-control-sm" id="<c:out value="${name }"/>" name="<c:out value="${name }"/>" type="file" style="display: none;" onChange="upload('<c:out value="${name }"/>', <c:out value="${type }"/>, 0, 1, 0, 0, 1);">
+							<label for="uploadImg" class="form-label input-file-button">이미지첨부</label>
 						</div>
 						<div class="col-6">
 							<select class="form-select" aria-label="Default select example" id="whoAway" name="whoAway">

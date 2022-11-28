@@ -201,7 +201,7 @@
  		        	  console.log("picture : " + account.birthday.substring(0,2) + "-" + account.birthday.substring(2,account.birthday.length));
 	        	  
 	  	        	  $("input[name=id]").val("카카오로그인");
-	  	        	  $("input[name=name]").val(account.profile.nickname);
+	  	        	 /*  $("input[name=name]").val(account.profile.nickname); */
 //	  	        	  $("input[name=phone]").val(account.profile.phone_number);
 	  	        	  $("input[name=email]").val(account.email);
 	  	        	  $("input[name=dob]").val(account.birthday.substring(0,2) + "-" + account.birthday.substring(2,account.birthday.length));
@@ -222,8 +222,8 @@
 						,cache: false
 						,type:"POST"
 						,url: "/member/kakaoLoginProc"
-						,data: {"name": $("input[name=name]").val()
-							, "id": $("input[name=id]").val()
+						,data: {/* "name": $("input[name=name]").val() */
+							/* , */ "id": $("input[name=id]").val()
 							,"email": $("input[name=email]").val()
 							, "gender": $("input[name=gender]").val()
 							, "dob": $("input[name=dob]").val()

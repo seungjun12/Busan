@@ -17,7 +17,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
 </head>   
 <body>
-<form method="post" name="form" id="form">
+<form method="post" name="form" id="form" autocomplete="off">
 <%-- <input type="hidden" name="seq" value="<c:out value="${sessSeq }"/>"> --%>
 <div class="wrap">
 	<div class="contentWrap">

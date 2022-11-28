@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 
+
 @Repository
 public class MainDao {
 
@@ -53,5 +54,9 @@ public class MainDao {
 	
 
 	public Main selectOneGame(Main dto) {return sqlSession.selectOne(namespace + ".selectOneGame", dto);}
+	
+	public int insertUploaded(Main dto) { return sqlSession.insert("Base" + ".insertUploaded", dto); }
+	public int ueleteUploaded(Main dto) { return sqlSession.insert("Base" + ".ueleteUploaded", dto); }
+	public int deleteUploaded(Main dto) { return sqlSession.insert("Base" + ".deleteUploaded", dto); }
 	
 }
