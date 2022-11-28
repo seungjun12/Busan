@@ -301,16 +301,14 @@ public class MemberController {
 		return "infra/member/xdmin/registerConfirm";
 	}
 	
-	//유저 예매확인,취소가기
-	@ResponseBody
+	//유저 예매확인,취소가기 1주일
 	@RequestMapping(value = "registerConfirm3")
-	public Map<String,Object> registerConfirm3(@ModelAttribute MemberVo vo , Model model)throws Exception{
-		Map<String,Object>returnMap = new HashMap<String,Object>();
+	public String registerConfirm3(@ModelAttribute MemberVo vo , Model model)throws Exception{
 		List<Member> reglist = service.selectRegister3(vo);
 		model.addAttribute("reglist", reglist);
-		System.out.println("controller reglist: " + reglist);
-		return returnMap;
-	}
+		return "infra/member/xdmin/registerConfirm";
+	}	
+	
 	
 	//유저 아이디 찾기
 	@RequestMapping(value = "findId")

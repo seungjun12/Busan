@@ -47,8 +47,8 @@
 			<span id="fontSize">조회기간 선택</span>
 			<!-- <input class="datepicker" id="startDate">
 			<input class="datepicker" id="endDate"> -->
-			<%-- <a href="javascript:goWeek(<c:out value="${sessSeq }"/>)" class="btn btn-outline-danger button">1주일</a> --%>
-			<button class="btn btn-outline-danger button" id="1week">1주일</button>
+			<a href="javascript:goWeek(<c:out value="${sessSeq }"/>)" class="btn btn-outline-danger button">1주일</a> 
+			<!-- <button class="btn btn-outline-danger button" id="1week">1주일</button> -->
 			<a href="javascript:goMonth(<c:out value="${sessSeq }"/>)" class="btn btn-outline-danger button">1달</a>
 			<a href="javascript:goYear(<c:out value="${sessSeq }"/>)" class="btn btn-outline-danger button" >1년</a> 
 			<!-- <button type="button" class="btn btn-outline-danger button" id="btnYear" ></button> -->
@@ -133,48 +133,7 @@
 		form.attr("action" ,goUrlWeek).submit();
 	}
 	
-	/* 기간별 예매내역 보기 ajax시도*/ 
-	$("#1week").on("click", function(){
-		$.ajax({
-			async: true //false일경우 동기 요청으로 변경
-			,cache: false
-			,type: "post" 
-			,url: "/member/registerConfirm3"
-			//,data : { "id" : $("#id").val(), "pwd" : $("#pwd").val(), /* "autoLogin" : $("#autoLogin").is(":checked") */}
-			,success: function(response) {
-				if(response.rt == "success") {
-					location.href = goUrlIndex;
-				} else {
-					//bypass
-				}
-			}
-			,error : function(jqXHR, textStatus, errorThrown){
-				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-			}
-		});
-		/* } */
-	});	
-	
-	$("#1month").on("click", function(){
-		$.ajax({
-			async: true //false일경우 동기 요청으로 변경
-			,cache: false
-			,type: "post" 
-			,url: "/member/registerConfirm3"
-			//,data : { "id" : $("#id").val(), "pwd" : $("#pwd").val(), /* "autoLogin" : $("#autoLogin").is(":checked") */}
-			,success: function(response) {
-				if(response.rt == "success") {
-					location.href = goUrlIndex;
-				} else {
-					//bypass
-				}
-			}
-			,error : function(jqXHR, textStatus, errorThrown){
-				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-			}
-		});
-		/* } */
-	});	
+
 
 </script>
 </body>

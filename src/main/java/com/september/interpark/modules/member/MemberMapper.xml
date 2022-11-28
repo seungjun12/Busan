@@ -284,6 +284,7 @@
 			BETWEEN DATE_ADD(NOW(),INTERVAL -1 month)
 			AND NOW()
 			AND regmember_seq = #{sessSeq}
+			ORDER BY a.regseq DESC 
 	</select>
 	
 	<!-- 1년 -->
@@ -301,6 +302,7 @@
 			BETWEEN DATE_ADD(NOW(),INTERVAL -1 year)
 			AND NOW()
 			AND regmember_seq = #{sessSeq}
+			ORDER BY a.regseq DESC 
 	</select>
 	
 	<!-- 1주일 -->
@@ -318,6 +320,7 @@
 			BETWEEN DATE_ADD(NOW(),INTERVAL -1 week)
 			AND NOW()
 			AND regmember_seq = #{sessSeq}
+			ORDER BY a.regseq DESC 
 	</select>
 	
 	<!-- 회원 정보 수정1 -->
