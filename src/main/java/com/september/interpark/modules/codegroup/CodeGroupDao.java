@@ -15,6 +15,10 @@ public class CodeGroupDao {
 	@Resource(name = "sqlSession")
 	private SqlSession sqlSession;
 	
+	@Inject
+	@Resource(name = "sqlSessionOracle")
+	private SqlSession sqlSessionOracle;
+	
 	private static String namespace = "com.september.interpark.modules.codegroup.CodeGroupMapper";
 
 //	private List<CodeGroup> selectList(CodeGroupVo vo){return sqlSession.selectList(namespace +".selectList",vo);}	
