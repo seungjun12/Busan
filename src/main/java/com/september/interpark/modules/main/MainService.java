@@ -30,11 +30,11 @@ public interface MainService {
 	
 	public Main selectOneGame(Main dto)throws Exception;
 	
-	public void uploadFiles(MultipartFile[] multipartFiles, Main dto, String tableName, int type, int maxNumber) throws Exception;
+//	public void uploadFiles(MultipartFile[] multipartFiles, Main dto, String tableName, int type, int maxNumber) throws Exception;
 	
-	public void deleteFiles(String[] deleteSeq, String[] deletePathFile, Main dto, String tableName) throws Exception;
+//	public void deleteFiles(String[] deleteSeq, String[] deletePathFile, Main dto, String tableName) throws Exception;
 	
-	public void ueleteFiles(String[] deleteSeq, String[] deletePathFile, Main dto, String tableName) throws Exception;
+//	public void ueleteFiles(String[] deleteSeq, String[] deletePathFile, Main dto, String tableName) throws Exception;
 	
 	
 }
