@@ -39,6 +39,17 @@
 		<div class="sportsListWrap">
 			<div class="card" style="width: 18rem;">
   				<div class="card-image">
+  					<img src="http://ticketimage.interpark.com/TicketImage/sports/web/large/PB002.png" class="card-img-top" alt="...">
+  				</div>
+  				<div class="card-body">
+    				<h5 class="card-title">SSG 랜더스</h5>
+    				<p class="card-text">인천SSG랜더스필드</p>
+    				<p class="card-text" style="font-size: xx-small">SSG LANDERS</p>
+    				<a type="button" class="btn btn-danger" id="btnGameChoice" style="cursor: pointer;">예매하기<a>
+  				</div>
+			</div>
+			<div class="card" style="width: 18rem;">
+  				<div class="card-image">
   					<img src="http://ticketimage.interpark.com/TicketImage/sports/web/large/PB003.png" class="card-img-top" alt="...">
   				</div>
   				<div class="card-body">
@@ -91,17 +102,6 @@
 					    </div>
 					  </div>
 					</div>
-  				</div>
-			</div>
-			<div class="card" style="width: 18rem;">
-  				<div class="card-image">
-  					<img src="http://ticketimage.interpark.com/TicketImage/sports/web/large/PB002.png" class="card-img-top" alt="...">
-  				</div>
-  				<div class="card-body">
-    				<h5 class="card-title">SSG 랜더스</h5>
-    				<p class="card-text">인천SSG랜더스필드</p>
-    				<p class="card-text" style="font-size: xx-small">SSG LANDERS</p>
-    				<a type="button" class="btn btn-danger" id="btnGameChoice" style="cursor: pointer;">예매하기<a>
   				</div>
 			</div>
 			<div class="card" style="width: 18rem; margin-top: 20px;">
