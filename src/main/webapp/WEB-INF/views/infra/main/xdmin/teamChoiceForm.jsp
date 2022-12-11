@@ -140,8 +140,6 @@
 	<!-- 푸터 s -->
 	<%@include file="../../../common/xdmin/includeV1/footer.jsp"%>
 	<!-- 푸터 e -->
-	
-	
 	</form>
 </div> <!-- wrap end -->
 
