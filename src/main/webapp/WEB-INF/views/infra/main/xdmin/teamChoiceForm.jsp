@@ -132,11 +132,7 @@
   				</div>
 			</div>		
 		</div>
-	
-	
 	</div><!-- sportWrap end -->
-		
-	
 	<!-- 푸터 s -->
 	<%@include file="../../../common/xdmin/includeV1/footer.jsp"%>
 	<!-- 푸터 e -->
