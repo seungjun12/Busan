@@ -219,32 +219,6 @@
 		$(location).attr("href",goUrlMemberView);
 	});
 	
-	/* goView = function(seqValue){
-		seq.val(seqValue);
-		form.attr("action" , goUrlView).submit();
-	} */
-	
-	/* $(function(){
-        // tab 메뉴를 클릭하였을 때 동작함
-        $(".tab ul li").click(function(){ 
-             
-            // 현재 선택되어있던 메뉴들을 초기화함
-            $(".tab ul li").removeClass('on');
-            $(".tab .conBox").removeClass('on');
- 
-            // 선택된 메뉴에 on 클래스를 주어 표기함
-            $(this).addClass('on');
- 
-            // 선택된 탭의 data 값으로 content box를 선택함
-            $("#"+$(this).data('id')).addClass('on');
-        });
-    }); */
-	
-	
-        
-	 	
-	
-	
 	
 </script>
 
