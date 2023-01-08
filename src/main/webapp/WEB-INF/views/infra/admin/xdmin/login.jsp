@@ -70,10 +70,10 @@
                                             로그인
                                         </button>
                                         <hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
+                                        <button onclick="alerts();" class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> 구글로그인
-                                        </a>
-                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                        </button>
+                                        <a onclick="alerts();" class="btn btn-facebook btn-user btn-block">
                                             <i class="fab fa-facebook-f fa-fw"></i> 페이스북 로그인
                                         </a>
                                     </form>
@@ -99,6 +99,7 @@
         </div>
 
     </div>
+    <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	<!-- custom js -->
  	<script type="text/javascript" src="/resources/js/admin/adminLogin.js"></script>
@@ -111,6 +112,12 @@
 
     <!-- Custom scripts for all pages-->
     <script src="/resources/js/sb-admin-2.min.js"></script>
+
+	<script>
+		function alerts(){
+			alert("준비중입니다.")
+		};
+	</script>
 
 </body>
 
