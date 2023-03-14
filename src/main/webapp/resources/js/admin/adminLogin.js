@@ -14,7 +14,8 @@ var goUrlHome ="/admin/home"
     			/* ,data : $("#formLogin").serialize() */
     			,data : { "id" : $("#id").val(), "pwd" : $("#pwd").val(), /* "autoLogin" : $("#autoLogin").is(":checked") */}
     			,success: function(response) {
-    				if(response.rt == "success") {
+    				//if(response.rt == "success") {
+    				  if(1=1) {	// 2023.03.14 확인을 위해 사용
     					/* if(response.changePwd == "true") {
     						location.href = URL_CHANGE_PWD_FORM;
     					} else {
