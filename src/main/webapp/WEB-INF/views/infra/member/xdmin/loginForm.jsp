@@ -132,7 +132,7 @@
 						location.href = URL_INDEX_ADMIN;
 					} */
 					
-					location.href = goUrlIndex;
+					location.href = "/admin/home";
 				} else {
 					alert("회원없음");
 				}
