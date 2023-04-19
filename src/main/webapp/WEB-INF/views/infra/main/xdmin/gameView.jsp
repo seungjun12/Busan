@@ -168,7 +168,7 @@
 				<div class="container-fluid lastBtn">
 					<div class="row">
 						<div class="col-6">
-							<a href="memberList">	
+							<a href="gameList">	
 								<button type="button" class="btn btn-secondary">
 									<i class="fa-solid fa-bars"></i>
 								</button>
