@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+       <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d %5p [%c][%L LINE] %m%n" />
+        </Console>
+        <!-- Query Loggers 쿼리 과정(파라미터까지) -->
+<!--         <appender name="console-dblog" class="org.apache.log4j.ConsoleAppender">  -->
+<!-- 	         <PatternLayout pattern="%d %5p %m%n" /> -->
+<!--         </appender> -->
+    </Appenders>
+    <Loggers>
+<Logger name="jdbc.sqlonly" level="debug" additivity="false">
+            <AppenderRef ref="console" />
+        </Logger>
+        <Logger name="jdbc.resultsettable" level="debug" additivity="false">
+            <AppenderRef ref="console" />
+        </Logger>
+        <Logger name="jdbc.sqltiming" level="off" additivity="false">
+            <AppenderRef ref="console" />
+        </Logger>
+         <Logger name="java.sql.Statement" level="off" additivity="false">
+	        <AppenderRef ref="console" />
+	    </Logger>
+	    <Logger name="java.sql.PreparedStatement" level="off" additivity="false">
+	        <AppenderRef ref="console" />
+	    </Logger>
+	    <Logger name="java.sql.ResultSet" level="off" additivity="false">
+	        <AppenderRef ref="console" />
+	    </Logger>
+	     <Logger name="jdbc.resultset" level="off" additivity="false">
+	        <AppenderRef ref="console" />
+	    </Logger>
+          <logger name="log4jdbc.log4j2" level="info" additivity="false">
+            <appender-ref ref="console" />
+        </logger>
+        <logger name="jdbc.audit" level="off" additivity="false">
+            <appender-ref ref="console" />
+        </logger>
+        <Logger name="org.springframework" level="DEBUG" additivity="false">
+	        <AppenderRef ref="console" />
+	    </Logger>
+	    <Root level="TRACE">
+            <AppenderRef ref="console" />
+        </Root>
+    </Loggers>
+</Configuration>
