@@ -167,6 +167,7 @@ public class MemberController {
 				httpSession.setAttribute("sessPwd", rtMember2.getPwd());
 				System.out.println("seq는 !!:" +rtMember2.getSeq()); 
 				
+				
 				returnMap.put("rt", "success");
 			} else {
 				returnMap.put("rt", "fail");
@@ -289,7 +290,6 @@ public class MemberController {
 	public String registerConfirm1(@ModelAttribute MemberVo vo , Model model)throws Exception{
 		List<Member> reglist = service.selectRegister1(vo);
 		model.addAttribute("reglist", reglist);
-		System.out.println("controller reglist: " + reglist);
 		return "infra/member/xdmin/registerConfirm";
 	}
 		
